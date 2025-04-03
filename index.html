@@ -1,687 +1,1420 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun V | Business & Data Analyst – Data-Driven Insights & Solution</title>
+  <meta name="description" content="Business and Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Providing data-driven insights, process optimization, and predictive analytics to drive business success.">
+  <meta name="author" content="Arun V">
 
-    <!-- Site Info -->
-    <title>Arun V | Business & Data Analyst – Data-Driven Insights & Solution</title>
-    <meta name="description" content="Business and Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Providing data-driven insights, process optimization, and predictive analytics to drive business success.>
-    <meta name="author" content="Arun V">
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Arun V | Data & Business Analyst">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arunvithyasegar.github.io">
+  <meta property="og:image" content="https://arunvithyasegar.github.io/img/profile.jpg">
+  <meta property="og:image:alt" content="Arun V - Data & Business Analyst">
+  <meta property="og:description" content="Explore Arun V’s expertise in data analytics, business strategy, and market insights. Skilled in SQL, Python, Power BI, and Tableau.">
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Arun V | Data & Business Analyst">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://arunvithyasegar.github.io">
-    <meta property="og:image" content="https://arunvithyasegar.github.io/img/profile.jpg">
-    <meta property="og:image:alt" content="Arun V - Data & Business Analyst">
-    <meta property="og:description" content="Explore Arun V’s expertise in data analytics, business strategy, and market insights. Skilled in SQL, Python, Power BI, and Tableau.">
+  <!-- LinkedIn Profile Card -->
+  <meta property="og:site_name" content="Arun V Portfolio">
+  <meta name="linkedin:owner" content="https://arunvithyasegar.com/">
 
-    <!-- LinkedIn Profile Card -->
-    <meta property="og:site_name" content="Arun V Portfolio">
-    <meta name="linkedin:owner" content="https://arunvithyasegar.com/">
+  <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- Preconnect for Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Custom Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
 
-    <!-- Custom Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
-          rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/modern_normalize.css" />
+  <link rel="stylesheet" href="css/html5bp.css">
+  <link rel="stylesheet" href="css/main.css">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/modern_normalize.css" />
-    <link rel="stylesheet" href="css/html5bp.css">
-    <link rel="stylesheet" href="css/main.css">
+  <!-- Set Theme Color -->
+  <meta name="theme-color" content="#005A9C">
+  <meta name="msapplication-TileColor" content="#005A9C">
+  <link rel="mask-icon" href="/icon.svg" color="#005A9C">
+  <meta name="msapplication-TileColor" content="#005A9C">
 
-    <!-- Set Theme Color -->
-    <meta name="theme-color" content="#005A9C">
-    <meta name="msapplication-TileColor" content="#005A9C">
-    <link rel="mask-icon" href="/icon.svg" color="#005A9C">
-    <meta name="msapplication-TileColor" content="#005A9C">
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
 
-    <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <!-- Apple touch icon for iOS devices -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
 
-    <!-- Apple touch icon for iOS devices -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <!-- Web app manifest for Progressive Web Apps -->
+  <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Web app manifest for Progressive Web Apps -->
-    <link rel="manifest" href="/site.webmanifest">
+  <!-- Content Security Policy: Uncomment to enhance security by restricting where content can be loaded from (useful for preventing certain attacks like XSS). Update if adding external sources (e.g., Google Fonts, Bootstrap CDN, analytics, etc). -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' code.jquery.com; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' images.examplecdn.com;"> -->
 
-    <!-- Content Security Policy: Uncomment to enhance security by restricting where content can be loaded from (useful for preventing certain attacks like XSS). Update if adding external sources (e.g., Google Fonts, Bootstrap CDN, analytics, etc). -->
-    <!-- <meta http-equiv="Content-Security-Policy" content=" default-src 'self'; script-src 'self' code.jquery.com; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com; img-src 'self' images.examplecdn.com; "> -->
-  </head>
-
-
-  <body>
-    <header class="page-header">
-      <div class="container">
-        <div class="header-top flex-responsive">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    
+    .glow {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    }
+    
+    .neon-border {
+      position: relative;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      border-radius: 0.5rem;
+    }
+    
+    .neon-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      opacity: 0.7;
+    }
+    
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.3);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .page-transition {
+      transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    
+    .holographic-card {
+      background: rgba(15, 23, 42, 0.7);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .holographic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .progress-bar {
+      background-color: #1e293b;
+      height: 0.5rem;
+      border-radius: 9999px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1.5s ease;
+    }
+    
+    .animate-progress .progress-bar::after {
+      transform: scaleX(1);
+    }
+    
+    .width-90::after { width: 90%; }
+    .width-85::after { width: 85%; }
+    .width-80::after { width: 80%; }
+    .width-95::after { width: 95%; }
+    .width-75::after { width: 75%; }
+    
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 32px;
+      height: calc(100% - 32px);
+      width: 2px;
+      background-color: #334155;
+    }
+    
+    .cursor-trail {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.3);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease;
+    }
+    
+    .cursor-trail-follower {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.2);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+      transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    
+    .nav-link:hover::before {
+      width: 100%;
+    }
+    
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .nav-link.active::before {
+      width: 100%;
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: var(--primary);
+    }
+    
+    .project-card {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+    
+    .skill-tag {
+      transition: all 0.3s ease;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
+    .contact-input {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid #334155;
+      color: #e2e8f0;
+    }
+    
+    .contact-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      outline: none;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stats-card {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 0.75rem;
+    }
+    
+    .stats-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .certification-item {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    
+    .certification-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    
+    .view-credential {
+      transition: all 0.3s ease;
+    }
+    
+    .view-credential:hover {
+      letter-spacing: 0.5px;
+    }
+    
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+    
+    .learn-more-btn {
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .learn-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stat-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    
+    .stat-item:last-child {
+      border-bottom: none;
+    }
+    
+    .copyright {
+      background-color: #020617;
+      color: #94a3b8;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      border-top: 1px solid #1e293b;
+    }
+    
+    .copyright a {
+      color: #60a5fa;
+      transition: color 0.3s ease;
+    }
+    
+    .copyright a:hover {
+      color: #3b82f6;
+    }
+    
+    /* Home page specific styles */
+    .home-container {
+      background: radial-gradient(circle at 50% 50%, #0f172a, #020617);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .home-title {
+      font-size: 4rem;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    
+    .home-subtitle {
+      font-size: 1.5rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+    
+    .home-description {
+      color: #94a3b8;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    
+    .home-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    
+    .home-link {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s ease;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+    
+    .home-link:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-3px);
+    }
+    
+    .home-source {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+    
+    .home-source a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    
+    .home-source a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Active page styles */
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+    
+    .page:not(.active) {
+      display: none;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Cursor Effects -->
+  <div class="cursor-trail"></div>
+  <div class="cursor-trail-follower"></div>
+  
+  <!-- Particle Background -->
+  <div id="particles"></div>
+  
+  <!-- Home Page -->
+  <section id="home-page" class="home-container fixed inset-0 z-50 flex flex-col justify-center items-center">
+    <h1 class="home-title glow">Arun V</h1>
+    <h2 class="home-subtitle">Business & Data Analyst</h2>
+    <p class="home-description">
+      A beautiful, responsive, statically-generated portfolio application written with modern Javascript.
+    </p>
+    <p class="home-description">
+      Welcome to my website. Please feel free to read more about me, or you can check out my resume, projects, view site statistics, or contact me.
+    </p>
+    <div class="home-links">
+      <a href="#about-page" class="home-link nav-link" data-page="about"><span>About</span></a>
+      <a href="#resume-page" class="home-link nav-link" data-page="resume"><span>Resume</span></a>
+      <a href="#projects-page" class="home-link nav-link" data-page="projects"><span>Projects</span></a>
+      <a href="#stats-page" class="home-link nav-link" data-page="stats"><span>Stats</span></a>
+      <a href="#contact-page" class="home-link nav-link" data-page="contact"><span>Contact</span></a>
+    </div>
+    <p class="home-source">
+      Source available <a href="https://github.com/arunv8055/portfolio" target="_blank" rel="noopener">here</a>.
+    </p>
+  </section>
+  
+  <!-- Main App Container -->
+  <div id="app-container" class="hidden opacity-0 transition-opacity duration-500">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
+      <div class="flex flex-col items-center">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=200&q=80"
+             alt="Arun V"
+             class="rounded-full w-32 h-32 mb-6 object-cover border-4 border-slate-700 floating">
+        <h1 class="text-2xl font-bold uppercase tracking-wider mb-2 text-slate-100">ARUN V</h1>
+        <p class="text-slate-400 mb-6 text-sm">
+          <a href="mailto:hi@arunvithyasegar.com" class="hover:text-blue-400 transition-colors">hi@arunvithyasegar.com</a>
+        </p>
+        <p class="text-slate-300 mb-6 text-sm leading-relaxed bg-slate-800/50 p-4 rounded-lg">
+          Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. 
+          Transforming data into actionable insights that drive business decisions and growth.
+        </p>
+        
+        <a href="#resume-page" class="learn-more-btn px-6 py-3 text-white rounded-md transition-colors mb-6 text-center font-medium nav-link" data-page="resume">
+          LEARN MORE <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="mb-8">
+        <ul class="space-y-2">
+          <li>
+            <a href="#about-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="about">
+              <i class="fas fa-user mr-3 w-5 text-center"></i>
+              <span>About</span>
+            </a>
+          </li>
+          <li>
+            <a href="#resume-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="resume">
+              <i class="fas fa-file-alt mr-3 w-5 text-center"></i>
+              <span>Resume</span>
+            </a>
+          </li>
+          <li>
+            <a href="#projects-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="projects">
+              <i class="fas fa-project-diagram mr-3 w-5 text-center"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="#stats-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="stats">
+              <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
+              <span>Stats</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="contact">
+              <i class="fas fa-envelope mr-3 w-5 text-center"></i>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="mt-auto flex justify-center space-x-4 text-xl">
+        <a href="https://github.com/arunv8055" class="social-icon text-slate-400 hover:text-blue-400" title="GitHub Profile">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/varun7582" class="social-icon text-slate-400 hover:text-blue-400" title="LinkedIn Profile">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com/arunvithyasegar" class="social-icon text-slate-400 hover:text-blue-400" title="Instagram Profile">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://angel.co/u/arunvithyasegar" class="social-icon text-slate-400 hover:text-blue-400" title="AngelList Profile">
+          <i class="fab fa-angellist"></i>
+        </a>
+        <a href="mailto:hi@arunvithyasegar.com" class="social-icon text-slate-400 hover:text-blue-400" title="Send Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="ml-64 p-8 min-h-screen">
+      <!-- About Page -->
+      <section id="about-page" class="page hidden opacity-0 page-transition">
+        <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">ABOUT ME</h2>
+        <p class="text-slate-400 text-sm uppercase mb-6">Data-Driven Business Analyst</p>
+        
+        <div class="space-y-6">
+          <div class="holographic-card p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2 text-slate-100">Intro</h3>
+            <p class="text-slate-300">
+              I am a passionate Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. 
+              I specialize in transforming complex data into actionable insights that drive business decisions and growth.
+              With a strong foundation in both technical analysis and business strategy, I bridge the gap between data and decision-making.
+            </p>
+            <p class="text-slate-300 mt-4">
+              My journey in data analytics began during my studies in Agricultural Science, where I discovered my passion for 
+              working with numbers and patterns. Since then, I've dedicated myself to mastering the tools and techniques that 
+              turn raw data into strategic business value.
+            </p>
+            <p class="text-slate-300 mt-4">
+              In my spare time, I enjoy contributing to open-source projects, exploring new data visualization techniques, 
+              and mentoring aspiring analysts. If you think I can be helpful to you or your organization, or if you're 
+              interested in collaborating, feel free to get in touch.
+            </p>
+          </div>
           
-            <!-- <img class="header-image"
-                 width="256"
-                 height="256"
-                 src="img/default-image.png"
-                 alt="Your Name Profile Image" /> -->
+          <div class="holographic-card p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2 text-slate-100">Some History</h3>
+            <ul class="space-y-4">
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Born and raised in Tamil Nadu, India with a curiosity for numbers and patterns</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Graduated from Tamil Nadu Agricultural University with honors in Agricultural Science</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Discovered my passion for data analysis while working on agricultural research projects</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Completed multiple certifications in data analytics and business intelligence</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Transitioned into data analytics, working with multiple startups and organizations to drive data-informed decisions</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Developed expertise in SQL, Python, Power BI, and machine learning for business applications</p>
+              </li>
+              <li class="relative pl-8">
+                <span class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 transition-all"></span>
+                <p class="text-slate-300">Contributed to open-source data projects and published analyses on Kaggle</p>
+              </li>
+            </ul>
+          </div>
           
-          <div class="header-info">
-            <h1>Arun V</h1>
-            <h2 class="header-label">Business | Data Analyst</h2>
-            
-              <address>
-                <ul class="inline-list flex-responsive">
-                  
-                    <li>
-                      <a href="hi@arunvithyasegar.com">hi@arunvithyasegar.com</a>
-                    </li>
-                  
-                  
-                    <li>
-                      <a href="tel:+91 7639971082">+91 7639971082</a>
-                    </li>
-                  
-                  <li>Vellore, Tamil Nadu, India</li>
-                </ul>
-              </address>
-            
-            
-              <ul class="inline-list flex-responsive">
-                
-                  <li>
-                    <a href="https://arunvithyasegar.com/"
-                       rel="noopener noreferrer"
-                       aria-label="Personal Website"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-globe-americas"
-     viewBox="0 0 16 16">
-  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z" />
-</svg>
-
-                     
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://www.linkedin.com/in/varun7582/"
-                       rel="noopener noreferrer"
-                       aria-label="Arun V"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-linkedin"
-     viewBox="0 0 16 16">
-  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-</svg>
-
-                      Arun V
-                    </a>
-                  </li>
-                
-                  <li>
-                    <a href="https://github.com/arunv8055"
-                       rel="noopener noreferrer"
-                       aria-label="Second Social"
-                       class="link-with-icon">
-                      <svg aria-hidden="true"
-     xmlns="http://www.w3.org/2000/svg"
-     role="img"
-     width="16"
-     height="16"
-     fill="currentColor"
-     class="bi bi-github"
-     viewBox="0 0 16 16">
-  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-</svg>
-
-                      
-                    </a>
-                  </li>
-                
-              </ul>
-            
-            <p class="header-summary">Detail-oriented and results-driven professional with expertise in data analysis, business intelligence, and process optimization..</p>
+          <div class="holographic-card p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2 text-slate-100">I Like</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-chart-line text-blue-400 mr-2"></i>
+                <span>Data Visualization</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-brain text-blue-400 mr-2"></i>
+                <span>Machine Learning</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-cogs text-blue-400 mr-2"></i>
+                <span>Process Optimization</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-chess text-blue-400 mr-2"></i>
+                <span>Business Strategy</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-code-branch text-blue-400 mr-2"></i>
+                <span>Open Source</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-book text-blue-400 mr-2"></i>
+                <span>Continuous Learning</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-chart-pie text-blue-400 mr-2"></i>
+                <span>Data Storytelling</span>
+              </div>
+              <div class="flex items-center text-slate-300">
+                <i class="fas fa-robot text-blue-400 mr-2"></i>
+                <span>Automation</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="holographic-card p-6 rounded-lg">
+            <h3 class="font-semibold text-lg mb-2 text-slate-100">I Dream Of</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start text-slate-300">
+                <i class="fas fa-lightbulb text-yellow-400 mt-1 mr-2"></i>
+                <span>Creating data-driven solutions that make a real impact on businesses and communities</span>
+              </li>
+              <li class="flex items-start text-slate-300">
+                <i class="fas fa-globe text-green-400 mt-1 mr-2"></i>
+                <span>Helping organizations leverage their data to its full potential</span>
+              </li>
+              <li class="flex items-start text-slate-300">
+                <i class="fas fa-graduation-cap text-purple-400 mt-1 mr-2"></i>
+                <span>Mentoring the next generation of data professionals</span>
+              </li>
+              <li class="flex items-start text-slate-300">
+                <i class="fas fa-project-diagram text-red-400 mt-1 mr-2"></i>
+                <span>Building innovative analytics tools that democratize data access</span>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-    </header>
-
-    <div class="page-content">
-      <div class="container">
-        <main>
-          
-            <section>
-              <h2 class="section-heading">Work Experience</h2>
-              
-                <section>
-                  <h3>
-                    Business Data Analyst at <a href="https://www.agathium.com/">Agathium</a>
-                  </h3>
-                  <p class="section-label">January 2025 - Present</p>
-
-                  <h4>Business Process Optimization & Analysis</h4>
-                  <ul>
-                    <li>Redesigned enterprise business processes using ARIS, achieving a 25% improvement in operational efficiency.</li>
-                    <li>Developed and maintained comprehensive documentation libraries, ensuring compliance with industry standards and regulatory requirements.</li>
-                    <li>Implemented governance frameworks to enhance collaboration, process consistency, and operational excellence.</li>
-                    <li>Delivered actionable, data-driven recommendations to support business transformation initiatives.</li>
-                  </ul>
-
-                  <h4>Key Responsibilities</h4>
-                  <ul>
-                    <li>Served as a bridge between business and technical teams, gathering and documenting system requirements through workshops and interviews.</li>
-                    <li>Analyzed and optimized workflows in Enterprise, Energy & Utilities asset management systems, driving efficiency improvements.</li>
-                    <li>Utilized SQL, Excel, and Power BI to monitor system performance, track feature adoption, and generate actionable insights.</li>
-                    <li>Led end-to-end project execution using Agile methodologies, ensuring timely delivery and alignment with business objectives.</li>
-                    <li>Maintained structured documentation for system updates and process changes, mentoring team members on best practices.</li>
-                    <li>Collaborated with cross-functional teams to define objectives and deliver innovative, data-driven solutions.</li>
-                  </ul>
-                </section>
-
-                <section>
-                  <h3>
-                    Business Analyst at <a href="https://www.payagri.com/">payAgri</a>
-                  </h3>
-                  <p class="section-label">March 2024 - December 2024</p>
-
-                  <h4>Business Process Optimization & Data-Driven Insights</h4>
-                  <ul>
-                    <li>Streamlined core business workflows using BPMN, reducing process bottlenecks by 20% and enhancing operational efficiency.</li>
-                    <li>Established robust process documentation standards, improving compliance and adaptability to evolving business needs.</li>
-                    <li>Conducted risk assessments and implemented data quality review frameworks, ensuring accuracy and regulatory compliance.</li>
-                    <li>Developed ROI-based business cases to support strategic initiatives, enabling data-driven decision-making at the executive level.</li>
-                  </ul>
-
-                  <h4>Data Management & Advanced Analytics</h4>
-                  <ul>
-                    <li>Processed and analyzed large datasets using Python (Pandas, NumPy) and SQL, delivering actionable insights to drive business growth.</li>
-                    <li>Designed and deployed interactive dashboards in Power BI and Python, enhancing reporting efficiency and stakeholder engagement.</li>
-                    <li>Built real-time Power BI dashboards to monitor operational KPIs, enabling proactive performance management.</li>
-                  </ul>
-
-                  <h4>Project Execution & Stakeholder Collaboration</h4>
-                  <ul>
-                    <li>Led end-to-end project delivery, ensuring alignment with organizational objectives and on-time execution using Agile methodologies.</li>
-                    <li>Collaborated with cross-functional teams to gather requirements, define goals, and implement impactful business solutions.</li>
-                    <li>Facilitated effective communication between stakeholders, ensuring clarity and alignment throughout project lifecycles.</li>
-                  </ul>
-                </section>
-              
-              <section>
-                <h3>
-                Data Analyst Internship at <a href="https://www.rubusdigital.com/">Rubus Digitals</a>
-                </h3>
-                <p class="section-label">Jan 2024 - Mar 2024</p>
-                <ul>
-                <li>Data Analytics & Financial Modeling: Conducted exploratory data analysis (EDA) and financial modeling using Python and SQL, providing insights that informed strategic business decisions.</li>
-                <li>Database Management: Optimized SQL queries and managed relational databases in PostgreSQL, improving data retrieval efficiency by 25%.</li>
-                <li>Real-Time Analytics: Integrated MQTT for real-time data streaming, enabling event-driven decision-making and enhancing operational responsiveness.</li>
-                <li>Dashboard Reports: Developed dashboard reports in Power BI to track key metrics, supporting data-driven decision-making across teams.</li>
+      </section>
+      
+      <!-- Resume Page -->
+      <section id="resume-page" class="page hidden opacity-0 page-transition">
+        <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">RESUME</h2>
+        
+        <div class="mb-8 holographic-card p-6 rounded-lg">
+          <h3 class="font-semibold text-lg mb-4 border-b border-slate-700 pb-2 text-slate-100">EDUCATION</h3>
+          <div class="space-y-4">
+            <div class="relative timeline-item pl-10">
+              <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 timeline-dot"></div>
+              <div>
+                <h4 class="font-medium text-slate-100">Tamil Nadu Agricultural University</h4>
+                <p class="text-slate-400 text-sm">Bachelor's Degree in Agricultural Science</p>
+                <p class="text-slate-400 text-sm">2019 - 2023</p>
+                <p class="text-slate-300 mt-2">
+                  Specialized in agricultural data analysis and statistical modeling, with coursework in econometrics and 
+                  agricultural business management.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-8 holographic-card p-6 rounded-lg">
+          <h3 class="font-semibold text-lg mb-4 border-b border-slate-700 pb-2 text-slate-100">EXPERIENCE</h3>
+          <div class="space-y-8">
+            <!-- Agathium -->
+            <div class="relative timeline-item pl-10">
+              <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 timeline-dot"></div>
+              <div>
+                <h3 class="font-semibold text-lg text-slate-100">Business Data Analyst</h3>
+                <p class="text-slate-400 text-sm mb-2">Agathium • January 2025 - Present</p>
+                <ul class="text-slate-300 list-disc pl-5 space-y-2">
+                  <li>Redesigned enterprise business processes using ARIS, achieving a 25% improvement in operational efficiency.</li>
+                  <li>Developed and maintained comprehensive documentation libraries, ensuring compliance with industry standards and regulatory requirements.</li>
+                  <li>Implemented governance frameworks to enhance collaboration, process consistency, and operational excellence.</li>
+                  <li>Delivered actionable, data-driven recommendations to support business transformation initiatives.</li>
+                  <li>Served as a bridge between business and technical teams, gathering and documenting system requirements through workshops and interviews.</li>
+                  <li>Analyzed and optimized workflows in Enterprise, Energy & Utilities asset management systems, driving efficiency improvements.</li>
+                  <li>Utilized SQL, Excel, and Power BI to monitor system performance, track feature adoption, and generate actionable insights.</li>
+                  <li>Led end-to-end project execution using Agile methodologies, ensuring timely delivery and alignment with business objectives.</li>
+                  <li>Collaborated with cross-functional teams to define objectives and deliver innovative, data-driven solutions.</li>
                 </ul>
-              </section>
-              
-              <section>
-                <h3>
-                Business Analyst Internship at <a href="https://startuptn.in/">Startup Tamil Nadu - Tamil Nadu Startup & Innovation Mission</a>
-                </h3>
-                <p class="section-label">Dec 2022 - May 2023</p>
-                <ul>
-                <li>Strategic Analytics Development: Built advanced analytics tools using SQL and Power BI for the Startup India Ranking 2022 project, contributing to Tamil Nadu’s improved national ranking.</li>
-                <li>Process Improvement & Compliance: Designed and implemented a control framework aligned with international standards, ensuring operational efficiency and compliance.</li>
-                <li>Stakeholder Collaboration: Conducted functional and user acceptance testing (UAT), securing stakeholder sign-offs and ensuring solution readiness for deployment.</li>
-                <li>Operational Excellence: Streamlined processes and addressed escalations, resulting in a 20% reduction in operational delays and improved delivery timelines.</li>
+              </div>
+            </div>
+            
+            <!-- payAgri -->
+            <div class="relative timeline-item pl-10">
+              <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 timeline-dot"></div>
+              <div>
+                <h3 class="font-semibold text-lg text-slate-100">Business Analyst</h3>
+                <p class="text-slate-400 text-sm mb-2">payAgri • March 2024 - December 2024</p>
+                <ul class="text-slate-300 list-disc pl-5 space-y-2">
+                  <li>Streamlined core business workflows using BPMN, reducing process bottlenecks by 20% and enhancing operational efficiency.</li>
+                  <li>Established robust process documentation standards, improving compliance and adaptability to evolving business needs.</li>
+                  <li>Conducted risk assessments and implemented data quality review frameworks, ensuring accuracy and regulatory compliance.</li>
+                  <li>Developed ROI-based business cases to support strategic initiatives, enabling data-driven decision-making at the executive level.</li>
+                  <li>Processed and analyzed large datasets using Python (Pandas, NumPy) and SQL, delivering actionable insights to drive business growth.</li>
+                  <li>Designed and deployed interactive dashboards in Power BI and Python, enhancing reporting efficiency and stakeholder engagement.</li>
+                  <li>Built real-time Power BI dashboards to monitor operational KPIs, enabling proactive performance management.</li>
+                  <li>Collaborated with cross-functional teams to gather requirements, define goals, and implement impactful business solutions.</li>
                 </ul>
-              </section>
-              
-            </section>
-
-          
-            <section>
-              <h2 class="section-heading">Projects</h2>
-              
-              <section>
-                <h3>
-                
-                  <a href="https://www.kaggle.com/code/arunvithyasegar/rice-production-by-country-from-1961-to-2021">Global Rice Production Analysis </a>
-                
-                </h3>
-                <p>Analysed a dataset of over 50,000 records detailing rice production trends across countries from 1961 to 2021.</p>
-                
-                <ul>
-                  <li>Identified top-producing nations and uncovered shifts in production due to technological advances and climate factors.</li>
-                  <li>Utilized Python (Pandas, Matplotlib, Seaborn) to visualize trends, showcasing key patterns in global food security.</li>
-                  <li>Provided insights into regional disparities and sustainability challenges, aiding agricultural policy development.</li>
+              </div>
+            </div>
+            
+            <!-- Rubus Digitals -->
+            <div class="relative timeline-item pl-10">
+              <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 timeline-dot"></div>
+              <div>
+                <h3 class="font-semibold text-lg text-slate-100">Data Analyst Intern</h3>
+                <p class="text-slate-400 text-sm mb-2">Rubus Digitals • January 2024 - March 2024</p>
+                <ul class="text-slate-300 list-disc pl-5 space-y-2">
+                  <li>Conducted exploratory data analysis (EDA) and financial modeling using Python and SQL, providing insights that informed strategic business decisions.</li>
+                  <li>Optimized SQL queries and managed relational databases in PostgreSQL, improving data retrieval efficiency by 25%.</li>
+                  <li>Integrated MQTT for real-time data streaming, enabling event-driven decision-making and enhancing operational responsiveness.</li>
+                  <li>Developed dashboard reports in Power BI to track key metrics, supporting data-driven decision-making across teams.</li>
                 </ul>
-                
-              </section>
-              
-              <section>
-                <h3>
-                
-                  <a href="https://www.kaggle.com/code/arunvithyasegar/crop-production-statistics-india">Crop Production Statistics - India</a>
-                
-                </h3>
-                <p>Analysed a dataset with over 3 lakhs records of crop production across Indian states, focusing on yield patterns and trends.</p>
-                
-                <ul>
-                  <li>Identified seasonal variations and key factors impacting production, enabling data-driven resource allocation.</li>
-                  <li>Utilized Python and visualization tools to present findings, aiding strategic agricultural planning.</li>
-                  <li>Insights supported policymakers in enhancing crop productivity and optimizing supply chain efficiency.</li>
-                  <li>Provided actionable recommendations to address regional disparities and improve farmer outcomes.</li>
+              </div>
+            </div>
+            
+            <!-- Startup Tamil Nadu -->
+            <div class="relative timeline-item pl-10">
+              <div class="absolute left-0 top-1 w-4 h-4 rounded-full bg-blue-400 timeline-dot"></div>
+              <div>
+                <h3 class="font-semibold text-lg text-slate-100">Business Analyst Intern</h3>
+                <p class="text-slate-400 text-sm mb-2">Startup Tamil Nadu • December 2022 - May 2023</p>
+                <ul class="text-slate-300 list-disc pl-5 space-y-2">
+                  <li>Built advanced analytics tools using SQL and Power BI for the Startup India Ranking 2022 project, contributing to Tamil Nadu's improved national ranking.</li>
+                  <li>Design and implemented a control framework aligned with international standards, ensuring operational efficiency and compliance.</li>
+                  <li>Conducted functional and user acceptance testing (UAT), securing stakeholder sign-offs and ensuring solution readiness for deployment.</li>
+                  <li>Streamlined processes and addressed escalations, resulting in 20% reduction in operational delays and improved delivery timelines.</li>
                 </ul>
-                
-              </section>
-              
-              <section>
-                <h3>
-                
-                  <a href="https://sample.com">Heart Disease Prediction</a>
-                
-                </h3>
-                <p>Analysed a dataset with 308,854 rows and 19 columns, achieving 92% accuracy in predicting heart disease.</p>
-                
-                <ul>
-                  <li>Identified that 63.9% of heart disease patients lacked regular exercise, emphasizing the importance of physical activity.</li>
-                  <li>Insights highlighted smoking cessation and exercise promotion as crucial preventive measures.</li>
-                  <li>Delivered actionable findings to support healthcare professionals in reducing cardiovascular risk.</li>
-                </ul>
-                
-              </section>
-              
-            </section>
-          
-
-          
-            <h2 class="section-heading">Certifications</h2>
-              
-              <section>
-                <h3>Data Visualization with Tableau by UC Davis</h3>
-                <a href="https://coursera.org/share/1d7616d84e9e3f4c28a5add06f7d8e7d">View credentials</a>
-                <p>Mastered creating dynamic dashboards, interactive charts, and compelling data stories using Tableau to effectively communicate insights.</p>
-              </section>
-              
-              <section>
-                <h3>Data Analysis with Python by IBM</h3>
-                <a href="https://coursera.org/share/ad62e3c3e42cee7208d8ea3c8f3fee79">View credentials</a>
-                <p>Developed strong expertise in Python libraries like Pandas and Matplotlib for data cleaning, exploration analysis, and advanced visualizations.</p>
-              </section>
-              
-              <section>
-                <h3>Data Analytics Essentials by Cisco</h3>
-                <a href="https://www.credly.com/badges/c86486a2-3c89-4271-989d-fedd4b0ebe6e/linked_in_profile">View credentials</a>
-                <p>Built foundational knowledge in data collection, preparation, and statistical techniques for informed business decision making.</p>
-              </section>
-              
-              <section>
-                <h3>Google Data Analytics Professional Certificate</h3>
-                <a href="https://coursera.org/share/a9fccd6671b26c4bdac746ad59ed24c7">View credentials</a>
-                <p>Acquired end-to-end analytics skills, including data cleaning, R programming, SQL queries, and data visualization, to solve real-world business problems.</p>
-              </section>
-              
-              <section>
-                <h3>Strategy and Game Theory for Management</h3>
-                <a href="https://coursera.org/share/347a27e5c3aab58f6cadd64247124d0b">View credentials</a>
-                <p>Explored strategic frameworks and game theory concepts to analyze competitive scenarios and optimize managerial decision-making.</p>
-              </section>
-              
-              <section>
-                <h3>Google Advanced Data Analytics</h3>
-                <a href="https://coursera.org/share/aa203356af715e8ef0f8279d59a1d6f2">View credentials</a>
-                <p>Developed advanced proficiency in statistical modeling, machine learning, and predictive analytics to tackle complex business challenges.</p>
-              </section>
-              
-              <section>
-                <h3>Google Project Management</h3>
-                <a href="https://coursera.org/share/492625065eabe583859e62db91476d75">View credentials</a>
-                <p>Learned project planning, risk management, and stakeholder communication skills to successfully manage projects from initiation to completion.</p>
-              </section>
-              
-              <section>
-                <h3>Pre MBA-Statistics</h3>
-                <a href="https://coursera.org/share/fcfef75f1b1b60f8c37a3d533aa7642d">View credentials</a>
-                <p>Enhanced understanding of statistical techniques and their application in business scenarios, laying a strong foundation for advanced managerial analytics.</p>
-              </section>
-              
-            </section>
-          
-
-<!--           
-            <section>
-              <h2 class="section-heading">References</h2>
-              
-                <section>
-                  <h3>Person One</h3>
-                  <p class="section-label">Previous Boss</p>
-                  
-                    <blockquote>
-                      Some nice things that Person One said about you, your work ethic, and how you provided value to their team.
-                    </blockquote>
-                  
-                </section>
-              
-                <section>
-                  <h3>Person Two</h3>
-                  <p class="section-label">Previous Coworker</p>
-                  
-                    <blockquote>
-                      More kind things that Person Two said about you, what it was like working with you, and things you&#39;ve accomplished.
-                    </blockquote>
-                  
-                </section>
-              
-            </section> -->
-          
-        </main>
-
-        <!-- Sidebar Section -->
-        <aside>
-          
-          <section>
-            <h2 class="section-heading">Education</h2>
-          
-            <section>
-              <h3>
-                <a href="https://tnau.ac.in/">Tamil Nadu Agricultural University</a>
-              </h3>
-              <p class="section-label">Coimbatore, India</p>
-          
-              <h4>Degree</h4>
-              <ul>
-                <li>Bachelor of Science (B.Sc. Hons)</li>
-              </ul>
-          
-              <h4>Honors</h4>
-              <ul>
-                <li>CGPA: 7.79/10</li>
-              </ul>
-          
-              <p>
-                <span class="block">Graduation Date: Aug 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mb-8 holographic-card p-6 rounded-lg">
+          <h3 class="font-semibold text-lg mb-4 border-b border-slate-700 pb-2 text-slate-100">SKILLS</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-medium mb-2 text-slate-100">Technical Skills</h4>
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">SQL</span>
+                    <span class="text-sm text-slate-400">90%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-90"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Python</span>
+                    <span class="text-sm text-slate-400">85%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-85"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Power BI</span>
+                    <span class="text-sm text-slate-400">80%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-80"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Excel</span>
+                    <span class="text-sm text-slate-400">95%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-95"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="font-medium mb-2 text-slate-100">Business Skills</h4>
+              <div class="space-y-3">
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Data Analysis</span>
+                    <span class="text-sm text-slate-400">90%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-90"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Process Improvement</span>
+                    <span class="text-sm text-slate-400">85%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-85"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Requirements Gathering</span>
+                    <span class="text-sm text-slate-400">80%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-80"></div>
+                  </div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1">
+                    <span class="text-sm font-medium text-slate-300">Stakeholder Mgmt</span>
+                    <span class="text-sm text-slate-400">75%</span>
+                  </div>
+                  <div class="progress-bar w-full rounded-full h-2.5">
+                    <div class="bg-blue-600 h-2.5 rounded-full width-75"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="holographic-card p-6 rounded-lg">
+          <h3 class="font-semibold text-lg mb-4 border-b border-slate-700 pb-2 text-slate-100">CERTIFICATIONS</h3>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Data Visualization with Tableau by UC Davis</h4>
+              <a href="https://coursera.org/share/1d7616d84e9e3f4c28a5add06f7d8e7d"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Mastered creating dynamic dashboards, interactive charts, and compelling data stories using Tableau to effectively communicate insights.
               </p>
-            </section>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Data Analysis with Python by IBM</h4>
+              <a href="https://coursera.org/share/ad62e3c3e42cee7208d8ea3c8f3fee79"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Developed strong expertise in Python libraries like Pandas and Matplotlib for data cleaning, exploration analysis, and advanced visualizations.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Data Analytics Essentials by Cisco</h4>
+              <a href="https://www.credly.com/badges/c86486a2-3c89-4271-989d-fedd4b0ebe6e/linked_in_profile"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Built foundational knowledge in data collection, preparation, and statistical techniques for informed business decision making.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Google Data Analytics Professional Certificate</h4>
+              <a href="https://coursera.org/share/a9fccd6671b26c4bdac746ad59ed24c7"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Acquired end-to-end analytics skills, including data cleaning, R programming, SQL queries, and data visualization, to solve real-world business problems.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Strategy and Game Theory for Management</h4>
+              <a href="https://coursera.org/share/347a27e5c3aab58f6cadd64247124d0b"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Explored strategic frameworks and game theory concepts to analyze competitive scenarios and optimize managerial decision-making.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Google Advanced Data Analytics</h4>
+              <a href="https://coursera.org/share/aa203356af715e8ef0f8279d59a1d6f2"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Developed advanced proficiency in statistical modeling, machine learning, and predictive analytics to tackle complex business challenges.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Google Project Management</h4>
+              <a href="https://coursera.org/share/492625065eabe583859e62db91476d75"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Learned project planning, risk management, and stakeholder communication skills to successfully manage projects from initiation to completion.
+              </p>
+            </div>
+            <div class="certification-item p-4 rounded-lg">
+              <h4 class="font-medium text-slate-100">Pre MBA-Statistics</h4>
+              <a href="https://coursera.org/share/fcfef75f1b1b60f8c37a3d533aa7642d"
+                  class="view-credential text-blue-400 hover:underline text-sm inline-block mt-1">View credentials</a>
+              <p class="text-slate-300 text-sm mt-2">
+                Enhanced understanding of statistical techniques and their application in business scenarios, laying a strong foundation for advanced managerial analytics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Projects Page -->
+      <section id="projects-page" class="page hidden opacity-0 page-transition">
+        <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">PROJECTS</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="p-6">
+              <h3 class="font-semibold text-lg mb-2 text-slate-100">Global Rice Production Analysis</h3>
+              <p class="text-slate-400 text-sm mb-3">Kaggle • 2023</p>
+              <p class="text-slate-300 mb-4">
+                Analyzed 50,000+ records of rice production trends across countries from 1961 to 2021, identifying key patterns in production, yield, and area harvested.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-2 py-1 rounded text-xs">Python</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Pandas</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Matplotlib</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Data Visualization</span>
+              </div>
+              <a href="https://www.kaggle.com/code/arunvithyasegar/rice-production-by-country-from-1961-to-2021"
+                  class="inline-block mt-4 text-blue-400 hover:underline text-sm font-medium">
+                VIEW PROJECT <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
           
-          </section>
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="p-6">
+              <h3 class="font-semibold text-lg mb-2 text-slate-100">Crop Production Statistics - India</h3>
+              <p class="text-slate-400 text-sm mb-3">Kaggle • 2023</p>
+              <p class="text-slate-300 mb-4">
+                Analyzed 300,000+ records of crop production across Indian states, focusing on yield patterns, seasonal variations, and regional productivity differences.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-2 py-1 rounded text-xs">Python</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Data Visualization</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">EDA</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Geospatial</span>
+              </div>
+              <a href="https://www.kaggle.com/code/arunvithyasegar/crop-production-statistics-india"
+                  class="inline-block mt-4 text-blue-400 hover:underline text-sm font-medium">
+                VIEW PROJECT <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
           
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="p-6">
+              <h3 class="font-semibold text-lg mb-2 text-slate-100">Agricultural Market Price Prediction</h3>
+              <p class="text-slate-400 text-sm mb-3">Personal Project • 2024</p>
+              <p class="text-slate-300 mb-4">
+                Built a machine learning model to predict agricultural commodity prices using historical data, weather patterns, and economic indicators with 85% accuracy.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-2 py-1 rounded text-xs">Python</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Scikit-learn</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Time Series</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">XGBoost</span>
+              </div>
+              <a href="#" class="inline-block mt-4 text-blue-400 hover:underline text-sm font-medium">
+                VIEW PROJECT <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
           
-
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="p-6">
+              <h3 class="font-semibold text-lg mb-2 text-slate-100">Farm Management Dashboard</h3>
+              <p class="text-slate-400 text-sm mb-3">Freelance Project • 2024</p>
+              <p class="text-slate-300 mb-4">
+                Developed a Power BI dashboard for tracking farm inputs, outputs, and profitability metrics, helping farmers optimize resource allocation and increase yields.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-tag px-2 py-1 rounded text-xs">Power BI</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">SQL</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">DAX</span>
+                <span class="skill-tag px-2 py-1 rounded text-xs">Data Modeling</span>
+              </div>
+              <a href="#" class="inline-block mt-4 text-blue-400 hover:underline text-sm font-medium">
+                VIEW PROJECT <i class="fas fa-arrow-right ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Stats Page -->
+      <section id="stats-page" class="page hidden opacity-0 page-transition">
+        <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">STATS</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Personal Stats -->
+          <div class="stats-card p-6">
+            <h3 class="font-semibold text-lg mb-4 text-slate-100">Personal Stats</h3>
+            <div class="space-y-3">
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Current Age</span>
+                  <span class="font-medium counter text-slate-100" id="current-age">Calculating...</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Current Location</span>
+                  <span class="font-medium text-slate-100">Vellore, India</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Languages</span>
+                  <span class="font-medium text-slate-100">English, Tamil, Hindi</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Countries Visited</span>
+                  <span class="font-medium text-slate-100">1</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Pending Bucketlist Countries</span>
+                  <span class="font-medium text-slate-100">194</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
-            <section>
-              <h2 class="section-heading">Skills</h2>
-              <ul class="unstyled-list">
-            
-                <li>
-                  <h3>SQL</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-100"
-                         role="meter"
-                         aria-valuenow="100"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         aria-label="SQL skill level: Expert">
-                      <span class="skill-bar-label">Expert</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Python (NumPy, Pandas, Matplotlib, Plotly)</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-90"
-                         role="meter"
-                         aria-valuenow="90"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Python skill level: Advanced">
-                      <span class="skill-bar-label">Advanced</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>R</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-80"
-                         role="meter"
-                         aria-valuenow="80"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Intermediate">
-                      <span class="skill-bar-label">Intermediate</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Scikit-learn</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-75"
-                         role="meter"
-                         aria-valuenow="75"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Intermediate">
-                      <span class="skill-bar-label">Intermediate</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Power BI</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-90"
-                         role="meter"
-                         aria-valuenow="90"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Python skill level: Advanced">
-                      <span class="skill-bar-label">Advanced</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Tableau</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-85"
-                         role="meter"
-                         aria-valuenow="85"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Advanced">
-                      <span class="skill-bar-label">Advanced</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Alteryx</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-70"
-                         role="meter"
-                         aria-valuenow="70"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Intermediate">
-                      <span class="skill-bar-label">Intermediate</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Postgres & ETL Processes</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-85"
-                         role="meter"
-                         aria-valuenow="85"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Advanced">
-                      <span class="skill-bar-label">Advanced</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Data Analysis & Statistical Analysis</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-95"
-                         role="meter"
-                         aria-valuenow="95"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Data Analysis & Statistical Analysis skill level: Expert">
-                      <span class="skill-bar-label">Expert</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Data Modeling & EDA</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-90"
-                         role="meter"
-                         aria-valuenow="90"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Advanced">
-                      <span class="skill-bar-label">Advanced</span>
-                    </div>
-                  </div>
-                </li>
-            
-                <li>
-                  <h3>Financial Modeling & Dashboard Development</h3>
-                  <div class="skill-bar">
-                    <div class="skill-bar-fill w-80"
-                         role="meter"
-                         aria-valuenow="80"
-                         aria-valuemin="0"
-                         aria-valuemax="100"
-                         title="Skill level: Intermediate">
-                      <span class="skill-bar-label">Intermediate</span>
-                    </div>
-                  </div>
-                </li>
-            
-              </ul>
-            </section>
-            
-            <section>
-              <h2 class="section-heading">My Interests</h2>
-              <ul class="unstyled-list">
-                <li>Data Analytics</li>
-                <li>Business Intelligence</li>
-                <li>Statistical Analysis</li>
-                <li>Process Optimization</li>
-                <li>Machine Learning</li>
-              </ul>
-            </section>
-            
+          <!-- Professional Stats -->
+          <div class="stats-card p-6">
+            <h3 class="font-semibold text-lg mb-4 text-slate-100">Professional Stats</h3>
+            <div class="space-y-3">
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Years of Experience</span>
+                  <span class="font-medium text-slate-100">2+</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Projects Completed</span>
+                  <span class="font-medium text-slate-100">15+</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">SQL Queries Written</span>
+                  <span class="font-medium text-slate-100">500+</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Dashboards Created</span>
+                  <span class="font-medium text-slate-100">30+</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="flex justify-between items-center">
+                  <span class="text-slate-300">Data Points Analyzed</span>
+                  <span class="font-medium text-slate-100">1M+</span>
+                </div>
+              </div>
+            </div>
+          </div>
           
-
+          <!-- GitHub Stats -->
+          <div class="stats-card md:col-span-2 p-6">
+            <h3 class="font-semibold text-lg mb-4 text-slate-100">GitHub Stats</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+              <div class="text-center">
+                <div class="text-3xl font-bold counter text-blue-400" id="github-repos">12</div>
+                <div class="text-slate-400 text-sm">Repositories</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold counter text-blue-400" id="github-stars">24</div>
+                <div class="text-slate-400 text-sm">Stars</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold counter text-blue-400" id="github-forks">8</div>
+                <div class="text-slate-400 text-sm">Forks</div>
+              </div>
+              <div class="text-center">
+                <div class="text-3xl font-bold counter text-blue-400" id="github-commits">150+</div>
+                <div class="text-slate-400 text-sm">Commits</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Contact Page -->
+      <section id="contact-page" class="page hidden opacity-0 page-transition">
+        <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">CONTACT</h2>
+        
+        <div class="space-y-6">
+          <p class="text-slate-300">
+            Feel free to reach out if you're looking for a data analyst, want to connect, or just want to say hello!
+            I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+          </p>
           
-            <section>
-              <h2 class="section-heading">Languages</h2>
-              <ul class="unstyled-list">
-                
-                  <li>
-                    <h3>English</h3>
-                    <p class="section-label">Fluent</p>
-                  </li>
-                
-                  <li>
-                    <h3>Tamil</h3>
-                    <p class="section-label">Native speaker</p>
-                  </li>
-                
-                  <li>
-                    <h3>Hindi</h3>
-                    <p class="section-label">Conversational</p>
-                  </li>
-                
-              </ul>
-            </section>
+          <div class="space-y-2 holographic-card p-6 rounded-lg">
+            <p class="text-slate-300">
+              <span class="font-medium">Email:</span> 
+              <a href="mailto:hi@arunvithyasegar.com" class="text-blue-400 hover:underline">hi@arunvithyasegar.com</a>
+            </p>
+            <p class="text-slate-300">
+              <span class="font-medium">Phone:</span> +91 7639971082
+            </p>
+            <p class="text-slate-300">
+              <span class="font-medium">Location:</span> Vellore, Tamil Nadu, India
+            </p>
+          </div>
           
-
-          
-            <!-- <section>
-              <h2 class="section-heading">Interests</h2>
-              
-                <section>
-                  <h3>My First Hobby</h3>
-                  <p>Short summary about my first Hobby</p>
-                  
-                    <div class="gallery side-gallery">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=7"
-                               alt="Image Caption 7">
-                          <figcaption>Image Caption 7</figcaption>
-                        </figure>
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=8"
-                               alt="Image Caption 8">
-                          <figcaption>Image Caption 8</figcaption>
-                        </figure>
-                      
-                    </div>
-                  
-                </section>
-              
-                <section>
-                  <h3>My Second Hobby</h3>
-                  <p>Short summary about my second hobby</p>
-                  
-                    <div class="gallery side-gallery">
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=9"
-                               alt="Image Caption 9">
-                          <figcaption>Image Caption 9</figcaption>
-                        </figure>
-                      
-                        <figure>
-                          <img width="600"
-                               height="338"
-                               src="https://picsum.photos/600/338?random=10"
-                               alt="Image Caption 10">
-                          <figcaption>Image Caption 10</figcaption>
-                        </figure>
-                      
-                    </div>
-                  
-                </section>
-              
-            </section>-->
-          
-        </aside>
-      </div>
-    </div> 
-
-    <footer class="page-footer">
-      <div class="container">
-        <p>© 2025 Arun V. All rights reserved.</p>
-      </div>
+          <div class="flex justify-center space-x-6">
+            <a href="https://github.com/arunv8055" class="social-icon text-slate-400 hover:text-blue-400 text-2xl" title="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/varun7582" class="social-icon text-slate-400 hover:text-blue-400 text-2xl" title="LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/arunvithyasegar" class="social-icon text-slate-400 hover:text-blue-400 text-2xl" title="Instagram Profile">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://angel.co/u/arunvithyasegar" class="social-icon text-slate-400 hover:text-blue-400 text-2xl" title="AngelList Profile">
+              <i class="fab fa-angellist"></i>
+            </a>
+            <a href="mailto:hi@arunvithyasegar.com" class="social-icon text-slate-400 hover:text-blue-400 text-2xl" title="Send Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="mt-8 holographic-card p-6 rounded-lg">
+          <h3 class="font-semibold text-lg mb-4 text-slate-100">Send me a message</h3>
+          <form class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-300 mb-1">Name</label>
+              <input type="text" id="name" class="contact-input w-full px-4 py-2 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-slate-300 mb-1">Email</label>
+              <input type="email" id="email" class="contact-input w-full px-4 py-2 rounded-md focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+              <textarea id="message" rows="4" class="contact-input w-full px-4 py-2 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+            </div>
+            <button type="submit" class="submit-btn px-6 py-2 text-white rounded-md transition-colors">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="copyright mt-auto ml-64">
+      <p>© 2024 Arun V | Data-Driven Decisions for Tomorrow</p>
+      <p class="mt-1">Powered by <a href="#" class="font-medium">Analytics Intelligence</a> | <a href="#" class="font-medium">Privacy Policy</a></p>
     </footer>
+  </div>
 
-    <script src="js/app.js"></script>
-  </body>
+  <script>
+    // Particle Background
+    function createParticles() {
+      const container = document.getElementById('particles');
+      const particleCount = Math.floor(window.innerWidth / 10);
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 5 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        container.appendChild(particle);
+      }
+    }
+    
+    // Cursor effects
+    const cursor = document.querySelector('.cursor-trail');
+    const cursorFollower = document.querySelector('.cursor-trail-follower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      // Delayed follower effect
+      setTimeout(() => {
+        cursorFollower.style.left = e.clientX + 'px';
+        cursorFollower.style.top = e.clientY + 'px';
+      }, 100);
+    });
+    
+    // Interactive cursor effects
+    document.querySelectorAll('a, button, .project-card, .nav-link, .skill-tag').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        cursor.style.backgroundColor = 'rgba(59, 130, 246, 0.5)';
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(1.8)';
+      });
+      
+      el.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.backgroundColor = 'rgba(59, 130, 246, 0.3)';
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
+    
+    // Page navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Hide home page
+        const homePage = document.getElementById('home-page');
+        homePage.style.opacity = '0';
+        homePage.addEventListener('transitionend', function handleTransitionEnd() {
+          homePage.style.display = 'none';
+          document.getElementById('app-container').classList.remove('hidden');
+          setTimeout(() => {
+            document.getElementById('app-container').style.opacity = '1';
+          }, 10);
+          homePage.removeEventListener('transitionend', handleTransitionEnd);
+        });
+        
+        // Get target page from data attribute
+        const targetPage = this.dataset.page;
+        
+        // Remove active class from all links and pages
+        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.page').forEach(el => {
+          el.classList.remove('active');
+          el.style.opacity = '0';
+        });
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Show target page
+        const pageToShow = document.getElementById(`${targetPage}-page`);
+        pageToShow.classList.add('active');
+        setTimeout(() => {
+          pageToShow.style.opacity = '1';
+        }, 10);
+        
+        // Animate progress bars when resume page is shown
+        if (targetPage === 'resume') {
+          document.querySelectorAll('.progress-bar').forEach(bar => {
+            if (!bar.classList.contains('animate-progress')) {
+              bar.classList.add('animate-progress');
+            }
+          });
+        }
+        
+        // Animate counters when stats page is shown
+        if (targetPage === 'stats') {
+          setTimeout(animateCounters, 500);
+        }
+      });
+    });
+    
+    // Update the age display
+    function updateAge() {
+      const birthday = new Date('1999-08-06T01:24:00Z'); // Adjusted for IST (UTC+5:30)
+      const ageElement = document.getElementById('current-age');
+      
+      function calculateAge() {
+      const now = new Date();
+      const ageInMilliseconds = now - birthday;
+      const ageInSeconds = ageInMilliseconds / 1000;
+      const ageInYears = ageInSeconds / (365.25 * 24 * 60 * 60);
+      ageElement.textContent = ageInYears.toFixed(7);
+      }
+      
+      setInterval(calculateAge, 1); // Update every millisecond
+    }
+    
+    // Counter animation
+    function animateCounters() {
+      const counters = document.querySelectorAll('.counter');
+      const speed = 200;
+      
+      counters.forEach(counter => {
+        const target = counter.textContent === '150+' ? 150 : +counter.textContent;
+        const increment = target / speed;
+        let current = 0;
+        
+        const updateCount = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            setTimeout(updateCount, 1);
+          } else {
+            counter.textContent = target + (counter.id === 'github-commits' ? '+' : '');
+          }
+        };
+        
+        updateCount();
+      });
+    }
+    
+    // Update GitHub stats
+    function updateGitHubStats() {
+      const stats = { repos: 12, stars: 24, forks: 8, commits: 150 };
+      document.getElementById('github-repos').textContent = stats.repos;
+      document.getElementById('github-stars').textContent = stats.stars;
+      document.getElementById('github-forks').textContent = stats.forks;
+      document.getElementById('github-commits').textContent = stats.commits + '+';
+    }
+    
+    // Form submission
+    document.querySelector('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      
+      try {
+        // In a real application, you would send this to your backend
+        console.log('Form submitted:', data);
+        
+        // Show success message
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      } catch (error) {
+        alert('An error occurred while sending your message. Please check your connection and try again.');
+      }
+    });
+    
+    // Make external links open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(link => {
+      if (!link.href.includes(window.location.host)) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+    });
+    
+    // Initialize
+    createParticles();
+    updateAge();
+    updateGitHubStats();
+    
+    // Set about page as default when home page is hidden
+    document.getElementById('home-page').addEventListener('transitionend', function() {
+      if (this.style.opacity === '0') {
+        document.getElementById('about-page').classList.add('active');
+        document.getElementById('about-page').style.opacity = '1';
+        document.querySelector('[data-page="about"]').classList.add('active');
+      }
+    });
+  </script>
+</body>
 </html>

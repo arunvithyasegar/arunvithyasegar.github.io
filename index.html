@@ -1376,7 +1376,7 @@
       const ageInMilliseconds = now - birthday;
       const ageInSeconds = ageInMilliseconds / 1000;
       const ageInYears = ageInSeconds / (365.25 * 24 * 60 * 60);
-      ageElement.textContent = ageInYears.toFixed(15); // Increased precision for smoother updates
+      ageElement.textContent = ageInYears.toFixed(10); // Increased precision for smoother updates
       }
       
       setInterval(calculateAge, 100); // Update 10 times per second

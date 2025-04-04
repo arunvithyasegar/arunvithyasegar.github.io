@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Arun V</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="./js/3D-components.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body class="bg-slate-900 text-slate-100">
+  <!-- Main App Container -->
+  <div id="app-container" class="opacity-100 transition-opacity duration-500">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
+      <!-- Sidebar content from index.html -->
+    </aside>
+    
+    <!-- Contact Content -->
+    <main class="ml-64 p-8 min-h-screen">
+      <section class="page active opacity-100 page-transition">
+        <h1 class="text-4xl font-bold mb-8">Get In Touch</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="holographic-card p-8 rounded-lg">
+            <h2 class="text-2xl font-semibold mb-6">Contact Form</h2>
+            <form class="space-y-4">
+              <div>
+                <label for="name" class="block mb-1">Name</label>
+                <input type="text" id="name" class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+              <div>
+                <label for="email" class="block mb-1">Email</label>
+                <input type="email" id="email" class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              </div>
+              <div>
+                <label for="message" class="block mb-1">Message</label>
+                <textarea id="message" rows="5" class="w-full bg-slate-800 border border-slate-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+              </div>
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded transition-colors">Send Message</button>
+            </form>
+          </div>
+          <div class="holographic-card p-8 rounded-lg">
+            <h2 class="text-2xl font-semibold mb-6">Connect With Me</h2>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <i class="fas fa-envelope text-blue-400 w-8"></i>
+                <span class="ml-4">email@example.com</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone text-blue-400 w-8"></i>
+                <span class="ml-4">+1 (123) 456-7890</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt text-blue-400 w-8"></i>
+                <span class="ml-4">City, Country</span>
+              </div>
+              <div class="flex space-x-4 mt-6">
+                <a href="#" class="social-icon text-2xl hover:text-blue-400"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon text-2xl hover:text-blue-400"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon text-2xl hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <script src="./js/app.js"></script>
+</body>
+</html>

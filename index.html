@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun V | Business & Data Analyst</title>
+  <title>Arun V - Professional Business & Data Analyst Portfolio | SQL, Python, Power BI Expert</title>
+  <meta name="description" content="Professional portfolio of Arun V, a skilled Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Transforming data into actionable business insights.">
+  <meta name="keywords" content="Data Analyst, Business Analyst, SQL, Python, Power BI, Machine Learning, Data Visualization, Data Science, Analytics Portfolio">
+  <meta name="author" content="Arun V">
+  <meta property="og:title" content="Arun V - Professional Business & Data Analyst Portfolio">
+  <meta property="og:description" content="Portfolio showcasing data analysis and business intelligence projects by Arun V.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arunvithyasegar.com">
+  <meta property="og:image" content="https://arunvithyasegar.com/icon.png">
+  <link rel="canonical" href="https://arunvithyasegar.com">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="./js/3D-components.js"></script>
   <style>
     :root {
       --primary: #3b82f6;
@@ -452,11 +464,11 @@
       Welcome to my website. Please feel free to read more about me, or you can check out my resume, projects, view site statistics, or contact me.
     </p>
     <div class="home-links">
-      <a href="#about-page" class="home-link nav-link" data-page="about"><span>About</span></a>
-      <a href="#resume-page" class="home-link nav-link" data-page="resume"><span>Resume</span></a>
-      <a href="#projects-page" class="home-link nav-link" data-page="projects"><span>Projects</span></a>
-      <a href="#stats-page" class="home-link nav-link" data-page="stats"><span>Stats</span></a>
-      <a href="#contact-page" class="home-link nav-link" data-page="contact"><span>Contact</span></a>
+      <a href="/about" class="home-link nav-link" data-page="about"><span>About</span></a>
+      <a href="/resume" class="home-link nav-link" data-page="resume"><span>Resume</span></a>
+      <a href="/projects" class="home-link nav-link" data-page="projects"><span>Projects</span></a>
+      <a href="/stats" class="home-link nav-link" data-page="stats"><span>Stats</span></a>
+      <a href="/contact" class="home-link nav-link" data-page="contact"><span>Contact</span></a>
     </div>
     <p class="home-source">
       Source available <a href="https://github.com/arunvithyasegar/arunvithyasegar.github.io" target="_blank" rel="noopener">here</a>.
@@ -470,17 +482,18 @@
       <div class="flex flex-col items-center">
       <a href="https://arunvithyasegar.com/" target="_blank" rel="noopener" title="Visit Arun V's personal website"></a>
         <img src="https://videos.openai.com/vg-assets/assets%2Ftask_01jqrcse9eeebt3s3q4x8272rp%2Fimg_0.webp?st=2025-04-03T10%3A11%3A18Z&se=2025-04-09T11%3A11%3A18Z&sks=b&skt=2025-04-03T10%3A11%3A18Z&ske=2025-04-09T11%3A11%3A18Z&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skoid=8ebb0df1-a278-4e2e-9c20-f2d373479b3a&skv=2019-02-02&sv=2018-11-09&sr=b&sp=r&spr=https%2Chttp&sig=xYhMBDlOfbuuEvgyQ6kpqyvdlW%2BWot9ZnoEL6hxgP3g%3D&az=oaivgprodscus"
-             alt="Arun V"
+             alt="Arun V - Professional Business & Data Analyst"
+             title="Arun V - Data & Business Analytics Expert"
              class="rounded-full w-32 h-32 mb-6 object-cover border-4 border-slate-700 floating">
       </a>
       <h1 class="text-2xl font-bold uppercase tracking-wider mb-2 text-slate-100">ARUN V</h1>
       <p class="text-slate-400 mb-6 text-sm">
         <a href="mailto:hi@arunvithyasegar.com" class="hover:text-blue-400 transition-colors">hi@arunvithyasegar.com</a>
       </p>
-        <p class="text-slate-300 mb-6 text-sm leading-relaxed bg-slate-800/50 p-4 rounded-lg">
-          Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. 
-          Transforming data into actionable insights that drive business decisions and growth.
-        </p>
+        <h2 class="text-slate-300 mb-6 text-sm leading-relaxed bg-slate-800/50 p-4 rounded-lg">
+          <strong>Business & Data Analyst</strong> with <strong>5+ years experience</strong> in <strong>SQL, Python, Power BI, and Machine Learning</strong>. 
+          Specializing in transforming complex data into <strong>actionable business insights</strong> that drive <strong>data-informed decisions</strong> and <strong>company growth</strong>.
+        </h2>
         
         <a href="https://arunvithyasegar.com/" class="learn-more-btn px-6 py-3 text-white rounded-md transition-transform transform hover:scale-105 mb-6 text-center font-medium flex items-center justify-center gap-2" rel="noopener noreferrer">
           <span>HOME</span>
@@ -492,31 +505,31 @@
       <nav class="mb-8">
         <ul class="space-y-2">
           <li>
-            <a href="#about-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="about">
+            <a href="/about" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="about">
               <i class="fas fa-user mr-3 w-5 text-center"></i>
               <span>About</span>
             </a>
           </li>
           <li>
-            <a href="#resume-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="resume">
+            <a href="/resume" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="resume">
               <i class="fas fa-file-alt mr-3 w-5 text-center"></i>
               <span>Resume</span>
             </a>
           </li>
           <li>
-            <a href="#projects-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="projects">
+            <a href="/projects" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="projects">
               <i class="fas fa-project-diagram mr-3 w-5 text-center"></i>
               <span>Projects</span>
             </a>
           </li>
           <li>
-            <a href="#stats-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="stats">
+            <a href="/stats" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="stats">
               <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
               <span>Stats</span>
             </a>
           </li>
           <li>
-            <a href="#contact-page" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="contact">
+            <a href="/contact" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="contact">
               <i class="fas fa-envelope mr-3 w-5 text-center"></i>
               <span>Contact</span>
             </a>

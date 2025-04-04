@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun V - Professional Resume | Business & Data Analyst Portfolio</title>
+  <meta name="description" content="Professional resume of Arun V, showcasing experience and skills as a Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning.">
+  <meta name="keywords" content="Data Analyst Resume, Business Analyst CV, Analytics Professional, SQL Expert, Python Data Analysis, Power BI Portfolio">
+  <meta property="og:title" content="Arun V - Professional Resume | Business & Data Analyst">
+  <meta property="og:description" content="Detailed professional resume of Arun V, Business & Data Analyst.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="./js/3D-components.js"></script>
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body class="bg-slate-900 text-slate-100">
+  <!-- Main App Container -->
+  <div id="app-container" class="opacity-100 transition-opacity duration-500">
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
+      <!-- Sidebar content from index.html -->
+    </aside>
+    
+    <!-- Resume Content -->
+    <main class="ml-64 p-8 min-h-screen">
+      <section class="page active opacity-100 page-transition">
+        <h1 class="text-4xl font-bold mb-8">Professional Resume: <span class="text-blue-400">Business & Data Analyst</span></h1>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-2">
+            <div class="holographic-card p-8 rounded-lg mb-8">
+              <h2 class="text-2xl font-semibold mb-6">Business & Data Analysis Experience</h2>
+              <div class="timeline-item relative pl-10 pb-8">
+                <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-blue-500 border-4 border-blue-300"></div>
+                <h3 class="text-xl font-medium">Business & Data Analyst</h3>
+                <p class="text-blue-400 mb-2">Company Name | 2020 - Present</p>
+                <ul class="list-disc pl-5 space-y-2">
+                  <li>Transformed raw data into actionable insights using SQL and Python</li>
+                  <li>Created interactive dashboards with Power BI</li>
+                </ul>
+              </div>
+              <!-- More experience items -->
+            </div>
+          </div>
+          <div>
+            <div class="holographic-card p-8 rounded-lg">
+              <h2 class="text-2xl font-semibold mb-6">Education</h2>
+              <div class="timeline-item relative pl-10 pb-8">
+                <div class="absolute left-0 top-0 w-6 h-6 rounded-full bg-green-500 border-4 border-green-300"></div>
+                <h3 class="text-xl font-medium">Degree in Data Science</h3>
+                <p class="text-green-400 mb-2">University Name | 2016 - 2020</p>
+              </div>
+              <!-- More education items -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <script src="./js/app.js"></script>
+</body>
+</html>

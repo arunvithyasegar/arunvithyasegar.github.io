@@ -42,6 +42,48 @@ scene.add(mesh);
 // Position camera
 camera.position.z = 5;
 
+// Add interactive particle system
+const particleGeometry = new THREE.BufferGeometry();
+const particleCount = 2000;
+const posArray = new Float32Array(particleCount * 3);
+
+for(let i = 0; i < particleCount * 3; i++) {
+  posArray[i] = (Math.random() - 0.5) * 5;
+}
+
+particleGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+const particleMaterial = new THREE.PointsMaterial({
+  size: 0.005,
+  color: '#3b82f6',
+  transparent: true,
+  blending: THREE.AdditiveBlending
+});
+
+const particleMesh = new THREE.Points(particleGeometry, particleMaterial);
+scene.add(particleMesh);
+
+// Add cursor interaction
+const mouse = new THREE.Vector2();
+window.addEventListener('mousemove', (e) => {
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  particleMaterial.color.setHSL(mouse.x * 0.5 + 0.5, 0.8, 0.5);
+});
+
+// Animate particles
+function animateParticles() {
+  const positions = particleGeometry.attributes.position.array;
+  for(let i = 0; i < positions.length; i += 3) {
+    positions[i] += (Math.random() - 0.5) * 0.01;
+    positions[i+1] += (Math.random() - 0.5) * 0.01;
+    positions[i+2] += (Math.random() - 0.5) * 0.01;
+  }
+  particleGeometry.attributes.position.needsUpdate = true;
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
 // Animation loop
 function animate() {
   requestAnimationFrame(animate);

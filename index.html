@@ -1054,7 +1054,7 @@
               <div class="stat-item">
                 <div class="flex justify-between items-center">
                   <span class="text-slate-300">Current Age</span>
-                  <span class="font-medium counter text-slate-100" id="current-age">Calculating...</span>
+                  <span class="font-medium counter text-slate-100" id="current-age"></span>
                 </div>
               </div>
               <div class="stat-item">
@@ -1383,19 +1383,22 @@
     
     // Update the age display
     function updateAge() {
-      const birthday = new Date('1999-08-06T01:24:00Z'); // Adjusted for IST (UTC+5:30)
+      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0)); // Use Date.UTC for reliable parsing
       const ageElement = document.getElementById('current-age');
       
       function calculateAge() {
       const now = new Date();
       const ageInMilliseconds = now - birthday;
-      const ageInSeconds = ageInMilliseconds / 1000;
-      const ageInYears = ageInSeconds / (365.25 * 24 * 60 * 60);
-      ageElement.textContent = ageInYears.toFixed(10); // Increased precision for smoother updates
+      const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
+      ageElement.textContent = ageInYears.toFixed(9); // Display with 9 decimal places
       }
       
-      setInterval(calculateAge, 100); // Update 10 times per second
+      calculateAge(); // Call once to initialize
+      setInterval(calculateAge, 100); // Update 10 times a second (1000ms / 10 = 100ms)
     }
+
+    // Call the function to ensure it runs
+    updateAge();
       
 
     

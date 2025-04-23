@@ -1,4 +1,4 @@
-// Disable right-click context menu
+// Basic security measures
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     return false;
@@ -55,64 +55,235 @@ document.addEventListener('paste', (e) => {
     return false;
 });
 
-// Detect DevTools
-let devtools = function() {};
-devtools.toString = function() {
-    if (!this.opened) {
-        document.body.innerHTML = '';
-        window.location.reload();
+// Core website functionality
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize particles
+    createParticles();
+    
+    // Initialize age counter
+    updateAge();
+    
+    // Initialize GitHub stats
+    updateGitHubStats();
+    
+    // Handle navigation
+    initNavigation();
+
+    // Initialize custom cursor
+    initCustomCursor();
+});
+
+// Create particle background
+function createParticles() {
+    const container = document.getElementById('particles');
+    if (!container) return;
+    
+    const particleCount = Math.floor(window.innerWidth / 10);
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        const size = Math.random() * 5 + 1;
+        const posX = Math.random() * window.innerWidth;
+        const posY = Math.random() * window.innerHeight;
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}px`;
+        particle.style.top = `${posY}px`;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        container.appendChild(particle);
     }
-    this.opened = true;
 }
 
-// Check for DevTools
-setInterval(() => {
-    console.log(devtools);
-    console.clear();
-}, 1000);
+// Update age display
+function updateAge() {
+    const birthday = new Date(1999, 7, 6, 1, 24, 0);
+    const ageElement = document.getElementById('current-age');
+    if (!ageElement) return;
+    
+    function calculateAge() {
+        const now = new Date();
+        const ageInMilliseconds = now - birthday;
+        const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
+        ageElement.textContent = ageInYears.toFixed(12);
+    }
+    
+    calculateAge();
+    setInterval(calculateAge, 100);
+}
 
-// Additional DevTools detection
-(function() {
-    'use strict';
-    const devtools = {
-        isOpen: false,
-        orientation: undefined
-    };
+// Update GitHub stats
+function updateGitHubStats() {
+    const stats = { repos: 12, stars: 24, forks: 8, commits: 150 };
+    ['repos', 'stars', 'forks'].forEach(stat => {
+        const element = document.getElementById(`github-${stat}`);
+        if (element) element.textContent = stats[stat];
+    });
+    
+    const commitsElement = document.getElementById('github-commits');
+    if (commitsElement) commitsElement.textContent = stats.commits + '+';
+}
 
-    const threshold = 160;
-    const emitEvent = (isOpen, orientation) => {
-        if (devtools.isOpen !== isOpen || devtools.orientation !== orientation) {
-            devtools.isOpen = isOpen;
-            devtools.orientation = orientation;
-            if (isOpen) {
-                document.body.innerHTML = '';
-                window.location.reload();
+// Animate counters
+function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 200;
+    
+    counters.forEach(counter => {
+        const target = counter.textContent === '150+' ? 150 : +counter.textContent;
+        const increment = target / speed;
+        let current = 0;
+        
+        const updateCount = () => {
+            current += increment;
+            if (current < target) {
+                counter.textContent = Math.floor(current);
+                setTimeout(updateCount, 1);
+            } else {
+                counter.textContent = target + (counter.id === 'github-commits' ? '+' : '');
             }
-        }
-    };
+        };
+        
+        updateCount();
+    });
+}
 
-    setInterval(() => {
-        const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-        const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-        const orientation = widthThreshold ? 'vertical' : 'horizontal';
+// Initialize navigation
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const homePage = document.getElementById('home-page');
+    const appContainer = document.getElementById('app-container');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Hide home page if visible
+            if (homePage && homePage.style.display !== 'none') {
+                homePage.style.opacity = '0';
+                homePage.addEventListener('transitionend', function handleTransition() {
+                    homePage.style.display = 'none';
+                    if (appContainer) {
+                        appContainer.classList.remove('hidden');
+                        setTimeout(() => {
+                            appContainer.style.opacity = '1';
+                        }, 10);
+                    }
+                    homePage.removeEventListener('transitionend', handleTransition);
+                });
+            }
+            
+            // Get target page
+            const targetPage = this.dataset.page;
+            
+            // Update active states
+            navLinks.forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(el => {
+                el.classList.remove('active');
+                el.style.opacity = '0';
+            });
+            
+            // Activate clicked link
+            this.classList.add('active');
+            
+            // Show target page
+            const pageToShow = document.getElementById(`${targetPage}-page`);
+            if (pageToShow) {
+                pageToShow.classList.add('active');
+                setTimeout(() => {
+                    pageToShow.style.opacity = '1';
+                }, 10);
+                
+                // Handle special pages
+                if (targetPage === 'resume') {
+                    document.querySelectorAll('.progress-bar').forEach(bar => {
+                        if (!bar.classList.contains('animate-progress')) {
+                            bar.classList.add('animate-progress');
+                        }
+                    });
+                } else if (targetPage === 'stats') {
+                    setTimeout(animateCounters, 500);
+                }
+            }
+        });
+    });
+    
+    // Handle form submission
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                console.log('Form submitted:', data);
+                alert('Thank you for your message! I will get back to you soon.');
+                form.reset();
+            } catch (error) {
+                alert('An error occurred while sending your message. Please try again.');
+            }
+        });
+    }
+    
+    // Set about page as default when home page is hidden
+    if (homePage) {
+        homePage.addEventListener('transitionend', function() {
+            if (this.style.opacity === '0') {
+                const aboutPage = document.getElementById('about-page');
+                const aboutLink = document.querySelector('[data-page="about"]');
+                if (aboutPage) {
+                    aboutPage.classList.add('active');
+                    aboutPage.style.opacity = '1';
+                }
+                if (aboutLink) {
+                    aboutLink.classList.add('active');
+                }
+            }
+        });
+    }
+}
 
-        if (heightThreshold && widthThreshold) {
-            emitEvent(true, undefined);
-        } else if (widthThreshold) {
-            emitEvent(true, orientation);
-        } else {
-            emitEvent(false, undefined);
-        }
-    }, 500);
-})();
+// Initialize custom cursor
+function initCustomCursor() {
+    const cursor = document.createElement('div');
+    cursor.id = 'cursor';
+    const circle = document.createElement('div');
+    circle.id = 'circle';
+    cursor.appendChild(circle);
+    document.body.appendChild(cursor);
 
-// Clear console
-console.clear = function() {
-    console.log = function() {};
-    console.clear = function() {};
-};
+    // Select all interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .nav-link, .skill-tag');
+    
+    // Handle mouse over/out event on interactive elements
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', handleMouseEnter);
+        element.addEventListener('mouseleave', handleMouseLeave);
+    });
+    
+    window.addEventListener('mousemove', handleMouseMove);
 
-// Disable debugging
-eval = function() {
-    throw new Error("Sorry, this isn't allowed");
-};
+    // Move the cursor in dom/window
+    function handleMouseMove(event) {
+        const top = event.pageY - (cursor.clientHeight / 2);
+        const left = event.pageX - (cursor.clientWidth / 2);
+        cursor.style.top = top + 'px';
+        cursor.style.left = left + 'px';
+    }
+
+    // event: mouse enter on interactive element
+    function handleMouseEnter() {
+        cursor.classList.add('hovered');
+    }
+
+    // event: mouse leave on interactive element
+    function handleMouseLeave() {
+        cursor.classList.remove('hovered');
+    }
+}

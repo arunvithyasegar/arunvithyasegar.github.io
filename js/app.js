@@ -24,20 +24,8 @@ document.addEventListener('keydown', (e) => {
         return false;
     }
     
-    // Prevent Ctrl+Shift+C (Inspector)
-    if (e.ctrlKey && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
-        e.preventDefault();
-        return false;
-    }
-    
     // Prevent Ctrl+U (View Source)
     if (e.ctrlKey && (e.key === 'U' || e.key === 'u')) {
-        e.preventDefault();
-        return false;
-    }
-    
-    // Prevent Ctrl+S (Save)
-    if (e.ctrlKey && (e.key === 'S' || e.key === 's')) {
         e.preventDefault();
         return false;
     }

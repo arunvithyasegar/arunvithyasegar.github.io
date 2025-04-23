@@ -1613,6 +1613,22 @@
         document.querySelector('[data-page="about"]').classList.add('active');
       }
     });
+
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+      alert('Right-click is disabled on this website.');
+    });
+
+    // Disable text selection and copying
+    document.addEventListener('selectstart', function(event) {
+      event.preventDefault();
+    });
+
+    document.addEventListener('copy', function(event) {
+      event.preventDefault();
+      alert('Copying content is disabled on this website.');
+    });
   </script>
 </body>
 </html>

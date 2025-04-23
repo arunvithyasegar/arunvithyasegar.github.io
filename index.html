@@ -940,7 +940,6 @@
               <div class="absolute top-0 left-0 h-3 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg width-90"></div>
             </div>
             <span class="text-sm text-slate-400 ml-3 font-semibold">90%</span>
-          </li>
               </ul>
             </div>
             <div>
@@ -973,7 +972,6 @@
               <div class="absolute top-0 left-0 h-3 bg-gradient-to-r from-blue-500 to-green-500 rounded-lg width-75"></div>
             </div>
             <span class="text-sm text-slate-400 ml-3 font-semibold">75%</span>
-          </li>
               </ul>
             </div>
           </div>
@@ -1614,21 +1612,64 @@
       }
     });
 
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', function(event) {
-      event.preventDefault();
-      alert('Right-click is disabled on this website.');
+    // Disable right click
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
     });
 
-    // Disable text selection and copying
-    document.addEventListener('selectstart', function(event) {
-      event.preventDefault();
+    // Disable keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Prevent F12
+      if(e.key === 'F12' || e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+      }
+      
+      // Prevent Ctrl+Shift+I
+      if(e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        return false;
+      }
+      
+      // Prevent Ctrl+Shift+J
+      if(e.ctrlKey && e.shiftKey && e.key === 'J') {
+        e.preventDefault();
+        return false;
+      }
+      
+      // Prevent Ctrl+Shift+C
+      if(e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        return false;
+      }
+      
+      // Prevent Ctrl+U (View Source)
+      if(e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        return false;
+      }
     });
 
-    document.addEventListener('copy', function(event) {
-      event.preventDefault();
-      alert('Copying content is disabled on this website.');
-    });
+    // Attempt to detect when DevTools is opened
+    function detectDevTools() {
+      const widthThreshold = window.outerWidth - window.innerWidth > 160;
+      const heightThreshold = window.outerHeight - window.innerHeight > 160;
+      
+      if(widthThreshold || heightThreshold) {
+        document.body.innerHTML = 'Dev tools detected!';
+      }
+    }
+
+    // Check continuously
+    setInterval(detectDevTools, 1000);
+
+    // Disable text selection
+    document.onselectstart = function(e) {
+      e.preventDefault();
+      return false;
+    };
   </script>
+  <script src="js/app.js"></script>
 </body>
 </html>

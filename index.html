@@ -1528,7 +1528,9 @@
 
     // Ensure the DOM is fully loaded before running the functions
     document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
       updateAge();
+      }, 5000); // Delay execution by 5 seconds
     });
 
     // Counter animation

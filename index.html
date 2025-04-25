@@ -1512,46 +1512,46 @@
     
     // Update the age display
     function updateAge() {
-      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0)); // Use Date.UTC for reliable parsing
+      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0)); // Adjusted for IST (UTC+5:30)
       const ageElement = document.getElementById('current-age');
       
       function calculateAge() {
       const now = new Date();
       const ageInMilliseconds = now - birthday;
       const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
-      ageElement.textContent = ageInYears.toFixed(12); // Display with 11 decimal places
+      ageElement.textContent = ageInYears.toFixed(11); // Display with 11 decimal places
       }
       
       calculateAge(); // Call once to initialize
-      setInterval(calculateAge, 100); // Update 10 times a second (1000ms / 10 = 100ms)
+      setInterval(calculateAge, 100); // Update 10 times a second (100ms interval)
     }
 
-    // Call the function to ensure it runs
-    updateAge();
-      
+    // Ensure the DOM is fully loaded before running the functions
+    document.addEventListener('DOMContentLoaded', () => {
+      updateAge();
+    });
 
-    
     // Counter animation
     function animateCounters() {
       const counters = document.querySelectorAll('.counter');
-      const speed = 200;
+      const speed = 200; // Speed factor for animation
       
       counters.forEach(counter => {
-        const target = counter.textContent === '150+' ? 150 : +counter.textContent;
-        const increment = target / speed;
-        let current = 0;
-        
-        const updateCount = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.floor(current);
-            setTimeout(updateCount, 1);
-          } else {
-            counter.textContent = target + (counter.id === 'github-commits' ? '+' : '');
-          }
-        };
-        
-        updateCount();
+      const target = counter.textContent.includes('+') ? parseInt(counter.textContent) : +counter.textContent;
+      const increment = target / speed;
+      let current = 0;
+      
+      const updateCount = () => {
+        current += increment;
+        if (current < target) {
+        counter.textContent = Math.floor(current);
+        setTimeout(updateCount, 10); // Smooth animation
+        } else {
+        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+        }
+      };
+      
+      updateCount();
       });
     }
     

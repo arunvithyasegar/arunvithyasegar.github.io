@@ -3,16 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun V - Professional Business & Data Analyst Portfolio | SQL, Python, Power BI Expert</title>
-  <meta name="description" content="Professional portfolio of Arun V, a skilled Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Transforming data into actionable business insights.">
-  <meta name="keywords" content="Data Analyst, Business Analyst, SQL, Python, Power BI, Machine Learning, Data Visualization, Data Science, Analytics Portfolio">
-  <meta name="author" content="Arun V">
-  <meta property="og:title" content="Arun V - Professional Business & Data Analyst Portfolio">
-  <meta property="og:description" content="Portfolio showcasing data analysis and business intelligence projects by Arun V.">
+  <title>Arun Vithyasegar | Data Analyst & Business Analyst | Startup Tamil Nadu | Indian Startup Ecosystem</title>
+  <meta name="description" content="Professional portfolio of Arun Vithyasegar, a skilled Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Former Startup Tamil Nadu analyst contributing to the Indian Startup Ecosystem. Specializing in sustainable business solutions and ecosystem enablement.">
+  <meta name="keywords" content="Arun Vithyasegar, Data Analyst, Business Analyst, SQL Expert, Python Data Analysis, Power BI, Machine Learning, Data Visualization, Data Science, Analytics Portfolio, Arun, arunvithyasegar, Startup Tamil Nadu, Tamil, Startup, Startup India, Indian Startup Ecosystem, Sustainability, Ecosystem Enabler">
+  <meta name="author" content="Arun Vithyasegar">
+  <meta property="og:title" content="Arun Vithyasegar - Professional Business & Data Analyst | Startup Tamil Nadu">
+  <meta property="og:description" content="Portfolio showcasing data analysis and business intelligence projects by Arun Vithyasegar. Expert in SQL, Python, Power BI, and contributor to the Indian Startup Ecosystem.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://arunvithyasegar.com">
   <meta property="og:image" content="https://arunvithyasegar.com/icon.png">
+  <meta property="og:site_name" content="Arun Vithyasegar Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arun Vithyasegar - Data & Business Analyst | Startup Ecosystem">
+  <meta name="twitter:description" content="Professional portfolio of Arun Vithyasegar, expert in data analysis, business intelligence, and contributor to the Indian Startup Ecosystem.">
+  <meta name="twitter:image" content="https://arunvithyasegar.com/icon.png">
   <link rel="canonical" href="https://arunvithyasegar.com">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Arun Vithyasegar",
+      "url": "https://arunvithyasegar.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/arunvithyasegar/",
+        "https://github.com/arunvithyasegar",
+        "https://twitter.com/arunvithyasegar"
+      ],
+      "jobTitle": "Business & Data Analyst",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Startup Tamil Nadu",
+        "description": "Government of Tamil Nadu's initiative to foster startup ecosystem"
+      },
+      "description": "Professional Data Analyst and Business Analyst with expertise in SQL, Python, and Power BI. Former Startup Tamil Nadu analyst contributing to the Indian Startup Ecosystem. Specializing in sustainable business solutions and ecosystem enablement.",
+      "knowsAbout": [
+        "Data Analysis",
+        "Business Intelligence",
+        "Startup Ecosystem",
+        "Sustainability",
+        "Ecosystem Enablement",
+        "SQL",
+        "Python",
+        "Power BI",
+        "Machine Learning"
+      ],
+      "email": "hi@arunvithyasegar.com",
+      "image": "https://arunvithyasegar.com/icon.png"
+    }
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
@@ -40,11 +78,14 @@
   
   <style>
     :root {
-      --primary: #3b82f6;
-      --primary-dark: #2563eb;
-      --secondary: #10b981;
-      --dark: #1f2937;
+      --primary: #00f7ff;
+      --primary-dark: #00c4ff;
+      --secondary: #ff00ff;
+      --dark: #0a0a1a;
       --light: #f9fafb;
+      --neon-glow: 0 0 10px rgba(0, 247, 255, 0.7),
+                   0 0 20px rgba(0, 247, 255, 0.5),
+                   0 0 30px rgba(0, 247, 255, 0.3);
     }
     
     html {
@@ -53,13 +94,16 @@
     
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0f172a;
+      background-color: var(--dark);
       color: #e2e8f0;
       overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 247, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 0% 0%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
     }
     
     .glow {
-      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+      text-shadow: var(--neon-glow);
     }
     
     .neon-border {
@@ -67,6 +111,7 @@
       border: 1px solid transparent;
       background-clip: padding-box;
       border-radius: 0.5rem;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.2);
     }
     
     .neon-border::before {
@@ -79,19 +124,20 @@
       z-index: -1;
       margin: -1px;
       border-radius: inherit;
-      background: linear-gradient(135deg, #3b82f6, #10b981);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       opacity: 0.7;
+      box-shadow: var(--neon-glow);
     }
     
     .particle {
       position: absolute;
       border-radius: 50%;
-      background: rgba(59, 130, 246, 0.3);
+      background: rgba(0, 247, 255, 0.3);
       pointer-events: none;
       z-index: -1;
       animation: particle-float 4s ease-in-out infinite;
       transition: all 0.3s ease;
-      filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+      filter: drop-shadow(0 0 5px rgba(0, 247, 255, 0.5));
     }
     
     @keyframes particle-float {
@@ -103,11 +149,13 @@
     .cursor-trail {
       transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
       mix-blend-mode: screen;
+      background: radial-gradient(circle, var(--primary), transparent);
     }
     
     .cursor-trail-follower {
       transition: transform 0.2s ease, width 0.4s ease, height 0.4s ease;
       mix-blend-mode: overlay;
+      background: radial-gradient(circle, var(--secondary), transparent);
     }
     
     .floating {
@@ -125,25 +173,27 @@
     }
     
     .holographic-card {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(10, 10, 26, 0.7);
       -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(0, 247, 255, 0.2);
       transition: all 0.3s ease;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
     }
     
     .holographic-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
-      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 25px -5px rgba(0, 247, 255, 0.3);
+      border-color: rgba(0, 247, 255, 0.5);
     }
     
     .progress-bar {
-      background-color: #1e293b;
+      background-color: #1a1a2e;
       height: 0.5rem;
       border-radius: 9999px;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.2);
     }
     
     .progress-bar::after {
@@ -157,6 +207,7 @@
       transform-origin: left;
       transform: scaleX(0);
       transition: transform 1.5s ease;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
     }
     
     .animate-progress .progress-bar::after {
@@ -207,6 +258,7 @@
     .nav-link {
       transition: all 0.3s ease;
       position: relative;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .nav-link::before {
@@ -216,12 +268,14 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: var(--primary);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       transition: width 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
     }
     
     .nav-link:hover {
       color: var(--primary);
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .nav-link:hover::before {
@@ -231,6 +285,7 @@
     .nav-link.active {
       color: var(--primary);
       font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .nav-link.active::before {
@@ -239,20 +294,23 @@
     
     .social-icon {
       transition: all 0.3s ease;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .social-icon:hover {
       transform: translateY(-3px) scale(1.1);
       color: var(--primary);
+      text-shadow: 0 0 15px rgba(0, 247, 255, 0.8);
     }
     
     .project-card {
       transition: all 0.3s ease;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: rgba(10, 10, 26, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.2);
       border-radius: 0.5rem;
       overflow: hidden;
       position: relative;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
     }
     
     .project-card::before {
@@ -266,12 +324,13 @@
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
     }
     
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
-      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 25px -5px rgba(0, 247, 255, 0.3);
+      border-color: rgba(0, 247, 255, 0.5);
     }
     
     .project-card:hover::before {
@@ -280,15 +339,17 @@
     
     .skill-tag {
       transition: all 0.3s ease;
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: rgba(26, 26, 46, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.2);
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.1);
     }
     
     .skill-tag:hover {
       transform: translateY(-2px);
       background-color: var(--primary);
-      color: white;
+      color: var(--dark);
       border-color: var(--primary);
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
     }
     
     .contact-input {
@@ -305,67 +366,76 @@
     }
     
     .submit-btn {
-      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 247, 255, 0.2);
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 8px rgba(0, 247, 255, 0.3);
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .stats-card {
       transition: all 0.3s ease;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: rgba(10, 10, 26, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.2);
       border-radius: 0.75rem;
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
     }
     
     .stats-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
-      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 15px -3px rgba(0, 247, 255, 0.3);
+      border-color: rgba(0, 247, 255, 0.5);
     }
     
     .certification-item {
       transition: all 0.3s ease;
-      background: rgba(15, 23, 42, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: rgba(10, 10, 26, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.2);
+      box-shadow: 0 0 20px rgba(0, 247, 255, 0.1);
     }
     
     .certification-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
-      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 15px -3px rgba(0, 247, 255, 0.3);
+      border-color: rgba(0, 247, 255, 0.5);
     }
     
     .view-credential {
       transition: all 0.3s ease;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .view-credential:hover {
       letter-spacing: 0.5px;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .counter {
       font-variant-numeric: tabular-nums;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .learn-more-btn {
-      background: linear-gradient(90deg, #3b82f6, #10b981);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       transition: all 0.3s ease;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 6px rgba(0, 247, 255, 0.2);
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .learn-more-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 8px rgba(0, 247, 255, 0.3);
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     .stat-item {
       padding: 0.75rem 0;
-      border-bottom: 1px solid #1e293b;
+      border-bottom: 1px solid rgba(0, 247, 255, 0.2);
     }
     
     .stat-item:last-child {
@@ -373,26 +443,28 @@
     }
     
     .copyright {
-      background-color: #020617;
+      background-color: #0a0a1a;
       color: #94a3b8;
       padding: 1rem;
       text-align: center;
       font-size: 0.875rem;
-      border-top: 1px solid #1e293b;
+      border-top: 1px solid rgba(0, 247, 255, 0.2);
     }
     
     .copyright a {
-      color: #60a5fa;
+      color: var(--primary);
       transition: color 0.3s ease;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .copyright a:hover {
-      color: #3b82f6;
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     /* Home page specific styles */
     .home-container {
-      background: radial-gradient(circle at 50% 50%, #0f172a, #020617);
+      background: radial-gradient(circle at 50% 50%, #0a0a1a, #000000);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -403,11 +475,12 @@
     
     .home-title {
       font-size: 4rem;
-      background: linear-gradient(90deg, #3b82f6, #10b981);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
+      text-shadow: var(--neon-glow);
     }
     
     .home-subtitle {
@@ -415,12 +488,14 @@
       color: #94a3b8;
       margin-bottom: 2rem;
       max-width: 800px;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .home-description {
       color: #94a3b8;
       margin-bottom: 3rem;
       max-width: 600px;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.3);
     }
     
     .home-links {
@@ -432,31 +507,36 @@
     .home-link {
       padding: 0.75rem 1.5rem;
       border-radius: 0.5rem;
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: rgba(26, 26, 46, 0.7);
+      border: 1px solid rgba(0, 247, 255, 0.2);
       transition: all 0.3s ease;
       color: #e2e8f0;
       text-decoration: none;
+      box-shadow: 0 0 10px rgba(0, 247, 255, 0.1);
     }
     
     .home-link:hover {
-      background: rgba(59, 130, 246, 0.2);
-      border-color: rgba(59, 130, 246, 0.5);
+      background: rgba(0, 247, 255, 0.2);
+      border-color: rgba(0, 247, 255, 0.5);
       transform: translateY(-3px);
+      box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
     }
     
     .home-source {
       color: #94a3b8;
       font-size: 0.875rem;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.3);
     }
     
     .home-source a {
-      color: #60a5fa;
+      color: var(--primary);
       text-decoration: none;
+      text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
     }
     
     .home-source a:hover {
       text-decoration: underline;
+      text-shadow: 0 0 10px rgba(0, 247, 255, 0.8);
     }
     
     /* Active page styles */
@@ -494,12 +574,12 @@
   <!-- Home Page -->
   <section id="home-page" class="home-container fixed inset-0 z-50 flex flex-col justify-center items-center">
     <h1 class="home-title glow">Arun V</h1>
-    <h2 class="home-subtitle">Business & Data Analyst</h2>
+    <h2 class="home-subtitle">Business & Data Analyst </h2>
     <p class="home-description">
-      A beautiful, responsive, statically-generated portfolio application written with modern Javascript.
+      Professional Data Analyst and Business Analyst with expertise in SQL, Python, and Power BI. Former Startup Tamil Nadu analyst contributing to the Indian Startup Ecosystem. Specializing in sustainable business solutions and ecosystem enablement.
     </p>
     <p class="home-description">
-      Welcome to my website. Please feel free to read more about me, or you can check out my resume, projects, view site statistics, or contact me.
+      Welcome to my professional portfolio. I'm Arun Vithyasegar, a Data and Business Analyst.
     </p>
     <div class="home-links">
       <a href="/about" class="home-link nav-link" data-page="about"><span>About</span></a>
@@ -1371,10 +1451,10 @@
   </div>
 
   <script>
-    // Particle Background
+    // Enhanced Particle Background
     function createParticles() {
       const container = document.getElementById('particles');
-      const particleCount = Math.floor(window.innerWidth / 10);
+      const particleCount = Math.floor(window.innerWidth / 5);
       
       for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
@@ -1385,18 +1465,21 @@
         const posY = Math.random() * window.innerHeight;
         const duration = Math.random() * 10 + 10;
         const delay = Math.random() * 5;
+        const color = Math.random() > 0.5 ? 'rgba(0, 247, 255, 0.3)' : 'rgba(255, 0, 255, 0.3)';
         
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
         particle.style.left = `${posX}px`;
         particle.style.top = `${posY}px`;
+        particle.style.background = color;
         particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        particle.style.boxShadow = `0 0 10px ${color}`;
         
         container.appendChild(particle);
       }
     }
     
-    // Cursor effects
+    // Enhanced Cursor effects
     const cursor = document.querySelector('.cursor-trail');
     const cursorFollower = document.querySelector('.cursor-trail-follower');
     
@@ -1404,35 +1487,35 @@
       const { clientX: x, clientY: y } = e;
       cursor.style.transform = `translate(${x}px, ${y}px)`;
       
-      // Smooth follower effect
+      // Smooth follower effect with rotation
       cursorFollower.style.transition = 'transform 0.1s ease-out';
-      cursorFollower.style.transform = `translate(${x}px, ${y}px)`;
+      cursorFollower.style.transform = `translate(${x}px, ${y}px) rotate(${x * 0.1}deg)`;
     });
 
-    // Interactive cursor effects
+    // Enhanced Interactive cursor effects
     document.querySelectorAll('a, button, .project-card, .nav-link, .skill-tag').forEach(el => {
       el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(3)';
-      cursor.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.8), rgba(10, 25, 47, 0.5))';
-      cursor.style.boxShadow = '0 0 20px rgba(59, 130, 246, 0.8), 0 0 40px rgba(59, 130, 246, 0.6)';
-      
-      cursorFollower.style.transform = 'translate(-50%, -50%) scale(3.5)';
-      cursorFollower.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.5), rgba(10, 25, 47, 0.3))';
-      cursorFollower.style.boxShadow = '0 0 15px rgba(59, 130, 246, 0.6)';
+        cursor.style.transform = 'translate(-50%, -50%) scale(3)';
+        cursor.style.background = 'radial-gradient(circle, rgba(0, 247, 255, 0.8), rgba(10, 10, 26, 0.5))';
+        cursor.style.boxShadow = '0 0 20px rgba(0, 247, 255, 0.8), 0 0 40px rgba(0, 247, 255, 0.6)';
+        
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(3.5) rotate(45deg)';
+        cursorFollower.style.background = 'radial-gradient(circle, rgba(255, 0, 255, 0.5), rgba(10, 10, 26, 0.3))';
+        cursorFollower.style.boxShadow = '0 0 15px rgba(255, 0, 255, 0.6)';
       });
       
       el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      cursor.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.3), rgba(10, 25, 47, 0.1))';
-      cursor.style.boxShadow = 'none';
-      
-      cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
-      cursorFollower.style.background = 'radial-gradient(circle, rgba(59, 130, 246, 0.2), rgba(10, 25, 47, 0.1))';
-      cursorFollower.style.boxShadow = 'none';
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        cursor.style.background = 'radial-gradient(circle, rgba(0, 247, 255, 0.3), rgba(10, 10, 26, 0.1))';
+        cursor.style.boxShadow = 'none';
+        
+        cursorFollower.style.transform = 'translate(-50%, -50%) scale(1) rotate(0deg)';
+        cursorFollower.style.background = 'radial-gradient(circle, rgba(255, 0, 255, 0.2), rgba(10, 10, 26, 0.1))';
+        cursorFollower.style.boxShadow = 'none';
       });
     });
 
-    // Add ripple effect on click
+    // Enhanced ripple effect on click
     document.addEventListener('click', (e) => {
       const ripple = document.createElement('div');
       ripple.classList.add('ripple-effect');
@@ -1443,42 +1526,44 @@
       ripple.style.height = `${size}px`;
       ripple.style.left = `${e.clientX - size / 2}px`;
       ripple.style.top = `${e.clientY - size / 2}px`;
+      ripple.style.background = 'radial-gradient(circle, rgba(0, 247, 255, 0.7), rgba(255, 0, 255, 0.3))';
+      ripple.style.boxShadow = '0 0 20px rgba(0, 247, 255, 0.5)';
       
       setTimeout(() => ripple.remove(), 800);
     });
 
-    // Ripple effect styles
+    // Enhanced Ripple effect styles
     const style = document.createElement('style');
     style.textContent = `
       .ripple-effect {
-      position: absolute;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.7), rgba(10, 25, 47, 0.3));
-      pointer-events: none;
-      animation: ripple-animation 0.8s ease-out;
-      z-index: 9999;
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: ripple-animation 0.8s ease-out;
+        z-index: 9999;
       }
       
       @keyframes ripple-animation {
-      from {
-        transform: scale(0);
-        opacity: 1;
-      }
-      to {
-        transform: scale(5);
-        opacity: 0;
-      }
+        from {
+          transform: scale(0);
+          opacity: 1;
+        }
+        to {
+          transform: scale(5);
+          opacity: 0;
+        }
       }
     `;
     document.head.appendChild(style);
     
-    // Page navigation
+    // Enhanced Page navigation with 3D effect
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Hide home page
+        // Hide home page with 3D effect
         const homePage = document.getElementById('home-page');
+        homePage.style.transform = 'rotateX(90deg)';
         homePage.style.opacity = '0';
         homePage.addEventListener('transitionend', function handleTransitionEnd() {
           homePage.style.display = 'none';
@@ -1497,16 +1582,18 @@
         document.querySelectorAll('.page').forEach(el => {
           el.classList.remove('active');
           el.style.opacity = '0';
+          el.style.transform = 'rotateX(-90deg)';
         });
         
         // Add active class to clicked link
         this.classList.add('active');
         
-        // Show target page
+        // Show target page with 3D effect
         const pageToShow = document.getElementById(`${targetPage}-page`);
         pageToShow.classList.add('active');
         setTimeout(() => {
           pageToShow.style.opacity = '1';
+          pageToShow.style.transform = 'rotateX(0deg)';
         }, 10);
         
         // Animate progress bars when resume page is shown
@@ -1525,99 +1612,88 @@
       });
     });
     
-    // Update the age display
+    // Enhanced age display with gradient animation
     function updateAge() {
-      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0)); // Adjusted for IST (UTC+5:30)
+      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0));
       const ageElement = document.getElementById('current-age');
       
       function calculateAge() {
-      const now = new Date();
-      const ageInMilliseconds = now - birthday;
-      const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
-      ageElement.textContent = ageInYears.toFixed(11); // Display with 11 decimal places
+        const now = new Date();
+        const ageInMilliseconds = now - birthday;
+        const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
+        ageElement.textContent = ageInYears.toFixed(11);
+        ageElement.style.background = `linear-gradient(90deg, var(--primary), var(--secondary))`;
+        ageElement.style.webkitBackgroundClip = 'text';
+        ageElement.style.backgroundClip = 'text';
+        ageElement.style.color = 'transparent';
+        ageElement.style.textShadow = 'var(--neon-glow)';
       }
       
-      calculateAge(); // Call once to initialize
-      setInterval(calculateAge, 100); // Update 10 times a second (100ms interval)
+      calculateAge();
+      setInterval(calculateAge, 100);
     }
 
-    // Ensure the DOM is fully loaded before running the functions
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(() => {
-      updateAge();
-      }, 5000); // Delay execution by 5 seconds
-    });
-
-    // Counter animation
+    // Enhanced counter animation with gradient effect
     function animateCounters() {
       const counters = document.querySelectorAll('.counter');
-      const speed = 200; // Speed factor for animation
+      const speed = 200;
       
       counters.forEach(counter => {
-      const target = counter.textContent.includes('+') ? parseInt(counter.textContent) : +counter.textContent;
-      const increment = target / speed;
-      let current = 0;
-      
-      const updateCount = () => {
-        current += increment;
-        if (current < target) {
-        counter.textContent = Math.floor(current);
-        setTimeout(updateCount, 10); // Smooth animation
-        } else {
-        counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
-        }
-      };
-      
-      updateCount();
+        const target = counter.textContent.includes('+') ? parseInt(counter.textContent) : +counter.textContent;
+        const increment = target / speed;
+        let current = 0;
+        
+        const updateCount = () => {
+          current += increment;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            counter.style.background = `linear-gradient(90deg, var(--primary), var(--secondary))`;
+            counter.style.webkitBackgroundClip = 'text';
+            counter.style.backgroundClip = 'text';
+            counter.style.color = 'transparent';
+            counter.style.textShadow = 'var(--neon-glow)';
+            setTimeout(updateCount, 10);
+          } else {
+            counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+          }
+        };
+        
+        updateCount();
       });
     }
     
-    // Update GitHub stats
+    // Enhanced GitHub stats with gradient effect
     function updateGitHubStats() {
       const stats = { repos: 12, stars: 24, forks: 8, commits: 150 };
-      document.getElementById('github-repos').textContent = stats.repos;
-      document.getElementById('github-stars').textContent = stats.stars;
-      document.getElementById('github-forks').textContent = stats.forks;
-      document.getElementById('github-commits').textContent = stats.commits + '+';
+      const elements = {
+        repos: document.getElementById('github-repos'),
+        stars: document.getElementById('github-stars'),
+        forks: document.getElementById('github-forks'),
+        commits: document.getElementById('github-commits')
+      };
+      
+      Object.entries(stats).forEach(([key, value]) => {
+        elements[key].textContent = value + (key === 'commits' ? '+' : '');
+        elements[key].style.background = `linear-gradient(90deg, var(--primary), var(--secondary))`;
+        elements[key].style.webkitBackgroundClip = 'text';
+        elements[key].style.backgroundClip = 'text';
+        elements[key].style.color = 'transparent';
+        elements[key].style.textShadow = 'var(--neon-glow)';
+      });
     }
     
-    // Form submission
-    document.querySelector('form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
-      
-      try {
-        // In a real application, you would send this to your backend
-        console.log('Form submitted:', data);
-        
-        // Show success message
-        alert('Thank you for your message! I will get back to you soon.');
-        form.reset();
-      } catch (error) {
-        alert('An error occurred while sending your message. Please check your connection and try again.');
-      }
-    });
-    
-    // Make external links open in new tab
-    document.querySelectorAll('a[href^="http"]').forEach(link => {
-      if (!link.href.includes(window.location.host)) {
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-      }
-    });
-    
-    // Initialize
+    // Initialize with enhanced effects
     createParticles();
     updateAge();
     updateGitHubStats();
     
-    // Set about page as default when home page is hidden
+    // Set about page as default with 3D effect
     document.getElementById('home-page').addEventListener('transitionend', function() {
       if (this.style.opacity === '0') {
-        document.getElementById('about-page').classList.add('active');
-        document.getElementById('about-page').style.opacity = '1';
+        const aboutPage = document.getElementById('about-page');
+        aboutPage.classList.add('active');
+        aboutPage.style.opacity = '1';
+        aboutPage.style.transform = 'rotateX(0deg)';
         document.querySelector('[data-page="about"]').classList.add('active');
       }
     });

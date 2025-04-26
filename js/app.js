@@ -57,50 +57,71 @@ document.addEventListener('paste', (e) => {
 
 // Core website functionality
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize particles
-    createParticles();
-    
-    // Initialize age counter
-    updateAge();
-    
-    // Initialize GitHub stats
-    updateGitHubStats();
-    
-    // Handle navigation
-    initNavigation();
+    // Show loading state
+    const loading = document.createElement('div');
+    loading.className = 'loading';
+    loading.innerHTML = '<div class="loading-spinner"></div>';
+    document.body.appendChild(loading);
 
-    // Initialize custom cursor
-    initCustomCursor();
+    // Initialize components after a short delay to ensure smooth loading
+    setTimeout(() => {
+        // Initialize particles with optimized performance
+        createParticles();
+        
+        // Initialize age counter
+        updateAge();
+        
+        // Initialize GitHub stats
+        updateGitHubStats();
+        
+        // Handle navigation
+        initNavigation();
+
+        // Initialize custom cursor
+        initCustomCursor();
+
+        // Hide loading state
+        loading.classList.add('hidden');
+        setTimeout(() => loading.remove(), 300);
+    }, 100);
 });
 
-// Create particle background
+// Create particle background with optimized performance
 function createParticles() {
     const container = document.getElementById('particles');
     if (!container) return;
     
-    const particleCount = Math.floor(window.innerWidth / 10);
+    // Adjust particle count based on screen size and performance
+    const particleCount = Math.min(Math.floor(window.innerWidth / 15), 100);
+    
+    // Use DocumentFragment for better performance
+    const fragment = document.createDocumentFragment();
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.classList.add('particle');
         
-        const size = Math.random() * 5 + 1;
+        const size = Math.random() * 3 + 1; // Smaller particles for better performance
         const posX = Math.random() * window.innerWidth;
         const posY = Math.random() * window.innerHeight;
-        const duration = Math.random() * 10 + 10;
+        const duration = Math.random() * 15 + 15; // Slower animation for smoother effect
         const delay = Math.random() * 5;
         
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        particle.style.cssText = `
+            width: ${size}px;
+            height: ${size}px;
+            left: ${posX}px;
+            top: ${posY}px;
+            animation: float ${duration}s ease-in-out ${delay}s infinite;
+        `;
         
-        container.appendChild(particle);
+        fragment.appendChild(particle);
     }
+    
+    container.appendChild(fragment);
 }
 
-// Update age display
+// Update age display with smoother animation
 function updateAge() {
     const birthday = new Date(1999, 7, 6, 1, 24, 0);
     const ageElement = document.getElementById('current-age');
@@ -113,8 +134,13 @@ function updateAge() {
         ageElement.textContent = ageInYears.toFixed(12);
     }
     
-    calculateAge();
-    setInterval(calculateAge, 100);
+    // Use requestAnimationFrame for smoother updates
+    function update() {
+        calculateAge();
+        requestAnimationFrame(update);
+    }
+    
+    update();
 }
 
 // Update GitHub stats
@@ -129,7 +155,7 @@ function updateGitHubStats() {
     if (commitsElement) commitsElement.textContent = stats.commits + '+';
 }
 
-// Animate counters
+// Optimize counter animations
 function animateCounters() {
     const counters = document.querySelectorAll('.counter');
     const speed = 200;
@@ -139,21 +165,21 @@ function animateCounters() {
         const increment = target / speed;
         let current = 0;
         
-        const updateCount = () => {
+        function updateCount() {
             current += increment;
             if (current < target) {
                 counter.textContent = Math.floor(current);
-                setTimeout(updateCount, 1);
+                requestAnimationFrame(updateCount);
             } else {
                 counter.textContent = target + (counter.id === 'github-commits' ? '+' : '');
             }
-        };
+        }
         
-        updateCount();
+        requestAnimationFrame(updateCount);
     });
 }
 
-// Initialize navigation
+// Initialize navigation with smooth transitions
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
     const homePage = document.getElementById('home-page');
@@ -163,6 +189,12 @@ function initNavigation() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Add loading state
+            const loading = document.createElement('div');
+            loading.className = 'loading';
+            loading.innerHTML = '<div class="loading-spinner"></div>';
+            document.body.appendChild(loading);
+            
             // Hide home page if visible
             if (homePage && homePage.style.display !== 'none') {
                 homePage.style.opacity = '0';
@@ -170,9 +202,9 @@ function initNavigation() {
                     homePage.style.display = 'none';
                     if (appContainer) {
                         appContainer.classList.remove('hidden');
-                        setTimeout(() => {
+                        requestAnimationFrame(() => {
                             appContainer.style.opacity = '1';
-                        }, 10);
+                        });
                     }
                     homePage.removeEventListener('transitionend', handleTransition);
                 });
@@ -191,24 +223,28 @@ function initNavigation() {
             // Activate clicked link
             this.classList.add('active');
             
-            // Show target page
+            // Show target page with smooth transition
             const pageToShow = document.getElementById(`${targetPage}-page`);
             if (pageToShow) {
                 pageToShow.classList.add('active');
-                setTimeout(() => {
+                requestAnimationFrame(() => {
                     pageToShow.style.opacity = '1';
-                }, 10);
-                
-                // Handle special pages
-                if (targetPage === 'resume') {
-                    document.querySelectorAll('.progress-bar').forEach(bar => {
-                        if (!bar.classList.contains('animate-progress')) {
-                            bar.classList.add('animate-progress');
-                        }
-                    });
-                } else if (targetPage === 'stats') {
-                    setTimeout(animateCounters, 500);
-                }
+                    
+                    // Handle special pages
+                    if (targetPage === 'resume') {
+                        document.querySelectorAll('.progress-bar').forEach(bar => {
+                            if (!bar.classList.contains('animate-progress')) {
+                                bar.classList.add('animate-progress');
+                            }
+                        });
+                    } else if (targetPage === 'stats') {
+                        setTimeout(animateCounters, 500);
+                    }
+                    
+                    // Hide loading state
+                    loading.classList.add('hidden');
+                    setTimeout(() => loading.remove(), 300);
+                });
             }
         });
     });

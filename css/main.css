@@ -8,9 +8,15 @@
   --blockquote-accent-color: #4a5568;
   --blockquote-text-color: #4a5568;
   --spacing-inline: 0.5rem;
+  --transition-duration: 0.3s;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Nunito", "Segoe UI", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
@@ -18,6 +24,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1,
@@ -300,6 +307,8 @@ aside li {
   display: flex;
   align-items: center;
   padding-left: 0.5rem;
+  transition: width 1s var(--transition-timing);
+  will-change: width;
 }
 
 .skill-bar-label {
@@ -470,4 +479,72 @@ blockquote {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+}
+
+/* Add smooth transitions */
+.page {
+  transition: opacity var(--transition-duration) var(--transition-timing),
+              transform var(--transition-duration) var(--transition-timing);
+  will-change: opacity, transform;
+}
+
+.page.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optimize particle animations */
+.particle {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smooth counter animations */
+.counter {
+  transition: transform 0.2s var(--transition-timing);
+  will-change: transform;
+}
+
+.counter:hover {
+  transform: scale(1.05);
+}
+
+/* Loading state */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity var(--transition-duration) var(--transition-timing);
+}
+
+.loading.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid var(--link-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

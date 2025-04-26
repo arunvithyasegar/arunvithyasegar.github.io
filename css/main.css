@@ -1,30 +1,40 @@
 :root {
-  --link-color: #0077cc;
-  --link-color-hover: #00487c;
-  --header-footer-bg-color: #f0f0f0;
-  --aside-accent-color: #9d836b;
-  --skill-bar-fill-color: #f3e4c6;
-  --blockquote-bg-color: #f7fafc;
-  --blockquote-accent-color: #4a5568;
-  --blockquote-text-color: #4a5568;
+  /* Teenage Engineering inspired colors */
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #00ff00;
+  --accent-color: #ff00ff;
+  --border-color: #00ff00;
+  --link-color: #00ff00;
+  --link-color-hover: #ff00ff;
+  --header-footer-bg-color: #1a1a1a;
+  --skill-bar-fill-color: #00ff00;
+  --blockquote-bg-color: #1a1a1a;
+  --blockquote-accent-color: #ff00ff;
   --spacing-inline: 0.5rem;
-  --transition-duration: 0.3s;
+  --transition-duration: 0.2s;
   --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --scroll: 0;
 }
 
 /* Base Styles */
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg-primary);
 }
 
 body {
-  font-family: "Nunito", "Segoe UI", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: "Courier New", monospace;
   font-weight: 400;
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-duration) var(--transition-timing);
+  letter-spacing: 0.05em;
 }
 
 h1,
@@ -34,22 +44,27 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-family: "Montserrat", "Segoe UI", "Helvetica Neue", Helvetica, Arial,
-    sans-serif;
+  font-family: "Courier New", monospace;
   font-weight: 400;
   line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  text-shadow: 0 0 5px var(--text-secondary);
+  overflow: hidden;
+  border-right: 2px solid var(--accent-color);
+  white-space: nowrap;
+  animation: blink-caret 0.75s step-end infinite;
 }
 
 h1 {
   font-size: 2rem;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 h2 {
   font-size: 1.4rem;
   font-weight: 500;
-  text-transform: uppercase;
 }
 
 h3 {
@@ -77,13 +92,31 @@ p {
 }
 
 a {
-  color: var(--link-color) !important;
+  color: var(--link-color);
   text-decoration: none;
+  transition: all 0.3s var(--transition-timing);
+  position: relative;
 }
 
 a:hover {
-  color: var(--link-color-hover);
-  text-decoration: underline;
+  color: var(--accent-color);
+  text-shadow: 0 0 5px var(--accent-color);
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--transition-timing);
+}
+
+a:hover::after {
+  transform: scaleX(1);
 }
 
 address {
@@ -117,6 +150,8 @@ footer {
 
 section {
   margin-bottom: 1.5rem;
+  transform: translateY(calc(var(--scroll) * 0.1px));
+  transition: transform 0.1s ease-out;
 }
 
 /* Utility */
@@ -137,6 +172,11 @@ section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: var(--bg-secondary);
+  box-shadow: 0 0 10px var(--border-color);
 }
 
 .page-content .container {
@@ -147,6 +187,7 @@ section {
 .page-header,
 .page-footer {
   background: var(--header-footer-bg-color);
+  border-color: var(--border-color);
 }
 
 .page-header {
@@ -289,26 +330,19 @@ aside li {
 
 /* Skillbars */
 .skill-bar {
-  width: 100%;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
   height: 1.5rem;
-  margin-top: 0.25rem;
-  margin-bottom: 1rem;
-  background: #eee;
-  border: 1px solid #848484;
-  border-radius: 2px;
+  margin: 0.5rem 0;
+  position: relative;
   overflow: hidden;
 }
 
 .skill-bar-fill {
   height: 100%;
-  background: var(--skill-bar-fill-color) !important;
-  border-right: 1px solid #848484;
-  border-radius: 2px;
-  display: flex;
-  align-items: center;
-  padding-left: 0.5rem;
+  background-color: var(--skill-bar-fill-color);
   transition: width 1s var(--transition-timing);
-  will-change: width;
+  box-shadow: 0 0 10px var(--skill-bar-fill-color);
 }
 
 .skill-bar-label {
@@ -372,15 +406,23 @@ aside li {
 
 /* Blockquotes */
 blockquote {
-  margin: 1rem 2rem;
-  padding: 1.5rem 2rem;
-  background-color: var(--blockquote-bg-color);
   border-left: 4px solid var(--blockquote-accent-color);
+  background-color: var(--blockquote-bg-color);
+  padding: 1rem;
+  margin: 1rem 0;
   font-style: italic;
-  color: var(--blockquote-text-color);
-  line-height: 1.6;
-  border-radius: 0 4px 4px 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+blockquote::before {
+  content: '"';
+  position: absolute;
+  font-size: 4rem;
+  color: var(--blockquote-accent-color);
+  opacity: 0.2;
+  top: -1rem;
+  left: 0;
 }
 
 @media (min-width: 37.5rem) {
@@ -481,16 +523,38 @@ blockquote {
   }
 }
 
-/* Add smooth transitions */
-.page {
-  transition: opacity var(--transition-duration) var(--transition-timing),
-              transform var(--transition-duration) var(--transition-timing);
-  will-change: opacity, transform;
+/* Navigation Styles */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s var(--transition-timing);
+  will-change: transform, color;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  margin: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
-.page.hidden {
+.nav-link:hover {
+  color: var(--accent-color);
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+.nav-link.active {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background-color: var(--bg-primary);
+}
+
+/* Page Transitions */
+.page {
   opacity: 0;
   transform: translateY(20px);
+  transition: all 0.5s var(--transition-timing);
+  will-change: opacity, transform;
 }
 
 .page.active {
@@ -498,24 +562,7 @@ blockquote {
   transform: translateY(0);
 }
 
-/* Optimize particle animations */
-.particle {
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* Smooth counter animations */
-.counter {
-  transition: transform 0.2s var(--transition-timing);
-  will-change: transform;
-}
-
-.counter:hover {
-  transform: scale(1.05);
-}
-
-/* Loading state */
+/* Loading State */
 .loading {
   position: fixed;
   top: 0;
@@ -538,13 +585,265 @@ blockquote {
 .loading-spinner {
   width: 50px;
   height: 50px;
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid var(--link-color);
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--accent-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  box-shadow: 0 0 10px var(--accent-color);
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Age Counter Styles */
+#current-age {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  transition: transform 0.2s var(--transition-timing);
+  will-change: transform;
+  display: inline-block;
+  min-width: 8.5em; /* Ensure consistent width to prevent layout shifts */
+  text-align: right;
+}
+
+#current-age:hover {
+  transform: scale(1.05);
+}
+
+/* Ensure counter class has proper styling */
+.counter {
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-shadow: 0 0 5px var(--text-secondary);
+  transition: all 0.3s var(--transition-timing);
+}
+
+/* Optimize particle animations */
+.particle {
+  background-color: var(--text-secondary);
+  box-shadow: 0 0 5px var(--text-secondary);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  animation-timing-function: linear;
+}
+
+/* Smooth counter animations */
+.counter:hover {
+  transform: scale(1.05);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-duration) var(--transition-timing);
+  z-index: 1000;
+  box-shadow: 0 0 10px var(--border-color);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+.theme-toggle svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--text-primary);
+  transition: fill var(--transition-duration) var(--transition-timing);
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .theme-toggle {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .theme-toggle svg {
+  fill: var(--text-primary);
+}
+
+/* Teenage Engineering inspired social icons */
+.social-icon {
+  color: var(--text-secondary);
+  transition: all 0.3s var(--transition-timing);
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+}
+
+.social-icon:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
+  text-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Teenage Engineering inspired buttons */
+button {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  transition: all 0.3s var(--transition-timing);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, var(--accent-color), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.3s var(--transition-timing);
+}
+
+button:hover::before {
+  transform: translateX(100%);
+}
+
+button:hover {
+  background-color: var(--bg-primary);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Teenage Engineering inspired form elements */
+input, textarea {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  font-family: "Courier New", monospace;
+  transition: all 0.3s var(--transition-timing);
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Teenage Engineering inspired scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* Teenage Engineering inspired animations */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  mix-blend-mode: difference;
+}
+
+/* Glitch effect styles */
+.glitch {
+  mix-blend-mode: screen;
+}
+
+/* Teenage Engineering inspired hover effects */
+.nav-link:hover,
+.social-icon:hover,
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Scroll-based effects */
+:root {
+  --scroll: 0;
+}
+
+/* Add parallax effect to sections */
+section {
+  transform: translateY(calc(var(--scroll) * 0.1px));
+  transition: transform 0.1s ease-out;
+}
+
+/* Add glitch effect to images on hover */
+img:hover {
+  filter: contrast(1.2) brightness(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Add typing effect styles */
+h1, h2 {
+  overflow: hidden;
+  border-right: 2px solid var(--accent-color);
+  white-space: nowrap;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent-color) }
 }

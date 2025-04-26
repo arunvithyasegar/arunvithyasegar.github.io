@@ -1,0 +1,69 @@
+/* About Page Specific Styles */
+.about-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    transition: transform 0.3s var(--transition-timing);
+}
+
+.about-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.skill-bars {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.skill-bar {
+    position: relative;
+    height: 2rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--skill-bar-fill-color);
+    transition: width 1s var(--transition-timing);
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+    color: var(--text-primary);
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Teenage Engineering inspired animations */
+@keyframes skill-fill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: var(--skill-width);
+    }
+}
+
+.skill-bar-fill {
+    animation: skill-fill 1s var(--transition-timing) forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 1rem;
+    }
+    
+    .skill-bar {
+        height: 1.5rem;
+    }
+    
+    .skill-bar-fill {
+        font-size: 0.8rem;
+    }
+} 

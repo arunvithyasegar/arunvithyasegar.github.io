@@ -1,0 +1,116 @@
+/* Contact Page Specific Styles */
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+}
+
+.form-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--text-secondary);
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: "Courier New", monospace;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.submit-button {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.submit-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-icon {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: "Courier New", monospace;
+    letter-spacing: 0.1em;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.social-icon:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 15px var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* Teenage Engineering inspired animations */
+@keyframes form-glow {
+    0% {
+        box-shadow: 0 0 5px var(--border-color);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--accent-color);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--border-color);
+    }
+}
+
+.contact-form:hover {
+    animation: form-glow 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .social-icon {
+        width: 100%;
+        text-align: center;
+    }
+} 

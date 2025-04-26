@@ -3,84 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stats | Arun V</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script type="module" src="./js/3D-components.js"></script>
-  <link rel="stylesheet" href="./css/main.css">
+  <title>Stats - Arun Vithyasegar</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/stats.css">
 </head>
-<body class="bg-slate-900 text-slate-100">
-  <!-- Main App Container -->
-  <div id="app-container" class="opacity-100 transition-opacity duration-500">
-    <!-- Sidebar -->
-    <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
-      <!-- Sidebar content from index.html -->
-    </aside>
-    
-    <!-- Stats Content -->
-    <main class="ml-64 p-8 min-h-screen">
-      <section class="page active opacity-100 page-transition">
-        <h1 class="text-4xl font-bold mb-8">My Stats</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <div class="stats-card p-6 rounded-lg text-center">
-            <div class="text-5xl font-bold text-blue-400 mb-2 counter" data-target="50">0</div>
-            <p class="text-slate-400">Projects Completed</p>
-          </div>
-          <div class="stats-card p-6 rounded-lg text-center">
-            <div class="text-5xl font-bold text-green-400 mb-2 counter" data-target="100">0</div>
-            <p class="text-slate-400">Data Models</p>
-          </div>
-          <div class="stats-card p-6 rounded-lg text-center">
-            <div class="text-5xl font-bold text-purple-400 mb-2 counter" data-target="500">0</div>
-            <p class="text-slate-400">Reports Generated</p>
-          </div>
-          <div class="stats-card p-6 rounded-lg text-center">
-            <div class="text-5xl font-bold text-yellow-400 mb-2 counter" data-target="5">0</div>
-            <p class="text-slate-400">Years Experience</p>
-          </div>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <div class="header-top">
+        <img src="images/profile.jpg" alt="Arun Vithyasegar" class="header-image">
+        <div class="header-info">
+          <h1>Arun Vithyasegar</h1>
+          <p class="header-label">Software Engineer</p>
+          <ul class="unstyled-list">
+            <li><span class="link-with-icon">📍</span> Toronto, Canada</li>
+            <li><span class="link-with-icon">📧</span> arunvithyasegar@gmail.com</li>
+          </ul>
         </div>
-        
-        <div class="holographic-card p-8 rounded-lg">
-          <h2 class="text-2xl font-semibold mb-6">Skills Distribution</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 class="text-xl font-medium mb-4">Technical Skills</h3>
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span>SQL</span>
-                    <span>95%</span>
-                  </div>
-                  <div class="progress-bar h-2 rounded-full">
-                    <div class="width-95"></div>
-                  </div>
-                </div>
-                <!-- More skill bars -->
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-medium mb-4">Business Skills</h3>
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between mb-1">
-                    <span>Data Analysis</span>
-                    <span>90%</span>
-                  </div>
-                  <div class="progress-bar h-2 rounded-full">
-                    <div class="width-90"></div>
-                  </div>
-                </div>
-                <!-- More skill bars -->
-              </div>
-            </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="container">
+      <section>
+        <h2>GitHub Stats</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h3>Repositories</h3>
+            <p class="stat-value" id="github-repos">12</p>
+          </div>
+          <div class="stat-card">
+            <h3>Stars</h3>
+            <p class="stat-value" id="github-stars">24</p>
+          </div>
+          <div class="stat-card">
+            <h3>Forks</h3>
+            <p class="stat-value" id="github-forks">8</p>
+          </div>
+          <div class="stat-card">
+            <h3>Commits</h3>
+            <p class="stat-value" id="github-commits">150+</p>
           </div>
         </div>
       </section>
-    </main>
-  </div>
-  
-  <script src="./js/app.js"></script>
+
+      <section>
+        <h2>Skills Overview</h2>
+        <div class="skills-chart">
+          <div class="chart-bar">
+            <span class="chart-label">JavaScript</span>
+            <div class="chart-fill" style="width: 90%"></div>
+          </div>
+          <div class="chart-bar">
+            <span class="chart-label">Python</span>
+            <div class="chart-fill" style="width: 85%"></div>
+          </div>
+          <div class="chart-bar">
+            <span class="chart-label">React</span>
+            <div class="chart-fill" style="width: 80%"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container">
+      <nav>
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>

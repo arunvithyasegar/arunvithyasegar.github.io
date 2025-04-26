@@ -1,0 +1,116 @@
+/* Stats Page Specific Styles */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    text-align: center;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.stat-card h3 {
+    color: var(--text-secondary);
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    color: var(--text-primary);
+    font-family: "Courier New", monospace;
+    font-weight: bold;
+}
+
+.skills-chart {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.chart-bar {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.chart-label {
+    color: var(--text-secondary);
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.chart-fill {
+    height: 1.5rem;
+    background-color: var(--skill-bar-fill-color);
+    transition: width 1s var(--transition-timing);
+    position: relative;
+    overflow: hidden;
+}
+
+.chart-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: chart-shine 2s infinite;
+}
+
+/* Teenage Engineering inspired animations */
+@keyframes chart-shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes stat-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.stat-value:hover {
+    animation: stat-pulse 0.5s var(--transition-timing);
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-bar {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-label {
+        margin-bottom: 0.5rem;
+    }
+} 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arun Vithyasegar | Data Analyst & Business Analyst| Startup Tamil Nadu | Indian Startup Ecosystem</title>
+  <title>Arun Vithyasegar | Data Analyst & Business Analyst | Startup Tamil Nadu | Indian Startup Ecosystem</title>
   <meta name="description" content="Professional portfolio of Arun Vithyasegar, a skilled Business & Data Analyst with expertise in SQL, Python, Power BI, and Machine Learning. Former Startup Tamil Nadu analyst contributing to the Indian Startup Ecosystem. Specializing in sustainable business solutions and ecosystem enablement.">
   <meta name="keywords" content="Arun Vithyasegar, Data Analyst, Business Analyst, SQL Expert, Python Data Analysis, Power BI, Machine Learning, Data Visualization, Data Science, Analytics Portfolio, Arun, arunvithyasegar, Startup Tamil Nadu, Tamil, Startup, Startup India, Indian Startup Ecosystem, Sustainability, Ecosystem Enabler">
   <meta name="author" content="Arun Vithyasegar">
@@ -1451,9 +1451,6 @@
   </div>
 
   <script>
-    // Initialize page state
-    let currentPage = 'about';
-    
     // Enhanced Particle Background
     function createParticles() {
       const container = document.getElementById('particles');
@@ -1559,56 +1556,59 @@
     `;
     document.head.appendChild(style);
     
-    // Function to handle page transitions
-    function navigateToPage(page) {
-      // Hide home page with 3D effect
-      const homePage = document.getElementById('home-page');
-      homePage.style.transform = 'rotateX(90deg)';
-      homePage.style.opacity = '0';
-      
-      // Show main app container
-      document.getElementById('app-container').classList.remove('hidden');
-      document.getElementById('app-container').style.opacity = '1';
-      
-      // Remove active class from all links and pages
-      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.page').forEach(el => {
-        el.classList.remove('active');
-        el.style.opacity = '0';
-        el.style.transform = 'rotateX(-90deg)';
-      });
-      
-      // Add active class to target link and page
-      document.querySelector(`[data-page="${page}"]`).classList.add('active');
-      const pageToShow = document.getElementById(`${page}-page`);
-      pageToShow.classList.add('active');
-      pageToShow.style.opacity = '1';
-      pageToShow.style.transform = 'rotateX(0deg)';
-      
-      // Update current page
-      currentPage = page;
-      
-      // Animate progress bars when resume page is shown
-      if (page === 'resume') {
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-          if (!bar.classList.contains('animate-progress')) {
-            bar.classList.add('animate-progress');
-          }
-        });
-      }
-      
-      // Animate counters when stats page is shown
-      if (page === 'stats') {
-        setTimeout(animateCounters, 500);
-      }
-    }
-    
     // Enhanced Page navigation with 3D effect
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
+        
+        // Hide home page with 3D effect
+        const homePage = document.getElementById('home-page');
+        homePage.style.transform = 'rotateX(90deg)';
+        homePage.style.opacity = '0';
+        homePage.addEventListener('transitionend', function handleTransitionEnd() {
+          homePage.style.display = 'none';
+          document.getElementById('app-container').classList.remove('hidden');
+          setTimeout(() => {
+            document.getElementById('app-container').style.opacity = '1';
+          }, 10);
+          homePage.removeEventListener('transitionend', handleTransitionEnd);
+        });
+        
+        // Get target page from data attribute
         const targetPage = this.dataset.page;
-        navigateToPage(targetPage);
+        
+        // Remove active class from all links and pages
+        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.page').forEach(el => {
+          el.classList.remove('active');
+          el.style.opacity = '0';
+          el.style.transform = 'rotateX(-90deg)';
+        });
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Show target page with 3D effect
+        const pageToShow = document.getElementById(`${targetPage}-page`);
+        pageToShow.classList.add('active');
+        setTimeout(() => {
+          pageToShow.style.opacity = '1';
+          pageToShow.style.transform = 'rotateX(0deg)';
+        }, 10);
+        
+        // Animate progress bars when resume page is shown
+        if (targetPage === 'resume') {
+          document.querySelectorAll('.progress-bar').forEach(bar => {
+            if (!bar.classList.contains('animate-progress')) {
+              bar.classList.add('animate-progress');
+            }
+          });
+        }
+        
+        // Animate counters when stats page is shown
+        if (targetPage === 'stats') {
+          setTimeout(animateCounters, 500);
+        }
       });
     });
     
@@ -1683,13 +1683,19 @@
     }
     
     // Initialize with enhanced effects
-    document.addEventListener('DOMContentLoaded', () => {
-      createParticles();
-      updateAge();
-      updateGitHubStats();
-      
-      // Set initial page state
-      navigateToPage(currentPage);
+    createParticles();
+    updateAge();
+    updateGitHubStats();
+    
+    // Set about page as default with 3D effect
+    document.getElementById('home-page').addEventListener('transitionend', function() {
+      if (this.style.opacity === '0') {
+        const aboutPage = document.getElementById('about-page');
+        aboutPage.classList.add('active');
+        aboutPage.style.opacity = '1';
+        aboutPage.style.transform = 'rotateX(0deg)';
+        document.querySelector('[data-page="about"]').classList.add('active');
+      }
     });
   </script>
   <script src="js/app.js"></script>

@@ -590,11 +590,11 @@
       Welcome to my professional portfolio. I'm Arun Vithyasegar, a Data and Business Analyst.
     </p>
     <div class="home-links">
-      <a href="/about.html" class="home-link nav-link"><span>About</span></a>
-      <a href="/resume.html" class="home-link nav-link"><span>Resume</span></a>
-      <a href="/projects.html" class="home-link nav-link"><span>Projects</span></a>
-      <a href="/stats.html" class="home-link nav-link"><span>Stats</span></a>
-      <a href="/contact.html" class="home-link nav-link"><span>Contact</span></a>
+      <a href="#about" class="home-link nav-link" data-section="about"><span>About</span></a>
+      <a href="#resume" class="home-link nav-link" data-section="resume"><span>Resume</span></a>
+      <a href="#projects" class="home-link nav-link" data-section="projects"><span>Projects</span></a>
+      <a href="#stats" class="home-link nav-link" data-section="stats"><span>Stats</span></a>
+      <a href="#contact" class="home-link nav-link" data-section="contact"><span>Contact</span></a>
     </div>
     <p class="home-source">
       Source available <a href="https://github.com/arunvithyasegar/arunvithyasegar.github.io" target="_blank" rel="noopener">here</a>.
@@ -631,31 +631,31 @@
       <nav class="mb-8">
         <ul class="space-y-2">
           <li>
-            <a href="/about" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="about">
+            <a href="#about" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="about">
               <i class="fas fa-user mr-3 w-5 text-center"></i>
               <span>About</span>
             </a>
           </li>
           <li>
-            <a href="/resume" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="resume">
+            <a href="#resume" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="resume">
               <i class="fas fa-file-alt mr-3 w-5 text-center"></i>
               <span>Resume</span>
             </a>
           </li>
           <li>
-            <a href="/projects" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="projects">
+            <a href="#projects" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="projects">
               <i class="fas fa-project-diagram mr-3 w-5 text-center"></i>
               <span>Projects</span>
             </a>
           </li>
           <li>
-            <a href="/stats" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="stats">
+            <a href="#stats" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="stats">
               <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
               <span>Stats</span>
             </a>
           </li>
           <li>
-            <a href="/contact" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="contact">
+            <a href="#contact" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="contact">
               <i class="fas fa-envelope mr-3 w-5 text-center"></i>
               <span>Contact</span>
             </a>
@@ -1564,13 +1564,19 @@
     `;
     document.head.appendChild(style);
     
-    // Enhanced Page navigation with smooth transitions
+    // Enhanced Page navigation with smooth scrolling
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
         
-        // Get target page from data attribute
-        const targetPage = this.dataset.page;
+        // Get target section from data attribute
+        const targetSection = this.dataset.section;
+        if (!targetSection) return; // Prevent undefined sections
+        
+        // Update URL without page reload
+        const baseUrl = window.location.origin + window.location.pathname;
+        const newUrl = baseUrl + '#' + targetSection;
+        window.history.pushState({ section: targetSection }, '', newUrl);
         
         // Remove active class from all links
         document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
@@ -1580,7 +1586,7 @@
         
         // Handle home page visibility
         const homePage = document.getElementById('home-page');
-        if (targetPage === 'home') {
+        if (targetSection === 'home') {
           homePage.style.opacity = '1';
           homePage.style.pointerEvents = 'auto';
           document.querySelectorAll('.page').forEach(page => {
@@ -1592,23 +1598,27 @@
           homePage.style.opacity = '0';
           homePage.style.pointerEvents = 'none';
           
-          // Show target page with smooth transition
-          const pageToShow = document.getElementById(`${targetPage}-page`);
-          document.querySelectorAll('.page').forEach(page => {
-            if (page === pageToShow) {
-              page.classList.add('active');
-              page.style.opacity = '1';
-              page.style.pointerEvents = 'auto';
-            } else {
-              page.classList.remove('active');
-              page.style.opacity = '0';
-              page.style.pointerEvents = 'none';
-            }
-          });
+          // Show target section with smooth transition
+          const sectionToShow = document.getElementById(`${targetSection}-page`);
+          if (sectionToShow) {
+            document.querySelectorAll('.page').forEach(page => {
+              if (page === sectionToShow) {
+                page.classList.add('active');
+                page.style.opacity = '1';
+                page.style.pointerEvents = 'auto';
+                // Smooth scroll to the section
+                page.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                page.classList.remove('active');
+                page.style.opacity = '0';
+                page.style.pointerEvents = 'none';
+              }
+            });
+          }
         }
         
-        // Animate progress bars when resume page is shown
-        if (targetPage === 'resume') {
+        // Animate progress bars when resume section is shown
+        if (targetSection === 'resume') {
           document.querySelectorAll('.progress-bar').forEach(bar => {
             if (!bar.classList.contains('animate-progress')) {
               bar.classList.add('animate-progress');
@@ -1616,41 +1626,53 @@
           });
         }
         
-        // Animate counters when stats page is shown
-        if (targetPage === 'stats') {
+        // Animate counters when stats section is shown
+        if (targetSection === 'stats') {
           setTimeout(animateCounters, 500);
         }
       });
     });
 
-    // Add home link functionality
-    document.querySelectorAll('[data-page="home"]').forEach(homeLink => {
-      homeLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-        
-        const homePage = document.getElementById('home-page');
-        homePage.style.opacity = '1';
-        homePage.style.pointerEvents = 'auto';
-        
+    // Handle initial page load and hash
+    function handleHashNavigation() {
+      const hash = window.location.hash.substring(1);
+      const validSections = ['about', 'resume', 'projects', 'stats', 'contact', 'home'];
+      
+      if (hash && validSections.includes(hash)) {
+        const targetLink = document.querySelector(`[data-section="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+        }
+      } else {
+        // If hash doesn't match any section or is invalid, show home page
+        document.getElementById('home-page').style.opacity = '1';
+        document.getElementById('home-page').style.pointerEvents = 'auto';
         document.querySelectorAll('.page').forEach(page => {
           page.classList.remove('active');
           page.style.opacity = '0';
           page.style.pointerEvents = 'none';
         });
-      });
-    });
-
-    // Handle initial page load
-    window.addEventListener('load', function() {
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        const targetLink = document.querySelector(`[data-page="${hash}"]`);
-        if (targetLink) {
-          targetLink.click();
-        }
+        // Update URL to clean state
+        const baseUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, '', baseUrl);
       }
+    }
+
+    // Handle initial load
+    window.addEventListener('load', handleHashNavigation);
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', handleHashNavigation);
+
+    // Handle direct URL access
+    if (window.location.hash) {
+      handleHashNavigation();
+    }
+
+    // Prevent default hash behavior
+    window.addEventListener('hashchange', function(e) {
+      e.preventDefault();
+      handleHashNavigation();
     });
     
     // Enhanced age display with gradient animation
@@ -1735,7 +1757,7 @@
         aboutPage.classList.add('active');
         aboutPage.style.opacity = '1';
         aboutPage.style.transform = 'rotateX(0deg)';
-        document.querySelector('[data-page="about"]').classList.add('active');
+        document.querySelector('[data-section="about"]').classList.add('active');
       }
     });
 

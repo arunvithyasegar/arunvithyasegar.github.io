@@ -471,6 +471,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
     }
     
     .home-title {
@@ -582,11 +590,11 @@
       Welcome to my professional portfolio. I'm Arun Vithyasegar, a Data and Business Analyst.
     </p>
     <div class="home-links">
-      <a href="/about" class="home-link nav-link" data-page="about"><span>About</span></a>
-      <a href="/resume" class="home-link nav-link" data-page="resume"><span>Resume</span></a>
-      <a href="/projects" class="home-link nav-link" data-page="projects"><span>Projects</span></a>
-      <a href="/stats" class="home-link nav-link" data-page="stats"><span>Stats</span></a>
-      <a href="/contact" class="home-link nav-link" data-page="contact"><span>Contact</span></a>
+      <a href="#about" class="home-link nav-link" data-section="about"><span>About</span></a>
+      <a href="#resume" class="home-link nav-link" data-section="resume"><span>Resume</span></a>
+      <a href="#projects" class="home-link nav-link" data-section="projects"><span>Projects</span></a>
+      <a href="#stats" class="home-link nav-link" data-section="stats"><span>Stats</span></a>
+      <a href="#contact" class="home-link nav-link" data-section="contact"><span>Contact</span></a>
     </div>
     <p class="home-source">
       Source available <a href="https://github.com/arunvithyasegar/arunvithyasegar.github.io" target="_blank" rel="noopener">here</a>.
@@ -623,31 +631,31 @@
       <nav class="mb-8">
         <ul class="space-y-2">
           <li>
-            <a href="/about" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="about">
+            <a href="#about" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="about">
               <i class="fas fa-user mr-3 w-5 text-center"></i>
               <span>About</span>
             </a>
           </li>
           <li>
-            <a href="/resume" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="resume">
+            <a href="#resume" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="resume">
               <i class="fas fa-file-alt mr-3 w-5 text-center"></i>
               <span>Resume</span>
             </a>
           </li>
           <li>
-            <a href="/projects" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="projects">
+            <a href="#projects" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="projects">
               <i class="fas fa-project-diagram mr-3 w-5 text-center"></i>
               <span>Projects</span>
             </a>
           </li>
           <li>
-            <a href="/stats" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="stats">
+            <a href="#stats" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="stats">
               <i class="fas fa-chart-line mr-3 w-5 text-center"></i>
               <span>Stats</span>
             </a>
           </li>
           <li>
-            <a href="/contact" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-page="contact">
+            <a href="#contact" class="nav-link flex items-center text-slate-300 hover:text-blue-400" data-section="contact">
               <i class="fas fa-envelope mr-3 w-5 text-center"></i>
               <span>Contact</span>
             </a>
@@ -1451,9 +1459,6 @@
   </div>
 
   <script>
-    // Initialize page state
-    let currentPage = 'about';
-    
     // Enhanced Particle Background
     function createParticles() {
       const container = document.getElementById('particles');
@@ -1559,57 +1564,115 @@
     `;
     document.head.appendChild(style);
     
-    // Function to handle page transitions
-    function navigateToPage(page) {
-      // Hide home page with 3D effect
-      const homePage = document.getElementById('home-page');
-      homePage.style.transform = 'rotateX(90deg)';
-      homePage.style.opacity = '0';
-      
-      // Show main app container
-      document.getElementById('app-container').classList.remove('hidden');
-      document.getElementById('app-container').style.opacity = '1';
-      
-      // Remove active class from all links and pages
-      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.page').forEach(el => {
-        el.classList.remove('active');
-        el.style.opacity = '0';
-        el.style.transform = 'rotateX(-90deg)';
-      });
-      
-      // Add active class to target link and page
-      document.querySelector(`[data-page="${page}"]`).classList.add('active');
-      const pageToShow = document.getElementById(`${page}-page`);
-      pageToShow.classList.add('active');
-      pageToShow.style.opacity = '1';
-      pageToShow.style.transform = 'rotateX(0deg)';
-      
-      // Update current page
-      currentPage = page;
-      
-      // Animate progress bars when resume page is shown
-      if (page === 'resume') {
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-          if (!bar.classList.contains('animate-progress')) {
-            bar.classList.add('animate-progress');
-          }
-        });
-      }
-      
-      // Animate counters when stats page is shown
-      if (page === 'stats') {
-        setTimeout(animateCounters, 500);
-      }
-    }
-    
-    // Enhanced Page navigation with 3D effect
+    // Enhanced Page navigation with smooth scrolling
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetPage = this.dataset.page;
-        navigateToPage(targetPage);
+        
+        // Get target section from data attribute
+        const targetSection = this.dataset.section;
+        if (!targetSection) return; // Prevent undefined sections
+        
+        // Update URL without page reload
+        const baseUrl = window.location.origin + window.location.pathname;
+        const newUrl = baseUrl + '#' + targetSection;
+        window.history.pushState({ section: targetSection }, '', newUrl);
+        
+        // Remove active class from all links
+        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Handle home page visibility
+        const homePage = document.getElementById('home-page');
+        if (targetSection === 'home') {
+          homePage.style.opacity = '1';
+          homePage.style.pointerEvents = 'auto';
+          document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+            page.style.opacity = '0';
+            page.style.pointerEvents = 'none';
+          });
+        } else {
+          homePage.style.opacity = '0';
+          homePage.style.pointerEvents = 'none';
+          
+          // Show target section with smooth transition
+          const sectionToShow = document.getElementById(`${targetSection}-page`);
+          if (sectionToShow) {
+            document.querySelectorAll('.page').forEach(page => {
+              if (page === sectionToShow) {
+                page.classList.add('active');
+                page.style.opacity = '1';
+                page.style.pointerEvents = 'auto';
+                // Smooth scroll to the section
+                page.scrollIntoView({ behavior: 'smooth' });
+              } else {
+                page.classList.remove('active');
+                page.style.opacity = '0';
+                page.style.pointerEvents = 'none';
+              }
+            });
+          }
+        }
+        
+        // Animate progress bars when resume section is shown
+        if (targetSection === 'resume') {
+          document.querySelectorAll('.progress-bar').forEach(bar => {
+            if (!bar.classList.contains('animate-progress')) {
+              bar.classList.add('animate-progress');
+            }
+          });
+        }
+        
+        // Animate counters when stats section is shown
+        if (targetSection === 'stats') {
+          setTimeout(animateCounters, 500);
+        }
       });
+    });
+
+    // Handle initial page load and hash
+    function handleHashNavigation() {
+      const hash = window.location.hash.substring(1);
+      const validSections = ['about', 'resume', 'projects', 'stats', 'contact', 'home'];
+      
+      if (hash && validSections.includes(hash)) {
+        const targetLink = document.querySelector(`[data-section="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+        }
+      } else {
+        // If hash doesn't match any section or is invalid, show home page
+        document.getElementById('home-page').style.opacity = '1';
+        document.getElementById('home-page').style.pointerEvents = 'auto';
+        document.querySelectorAll('.page').forEach(page => {
+          page.classList.remove('active');
+          page.style.opacity = '0';
+          page.style.pointerEvents = 'none';
+        });
+        // Update URL to clean state
+        const baseUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, '', baseUrl);
+      }
+    }
+
+    // Handle initial load
+    window.addEventListener('load', handleHashNavigation);
+
+    // Handle browser back/forward navigation
+    window.addEventListener('popstate', handleHashNavigation);
+
+    // Handle direct URL access
+    if (window.location.hash) {
+      handleHashNavigation();
+    }
+
+    // Prevent default hash behavior
+    window.addEventListener('hashchange', function(e) {
+      e.preventDefault();
+      handleHashNavigation();
     });
     
     // Enhanced age display with gradient animation
@@ -1683,13 +1746,53 @@
     }
     
     // Initialize with enhanced effects
-    document.addEventListener('DOMContentLoaded', () => {
-      createParticles();
-      updateAge();
-      updateGitHubStats();
-      
-      // Set initial page state
-      navigateToPage(currentPage);
+    createParticles();
+    updateAge();
+    updateGitHubStats();
+    
+    // Set about page as default with 3D effect
+    document.getElementById('home-page').addEventListener('transitionend', function() {
+      if (this.style.opacity === '0') {
+        const aboutPage = document.getElementById('about-page');
+        aboutPage.classList.add('active');
+        aboutPage.style.opacity = '1';
+        aboutPage.style.transform = 'rotateX(0deg)';
+        document.querySelector('[data-section="about"]').classList.add('active');
+      }
+    });
+
+    // Remove the old navigation event listeners since we're using direct links now
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        // Let the default link behavior handle the navigation
+        // No need to prevent default or handle transitions
+      });
+    });
+
+    // Remove the old home link functionality since we're using direct links
+    // Remove the initial page load handling since we're using direct links
+
+    // Keep the progress bar and counter animations for when those pages load
+    function checkAndAnimateProgressBars() {
+      if (window.location.pathname.includes('resume')) {
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+          if (!bar.classList.contains('animate-progress')) {
+            bar.classList.add('animate-progress');
+          }
+        });
+      }
+    }
+
+    function checkAndAnimateCounters() {
+      if (window.location.pathname.includes('stats')) {
+        setTimeout(animateCounters, 500);
+      }
+    }
+
+    // Call these functions when the page loads
+    window.addEventListener('load', function() {
+      checkAndAnimateProgressBars();
+      checkAndAnimateCounters();
     });
   </script>
   <script src="js/app.js"></script>

@@ -1162,7 +1162,7 @@
               <div class="stat-item">
                 <div class="flex justify-between items-center">
                   <span class="text-slate-300">Current Age</span>
-                  <span class="font-medium text-slate-100" id="current-age"></span>
+                  <span class="font-medium text-slate-100" id="current-age" aria-live="polite"></span>
                 </div>
               </div>
               <div class="stat-item">
@@ -1457,16 +1457,32 @@
     });
     // Update the age display
     function updateAge() {
-      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0)); // Use Date.UTC for reliable parsing
+      const birthday = new Date(Date.UTC(1999, 7, 6, 1, 24, 0));
       const ageElement = document.getElementById('current-age');
+      if (!ageElement) return;
       function calculateAge() {
-      const now = new Date();
-      const ageInMilliseconds = now - birthday;
-      const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
-      ageElement.textContent = ageInYears.toFixed(9); // Display with 11 decimal places
+        const now = new Date();
+        const ageInMilliseconds = now - birthday;
+        const ageInYears = ageInMilliseconds / (365.25 * 24 * 60 * 60 * 1000);
+        ageElement.textContent = ageInYears.toFixed(9); // Display with 9 decimal places
       }
-      calculateAge(); // Call once to initialize
-      setInterval(calculateAge, 100); // Update 10 times a second (1000ms / 10 = 100ms)
+      calculateAge();
+      // Only update when stats page is visible
+      let intervalId = null;
+      function handleVisibility() {
+        const statsPage = document.getElementById('stats-page');
+        if (statsPage && statsPage.classList.contains('active')) {
+          if (!intervalId) intervalId = setInterval(calculateAge, 100);
+        } else {
+          if (intervalId) {
+            clearInterval(intervalId);
+            intervalId = null;
+          }
+        }
+      }
+      // Listen for page changes
+      document.addEventListener('transitionend', handleVisibility, true);
+      handleVisibility();
     }
     // Call the function to ensure it runs
     updateAge();

@@ -18,8 +18,386 @@
   <script src="npm/three-0.132.2/examples/js/controls/OrbitControls.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
   <script type="module" src="./js/3D-components.js"></script>
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #10b981;
+      --dark: #1f2937;
+      --light: #f9fafb;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    .glow {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    }
+    .neon-border {
+      position: relative;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      border-radius: 0.5rem;
+    }
+    .neon-border::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      opacity: 0.7;
+    }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(59, 130, 246, 0.3);
+      pointer-events: none;
+      z-index: -1;
+      animation: particle-float 4s ease-in-out infinite;
+      transition: all 0.3s ease;
+      filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.5));
+    }
+    @keyframes particle-float {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      50% { transform: translateY(-20px) scale(1.2); opacity: 1; }
+      100% { transform: translateY(0) scale(1); opacity: 0.8; }
+    }
+    .cursor-trail {
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      mix-blend-mode: screen;
+    }
+    .cursor-trail-follower {
+      transition: transform 0.2s ease, width 0.4s ease, height 0.4s ease;
+      mix-blend-mode: overlay;
+    }
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .page-transition {
+      transition: all 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .holographic-card {
+      background: rgba(15, 23, 42, 0.7);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s ease;
+    }
+    .holographic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    .progress-bar {
+      background-color: #1e293b;
+      height: 0.5rem;
+      border-radius: 9999px;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1.5s ease;
+    }
+    .animate-progress .progress-bar::after {
+      transform: scaleX(1);
+    }
+    .width-90::after { width: 90%; }
+    .width-85 { width: 85%; }
+    .width-80 { width: 80%; }
+    .width-95::after { width: 95%; }
+    .width-75::after { width: 75%; }
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 32px;
+      height: calc(100% - 32px);
+      width: 2px;
+      background-color: #334155;
+    }
+    .cursor-trail {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.3);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease;
+    }
+    .cursor-trail-follower {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.2);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9998;
+      transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+    }
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover {
+      color: var(--primary);
+    }
+    .nav-link:hover::before {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .nav-link.active::before {
+      width: 100%;
+    }
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    .social-icon:hover {
+      transform: translateY(-3px) scale(1.1);
+      color: var(--primary);
+    }
+    .project-card {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+    .skill-tag {
+      transition: all 0.3s ease;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    .skill-tag:hover {
+      transform: translateY(-2px);
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .contact-input {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid #334155;
+      color: #e2e8f0;
+    }
+    .contact-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+      outline: none;
+    }
+    .submit-btn {
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    .stats-card {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 0.75rem;
+    }
+    .stats-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    .certification-item {
+      transition: all 0.3s ease;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+    .certification-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.3);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+    .view-credential {
+      transition: all 0.3s ease;
+    }
+    .view-credential:hover {
+      letter-spacing: 0.5px;
+    }
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+    .learn-more-btn {
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .learn-more-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    .stat-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    .stat-item:last-child {
+      border-bottom: none;
+    }
+    .copyright {
+      background-color: #020617;
+      color: #94a3b8;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      border-top: 1px solid #1e293b;
+    }
+    .copyright a {
+      color: #60a5fa;
+      transition: color 0.3s ease;
+    }
+    .copyright a:hover {
+      color: #3b82f6;
+    }
+    /* Home page specific styles */
+    .home-container {
+      background: radial-gradient(circle at 50% 50%, #0f172a, #020617);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .home-title {
+      font-size: 4rem;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .home-subtitle {
+      font-size: 1.5rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      max-width: 800px;
+    }
+    .home-description {
+      color: #94a3b8;
+      margin-bottom: 3rem;
+      max-width: 600px;
+    }
+    .home-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .home-link {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: all 0.3s ease;
+      color: #e2e8f0;
+      text-decoration: none;
+    }
+    .home-link:hover {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.5);
+      transform: translateY(-3px);
+    }
+    .home-source {
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+    .home-source a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+    .home-source a:hover {
+      text-decoration: underline;
+    }
+    /* Active page styles */
+    .page.active {
+      display: block;
+      opacity: 1;
+    }
+    .page:not(.active) {
+      display: none;
+      opacity: 0;
+    }
+    .width-75 {
+      width: 75%;
+    }
+    .width-90 {
+      width: 90%;
+    }
+    .width-85 {
+      width: 85%;
+    }
+    .width-80 {
+      width: 80%;
+    }
+  </style>
 </head>
 <body class="relative">
   <!-- Cursor Effects -->
@@ -28,10 +406,6 @@
   <!-- Particle Background -->
   <div id="particles"></div>
   <!-- Home Page -->
-  
-  <!-- ========================================
-       HOME PAGE
-       ======================================== -->
   <section id="home-page" class="home-container fixed inset-0 z-50 flex flex-col justify-center items-center">
     <h1 class="home-title glow">Arun V</h1>
     <h2 class="home-subtitle">Business & Data Analyst</h2>
@@ -55,11 +429,7 @@
   <!-- Main App Container -->
   <div id="app-container" class="hidden opacity-0 transition-opacity duration-500">
     <!-- Sidebar -->
-    
-  <!-- ========================================
-       SIDEBAR NAVIGATION
-       ======================================== -->
-  <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
+    <aside class="fixed left-0 top-0 w-64 h-full bg-slate-900/70 backdrop-blur-md p-8 flex flex-col z-40 border-r border-slate-800">
       <div class="flex flex-col items-center">
       <a href="index.html" target="_blank" rel="noopener" title="Visit Arun V's personal website"></a>
         <img src="assets_task_01jrjpde5hfabt866505kgephq_img_0.png"
@@ -142,10 +512,6 @@
     <!-- Main Content -->
     <main class="ml-64 p-8 min-h-screen">
       <!-- About Page -->
-      
-      <!-- ========================================
-           ABOUT PAGE
-           ======================================== -->
       <section id="about-page" class="page hidden opacity-0 page-transition">
         <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">ABOUT ME</h2>
         <p class="text-slate-400 text-sm uppercase mb-6">Business & Data Analyst</p>
@@ -367,10 +733,6 @@
         </div>
       </section>
       <!-- Resume Page -->
-      
-      <!-- ========================================
-           RESUME PAGE
-           ======================================== -->
       <section id="resume-page" class="page hidden opacity-0 page-transition">
         <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">RESUME</h2>
         <div class="mb-8 holographic-card p-6 rounded-lg">
@@ -639,10 +1001,6 @@
         </div>
       </section>
       <!-- Projects Page -->
-      
-      <!-- ========================================
-           PROJECTS PAGE
-           ======================================== -->
       <section id="projects-page" class="page hidden opacity-0 page-transition">
         <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">PROJECTS</h2>
         <div class="grid md:grid-cols-2 gap-6">
@@ -794,10 +1152,6 @@
         </div>
       </section>
       <!-- Stats Page -->
-      
-      <!-- ========================================
-           STATS PAGE
-           ======================================== -->
       <section id="stats-page" class="page hidden opacity-0 page-transition">
         <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">STATS</h2>
         <div class="grid md:grid-cols-2 gap-6">
@@ -898,10 +1252,6 @@
         </div>
       </section>
       <!-- Contact Page -->
-      
-      <!-- ========================================
-           CONTACT PAGE
-           ======================================== -->
       <section id="contact-page" class="page hidden opacity-0 page-transition">
         <h2 class="text-3xl font-bold uppercase tracking-wider mb-6 text-blue-400 glow">CONTACT</h2>
         <div class="space-y-6">

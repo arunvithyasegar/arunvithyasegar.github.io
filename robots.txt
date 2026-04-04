@@ -1,5 +1,16 @@
-# https://www.robotstxt.org/
-
-# Allow crawling of all content
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://arunvithyasegar.com/sitemap.xml
+
+# Disallow admin and private pages
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow all other pages
+Allow: /*.html$
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.gif$ 

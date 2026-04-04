@@ -1,0 +1,172 @@
+/* Projects Page Specific Styles */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.project-card {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    transition: all 0.3s var(--transition-timing);
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s var(--transition-timing);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: "Courier New", monospace;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.project-link:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-primary);
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Contributions Section */
+.contributions-list {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.contribution-item {
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    transition: all 0.3s var(--transition-timing);
+}
+
+.contribution-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.contribution-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.contribution-date {
+    color: var(--text-secondary);
+    font-family: "Courier New", monospace;
+}
+
+.contribution-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: "Courier New", monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s var(--transition-timing);
+}
+
+.contribution-link:hover {
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Teenage Engineering inspired animations */
+@keyframes project-glow {
+    0% {
+        box-shadow: 0 0 5px var(--border-color);
+    }
+    50% {
+        box-shadow: 0 0 15px var(--accent-color);
+    }
+    100% {
+        box-shadow: 0 0 5px var(--border-color);
+    }
+}
+
+.project-card:hover {
+    animation: project-glow 2s infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .contribution-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+} 

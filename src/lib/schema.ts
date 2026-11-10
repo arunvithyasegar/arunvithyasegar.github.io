@@ -119,7 +119,7 @@ export function websiteNode(): SchemaNode {
     '@id': WEBSITE_ID,
     url: HOME_URL,
     name: AUTHOR_NAME,
-    alternateName: ['arunvithyasegar.com', 'Arun Vithyasegar'],
+    alternateName: ['arunvithyasegar.in', 'Arun Vithyasegar'],
     description: SITE_DESCRIPTION,
     inLanguage: SITE_LANGUAGE,
     publisher: PERSON_REF,

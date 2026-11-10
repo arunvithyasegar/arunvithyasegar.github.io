@@ -38,21 +38,21 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Use the validated Actions deployment
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -f build_type=workflow --silent
       - uses: actions/deploy-pages@v4
         id: deployment
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Enforce HTTPS on GitHub Pages
+      - name: Check GitHub Pages HTTPS setting
+        id: https
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -F https_enforced=true --silent
-          test "$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.https_enforced')" = "true"
+          if [ "$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.https_enforced')" != "true" ]; then
+            echo "::error::Enable Enforce HTTPS in repository Settings > Pages. GitHub rejects setting changes from the workflow token (HTTP 403)."
+            exit 1
+          fi
       - name: Verify public HTTPS and all pages
+        if: ${{ always() && steps.deployment.outcome == 'success' }}
         run: node scripts/verify-live.mjs

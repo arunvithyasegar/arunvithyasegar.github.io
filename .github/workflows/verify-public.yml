@@ -11,6 +11,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  pages: read
 jobs:
   verify:
     runs-on: ubuntu-latest
@@ -19,4 +20,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Inspect public Pages configuration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/$GITHUB_REPOSITORY/pages" --jq '{cname,https_enforced,build_type,status,html_url,source}'
       - run: node scripts/verify-live.mjs
+        if: ${{ always() }}

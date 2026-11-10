@@ -48,7 +48,11 @@ await Promise.all(
           break;
         await new Promise((resolve) => setTimeout(resolve, 5000));
       }
-      assert.equal(response.status, 200, `${path} status`);
+      assert.equal(
+        response.status,
+        200,
+        `${path}: HTTP ${response.status} at ${response.url}`,
+      );
       assert.equal(new URL(response.url).protocol, "https:");
       let body = await response.text();
       const legacyRedirect = body.match(

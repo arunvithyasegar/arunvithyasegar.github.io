@@ -49,7 +49,18 @@ for (const path of [
     }
     assert.equal(response.status, 200, `${path} status`);
     assert.equal(new URL(response.url).protocol, "https:");
-    const body = await response.text();
+    let body = await response.text();
+    const legacyRedirect = body.match(
+      /http-equiv="refresh" content="0;url=(\/#[a-z]+)"/i,
+    );
+    if (legacyRedirect) {
+      const destination = new URL(legacyRedirect[1], origin);
+      const finalResponse = await fetch(destination, {
+        signal: AbortSignal.timeout(15000),
+      });
+      assert.equal(finalResponse.status, 200, `${path} redirect destination`);
+      body = await finalResponse.text();
+    }
     if (path === "/" || path.endsWith("/") || path.endsWith(".html")) {
       assert.ok(
         body.includes('id="projects"'),

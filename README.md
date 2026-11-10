@@ -16,11 +16,11 @@ python -m http.server 4173 --directory dist
 
 Edit `index.html`, `css/site.css` and `js/site.js`. `npm run build` recreates `dist/` from an explicit public-file allowlist. Never deploy the repository root. Tests check navigation, security policy, metadata, local resources and deployment exclusions.
 
-Direct URLs `/home/`, `/about/`, `/resume/`, `/projects/`, `/stats/`, `/contact/` and their `.html` aliases are generated as real static files. Older `#about-page` style bookmarks also work.
+Direct URLs `/home/`, `/about/`, `/resume/`, `/projects/`, `/stats/`, `/contact/` and their `.html` aliases are generated as real static files. Older `#about-page` style bookmarks also work. Lightweight checked-in route aliases keep branch-based Pages publishing compatible while the source setting is corrected.
 
 ## Deploy and enforce HTTPS
 
-The single Pages workflow validates pull requests and deploys `dist/` on pushes to `main`. It then enables Pages HTTPS through the GitHub API, reads the setting back, and checks public HTTPS redirects and every supported page URL. DNS or certificate failures are surfaced as workflow failures. In GitHub Settings → Pages, use **GitHub Actions** as the build source. The custom domain is `arunvithyasegar.in`, matching `CNAME`, the canonical URL, robots and sitemap.
+The single Pages workflow validates pull requests and deploys `dist/` on pushes to `main`. It then reads the Pages HTTPS setting and checks public HTTPS redirects and every supported page URL. GitHub rejects administration changes from the workflow token; an owner/admin must enable Enforce HTTPS and choose GitHub Actions as the Pages source. DNS or certificate failures are surfaced as workflow failures. In GitHub Settings → Pages, use **GitHub Actions** as the build source. The custom domain is `arunvithyasegar.in`, matching `CNAME`, the canonical URL, robots and sitemap.
 
 1. Confirm the domain's DNS points to GitHub Pages using GitHub's current custom-domain instructions.
 2. Wait for GitHub to issue the TLS certificate and finish its DNS check.

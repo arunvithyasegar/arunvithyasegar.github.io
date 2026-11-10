@@ -48,3 +48,11 @@ Added reproducible Playwright checks for 18 direct URLs/bookmarks, refreshes, al
 The deployment workflow now requests HTTPS enforcement using its scoped Pages token, reads the setting back, and verifies public redirects plus all supported page routes. This operation depends on GitHub accepting the token permissions and the domain having working DNS and an issued certificate. At publication time, the remote workflow result is still pending; no success is claimed before that result.
 
 Direct live-site verification from this environment is blocked by an explicit network-policy 403 for arunvithyasegar.in. The interactive browser still cannot start and the CLI reports an invalid token. Connected GitHub API tools remain available for repository operations and workflow logs.
+
+### Remote validation results
+
+Commit 43d6ed8 was deployed successfully by GitHub Pages on 2026-11-10. Its build and Playwright checks passed on GitHub's runner. The subsequent HTTPS mutation failed with `Resource not accessible by integration (HTTP 403)`, so the workflow token cannot change Pages administration settings. The evaluated deployment URL was `http://arunvithyasegar.in/`; HTTPS enforcement must not be assumed.
+
+The repository also still triggers GitHub's built-in branch deployment. Compatibility entry files now cover all six routes and `.html` aliases under that mode, using an immediate redirect and accessible link to the corresponding main-page section. Both root-based and generated-artifact deployments pass the full local browser suites. The Actions workflow now checks the HTTPS setting rather than making an unauthorized mutation and runs public URL verification independently even if the setting check fails. Owner/admin action is needed to select GitHub Actions as the Pages source and enable Enforce HTTPS.
+
+Latest automated accessibility scan: zero WCAG 2 A/AA or WCAG 2.1 AA violations, 24 passing rules. Full npm dependency audit, including development packages: zero reported vulnerabilities.

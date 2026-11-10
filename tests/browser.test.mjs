@@ -9,7 +9,7 @@ const server = createServer(async (request, response) => {
   try {
     let path = join(
       process.cwd(),
-      "dist",
+      process.env.SITE_DIRECTORY || "dist",
       decodeURIComponent(new URL(request.url, "http://localhost").pathname),
     );
     if ((await stat(path)).isDirectory()) path = join(path, "index.html");
@@ -54,8 +54,15 @@ test("every page URL, HTML alias, bookmark, refresh and navigation link works", 
   for (const route of routes) {
     for (const suffix of [`/${route}/`, `/${route}.html`, `/#${route}-page`]) {
       const response = await page.goto(base + suffix);
-      assert.equal(response.status(), 200, suffix);
+      if (response) assert.equal(response.status(), 200, suffix);
+      else assert.ok(suffix.includes("#"));
+      if (process.env.SITE_DIRECTORY && !suffix.startsWith("/#"))
+        await page.waitForURL(`**/#${route}`);
       await page.locator(`#${route}`).waitFor({ state: "visible" });
+      await page.waitForFunction((id) => {
+        const r = document.getElementById(id).getBoundingClientRect();
+        return r.top < innerHeight && r.bottom > 0;
+      }, route);
       assert.ok(
         await page.locator(`#${route}`).evaluate((element) => {
           const r = element.getBoundingClientRect();
@@ -110,6 +117,7 @@ test("search, mobile layouts, no JavaScript and unknown pages remain usable", as
   const context = await browser.newContext({ javaScriptEnabled: false });
   const plain = await context.newPage();
   await plain.goto(base + "/projects/");
+  await plain.locator(".project-card").first().waitFor({ state: "visible" });
   assert.equal(await plain.locator(".project-card:visible").count(), 6);
   assert.equal(await plain.locator(".project-tools").isVisible(), false);
   const response = await plain.goto(base + "/not-a-real-page");

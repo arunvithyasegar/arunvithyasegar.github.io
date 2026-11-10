@@ -49,17 +49,21 @@ const routeNames = new Set([
   "stats",
   "contact",
 ]);
-const routeFromPath = location.pathname
-  ?.replace(/^\/|\/$/g, "")
-  .replace(/\.html$/, "");
-const hashName = location.hash?.slice(1).replace(/-page$/, "");
-const targetName = location.hash ? hashName : routeFromPath;
-if (routeNames.has(targetName)) {
-  const section = document.getElementById(targetName);
-  if (
-    section &&
-    (location.pathname !== "/" || location.hash !== `#${targetName}`)
-  ) {
-    section.scrollIntoView({ behavior: "instant" });
+function openRoute() {
+  const routeFromPath = location.pathname
+    ?.replace(/^\/|\/$/g, "")
+    .replace(/\.html$/, "");
+  const hashName = location.hash?.slice(1).replace(/-page$/, "");
+  const targetName = location.hash ? hashName : routeFromPath;
+  if (routeNames.has(targetName)) {
+    const section = document.getElementById(targetName);
+    if (
+      section &&
+      (location.pathname !== "/" || location.hash !== `#${targetName}`)
+    ) {
+      section.scrollIntoView({ behavior: "instant" });
+    }
   }
 }
+openRoute();
+globalThis.addEventListener?.("hashchange", openRoute);

@@ -1,0 +1,363 @@
+/**
+ * Everything the two share-card scripts have to agree about.
+ *
+ * `generate-og.mjs` renders the cards and commits a digest of these inputs
+ * alongside them; `check-og.mjs` recomputes the same inputs and fails CI when
+ * the committed PNGs no longer match the repository. A fact that only one of
+ * them knew about would quietly stop being checked, so every input is derived
+ * here, once.
+ */
+import { createHash } from 'node:crypto';
+import { readdir, readFile } from 'node:fs/promises';
+import { join } from 'node:path';
+
+import { parser, RuleType } from 'markdown-to-jsx/markdown';
+
+import { readColorToken } from '../src/lib/color-token.mjs';
+import { parseFrontmatter } from '../src/lib/frontmatter.mjs';
+import { readMarkdownReferences } from '../src/lib/markdown-assets.mjs';
+import { validatePostFrontmatterData } from '../src/lib/post-frontmatter.mjs';
+import { DISPLAY_FONT } from './lib/fonts.mjs';
+import { readImageRenderer } from './lib/image-renderer.mjs';
+import { readSiteConfig } from './lib/site.mjs';
+
+/** Every card is a `summary_large_image`, so every card is this size. */
+export const CARD_SIZE = { width: 1200, height: 630 };
+
+export const HOME_CARD_PATH = '/og.png';
+/** One card per published post, named after its slug. */
+export const POST_CARD_DIRECTORY = '/og/writing';
+export const LEDGER_PATH = '/og.meta.json';
+
+/** The three type roles, as exact checksummed TTFs (see `lib/fonts.mjs`). */
+export const CARD_FONTS = [
+  DISPLAY_FONT,
+  {
+    name: 'Mono',
+    family: 'JetBrains Mono',
+    weight: 500,
+    style: 'normal',
+    file: 'scripts/fonts/DejaVuSansMono.ttf',
+    sha256: '54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8',
+  },
+  {
+    name: 'Body',
+    family: 'Newsreader',
+    weight: 400,
+    style: 'normal',
+    file: 'scripts/fonts/DejaVuSerif.ttf',
+    sha256: '8cb29f7db250ebb2551a6ce2c1e0bfd5a0eb520e9e233370db0493e82e1f36f7',
+  },
+];
+
+/**
+ * The files whose contents decide what a card looks like.
+ *
+ * The digest covers the generator plus the modules it shares with the checker:
+ * a change to any of them has to invalidate the committed PNGs, or CI stops
+ * noticing that the images no longer match the code that draws them.
+ */
+const GENERATOR_SOURCES = [
+  'scripts/generate-og.mjs',
+  'scripts/lib/fonts.mjs',
+  'scripts/lib/image-renderer.mjs',
+  'scripts/og-inputs.mjs',
+  'src/lib/color-token.mjs',
+  'src/lib/frontmatter.mjs',
+  'scripts/og-layout.mjs',
+  'src/lib/markdown-assets.mjs',
+  'src/lib/post-frontmatter.mjs',
+];
+
+/**
+ * The profile fields the share card actually renders. Adding a field here is
+ * what makes a change to that field invalidate the card.
+ */
+function ogProfileSnapshot(profile) {
+  return {
+    name: profile.name,
+    employer: profile.employer,
+    focus: profile.focus,
+    role: profile.role,
+    currentCity: profile.currentCity,
+  };
+}
+
+const CONTENT_DIRECTORY = join('content', 'writing');
+
+/** Words per minute used for the reading-time readout. */
+const READING_WORDS_PER_MINUTE = 225;
+
+export function postCardPath(slug) {
+  return `${POST_CARD_DIRECTORY}/${slug}.png`;
+}
+
+/** Resolves a root-relative public URL to its file on disk. */
+export function publicFile(root, publicPath) {
+  return join(root, 'public', ...publicPath.split('/').filter(Boolean));
+}
+
+/**
+ * Card colour role → design token.
+ *
+ * satori has no cascade, so the generator has to be handed literal colours.
+ * Reading the stylesheet keeps the cards on the site's palette, and folding the resolved values into the card
+ * digest makes a token change invalidate the committed PNGs.
+ */
+const CARD_COLORS = {
+  ink: '--color-fg-bold',
+  paper: '--color-bg-alt',
+  body: '--color-fg',
+  graphite: '--color-fg-light',
+  accent: '--color-accent',
+  /** Divides cells within one section; the rule that opens a section is ink. */
+  hairline: '--color-border',
+};
+
+/**
+ * The colours the cards paint with, resolved from the token stylesheet.
+ *
+ * Only the light theme is read: a baked PNG has no theme, and the card is the
+ * paper one.
+ */
+export function readCardColors(root = process.cwd()) {
+  return Object.fromEntries(
+    Object.entries(CARD_COLORS).map(([role, token]) => [
+      role,
+      readColorToken(token, 'light', root),
+    ]),
+  );
+}
+
+/**
+ * Slugs are filenames, and a card path is built from them, so hold them to the
+ * same shape `isSafeSlug` in `src/lib/posts.ts` accepts. A post whose slug that
+ * function rejects has no route to share anyway.
+ */
+function assertSafeSlug(slug, file) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+    throw new Error(
+      `${file} has a slug the site cannot route: ${slug}. Use lowercase words separated by single hyphens.`,
+    );
+  }
+}
+
+/**
+ * The site's own origin, through the `homepage` reader the export scripts use.
+ *
+ * Resolved on demand rather than at import, so that reading a constant out of
+ * this module never depends on the working directory having a package.json.
+ */
+let cachedSiteOrigin;
+function siteOrigin() {
+  cachedSiteOrigin ??= readSiteConfig(process.cwd(), 'og-inputs').origin;
+  return cachedSiteOrigin;
+}
+
+/** A link whose visible label is its own target prints a URL, not prose. */
+function isAutolink(node) {
+  const [child, ...rest] = node.children ?? [];
+  return (
+    rest.length === 0 &&
+    child?.type === RuleType.text &&
+    child.text === node.target
+  );
+}
+
+/**
+ * Words of prose, with code, URLs, and markup left out.
+ *
+ * Counted off the same Markdown AST the site renders from, rather than by
+ * unwriting the syntax with expressions. Stripping ``` fences and inline code
+ * by hand missed both of the other ways to write a code block — `~~~` fences
+ * and four-space indentation — and counted them as prose, inflating the words
+ * and the reading time by the size of the code. The parser classifies all three
+ * as `codeBlock`, and only text nodes are counted, so image alt text, link
+ * targets, reference definitions, list markers, and table pipes stay out.
+ */
+export function countProseWords(markdown) {
+  const prose = [];
+
+  function visit(value) {
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item);
+      return;
+    }
+    if (!value || typeof value !== 'object') return;
+
+    if (value.type === RuleType.text) {
+      prose.push(value.text);
+      return;
+    }
+    if (value.type === RuleType.link && isAutolink(value)) return;
+
+    for (const child of Object.values(value)) visit(child);
+  }
+
+  visit(parser(markdown));
+
+  return prose
+    .join(' ')
+    .split(/\s+/)
+    .filter((token) => /[\p{L}\p{N}]/u.test(token)).length;
+}
+
+/**
+ * Distinct external destinations linked from the post.
+ *
+ * Also read from the AST, through the resolver `verify-export.mjs` uses, so the
+ * figure covers every form the renderer turns into a link: reference-style
+ * links, autolinks, bare URLs, and raw HTML anchors as well as inline ones. An
+ * expression matching only `[text](https://…)` published `0` for a post written
+ * entirely in reference style, and both scripts agreed on the wrong number.
+ * A linked image is a link; the image's own source is not.
+ */
+export function countUniqueExternalLinks(markdown) {
+  const origin = siteOrigin();
+  const external = new Set();
+
+  for (const { kind, target } of readMarkdownReferences(markdown)) {
+    if (kind !== 'link') continue;
+
+    let url;
+    try {
+      url = new URL(target, origin);
+    } catch {
+      continue;
+    }
+
+    // Same-origin absolute links are navigation, not outbound references.
+    if (!['http:', 'https:'].includes(url.protocol)) continue;
+    if (url.origin === origin) continue;
+
+    external.add(url.href);
+  }
+
+  return external.size;
+}
+
+/**
+ * The date exactly as the post header prints it.
+ *
+ * Noon avoids the timezone shift that makes a UTC-midnight date render as the
+ * previous day west of Greenwich — the same reason `formatDate` in
+ * `src/lib/utils.ts` parses at noon. A test pins the two together.
+ */
+export function formatCardDate(date) {
+  return new Date(`${date}T12:00:00`).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+
+/**
+ * The measured readout for a post.
+ *
+ * These are counted from the post itself for the same reason `/stats` counts
+ * its own source: a number typed into a card is a number that goes stale
+ * without anything failing.
+ */
+function measurePost(markdown) {
+  const words = countProseWords(markdown);
+
+  return [
+    { label: 'Words', value: words.toLocaleString('en-US') },
+    {
+      label: 'Unique external links',
+      value: String(countUniqueExternalLinks(markdown)),
+    },
+    {
+      label: 'Reading time',
+      value: `${Math.max(1, Math.round(words / READING_WORDS_PER_MINUTE))} min`,
+    },
+  ];
+}
+
+/**
+ * The published posts that get a card, newest first.
+ *
+ * Drafts are excluded unconditionally. `public/` is copied verbatim into the
+ * export, so a card for an unpublished post is a publicly fetchable file with
+ * that post's title rendered into it — the leak class `verify-export.mjs`
+ * exists to catch. `isPublished` in `src/lib/posts.ts` reveals drafts under
+ * `next dev`; this deliberately never does, because its output is committed to
+ * the repository rather than rendered per request.
+ */
+export async function readPostCards(root = process.cwd()) {
+  const directory = join(root, CONTENT_DIRECTORY);
+  const files = (await readdir(directory)).filter((file) =>
+    file.endsWith('.md'),
+  );
+  const cards = [];
+
+  for (const file of files.sort()) {
+    const { data, content } = parseFrontmatter(
+      await readFile(join(directory, file), 'utf8'),
+    );
+
+    const slug = file.replace(/\.md$/, '');
+    const source = join(CONTENT_DIRECTORY, file);
+    assertSafeSlug(slug, source);
+    const frontmatter = validatePostFrontmatterData(data, source);
+
+    if (frontmatter.draft === true) continue;
+
+    cards.push({
+      slug,
+      path: postCardPath(slug),
+      title: frontmatter.title,
+      description: frontmatter.description,
+      date: frontmatter.date,
+      dateLabel: formatCardDate(frontmatter.date),
+      readout: measurePost(content),
+    });
+  }
+
+  // Newest first, then by slug, so the ledger order is stable across machines.
+  return cards.sort(
+    (a, b) => b.date.localeCompare(a.date) || a.slug.localeCompare(b.slug),
+  );
+}
+
+/**
+ * Everything the committed cards are derived from.
+ *
+ * `generate-og.mjs` writes this into the ledger with each rendered image's
+ * digest attached; `check-og.mjs` recomputes it and compares.
+ */
+export async function readCardInputs(root = process.cwd()) {
+  const [profile, colors, posts, sources, renderer] = await Promise.all([
+    readFile(join(root, 'src/data/profile.json'), 'utf8').then(JSON.parse),
+    readCardColors(root),
+    readPostCards(root),
+    Promise.all(
+      GENERATOR_SOURCES.map((source) => readFile(join(root, source), 'utf8')),
+    ),
+    readImageRenderer(root),
+  ]);
+
+  const profileSnapshot = ogProfileSnapshot(profile);
+  const generatorDigest = sources
+    .reduce(
+      (digest, source) => digest.update(source).update('\0'),
+      createHash('sha256'),
+    )
+    .update(JSON.stringify(profileSnapshot))
+    .digest('hex');
+
+  return {
+    profile,
+    size: CARD_SIZE,
+    fonts: CARD_FONTS,
+    profileSnapshot,
+    colors,
+    posts,
+    renderer,
+    generatorDigest,
+  };
+}
+
+export function imageDigest(image) {
+  return createHash('sha256').update(image).digest('hex');
+}

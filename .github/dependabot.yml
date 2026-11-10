@@ -1,0 +1,45 @@
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/' # Location of package manifest
+    schedule:
+      interval: 'weekly'
+    groups:
+      # Coverage providers require the exact Vitest version as a peer.
+      vitest:
+        patterns:
+          - 'vitest'
+          - '@vitest/*'
+      next:
+        patterns:
+          - 'next'
+          - '@next/*'
+      react:
+        patterns:
+          - 'react'
+          - 'react-dom'
+          - '@types/react'
+          - '@types/react-dom'
+      # @tailwindcss/postcss pins the tailwindcss its compiler loads. Bumped
+      # alone, tailwindcss moves while the build keeps compiling with a nested
+      # copy of the old version.
+      tailwind:
+        patterns:
+          - 'tailwindcss'
+          - '@tailwindcss/*'
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      # Producer/consumer pairs on the path that publishes the site. A
+      # half-bumped pair fails only at deploy time, after CI reports success.
+      pages-artifacts:
+        patterns:
+          - 'actions/upload-artifact'
+          - 'actions/download-artifact'
+          - 'actions/upload-pages-artifact'
+          - 'actions/deploy-pages'

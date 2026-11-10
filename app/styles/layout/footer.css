@@ -1,0 +1,147 @@
+/* ========================================
+   FOOTER LAYOUT
+   Identity on the left rail, routes and profiles on the right
+   ======================================== */
+
+/* A hairline closes the page without competing with the content. */
+.site-footer-new {
+  border-top: var(--rule) solid var(--color-border);
+  padding: 2.5rem 0;
+  margin-top: auto;
+}
+
+.footer-content {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--measure-page);
+  padding-inline: 2rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem 3rem;
+}
+
+.footer-identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+/* A quiet square portrait closes the page. */
+.footer-avatar {
+  width: 48px;
+  height: 48px;
+  border: var(--rule) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.footer-avatar:hover {
+  border-color: var(--color-fg-bold);
+}
+
+.site-footer-new .footer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-name {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+
+.footer-role {
+  font-size: var(--text-sm);
+  color: var(--color-fg-light);
+  margin: 0;
+}
+
+.footer-copyright {
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  color: var(--color-fg-light);
+  margin: 0.5rem 0 0;
+}
+
+.footer-copyright a {
+  color: inherit;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-copyright a:hover {
+  color: var(--color-fg-bold);
+}
+
+/* Routes, then profiles, both set right on the rail. */
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem 1.25rem;
+}
+
+.footer-links a {
+  font-family: var(--font-display);
+  font-size: var(--text-ui);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-light);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-links a:hover {
+  color: var(--color-fg-bold);
+}
+
+/* The last mark's ink, not its target, sits on the rail. */
+.site-footer-new .icons {
+  justify-content: flex-end;
+  margin-right: -0.75rem;
+}
+
+@media screen and (max-width: 735px) {
+  .footer-content {
+    padding-inline: 1.5rem;
+  }
+}
+
+/* One column on the left rail, like every page above it, once identity and
+   routes no longer fit side by side. */
+@media screen and (max-width: 899px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+  }
+
+  .footer-links,
+  .site-footer-new .icons {
+    justify-content: flex-start;
+  }
+
+  .site-footer-new .icons {
+    margin: 0 0 0 -0.75rem;
+  }
+}

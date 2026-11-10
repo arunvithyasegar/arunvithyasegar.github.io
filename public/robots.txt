@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arunvithyasegar.com/sitemap.xml

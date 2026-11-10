@@ -1,0 +1,80 @@
+/* ========================================
+   CONTACT PAGE
+   ======================================== */
+
+.contact-email-container {
+  margin: 1.5rem 0 1rem;
+}
+
+/* The address is the page's one instruction, so it is set as a
+   readout in mono rather than dressed up as a tinted button. It holds one
+   line whatever the animation shows, so nothing below it ever moves. */
+.contact-email-link {
+  display: inline-grid;
+  grid-template-columns: minmax(0, max-content) max-content;
+  align-items: baseline;
+  max-width: 100%;
+  padding: 0.875rem 0;
+  font-family: var(--font-mono);
+  font-size: clamp(var(--text-xl), 4vw, var(--text-3xl));
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-fg-bold);
+  border-bottom: var(--rule-strong) solid var(--color-accent);
+  text-decoration: none;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.contact-email-link:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent-hover);
+}
+
+/* The alias types into its own slot. One too long for the line keeps its
+   newest characters in view, the way a terminal does: right-to-left overflow
+   clips the start behind an ellipsis, while the `dir="ltr"` text inside still
+   reads left to right. */
+.contact-email-prefix {
+  overflow: hidden;
+  white-space: pre;
+  text-overflow: ellipsis;
+  direction: rtl;
+  color: var(--color-accent);
+}
+
+.contact-email-domain {
+  white-space: nowrap;
+  color: var(--color-fg-bold);
+}
+
+.contact-hint {
+  margin: 0 0 1.5rem;
+  color: var(--color-fg-light);
+}
+
+@media (max-width: 735px) {
+  .about-section-nav {
+    margin: var(--spacing-6) 0 var(--spacing-5);
+  }
+
+  .about-section h2 {
+    scroll-margin-top: calc(var(--header-height-mobile) + 4.5rem + var(--spacing-5));
+  }
+
+  .contact-email-link {
+    padding: 0.625rem 0;
+  }
+}
+
+@media (min-width: 980px) {
+  .about-header {
+    margin-bottom: var(--spacing-12);
+  }
+
+  .about-section {
+    margin-top: var(--spacing-16);
+  }
+}

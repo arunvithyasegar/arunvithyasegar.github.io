@@ -1,0 +1,58 @@
+/* ========================================
+   TYPOGRAPHY TOKENS
+   Three voices:
+     display — Inter, names, headings, and controls
+     body    — Newsreader, prose and reading
+     mono    — JetBrains Mono, data: dates, counts, tags, and code
+   ======================================== */
+
+@theme {
+  /* ===================
+     FONT FAMILIES
+     =================== */
+  --font-display: var(--font-inter), 'Helvetica Neue', sans-serif;
+  --font-body: var(--font-newsreader), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'SF Mono', monospace;
+
+  /* ===================
+     FONT WEIGHTS
+     All three families are variable, so every step below
+     renders as a real weight rather than a synthesized one.
+     =================== */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 800;
+
+  /* ===================
+     FONT SIZES (rem — absolute, so nesting never compounds)
+     =================== */
+  --text-ui: 0.8125rem; /* 13px — nav, buttons, filters, section indexes */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-md: 1.125rem; /* 18px */
+  --text-lg: 1.375rem; /* 22px */
+  --text-xl: 1.75rem; /* 28px */
+  --text-2xl: 2.25rem; /* 36px */
+  --text-3xl: 3rem; /* 48px */
+}
+
+@theme inline {
+  /* ===================
+     LETTER SPACING
+     Display is set tight.
+     =================== */
+  --tracking-display: -0.025em;
+  --tracking-tight: -0.015em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+
+  /* ===================
+     LINE HEIGHTS
+     =================== */
+  --leading-tight: 1.15;
+  --leading-snug: 1.4;
+  --leading-normal: 1.65;
+}

@@ -1,0 +1,67 @@
+{
+  "size": {
+    "width": 1200,
+    "height": 630
+  },
+  "fonts": [
+    {
+      "name": "Display",
+      "family": "Inter",
+      "weight": 500,
+      "style": "normal",
+      "file": "scripts/fonts/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
+    },
+    {
+      "name": "Mono",
+      "family": "JetBrains Mono",
+      "weight": 500,
+      "style": "normal",
+      "file": "scripts/fonts/DejaVuSansMono.ttf",
+      "sha256": "54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8"
+    },
+    {
+      "name": "Body",
+      "family": "Newsreader",
+      "weight": 400,
+      "style": "normal",
+      "file": "scripts/fonts/DejaVuSerif.ttf",
+      "sha256": "8cb29f7db250ebb2551a6ce2c1e0bfd5a0eb520e9e233370db0493e82e1f36f7"
+    }
+  ],
+  "renderer": [
+    {
+      "name": "next",
+      "version": "16.4.5",
+      "integrity": "sha512-rmdfsWosjTUO+6R0S3KokoIk6Kj0sWDRTe86tZHdqaWH/oXq/udX3/4xb+YQi7aWbyEFoglDU54kaifLCdXbBw=="
+    },
+    {
+      "name": "react",
+      "version": "19.3.1",
+      "integrity": "sha512-QNhWdt7nrgVWWQG58QuGsAR3jv3Hbe4mb4vz7w2csnHavciZJgda1CPNaldF6eVxv90ud3jUXpKlHL69gO38yw=="
+    },
+    {
+      "name": "sharp",
+      "version": "0.35.5",
+      "integrity": "sha512-Ywn4OnzGukp7CDMrp08RQ50YKmuwG47brZgIVPTvBaaAfQlRlygrRqSrxdCiL9M+LlzLBiJ68IR1QqvzHyjC7g=="
+    }
+  ],
+  "profile": {
+    "name": "Arun V",
+    "employer": "Agathium",
+    "focus": "Data, people, and processes",
+    "role": "Business & Data Analyst",
+    "currentCity": "Vellore, India"
+  },
+  "colors": {
+    "ink": "#292a2e",
+    "paper": "#f6f3ed",
+    "body": "#292a2e",
+    "graphite": "#646269",
+    "accent": "#36559a",
+    "hairline": "rgba(35, 39, 46, 0.14)"
+  },
+  "generatorDigest": "e54d8993c47a8786663c74b17348780907f630fa494c96682138499268dfff08",
+  "imageDigest": "f79bb07d837ac47b22ad045695de7c8b93ebf9cb227204fbac0a8160d1a92e3d",
+  "posts": []
+}

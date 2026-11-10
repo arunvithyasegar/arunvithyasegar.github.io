@@ -20,7 +20,7 @@ Edit `src/data/` for portfolio content. Certifications are in `src/data/resume/c
 
 ## Deployment
 
-GitHub Actions validates and publishes `out/` on main. In repository Settings → Pages, select GitHub Actions. The canonical domain remains `arunvithyasegar.com`. DNS and Pages settings must already point at this repository. Local changes do not deploy until pushed and merged. Old `.html` routes and `/home/` redirect to their corresponding new pages.
+GitHub Actions validates and publishes `out/` on main. In repository Settings → Pages, select GitHub Actions. The canonical domain remains `arunvithyasegar.in`. DNS and Pages settings must already point at this repository. Local changes do not deploy until pushed and merged. Old `.html` routes and `/home/` redirect to their corresponding new pages.
 
 ## Migration
 

@@ -5,7 +5,7 @@
 import profile from '@/data/profile.json';
 
 // Site configuration
-export const SITE_URL = 'https://arunvithyasegar.com';
+export const SITE_URL = 'https://arunvithyasegar.in';
 export const AUTHOR_NAME = profile.name;
 export const TWITTER_HANDLE = undefined;
 /**

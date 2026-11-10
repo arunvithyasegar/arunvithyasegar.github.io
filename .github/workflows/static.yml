@@ -37,6 +37,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Use the validated Actions deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -f build_type=workflow --silent
       - uses: actions/deploy-pages@v4
         id: deployment
       - uses: actions/checkout@v4

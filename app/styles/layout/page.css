@@ -1,0 +1,58 @@
+/* ========================================
+   PAGE LAYOUT
+   Page containers and section layouts
+   ======================================== */
+
+/* Page container - flex column for sticky footer.
+   The header is fixed and body carries matching top padding, so a full 100vh
+   here made every short page exactly one header taller than the viewport and
+   scroll by 64px for nothing. dvh also tracks mobile browser chrome. */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - var(--header-height));
+}
+
+@media (max-width: 735px) {
+  .page-container {
+    min-height: calc(100dvh - var(--header-height-mobile));
+  }
+}
+
+/* Main content area */
+.page-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--measure-page);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+@media screen and (min-width: 736px) {
+  .page-main {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Page header styles */
+.page-title {
+  font-size: var(--text-3xl);
+  /* The name's weight on the homepage, as every other page title. */
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-fg-light);
+  margin-bottom: 2rem;
+}
+
+/* Sentences rather than a one-line tagline: at subtitle size they ran to
+   three lines on desktop and six on a phone. Declared after .page-subtitle
+   so its size wins when the two are combined. */
+.page-prose {
+  max-width: var(--measure-read);
+  font-size: var(--text-md);
+  line-height: var(--leading-normal);
+}

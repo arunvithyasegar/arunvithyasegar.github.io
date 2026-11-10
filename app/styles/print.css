@@ -1,0 +1,386 @@
+/* ========================================
+   PRINT
+   The resume is the page people actually print, and the screen design
+   is already close to a print design: hairlines, a dated gutter, and a
+   real reading serif. This mostly gets the screen chrome out of the way,
+   forces ink-on-paper colour, and controls where pages break.
+   ======================================== */
+
+@media print {
+  /* Colour is unreliable and expensive in print; the whole document
+     goes to black on white regardless of the active theme. */
+  :root,
+  [data-theme='dark'],
+  [data-theme='light'] {
+    /* Chromium uses the active color scheme for the physical page canvas,
+       outside the html/body boxes. Without this, a saved dark preference
+       leaves dark margins around an otherwise white PDF. */
+    color-scheme: light;
+    --color-bg: #fff;
+    --color-bg-alt: #fff;
+    --color-fg: #000;
+    --color-fg-bold: #000;
+    --color-fg-light: #333;
+    --color-accent: #000;
+    --color-accent-hover: #000;
+    --color-hero: #fff;
+    --color-on-hero: #000;
+    --color-signal: #000;
+    --color-signal-mark: #000;
+    --color-border: rgba(0, 0, 0, 0.28);
+    --color-border-alt: rgba(0, 0, 0, 0.45);
+    --color-border-bg: rgba(0, 0, 0, 0.18);
+    --color-surface-subtle: transparent;
+    --color-surface-hover: transparent;
+  }
+
+  @page {
+    margin: 16mm 14mm;
+  }
+
+  html {
+    background: #fff;
+  }
+
+  body {
+    font-size: 10.5pt;
+    line-height: 1.45;
+    padding-top: 0;
+  }
+
+  /* Screen chrome has no meaning on paper. `.skip-link` is a direct child of
+     `<body>`, not of `.site-header`, so hiding the header does not reach it.
+     Its fixed/translated screen treatment otherwise becomes a large dark
+     button in print. */
+  .skip-link,
+  .site-header,
+  .site-footer-new,
+  .slide-menu,
+  .slide-menu-overlay,
+  .hamburger-container,
+  .theme-toggle,
+  .reading-progress,
+  .resume-nav,
+  .writing-rss-link,
+  .resume-actions,
+  .resume-screen-title,
+  .about-section-nav,
+  .about-section-heading-hash {
+    display: none !important;
+  }
+
+  .page-main,
+  .writing-page,
+  .post-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-container {
+    min-height: 0;
+  }
+
+  /* Contact details belong on a printed resume. Rendered as real markup in
+     ResumePage rather than CSS content, so the line is selectable, linkable,
+     and sourced from the same profile and contact data as the screen UI. */
+  .resume-print-contact {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.75rem;
+    row-gap: 0;
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 8.5pt;
+    font-style: normal;
+    /* Tight tracking plus a real line-height means the block reads as one run
+       whether it takes one line or two on Letter or A4. */
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    color: var(--color-fg-light);
+  }
+
+  .resume-print-contact a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .resume-print-contact > * {
+    /* Break only between complete entries. Punctuation separators can dangle
+       at either edge of a wrapped line, so spacing carries the separation. */
+    white-space: nowrap;
+  }
+
+  .resume-print-name {
+    display: inline;
+  }
+
+  .resume-title,
+  .page-title {
+    font-size: 22pt;
+  }
+
+  .resume-summary {
+    font-size: 10pt;
+    max-width: none;
+  }
+
+  .resume-content {
+    gap: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  /* Keep a role and its bullets on one page wherever the page allows. */
+  .jobs-container,
+  .degree-container,
+  .skill-group,
+  .about-section--log li,
+  .project-entry,
+  .course-container {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Paper is narrower than the screen's column and its dates are set smaller,
+     so the two sections that hang on the gutter take a tighter one: as wide
+     as a range of two dated months at 8pt, and no wider. */
+  .jobs-container,
+  .skill-group {
+    --resume-gutter: 7.5rem;
+    --resume-gap: 1rem;
+  }
+
+  /* A long role may run on to the next page between two of its bullets. Held
+     whole by the rule above, one that did not fit was moved to the next page
+     entire, and the first page went out a fifth empty. */
+  .jobs-container {
+    padding: 0 0 0.9rem;
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+
+  /* The spine and its ticks are screen scaffolding; on paper the dated
+     gutter already does that work, and hairlines cost toner. */
+  .jobs-container::before,
+  .job-marker,
+  .about-section--log .log-entry::before,
+  .about-section--log .log-entry::after {
+    display: none;
+  }
+
+  /* The About intro sits a step above the printed body and below the section
+     headings, which its screen size would crowd. */
+  .about-intro p {
+    font-size: 12pt;
+  }
+
+  .about-section--log ul {
+    padding-left: 1.1rem;
+    list-style: disc;
+  }
+
+  /* The entries are grid containers on screen; restore list semantics so the
+     disc markers above actually render. */
+  .about-section--log .log-entry {
+    display: list-item;
+    padding-left: 0;
+  }
+
+  /* On paper the entry is a list item again, so any explicit year-age pair
+     runs inline instead of stacking in a gutter that no longer exists. */
+  .log-entry-marker {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0 0.4em;
+    text-align: left;
+    margin-right: 0.5em;
+  }
+
+  .log-entry-marker:empty {
+    display: none;
+  }
+
+  .log-entry-body {
+    display: inline;
+  }
+
+  .jobs-container--lead header h3 {
+    font-size: 13pt;
+  }
+
+  .jobs-container header h3 {
+    gap: 0.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* The tiers keep their step on paper, a point at a time and all of them
+     under the 14pt section heading. Each is named, because a rule for every
+     entry placed after the lead's would take the lead's size back. */
+  .jobs-container--primary header h3,
+  .degree-container .degree {
+    font-size: 12pt;
+  }
+
+  .jobs-container--early header h3 {
+    font-size: 11pt;
+  }
+
+  /* Role and dates are set in points, like the rest of the page, and small:
+     at their screen sizes they printed larger than the copy they label. */
+  .job-position,
+  .degree-container .school {
+    font-size: 9pt;
+  }
+
+  .daterange,
+  .degree-container .school time,
+  .courses .course-number {
+    font-size: 8pt;
+  }
+
+  .degree-container + .degree-container {
+    margin-top: 0.6rem;
+  }
+
+  .jobs-container .points {
+    margin-top: 0.3rem;
+  }
+
+  .jobs-container .points li {
+    --leading: 1.35;
+    font-size: 9.5pt;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Where a role does break, it is between two bullets and nowhere else: not
+     inside its heading, its summary, or a bullet, not directly under the
+     heading or the summary, and not one bullet from either end of the list.
+     The heading is a column of two lines, which a page will otherwise part:
+     a company name ended one page and its role began the next. */
+  .jobs-container header,
+  .summary,
+  .jobs-container .points li {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .jobs-container header,
+  .summary,
+  .jobs-container .points li:first-child {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .jobs-container .points li:last-child {
+    break-before: avoid;
+    page-break-before: avoid;
+  }
+
+  .summary,
+  .jobs-container--lead .summary,
+  .jobs-container--early .summary {
+    margin-bottom: 0.25rem;
+    line-height: 1.35;
+    font-size: 10pt;
+  }
+
+  .stat-table-value {
+    font-size: 14pt;
+  }
+
+  /* Both inks print black, so on paper there is no fainter tone for the
+     legend's second sentence to explain. The order it names still holds. */
+  .skill-tier-legend-tone {
+    display: none;
+  }
+
+  .skills .skill-tier-legend {
+    margin: 0 0 0.5rem;
+  }
+
+  .skill-groups {
+    gap: 0.3rem;
+  }
+
+  .skill-group-title {
+    font-size: 9pt;
+  }
+
+  .skill-tags {
+    gap: 0.25rem;
+  }
+
+  .skill-tag {
+    padding: 0.05em 0.5em;
+    font-size: 8pt;
+  }
+
+  .skill-tag,
+  .tech-tag {
+    border-color: rgba(0, 0, 0, 0.35);
+  }
+
+  /* Reveal destinations for links that are not obvious from their text. On the
+     resume that is the identifying link on each professional or education
+     entry — the company or school — which otherwise prints as
+     undifferentiated black text and loses the destination entirely on paper.
+
+     Deliberately not the citations inside a role summary: three URLs inside
+     one sentence of 10pt serif cost more legibility than they return. And not
+     `.resume-print-contact`, whose link text is already the readable URL, so
+     revealing the href there would print every address twice. Course links
+     remain clickable in a PDF, but printing 13 raw catalogue URLs makes the
+     paper artifact denser without giving a reader practical destinations to
+     retype. */
+  .about-content a[href^='http']::after,
+  .prose a[href^='http']::after,
+  .job-company[href^='http']::after,
+  .degree-container .school a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-family: var(--font-mono);
+    font-size: 8pt;
+    /* The company sits in a bold display h3; a URL should read as an
+       annotation of it rather than as more of the heading. */
+    font-weight: var(--font-weight-normal);
+    letter-spacing: var(--tracking-normal);
+    color: var(--color-fg-light);
+    word-break: break-all;
+  }
+
+  /* The print viewport is narrower than it looks: at the `@page` margins above
+     it measures ~710px on Letter and ~690px on A4, so the 735px mobile
+     breakpoint in `pages/resume.css` fires on paper and stacks all thirteen
+     courses into one column. Re-declare the grid here — same specificity, but
+     print.css is imported last, so source order settles it. */
+  .resume-page .courses .course-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.5rem;
+  }
+
+  /* A screen touch-target floor has no meaning on paper, nor has the room a
+     pointer's wash needs. That room hangs outside the column, and anything
+     wider than the sheet makes the browser scale every page down to fit it:
+     with the overhang left on, the whole résumé printed one percent small.
+     The columns close up as well, so that most titles keep to one line. */
+  .course-container a {
+    min-height: 0;
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+    margin: 0;
+    padding: 0.05rem 0;
+  }
+
+  .courses .course-name {
+    font-size: 9.5pt;
+  }
+
+  a {
+    color: #000;
+  }
+
+  img {
+    max-width: 100% !important;
+    filter: grayscale(1) !important;
+  }
+}

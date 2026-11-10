@@ -1,0 +1,264 @@
+/**
+ * The machine-readable résumé served at `/resume.json`.
+ *
+ * This module publishes the JSON Resume document that `src/data/resume/work.ts`
+ * says it conforms to. It reuses the rendered résumé's profile, work, education, course, and skill
+ * sources so those facts do not need a second maintained copy; explicit
+ * mapping tests pin the places where the two representations differ.
+ *
+ * Deliberately a subset of the schema: sections this résumé has no data for
+ * (`volunteer`, `awards`, `certificates`, `publications`, `languages`,
+ * `interests`, `projects`, `references`) are omitted rather than stubbed.
+ */
+
+import contact from '@/data/contact';
+import profile from '@/data/profile.json';
+import certifications from '@/data/resume/certifications';
+import courses from '@/data/resume/courses';
+import degrees from '@/data/resume/degrees';
+import {
+  type Category,
+  categories,
+  type Skill,
+  skills,
+} from '@/data/resume/skills';
+import work from '@/data/resume/work';
+import { sortPositions } from '@/lib/career';
+import {
+  AUTHOR_NAME,
+  SITE_DESCRIPTION,
+  SITE_IMAGE_PATH,
+  SITE_URL,
+} from '@/lib/utils';
+
+/**
+ * File-like, so it keeps no trailing slash under `trailingSlash: true` — the
+ * same treatment as `/feed.xml` and `/sitemap.xml`.
+ */
+export const RESUME_JSON_PATH = '/resume.json';
+
+export const RESUME_JSON_URL = `${SITE_URL}${RESUME_JSON_PATH}`;
+
+/**
+ * The published schema this document declares itself against. `$schema` is a
+ * root property of JSON Resume v1.0.0, not an extension to it.
+ */
+const RESUME_SCHEMA_URL =
+  'https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json';
+
+interface ResumeProfile {
+  network: string;
+  username: string;
+  url: string;
+}
+
+interface ResumeLocation {
+  city: string;
+  region?: string;
+}
+
+interface ResumeBasics {
+  name: string;
+  label: string;
+  image: string;
+  email: string;
+  url: string;
+  summary: string;
+  location: ResumeLocation;
+  profiles: ResumeProfile[];
+}
+
+interface ResumeWork {
+  name: string;
+  position: string;
+  url: string;
+  startDate: string;
+  endDate?: string;
+  summary?: string;
+  highlights?: string[];
+}
+
+interface ResumeEducation {
+  institution: string;
+  url: string;
+  studyType?: string;
+  area?: string;
+  endDate: string;
+  courses?: string[];
+}
+
+interface ResumeSkill {
+  name: string;
+  keywords: string[];
+}
+
+interface JsonResume {
+  $schema: string;
+  basics: ResumeBasics;
+  work: ResumeWork[];
+  education: ResumeEducation[];
+  skills: ResumeSkill[];
+  certificates: { name: string; url: string }[];
+  meta: {
+    canonical: string;
+  };
+}
+
+/**
+ * Reduces résumé prose to the plain text JSON Resume expects.
+ *
+ * The `summary` strings in `src/data/resume/work.ts` are Markdown with inline
+ * `<a href>` anchors, which `JobSummary` renders through `markdown-to-jsx`.
+ * The rendered page depends on that markup, so this strips it for the artifact
+ * rather than flattening the source data and costing the page its links.
+ * Anchor text survives, but inline destinations do not: JSON Resume summaries
+ * are plain strings. Each employer's own URL remains available separately on
+ * the work entry.
+ *
+ * Only the anchor tags are stripped, so technical prose such as comparisons
+ * and `Map<K, V>` survives; any other markup stays visible to the export
+ * verifier.
+ */
+export function toPlainText(value: string): string {
+  return (
+    value
+      .replace(/<\/?a(?:\s[^>]*)?>/gi, '')
+      // Template literals in the data files wrap across lines and indent.
+      .replace(/\s+/g, ' ')
+      .trim()
+  );
+}
+
+/**
+ * `profile.currentCity` is a single display string ("San Francisco"), optionally with a region after a comma. It is
+ * split rather than duplicated, and `countryCode` is left off because the data
+ * does not state a country — a hardcoded `US` here would silently outlive a
+ * move abroad.
+ */
+function buildLocation(): ResumeLocation {
+  const [city, region] = profile.currentCity
+    .split(',')
+    .map((part) => part.trim());
+  return { city, ...(region ? { region } : {}) };
+}
+
+/** The trailing path segment of a profile URL is the handle on every network here. */
+function usernameFrom(link: string): string {
+  const { pathname } = new URL(link);
+  return pathname.split('/').filter(Boolean).pop() ?? '';
+}
+
+function buildBasics(): ResumeBasics {
+  return {
+    name: AUTHOR_NAME,
+    label: profile.role,
+    // The portrait, not the share card: JSON Resume renderers show this as a
+    // photograph of the person.
+    image: `${SITE_URL}${SITE_IMAGE_PATH}`,
+    email: profile.email,
+    url: `${SITE_URL}/`,
+    summary: SITE_DESCRIPTION,
+    location: buildLocation(),
+    profiles: contact
+      .filter((item) => !item.link.startsWith('mailto:'))
+      .map((item) => ({
+        network: item.label,
+        username: usernameFrom(item.link),
+        url: item.link,
+      })),
+  };
+}
+
+function buildWork(): ResumeWork[] {
+  return sortPositions(work).map((position) => ({
+    name: position.name,
+    position: position.position,
+    url: position.url,
+    startDate: position.startDate,
+    ...(position.endDate ? { endDate: position.endDate } : {}),
+    ...(position.summary ? { summary: toPlainText(position.summary) } : {}),
+    ...(position.highlights
+      ? { highlights: position.highlights.map(toPlainText) }
+      : {}),
+  }));
+}
+
+/**
+ * `Degree.degree` packs the qualification and the field into one display
+ * string ("M.S. Computational and Mathematical Engineering (ICME)"). JSON
+ * Resume keeps them apart, so the leading abbreviation is split off. Anything
+ * that does not start with one becomes `area` alone rather than being guessed
+ * at.
+ */
+function splitDegree(
+  degree: string,
+): Pick<ResumeEducation, 'studyType' | 'area'> {
+  const match = degree.match(/^((?:[A-Z]\.){2,3})\s+(.+)$/);
+  return match ? { studyType: match[1], area: match[2] } : { area: degree };
+}
+
+function buildEducation(): ResumeEducation[] {
+  return degrees.map((degree) => {
+    // Every course carries the university it was taken at; attach it to the
+    // degree from that school instead of listing courses in a section the
+    // schema has no room for. Matched whole rather than by containment: a
+    // substring test attaches every Stanford course to a second degree from a
+    // school whose name merely contains "Stanford", publishing the same
+    // coursework twice.
+    const schoolCourses = courses
+      .filter((course) => course.university === degree.school)
+      .map((course) => `${course.number} - ${course.title}`);
+
+    return {
+      institution: degree.school,
+      url: degree.link,
+      ...splitDegree(degree.degree),
+      endDate: String(degree.year),
+      ...(schoolCourses.length > 0 ? { courses: schoolCourses } : {}),
+    };
+  });
+}
+
+/**
+ * One group per category, its skills ordered by competency: the order the
+ * résumé page and this document share. The 1–5 competency scale has no
+ * counterpart in the schema's free-text `level`, so it shapes the ordering
+ * rather than being translated into a word the data never claimed.
+ */
+export function groupSkills(all: Skill[], categoryList: Category[]) {
+  return categoryList.map((category) => ({
+    name: category.name,
+    skills: all
+      .filter((skill) => skill.category.includes(category.name))
+      .sort(
+        (a, b) =>
+          b.competency - a.competency || a.title.localeCompare(b.title, 'en'),
+      ),
+  }));
+}
+
+function buildSkills(): ResumeSkill[] {
+  return groupSkills(skills, categories).map((group) => ({
+    name: group.name,
+    keywords: group.skills.map((skill) => skill.title),
+  }));
+}
+
+export function buildJsonResume(): JsonResume {
+  return {
+    $schema: RESUME_SCHEMA_URL,
+    basics: buildBasics(),
+    work: buildWork(),
+    education: buildEducation(),
+    skills: buildSkills(),
+    certificates: certifications.map((c) => ({ name: c.title, url: c.url })),
+    meta: {
+      canonical: RESUME_JSON_URL,
+    },
+  };
+}
+
+/** The exact bytes served at `/resume.json`. Pretty-printed: people read it. */
+export function serializeJsonResume(): string {
+  return `${JSON.stringify(buildJsonResume(), null, 2)}\n`;
+}

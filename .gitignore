@@ -1,7 +1,38 @@
+# Dependencies
 node_modules/
-work/
-dist/
+
+# Logs
+logs/
 *.log
+npm-debug.log*
+
+# Environment
 .env
-.env.*
+.env*.local
+
+# Coverage
+coverage/
+
+# Build outputs
+tmp/
+out/
+
+# Next.js
+.next/
+.swc/
+.turbo/
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Local browser-automation output
+.playwright-mcp/

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Certifications from '@/components/Resume/Certifications';
+import Courses from '@/components/Resume/Courses';
 import Education from '@/components/Resume/Education';
 import Experience from '@/components/Resume/Experience';
 import PrintButton from '@/components/Resume/PrintButton';
@@ -9,10 +9,11 @@ import Skills from '@/components/Resume/Skills';
 import PageWrapper from '@/components/Template/PageWrapper';
 import contact, { type ContactId } from '@/data/contact';
 import profile from '@/data/profile.json';
-import certifications from '@/data/resume/certifications';
+import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
+import { careerSpanYears } from '@/lib/career';
 import { createPageMetadata } from '@/lib/metadata';
 import { RESUME_JSON_PATH, RESUME_JSON_URL } from '@/lib/resumeJson';
 import { smartQuotes } from '@/lib/typography';
@@ -20,7 +21,7 @@ import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
 
 const resumeMetadata = createPageMetadata({
   title: 'Resume',
-  description: `${AUTHOR_NAME}'s experience, education, skills, and certifications in business and data analysis.`,
+  description: `${AUTHOR_NAME}'s Resume. OpenAI, Promptfoo, Smile ID, Arthena, Matroid, Stanford ICME, YC alum.`,
   path: '/resume/',
 });
 
@@ -59,6 +60,7 @@ function contactLink(id: ContactId): string {
 export default function ResumePage() {
   // One read, shared by the headline span and every tenure; baked at build time.
   const now = Date.now();
+  const careerSpan = careerSpanYears(work, now);
   const github = contactLink('github');
   const linkedin = contactLink('linkedin');
 
@@ -91,10 +93,12 @@ export default function ResumePage() {
             </div>
           </div>
           <p className="resume-summary">
-            Business &amp; Data Analyst connecting data, people, and processes.
-            My work spans agricultural markets, digital healthcare, policy
-            research, and business process improvement, using SQL, Python, and
-            Power BI.
+            Engineering leader with a career spanning {careerSpan}+ years across
+            AI, security, and infrastructure. I’m currently a Member of the
+            Technical Staff at OpenAI, working on Promptfoo and other cyber
+            products. I help secure AI systems and use AI to find software
+            vulnerabilities. I co-founded Promptfoo before it joined OpenAI in
+            2026. Stanford MS, YC alum, previously VP Engineering.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable and linkable. Destinations come from shared contact
@@ -123,8 +127,8 @@ export default function ResumePage() {
             <Skills skills={skills} categories={categories} />
           </section>
 
-          <section id="certifications" className="resume-section">
-            <Certifications data={certifications} />
+          <section id="courses" className="resume-section">
+            <Courses data={courses} />
           </section>
         </div>
       </section>

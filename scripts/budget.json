@@ -39,13 +39,12 @@
     "HTML documents, RSC prefetch payloads, images, and repeated inline SVG bytes",
     "are measured and printed but deliberately not gated: they grow with writing,",
     "and a per-post failure trains people to raise the number without reading it.",
-    "The largest-file and heaviest-route gates still catch individual outliers.",
-    "Migration: homepage now presents linked portfolio projects; allow 1.45 MB for its measured static bootstrap (about 1.25 MB)."
+    "The largest-file and heaviest-route gates still catch individual outliers."
   ],
   "javascriptBytes": 1161216,
   "cssBytes": 87040,
   "fontBytes": 271360,
   "maxFileBytes": 273408,
-  "maxRouteBootstrapBytes": 1450000,
+  "maxRouteBootstrapBytes": 1092608,
   "distinctInlineSvgBytes": 7168
 }

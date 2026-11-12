@@ -108,9 +108,9 @@ describe('schema nodes', () => {
 
     expect(SITE_IMAGE_DIMENSIONS).toEqual({ width, height });
     expect(personNode()).toMatchObject({
-      givenName: 'Arun',
-      familyName: 'V',
-      image: { url: `${SITE_URL}${SITE_IMAGE_PATH}`, ...SITE_IMAGE_DIMENSIONS },
+      givenName: 'Michael',
+      familyName: "D'Angelo",
+      image: { url: `${SITE_URL}/images/me.jpg`, ...SITE_IMAGE_DIMENSIONS },
     });
   });
 

@@ -71,14 +71,7 @@ export default function Entry({ data }: EntryProps) {
       )}
 
       <div className="project-entry-meta">
-        {date &&
-          (data.yearOnly ? (
-            <time className="project-dates" dateTime={date.slice(0, 4)}>
-              {date.slice(0, 4)}
-            </time>
-          ) : (
-            <DateRange date={date} endDate={endDate} ongoing={ongoing} />
-          ))}
+        <DateRange date={date} endDate={endDate} ongoing={ongoing} />
         {subtitle && (
           <span className="project-entry-role">{smartQuotes(subtitle)}</span>
         )}

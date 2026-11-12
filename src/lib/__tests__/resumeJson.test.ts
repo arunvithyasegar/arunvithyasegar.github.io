@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import contact from '@/data/contact';
 import profile from '@/data/profile.json';
+import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
 import { categories, skills } from '@/data/resume/skills';
 import work from '@/data/resume/work';
@@ -48,7 +49,7 @@ describe('json resume document', () => {
       label: profile.role,
       email: profile.email,
       // The display city, without asserting a country.
-      location: { city: 'Vellore', region: 'India' },
+      location: { city: 'San Francisco' },
     });
   });
 
@@ -58,8 +59,8 @@ describe('json resume document', () => {
     );
     expect(resume.basics.profiles).toContainEqual({
       network: 'GitHub',
-      username: 'arunv8055',
-      url: 'https://github.com/arunv8055',
+      username: 'mldangelo',
+      url: 'https://github.com/mldangelo',
     });
   });
 
@@ -78,7 +79,7 @@ describe('json resume document', () => {
     ]);
 
     expect(prose.join(' ')).toContain(
-      'Redesigned enterprise-level business processes using ARIS',
+      'backed by Anthemis, Foundation Capital, and Y Combinator',
     );
   });
 
@@ -95,15 +96,54 @@ describe('json resume document', () => {
   it('splits the degree string into studyType and area', () => {
     expect(resume.education).toHaveLength(degrees.length);
     expect(resume.education[0]).toMatchObject({
-      institution: 'Tamil Nadu Agricultural University',
-      area: 'Bachelor’s Degree in Agricultural Science',
-      endDate: '2023',
+      institution: 'Stanford University',
+      studyType: 'M.S.',
+      area: 'Computational and Mathematical Engineering (ICME)',
+      endDate: '2016',
     });
   });
 
-  it('publishes all credentials without claiming degree coursework', () => {
-    expect(resume.certificates).toHaveLength(8);
-    expect(resume.education[0]).not.toHaveProperty('courses');
+  // Cardinality across the whole document: per-entry assertions never look at a
+  // duplicate. A school whose name contains another's is the case the real data
+  // cannot express, and joining by containment would double every course.
+  it('files each course under exactly one degree', async () => {
+    expect(resume.education[0].courses).toContain(
+      'EE 364a - Convex Optimization',
+    );
+    expect(
+      resume.education.flatMap((entry) => entry.courses ?? []),
+    ).toHaveLength(courses.length);
+    // A school with no courses carries none, rather than an empty array.
+    expect(resume.education[1]).not.toHaveProperty('courses');
+
+    vi.resetModules();
+    vi.doMock('@/data/resume/degrees', () => ({
+      default: [
+        ...degrees,
+        {
+          school: 'Stanford University Graduate School of Business',
+          degree: 'M.B.A.',
+          link: 'https://gsb.stanford.edu',
+          year: 2018,
+        },
+      ],
+    }));
+
+    try {
+      const { buildJsonResume: buildWithSecondSchool } = await import(
+        '@/lib/resumeJson'
+      );
+      const { education } = buildWithSecondSchool();
+
+      expect(education).toHaveLength(degrees.length + 1);
+      expect(education.flatMap((entry) => entry.courses ?? [])).toHaveLength(
+        courses.length,
+      );
+      expect(education.at(-1)).not.toHaveProperty('courses');
+    } finally {
+      vi.doUnmock('@/data/resume/degrees');
+      vi.resetModules();
+    }
   });
 
   it('groups skills by category with keywords ordered by competency', () => {

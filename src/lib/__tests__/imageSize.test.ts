@@ -84,10 +84,11 @@ describe('readImageSize', () => {
   // An image the site renders. Deleting it reddens this test as well as the
   // export, so it must not point at a file no page uses.
   it('reads the WebP encoding used by article assets', () => {
-    expect(readImageSize('/images/arun.webp')).toEqual({
-      width: 1024,
-      height: 1024,
-    });
+    expect(
+      readImageSize(
+        '/images/writing/codex-desktop-app-post/codex-dark-mode-review.webp',
+      ),
+    ).toEqual({ width: 1166, height: 656 });
   });
 
   it.each([
@@ -96,7 +97,7 @@ describe('readImageSize', () => {
     ['/../package.json', /outside public/],
     ['/%2e%2e/package.json', /outside public/],
     ['/missing-article-image.png', /does not exist/],
-    ['/CNAME', /unsupported or malformed header/],
+    ['/robots.txt', /unsupported or malformed header/],
   ])('fails the build for %s', (src, message) => {
     expect(() => readImageSize(src)).toThrow(message);
   });
@@ -142,11 +143,11 @@ describe('readPostImageSizes', () => {
     const preview = { allowMissingLocalImages: true };
 
     expect(readPostImageSizes('![gone](/gone.png)', preview)).toEqual({});
-    expect(() => readPostImageSizes('![bad](/CNAME)', preview)).toThrow(
+    expect(() => readPostImageSizes('![bad](/robots.txt)', preview)).toThrow(
       /unsupported or malformed header/,
     );
     expect(() =>
-      readPostImageSizes('![up](/images/../CNAME)', preview),
+      readPostImageSizes('![up](/images/../robots.txt)', preview),
     ).toThrow(/outside public/);
   });
 });

@@ -29,7 +29,7 @@ describe('ContactIcons', () => {
 
     for (const link of screen.getAllByRole('link')) {
       const path = link.querySelector('svg[aria-hidden="true"] path');
-      expect(path?.getAttribute('d')).toMatch(/^M/i);
+      expect(path?.getAttribute('d')).toMatch(/^M/);
     }
   });
 

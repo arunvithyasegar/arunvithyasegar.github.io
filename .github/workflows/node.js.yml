@@ -15,7 +15,7 @@ env:
   # Pages-configure gate and the artifact-upload gate cannot drift apart —
   # they are a pair, and a mismatch produces a green CI run with nothing to
   # deploy. Must stay in step with .nvmrc; the build job asserts that.
-  DEPLOY_NODE: '24.x'
+  DEPLOY_NODE: '26.x'
 
 # Supersede stale PR runs, but never cancel a main run that may already be
 # deploying. The Pages job below serializes main deployments.
@@ -144,7 +144,7 @@ jobs:
         # The oldest major package.json engines allows (at its newest release,
         # not the declared floor), and the version .nvmrc pins for development
         # and the rest of CI.
-        node-version: [22.x, 24.x]
+        node-version: [22.x, 26.x]
         os: [ubuntu-latest, windows-latest, macos-latest]
         exclude:
           # Reduce matrix size for faster CI. Non-Linux runners only need to

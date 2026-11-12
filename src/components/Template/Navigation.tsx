@@ -22,7 +22,7 @@ export default function Navigation() {
           className="site-logo"
           aria-label={`${AUTHOR_NAME} — home`}
         >
-          <span className="logo-text">a</span>
+          <span className="logo-text">md</span>
           <span className="logo-name">{smartQuotes(AUTHOR_NAME)}</span>
         </Link>
       </div>

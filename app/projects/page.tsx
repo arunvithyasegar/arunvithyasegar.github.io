@@ -45,8 +45,8 @@ export default function ProjectsPage() {
         <header className="projects-header">
           <h1 className="page-title">{PAGE_TITLE}</h1>
           <p className="page-subtitle">
-            Work I have built, led, and contributed to, plus analytics
-            experiments.
+            Work I have built, led, and contributed to, plus earlier student
+            projects.
           </p>
         </header>
 
@@ -64,17 +64,6 @@ export default function ProjectsPage() {
             {shipped.map((project) => (
               <li key={project.title}>
                 <Entry data={project} />
-                {project.dashboard && (
-                  <a
-                    className="project-entry-role"
-                    href={project.dashboard}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open live dashboard ↗
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                )}
               </li>
             ))}
           </ol>
@@ -92,23 +81,12 @@ export default function ProjectsPage() {
             </p>
           </div>
           <p className="projects-group-note">
-            Agricultural data analysis and earlier explorations.
+            Student projects, hackathons, and experiments, kept for the record.
           </p>
           <ol className="projects-register">
             {archive.map((project) => (
               <li key={project.title}>
                 <Entry data={project} />
-                {project.dashboard && (
-                  <a
-                    className="project-entry-role"
-                    href={project.dashboard}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open live dashboard ↗
-                    <span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                )}
               </li>
             ))}
           </ol>

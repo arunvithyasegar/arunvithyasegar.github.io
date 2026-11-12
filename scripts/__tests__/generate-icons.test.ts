@@ -58,7 +58,9 @@ describe('generated icon set', () => {
       weight: 500,
       style: 'normal',
     });
-    expect(meta.inputs.font.file).toBe('scripts/fonts/DejaVuSans.ttf');
+    expect(meta.inputs.font.url).toMatch(
+      /^https:\/\/fonts\.gstatic\.com\/s\/inter\/v\d+\/[^/]+\.ttf$/,
+    );
     expect(meta.inputs.font.sha256).toMatch(/^[0-9a-f]{64}$/);
   });
 

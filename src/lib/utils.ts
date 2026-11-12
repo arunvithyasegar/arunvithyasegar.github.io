@@ -5,14 +5,14 @@
 import profile from '@/data/profile.json';
 
 // Site configuration
-export const SITE_URL = 'https://arunvithyasegar.in';
+export const SITE_URL = 'https://mldangelo.com';
 export const AUTHOR_NAME = profile.name;
-export const TWITTER_HANDLE = undefined;
+export const TWITTER_HANDLE = '@dangelosaurus';
 /**
  * The portrait. Used for JSON-LD `image`, where the value should be a picture
  * of the person, not a designed card.
  */
-export const SITE_IMAGE_PATH = '/images/arun.webp';
+export const SITE_IMAGE_PATH = '/images/me.jpg';
 export const SITE_IMAGE_DIMENSIONS = {
   width: 1024,
   height: 1024,
@@ -34,7 +34,7 @@ export const SHARE_IMAGE_DIMENSIONS = {
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Business & Data Analyst connecting data, people, and processes across agriculture, health technology, and business improvement.';
+  'Member of the Technical Staff at OpenAI, working on Promptfoo and other cyber products. Co-founded Promptfoo before it joined OpenAI in 2026.';
 
 // Skill competency
 export const MAX_COMPETENCY = 5;

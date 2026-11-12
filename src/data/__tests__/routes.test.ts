@@ -28,7 +28,9 @@ describe('routes', () => {
         )
         .map((route) => route.path);
 
-    expect(paths(true).join(' ')).toBe('/about /resume /projects /contact');
-    expect(paths(false)).toEqual(['/writing', '/stats']);
+    expect(paths(true).join(' ')).toBe(
+      '/about /resume /projects /writing /speaking /contact',
+    );
+    expect(paths(false)).toEqual(['/stats']);
   });
 });

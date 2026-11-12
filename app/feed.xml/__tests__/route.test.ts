@@ -14,9 +14,7 @@ describe('feed.xml route', () => {
     // builds every date as `${date}T12:00:00Z`, so a wall-clock value would
     // have to land on exactly 12:00:00 GMT to pass.
     const newest = getWritingItems().find((item) => item.date);
-    const expected = (
-      newest ? new Date(`${newest.date}T12:00:00Z`) : new Date(0)
-    ).toUTCString();
+    const expected = new Date(`${newest?.date}T12:00:00Z`).toUTCString();
 
     expect(xml).toContain(`<lastBuildDate>${expected}</lastBuildDate>`);
   });

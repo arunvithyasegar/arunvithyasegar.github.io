@@ -1,2 +1,98 @@
-export const aboutMarkdown =
-  "# Intro\n\nHey, I'm Arun. I'm a Business & Data Analyst, founder,\n              researcher, and builder of digital infrastructure for things that\n              matter — like health, agri-tech, insurance, and street vendor\n              empowerment.\n\nI'm currently leading backend architecture for a health-insurtech\n              platform integrating with ABHA and NHCX. I'm also sourcing\n              coconuts, building a VR training module for turmeric farmers, and\n              managing pricing APIs for India's rural markets.\n\nBefore this, I worked at PayAgri, Agathium, and StartupTN,\n              crafting dashboards, raising funding, and bridging the gap between\n              data and decision-making.\n\nI believe systems thinking can change lives, code can democratize\n              access, and that every farmer deserves a dashboard.\n\n# Some History\n\n- At 6, I built sandcastles with coconut shells.\n- At 16, I was managing procurement data on Excel for my uncle's\n                  business.\n- At 20, I graduated with a degree in Agriculture. Then I\n                  pivoted to Python.\n- Built a cardiovascular disease prediction model in college\n                  using public datasets.\n- Tracked mandi (market) prices using government APIs before it\n                  was cool.\n- Used Power BI + SQL to optimize decision-making for agri\n                  start-ups.\n- Interned at StartupTN, where I mapped the Tamil Nadu startup\n                  ecosystem and pitched process improvements to the government.\n- Developed health insurance onboarding flows linked with ABHA,\n                  DPDP Act, and IRDAI guidelines.\n- Created a loyalty streak algorithm for roadside vendors —\n                  because Grandma Rani deserves that 10% off.\n\n# Things I've Built (and am proud of)\n\n- HealthTech Insurance Platform: With ABHA\n                  integration, digital lockers, HIP-HIU data flow, claim\n                  lifecycle, and compliance under DPDP and NHCX.\n- Agri Seller App: Local vendors track\n                  inventory, profits, footfall, loyalty streaks, and pricing\n                  forecasts.\n- Market Price API Engine: TN Agmark +\n                  agmarknet.gov.in + OpenCV to validate photographed quantities.\n                  Because the best verification system is your phone camera.\n- VR Training for Turmeric Cultivation: Immersive modules for rural farmers — because video is great,\n                  but VR is unforgettable.\n- Coconut Supply Chain Analysis: From Pollachi\n                  to Bangalore with toll, weight, and fuel cost models. No truck\n                  left behind.\n- Health Portfolio App: Built for smooth\n                  onboarding, Aadhaar integration, medical history\n                  categorization, and real-time insurance validity badges.\n\n# I Like\n\n- Solving inefficiencies\n- Impacting real people\n- Planet Money\n- Swades\n- Data Storytelling\n- Quick Simulations\n- Supply Chains\n- Filter Coffee\n\n# Fun Facts\n\n- I once mapped entire mandi trends using just\n                  latitude-longitude coordinates and a farmer's voice\n                  note.\n- I sketch startup ideas on napkins, receipts, or in Notion at\n                  2 AM.\n- I dream in dashboards and keep a list of 100+ data business\n                  ideas.\n- I have a secret Excel sheet where I rank coconut quality\n                  across districts.\n\n# I Dream Of\n\n- Empowering farmers to be price-setters, not\n                  price-takers\n- Building India's most intuitive insurance interface\n- Contributing to India's decentralized agri-data future\n- Telling better stories through data — in Tamil, English, or\n                  Python\n\n# Places I Work Best In\n\n- Vellore, India — my base, my lab\n- Chennai — for momentum\n- Bangalore — for markets and mentors\n- Delhi — for policy\n- A quiet field or farm — for clarity\n\n# People & Projects That Inspire Me\n\n- Nandan Nilekani — for the ABHA/UPI scale mindset\n- Rohan Pavuluri — for building with heart\n- Rohini Nilekani — for listening to the grassroots\n- Karthik Muralidharan — for thinking with data and\n                  dignity\n- MLDangelo — for writing this kind of About Me\n\n";
+import profile from './profile.json';
+
+export const aboutMarkdown = `# Intro
+
+I build products, companies, and teams across AI, security, and infrastructure. Today, I am a Member of the Technical Staff at [OpenAI](https://openai.com), working on [Promptfoo](https://promptfoo.dev) and other cyber products. I help secure AI systems and use AI to find software vulnerabilities.
+
+I co-founded [Promptfoo](https://promptfoo.dev) before it joined OpenAI in 2026. I also co-founded [Arthena](https://www.ycombinator.com/companies/arthena) (acquired by Masterworks) and [Matroid](https://matroid.com), led engineering at [Smile ID](https://smile.id), and helped build satellites at [Planet](https://planet.com) and [Planetary Resources](https://en.wikipedia.org/wiki/Planetary_Resources).
+
+In my spare time, I enjoy investing in people and ideas through a [small venture fund](https://skepticalinvestments.biz), focusing on projects with high social impact. If you think I can be helpful to you or your cause, or if you're interested in collaborating, feel free to get in touch.
+
+# Some history
+
+- My parents put a computer in my bedroom in 1993 when I was 3. It was an old Tandy that ran MS-DOS. My favorite games were Street Rod 2, Wolfenstein 3D, and Tom and Jerry. It had a mechanical keyboard and a turbo button. To this day, I still don't know what pressing the turbo button really did.
+- We subscribed to AOL in 1995. I still remember installing it from a floppy disk onto our brand-new Packard Bell. It took years for me to send my first email.
+- In the summer of 1996, my uncle purchased [MegaRace](https://en.wikipedia.org/wiki/MegaRace) from [Media Play](https://en.wikipedia.org/wiki/Media_Play) and installed it on my mom's work computer. I might have endangered her business by using her computer too much.
+- At 7, I discovered the mini-games hidden in Microsoft Office. I also beat Minesweeper on expert for the first time.
+- At 8, my parents bought me a Sony Mavica MVC-FD71 digital camera after I stole their SLR one too many times. It could fit 10 images to a floppy disk at a 0.3MP resolution. I still have it, and it still works. I've been taking photographs ever since, now with a Nikon D750, D800, and occasionally with a Mamiya 6II.
+- At 10, I built my first website with Microsoft FrontPage on our Pentium III [Gateway](https://en.wikipedia.org/wiki/Gateway,_Inc.). My website was terrible.
+- I was 11 when I built my first [Tesla Coil](https://en.wikipedia.org/wiki/Tesla_coil) (without my parents' permission). Over the next few years, I built several more, including one of the first audio modulated coils and one of the first DRSSTCs.
+- When I was 12, I set the all-time high record at my local laser tag facility by reverse engineering the charging station and weapon protocols with a photo-resistor, micro-cassette recorder, and a lot of patience. I was unstoppable.
+- At 13, I went to space camp and fell in love. I went back two more times and promised myself that I'd work in space. I've since helped build three generations of satellites and have contributed to two more.
+- At 14, I was almost expelled for finding a backdoor into my high school's file server and telling everyone but the faculty members about it. Later that year, I figured out how to turn off the internet firewall by editing system registry keys. I anonymously shared my work months later.
+- 14 - 17, I played a lot of video games. My favorites included Counter-Strike Source, Command and Conquer 3, Halo 2, and Age of Empires II.
+- At 16, I participated in a foreign exchange program in Dortmund, Germany. Since then, I've gone back almost every year.
+- At 18, in the summer before college, my friends and I started playing [Muggle Quidditch](<https://en.wikipedia.org/wiki/Quidditch_(sport)>). We went on to start over 8 teams in the [International Quidditch Association](https://en.wikipedia.org/wiki/International_Quidditch_Association), including the [Buffalo Quidditch Society](https://www.facebook.com/buffaloquidditch/). At our height, we were ranked third in the IQA. Although I don't play anymore, you can still see pictures of me holding a broom while wearing a chess camp t-shirt on Facebook.
+- At 19, I took my first graduate course and published my first academic paper.
+- At 20, I co-authored a grant to build a satellite and managed a 60+ person team for the next two years. You can read more about [that project](https://ubnl.space/glados/).
+
+Ask me in person for other stories that I'm afraid to share with the internet.
+
+# I like
+
+- Running.
+- Skiing.
+- Sailing and the sea.
+- Space.
+- Summer.
+- [Books](https://www.goodreads.com/mdangelo).
+- Colored pencils ([Faber-Castell Polychromos](https://www.faber-castell.com/products/art-and-graphic/polychromos)).
+- Podcasts ([The Daily](https://www.nytimes.com/column/the-daily), [The Ezra Klein Show](https://www.nytimes.com/column/ezra-klein-podcast), [Planet Money](https://www.npr.org/sections/money/), [Dwarkesh Podcast](https://www.dwarkesh.com/about/), [The a16z Show](https://a16z.com/podcasts/a16z-podcast/), [The MAD Podcast with Matt Turck](https://firstmark.com/community/the-mad-podcast/), [Uncapped with Jack Altman](https://podcasts.apple.com/us/podcast/uncapped-with-jack-altman/id1801867202), [Darknet Diaries](https://darknetdiaries.com/), and others).
+- [Good design](/).
+- [Photography](https://instagram.com/dangelosaurus).
+
+# Travel / geography
+
+- I am originally from Buffalo, New York. I have since lived in Palo Alto, Mountain View, San Francisco, Seattle, and New York City.
+- I've been to ${profile.countriesVisited} countries, some of which I have forgotten, many of which I would like to revisit.
+- In 2016, I visited Canada, Ethiopia, Austria, Germany, Belgium, Ireland, Northern Ireland, Italy, Romania, Sweden, Norway, Svalbard, Panama, Costa Rica, Uganda, Japan, and the UAE, mostly in that order.
+- In 2017, I visited Canada, Japan, Denmark, Germany, Sweden, Estonia, Russia, the Netherlands, Belgium, the UK, Spain, Iceland, France, Switzerland, Ethiopia, and Luxembourg.
+- In 2018, I visited Canada, France, Italy, Israel, and the UK.
+- In 2019, I visited Canada, the UK, France, and Switzerland.
+- In 2020, I traveled barely 20 blocks. I stayed in New York and remodeled an apartment.
+- In 2021, I continued remodeling an apartment.
+- In 2022, I switched jobs and visited the UK, France, Greece, Belgium, Luxembourg, Germany, and Kenya.
+- In 2023, I visited France, the UK, Ireland, and Rwanda.
+- I am an Oregon Trail II enthusiast.
+
+# Fun facts
+
+- I have a list of thousands of ideas, like creating matching bow ties for cats and humans.
+- I almost always have a sketchbook with me and a [01 Sakura Pigma Micron Pen](https://www.sakuraofamerica.com/product/pigma-micron/).
+- I can't locate every country on a map.
+- I operate a [small angel fund](http://skepticalinvestments.biz/) with terrible returns.
+- I break about 30 traffic laws on a skateboard or [bicycle](https://www.citibikenyc.com/) every single day.
+- I stack-rank coffee shops, restaurants, and every dog I see in New York and San Francisco.
+- I added this page because many people complained that my site was just my resume.
+
+# I dream of
+
+- Inspiring and feeling inspired.
+- Enabling a brighter future for everyone, regardless of political or socioeconomic status.
+- Treating every individual with genuine kindness and respect.
+- Staying curious.
+- Continually improving.
+- You not checking the commit history for earlier drafts of this file.
+
+# Websites from people I admire
+
+- [Alex Peysakhovich](http://alexpeys.github.io/)
+- [Chris Lengerich](http://www.chrislengerich.com/)
+- [Chris Saad](https://www.chrissaad.com/)
+- [Duncan Tomlin](http://duncantomlin.com/)
+- [Ed Kearney](https://edkearney.com/)
+- [Gia Jung](http://giajung.com/)
+- [Hawley Moore](http://hawleymoore.com/)
+- [Holman Gao](https://golmansax.com/)
+- [Ian Webster](http://ianww.com/)
+- [Johanna Flato](https://www.johannaflato.com/)
+- [Judy Mou](http://www.judymou.com/)
+- [Judy Suh](https://www.judysuh.com/)
+- [Kristina Monakhova](https://kristinamonakhova.com/)
+- [Noah Trueblood](http://notrueblood.com/)
+- [Ruoxi Wang](http://ruoxiw.com/)
+- [Tom Sachs](https://www.tomsachs.org/)
+- [Will Holley](https://willholley.com/)
+
+If we are friends and you feel like you belong on this list, you're probably right. Submit a PR, or ask me, and I'll add you.
+`;

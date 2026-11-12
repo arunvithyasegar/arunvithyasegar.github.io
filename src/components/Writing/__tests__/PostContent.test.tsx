@@ -3,8 +3,7 @@ import { StrictMode } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 
-import { type ImageSize, readPostImageSizes } from '@/lib/imageSize';
-import { getPostBySlug } from '@/lib/posts';
+import { type ImageSize } from '@/lib/imageSize';
 
 import PostContent from '../PostContent';
 
@@ -212,22 +211,6 @@ describe('PostContent heading anchors', () => {
     );
 
     expect(headingIds(container.innerHTML)).toEqual(['repeat', 'repeat-2']);
-  });
-
-  it('keeps the legacy ids of a published post resolving as hidden aliases', () => {
-    const post = getPostBySlug('shipping-with-claude-code');
-    if (!post) {
-      throw new Error('expected shipping-with-claude-code to be published');
-    }
-
-    const html = markup(post.content, readPostImageSizes(post.content));
-
-    expect(aliasIds(html).sort()).toEqual([
-      'browser-automation---chrome-for-interaction-playwright-mcp-for-screenshots',
-      'claudemd--agentsmd',
-      'on-using---dangerously-skip-permissions',
-      'plan-mode--writing-plans-to-files',
-    ]);
   });
 
   it.each([

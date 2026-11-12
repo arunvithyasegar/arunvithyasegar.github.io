@@ -49,7 +49,7 @@ describe('json resume document', () => {
       label: profile.role,
       email: profile.email,
       // The display city, without asserting a country.
-      location: { city: 'San Francisco' },
+      location: { city: 'Vellore', region: 'India' },
     });
   });
 
@@ -59,8 +59,8 @@ describe('json resume document', () => {
     );
     expect(resume.basics.profiles).toContainEqual({
       network: 'GitHub',
-      username: 'mldangelo',
-      url: 'https://github.com/mldangelo',
+      username: 'arunvithyasegar',
+      url: 'https://github.com/arunvithyasegar',
     });
   });
 
@@ -79,7 +79,7 @@ describe('json resume document', () => {
     ]);
 
     expect(prose.join(' ')).toContain(
-      'backed by Anthemis, Foundation Capital, and Y Combinator',
+      'Joined Anna Incubator as Senior Associate on 5 October 2026.',
     );
   });
 
@@ -96,10 +96,9 @@ describe('json resume document', () => {
   it('splits the degree string into studyType and area', () => {
     expect(resume.education).toHaveLength(degrees.length);
     expect(resume.education[0]).toMatchObject({
-      institution: 'Stanford University',
-      studyType: 'M.S.',
-      area: 'Computational and Mathematical Engineering (ICME)',
-      endDate: '2016',
+      institution: 'Tamil Nadu Agricultural University',
+      area: degrees[0].degree,
+      endDate: '2023',
     });
   });
 
@@ -107,14 +106,11 @@ describe('json resume document', () => {
   // duplicate. A school whose name contains another's is the case the real data
   // cannot express, and joining by containment would double every course.
   it('files each course under exactly one degree', async () => {
-    expect(resume.education[0].courses).toContain(
-      'EE 364a - Convex Optimization',
-    );
     expect(
       resume.education.flatMap((entry) => entry.courses ?? []),
     ).toHaveLength(courses.length);
     // A school with no courses carries none, rather than an empty array.
-    expect(resume.education[1]).not.toHaveProperty('courses');
+    expect(resume.education[0]).not.toHaveProperty('courses');
 
     vi.resetModules();
     vi.doMock('@/data/resume/degrees', () => ({

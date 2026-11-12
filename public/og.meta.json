@@ -6,27 +6,27 @@
   "fonts": [
     {
       "name": "Display",
-      "family": "Inter",
+      "family": "DejaVu Sans",
       "weight": 500,
       "style": "normal",
-      "url": "https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf",
-      "sha256": "8c883f63b2c4157d997319f2c8bc6995ed4357ef371940d31ca159004a4aae63"
+      "file": "scripts/fonts/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e"
     },
     {
       "name": "Mono",
       "family": "JetBrains Mono",
       "weight": 500,
       "style": "normal",
-      "url": "https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf",
-      "sha256": "3386a05f6ece969e4537de6be894170d20558e82f7d56c8c5d332972ef172160"
+      "file": "scripts/fonts/DejaVuSansMono.ttf",
+      "sha256": "54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8"
     },
     {
       "name": "Body",
       "family": "Newsreader",
       "weight": 400,
       "style": "normal",
-      "url": "https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438weI_ADA.ttf",
-      "sha256": "b8f5e0a8bdd6a12c722ca5635d9da87e77ccbb2d0172112e34e00c4e55f2cd5a"
+      "file": "scripts/fonts/DejaVuSerif.ttf",
+      "sha256": "8cb29f7db250ebb2551a6ce2c1e0bfd5a0eb520e9e233370db0493e82e1f36f7"
     }
   ],
   "renderer": [
@@ -47,12 +47,10 @@
     }
   ],
   "profile": {
-    "name": "Michael D'Angelo",
-    "employer": "OpenAI",
-    "focus": "Promptfoo and other cyber products",
-    "countriesVisited": 55,
-    "computingSince": 1993,
-    "currentCity": "San Francisco"
+    "name": "Arun Vithyasegar",
+    "employer": "Anna Incubator",
+    "focus": "Strategy, growth & analytics",
+    "currentCity": "Vellore, India"
   },
   "colors": {
     "ink": "#292a2e",
@@ -62,100 +60,54 @@
     "accent": "#36559a",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
-  "generatorDigest": "61ab64d3912d1d9f1aa6e8e962bd99a7401da36755b6ccb833fa2b1df3fe2604",
-  "imageDigest": "c65a73c3f62da10d330e50caae8bc74a1db46489dc83044dc78b96497cfda86a",
+  "generatorDigest": "54ce350606511baf2a4ec2ad9dd7e2a6d8e072e5b7d754c38e21b30794e5a86c",
+  "imageDigest": "bb6669ac4e6ce5bb0fb4d7384aa6a2785b50cad48d7444cd26b2dd38445891ad",
   "posts": [
     {
-      "slug": "why-i-mostly-switched-from-claude-code-to-codex-desktop-app",
-      "path": "/og/writing/why-i-mostly-switched-from-claude-code-to-codex-desktop-app.png",
-      "title": "Why I Mostly Switched From Claude Code to the Codex Desktop App",
-      "description": "How the Codex desktop app became my default coding workspace, and where Claude Code still wins.",
-      "date": "2026-07-30",
-      "dateLabel": "July 30, 2026",
+      "slug": "a-pitch-deck-is-a-chain-of-evidence",
+      "path": "/og/writing/a-pitch-deck-is-a-chain-of-evidence.png",
+      "title": "A pitch deck is a chain of evidence",
+      "description": "How to connect the customer problem, market, traction, and funding ask into a credible investor narrative.",
+      "date": "2026-11-12",
+      "dateLabel": "November 12, 2026",
       "readout": [
         {
           "label": "Words",
-          "value": "2,623"
+          "value": "301"
         },
         {
           "label": "Unique external links",
-          "value": "18"
+          "value": "0"
         },
         {
           "label": "Reading time",
-          "value": "12 min"
+          "value": "1 min"
         }
       ],
-      "imageDigest": "85fe621c1acdac8c0e9ce871c91bdc69223b825abca4e3975e1a9fd989dc6761"
+      "imageDigest": "4098021a217274502a924c57fbaf624c47e0aee85d0c790a1521843553e8bbcb"
     },
     {
-      "slug": "claude-code-outage",
-      "path": "/og/writing/claude-code-outage.png",
-      "title": "Notes on the Claude Code 2.1.0 outage",
-      "description": "A changelog formatting change took down Claude Code. Lessons about parsing human docs as machine data.",
-      "date": "2026-01-08",
-      "dateLabel": "January 8, 2026",
+      "slug": "retention-starts-with-a-clear-customer-action",
+      "path": "/og/writing/retention-starts-with-a-clear-customer-action.png",
+      "title": "Retention starts with a clear customer action",
+      "description": "A practical framework for defining activation, reading cohorts, and choosing your next retention experiment.",
+      "date": "2026-11-12",
+      "dateLabel": "November 12, 2026",
       "readout": [
         {
           "label": "Words",
-          "value": "406"
+          "value": "298"
         },
         {
           "label": "Unique external links",
-          "value": "9"
+          "value": "0"
         },
         {
           "label": "Reading time",
-          "value": "2 min"
+          "value": "1 min"
         }
       ],
-      "imageDigest": "89c983fe636d4c0147424f506e7c8f5ddf2bf1b522f2f85aa66949a910a92b04"
-    },
-    {
-      "slug": "eurostar-chatbot-analysis",
-      "path": "/og/writing/eurostar-chatbot-analysis.png",
-      "title": "Notes on the Eurostar chatbot \"vulnerability\" report",
-      "description": "Looking at what makes something a vulnerability versus a hardening opportunity in LLM applications.",
-      "date": "2026-01-05",
-      "dateLabel": "January 5, 2026",
-      "readout": [
-        {
-          "label": "Words",
-          "value": "868"
-        },
-        {
-          "label": "Unique external links",
-          "value": "9"
-        },
-        {
-          "label": "Reading time",
-          "value": "4 min"
-        }
-      ],
-      "imageDigest": "bc879c38769f9836915b15e5e17b049820f9b08d5e01954e841f0a957eef8c8e"
-    },
-    {
-      "slug": "shipping-with-claude-code",
-      "path": "/og/writing/shipping-with-claude-code.png",
-      "title": "What I learned shipping 1,000+ PRs with Claude Code",
-      "description": "Notes from using Claude Code in parallel git worktrees: Plan Mode, ultrathink, verification loops, and Chrome automation.",
-      "date": "2026-01-03",
-      "dateLabel": "January 3, 2026",
-      "readout": [
-        {
-          "label": "Words",
-          "value": "1,911"
-        },
-        {
-          "label": "Unique external links",
-          "value": "17"
-        },
-        {
-          "label": "Reading time",
-          "value": "8 min"
-        }
-      ],
-      "imageDigest": "6149173111b06f898eb987222738be4c71e00ba8b7d85ffd36292729e0764e7b"
+      "imageDigest": "59836a7760784d59222b2d8849d81c6894c15749b97ea2799b2ec40785ac22ac"
     }
   ]
 }

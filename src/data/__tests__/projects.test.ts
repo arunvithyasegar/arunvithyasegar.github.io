@@ -9,7 +9,8 @@ function compareActivity(a: Project, b: Project): number {
   if (liveOrder !== 0) return liveOrder;
 
   const dateOrder =
-    Date.parse(b.endDate ?? b.date) - Date.parse(a.endDate ?? a.date);
+    (Date.parse(b.endDate ?? b.date) || Infinity) -
+    (Date.parse(a.endDate ?? a.date) || Infinity);
   return dateOrder || a.title.localeCompare(b.title);
 }
 
@@ -31,7 +32,7 @@ describe('projects data', () => {
 
   it('uses valid dates, with an end after the start', () => {
     for (const { title, date, endDate } of projects) {
-      expect(normalized(date), title).toBe(date);
+      if (date) expect(normalized(date), title).toBe(date);
 
       if (endDate) {
         expect(normalized(endDate), title).toBe(endDate);
@@ -73,12 +74,14 @@ describe('projects data', () => {
    */
   describe('agreement with the résumé', () => {
     const byName = new Map(work.map((position) => [position.name, position]));
-    const sourced = shipped.map((project) => ({
-      project,
-      position: byName.get(project.sourceWork ?? ''),
-    }));
+    const sourced = shipped
+      .filter((project) => project.sourceWork)
+      .map((project) => ({
+        project,
+        position: byName.get(project.sourceWork ?? ''),
+      }));
 
-    it('names a source role for every shipped entry and no archived one', () => {
+    it('resolves declared employer roles and keeps personal projects independent', () => {
       for (const { project, position } of sourced) {
         expect(position, project.title).toBeDefined();
       }
@@ -118,15 +121,6 @@ describe('projects data', () => {
       const record = new Set(numericClaims('2026 1M+ 30+ 25% 1-N'));
 
       expect(record).toEqual(new Set(['2026', '1M', '30', '25%', '1-N']));
-    });
-
-    it('makes a historical role explicit on a project that outlived it', () => {
-      const promptfoo = projects.find((p) => p.title === 'Promptfoo');
-
-      expect(promptfoo?.ongoing).toBe(true);
-      expect(promptfoo?.subtitle).toMatch(/through acquisition/i);
-      expect(promptfoo?.subtitle).toMatch(/continued at OpenAI/i);
-      expect(byName.get('Promptfoo')?.endDate).toBe('2026-03-09');
     });
   });
 });

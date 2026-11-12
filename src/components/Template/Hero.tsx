@@ -1,8 +1,5 @@
 import Link from 'next/link';
-
 import profile from '@/data/profile.json';
-import { smartQuotes } from '@/lib/typography';
-
 import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
@@ -10,41 +7,39 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-primary">
-          <p className="hero-kicker">Software &amp; security</p>
+          <p className="hero-kicker">
+            Independent consulting · Strategy, growth &amp; analytics
+          </p>
           <h1 className="hero-title">
-            <span className="hero-name">{smartQuotes(profile.name)}</span>
+            <span className="hero-name">{profile.name}</span>
           </h1>
           <p className="hero-tagline">
-            I’m a {profile.role} at{' '}
-            <a href="https://openai.com" className="hero-highlight">
-              {profile.employer}
-            </a>
-            , working on{' '}
-            <a href="https://promptfoo.dev" className="hero-highlight">
-              Promptfoo
-            </a>{' '}
-            and other cyber products.
+            A clearer story. A practical growth plan.{' '}
+            <span className="hero-highlight">Evidence to move forward.</span>
           </p>
-
           <p className="hero-summary">
-            I help secure AI systems and use AI to find software
-            vulnerabilities. I co-founded Promptfoo before it joined OpenAI in
-            2026.
+            I help founders and small teams connect brand strategy,
+            go-to-market, retention, and fundraising preparation with data
+            analysis and practical ML.
           </p>
-
+          <p className="hero-summary">
+            Senior Associate at{' '}
+            <a href="https://annaincubator.org/">Anna Incubator</a> since
+            October 2026. Background in agriculture, business analysis, and
+            startup ecosystems.
+          </p>
           <div className="hero-cta">
-            <Link href="/about" className="button">
-              About me
+            <Link href="/contact/" className="button">
+              Discuss your project
             </Link>
-            <Link href="/resume" className="hero-resume-link">
-              View resume
+            <Link href="/services/" className="hero-resume-link">
+              Explore services →
             </Link>
           </div>
         </div>
-
         <figure className="hero-portrait">
           <ThemePortrait width={320} height={320} priority />
-          <figcaption>{profile.currentCity}</figcaption>
+          <figcaption>Strategy informed by data.</figcaption>
         </figure>
       </div>
     </section>

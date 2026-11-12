@@ -9,15 +9,15 @@ type CountKey = (typeof COUNTS)[number];
 type GitHubCounts = Record<CountKey, number>;
 
 /**
- * Counts recorded on 2026-10-25, for builds that cannot reach the GitHub API —
+ * Conservative fallback counts for this fork, for builds that cannot reach the GitHub API —
  * anonymous requests from CI are rate limited. They are shown as floors
- * ("1,695+") rather than passed off as fetched: counts like these mostly grow,
+ * ("0+") rather than passed off as fetched: counts like these mostly grow,
  * so a floor stays true without a caveat beside it. Refresh them now and then.
  */
 const LAST_KNOWN: GitHubCounts = {
-  stargazers_count: 1695,
-  subscribers_count: 23,
-  forks: 978,
+  stargazers_count: 0,
+  subscribers_count: 0,
+  forks: 0,
 };
 
 /** The locale is pinned so a published figure cannot depend on the build host. */
@@ -109,7 +109,6 @@ export default async function SiteStats() {
           value: formatCount(countSourceLines()),
           link: REPOSITORY,
         },
-        { label: 'Number of spoons', value: '0' },
       ]}
     />
   );

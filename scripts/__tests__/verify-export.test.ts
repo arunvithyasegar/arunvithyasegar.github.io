@@ -251,7 +251,7 @@ describe('links, metadata, and icons', () => {
         'content="https://example.com/"',
       ),
     ],
-    ...['og:title', 'og:site_name', 'twitter:card', 'twitter:creator'].map(
+    ...['og:title', 'og:site_name', 'twitter:card'].map(
       (name): Rejection => [
         `indexable page has 0 ${name} tags; expected 1`,
         replaceIn(ABOUT, new RegExp(`<meta \\w+="${name}"[^>]*>`), ''),

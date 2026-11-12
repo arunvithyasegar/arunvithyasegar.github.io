@@ -28,7 +28,6 @@ export function compareWritingItems(a: WritingItem, b: WritingItem): number {
 function externalSource(url: string): string {
   const hostname = new URL(url).hostname.replace(/^www\./, '');
 
-  if (hostname === 'promptfoo.dev') return 'Promptfoo';
   if (hostname === 'linkedin.com') return 'LinkedIn';
 
   return hostname;

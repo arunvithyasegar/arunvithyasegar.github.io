@@ -3,136 +3,79 @@ export interface Skill {
   competency: number;
   category: string[];
 }
-
 export interface Category {
   name: string;
 }
-
 const skills: Skill[] = [
-  // Languages
-  {
-    title: 'Python',
-    competency: 5,
-    category: ['Languages'],
-  },
-  {
-    title: 'TypeScript',
-    competency: 5,
-    category: ['Languages'],
-  },
   {
     title: 'SQL',
     competency: 4,
-    category: ['Databases'],
-  },
-  // AI & LLM
-  {
-    title: 'AI Agents',
-    competency: 5,
-    category: ['ML Engineering'],
+    category: ['Data & tools'],
   },
   {
-    title: 'LLM Evaluation',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'AI Red-teaming',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'LLM APIs',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  {
-    title: 'RAG',
+    title: 'Python',
     competency: 4,
-    category: ['ML Engineering'],
+    category: ['Data & tools'],
   },
   {
-    title: 'Prompt Engineering',
+    title: 'Power BI',
     competency: 4,
-    category: ['ML Engineering'],
+    category: ['Data & tools'],
   },
   {
-    title: 'Vector Databases',
+    title: 'Excel',
     competency: 4,
-    category: ['Databases'],
+    category: ['Data & tools'],
   },
   {
-    title: 'PyTorch',
+    title: 'Data Analysis',
     competency: 4,
-    category: ['ML Engineering'],
+    category: ['Business analysis'],
+  },
+  {
+    title: 'Process Improvement',
+    competency: 4,
+    category: ['Business analysis'],
+  },
+  {
+    title: 'Requirements Gathering',
+    competency: 4,
+    category: ['Business analysis'],
+  },
+  {
+    title: 'Stakeholder Mgmt',
+    competency: 4,
+    category: ['Business analysis'],
+  },
+  {
+    title: 'NumPy',
+    competency: 4,
+    category: ['Data & tools'],
   },
   {
     title: 'Pandas',
-    competency: 5,
-    category: ['ML Engineering'],
-  },
-  // Web Development
-  {
-    title: 'Node.js',
-    competency: 5,
-    category: ['Web Development'],
-  },
-  {
-    title: 'FastAPI',
     competency: 4,
-    category: ['Web Development'],
+    category: ['Data & tools'],
   },
   {
-    title: 'Next.js',
-    competency: 3,
-    category: ['Web Development'],
-  },
-  // Databases
-  {
-    title: 'PostgreSQL',
+    title: 'Matplotlib',
     competency: 4,
-    category: ['Databases'],
+    category: ['Data & tools'],
   },
   {
-    title: 'Redis',
-    competency: 3,
-    category: ['Databases'],
-  },
-  // Infrastructure
-  {
-    title: 'AWS',
+    title: 'Seaborn',
     competency: 4,
-    category: ['Infrastructure'],
+    category: ['Data & tools'],
   },
   {
-    title: 'Docker',
+    title: 'Plotly',
     competency: 4,
-    category: ['Infrastructure'],
+    category: ['Data & tools'],
   },
-  {
-    title: 'Kubernetes',
-    competency: 3,
-    category: ['Infrastructure'],
-  },
-  {
-    title: 'Observability',
-    competency: 4,
-    category: ['Infrastructure'],
-  },
-].map((skill) => ({ ...skill, category: skill.category.sort() }));
-
-/**
- * The distinct category names, sorted, so the group order falls out of the
- * skill list itself.
- */
-function buildCategories(skillsList: Skill[]): Category[] {
-  const uniqueCategories = Array.from(
-    new Set(skillsList.flatMap(({ category }) => category)),
-  ).sort();
-
-  return uniqueCategories.map((category) => ({ name: category }));
-}
-
-const categories: Category[] = buildCategories(skills);
+];
+const categories: Category[] = [
+  { name: 'Data & tools' },
+  { name: 'Business analysis' },
+];
 
 export { categories, skills };

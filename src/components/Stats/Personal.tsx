@@ -1,41 +1,20 @@
-import {
-  AGE_PRECISION_FULL,
-  AGE_PRECISION_STATIC,
-  ageAt,
-  COUNTRIES_VISITED,
-  CURRENT_CITY,
-  utcDate,
-} from '@/lib/telemetry';
-
-import LiveAge from './LiveAge';
+import profile from '@/data/profile.json';
+import projects from '@/data/projects';
+import certifications from '@/data/resume/certifications';
+import work from '@/data/resume/work';
 import Table from './Table';
-
-/**
- * The personal stats table stays server-rendered. Only its age value is a
- * client leaf, so no-JavaScript readers receive a real, dated snapshot.
- */
 export default function PersonalStats() {
-  const renderedAt = Date.now();
-
   return (
     <Table
       data={[
         {
-          label: 'Current age',
-          value: (
-            <LiveAge
-              initial={ageAt(renderedAt, AGE_PRECISION_STATIC)}
-              note={`as of ${utcDate(renderedAt)}`}
-              precision={AGE_PRECISION_FULL}
-            />
-          ),
+          label: 'Current role',
+          value: `${profile.role} at ${profile.employer}`,
         },
-        {
-          label: 'Countries visited',
-          value: String(COUNTRIES_VISITED),
-          link: 'https://www.google.com/maps/d/embed?mid=1iBBTscqateQ93pWFVfHCUZXoDu8&z=2',
-        },
-        { label: 'Current city', value: CURRENT_CITY },
+        { label: 'Joined Anna Incubator', value: '5 October 2026' },
+        { label: 'Portfolio projects', value: String(projects.length) },
+        { label: 'Experience entries', value: String(work.length) },
+        { label: 'Certifications', value: String(certifications.length) },
       ]}
     />
   );

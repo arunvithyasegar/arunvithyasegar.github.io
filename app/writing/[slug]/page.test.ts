@@ -123,20 +123,15 @@ describe('draft preview', () => {
 describe('writing post structured data', () => {
   // The share card replaces an article image only for social metadata: the
   // JSON-LD `image` keeps the representative screenshot and its real dimensions.
-  it.each([
-    [
-      'shipping-with-claude-code',
-      {
-        url: '/images/writing/api-costs-july-2025.png',
-        width: 1117,
-        height: 812,
-      },
-    ],
-    [
-      'claude-code-outage',
-      { url: '/og/writing/claude-code-outage.png', ...SHARE_IMAGE_DIMENSIONS },
-    ],
-  ])('publishes the right image for %s', async (slug, { url, ...size }) => {
+  it.each(
+    getPostSlugs().map(
+      (slug) =>
+        [
+          slug,
+          { url: `/og/writing/${slug}.png`, ...SHARE_IMAGE_DIMENSIONS },
+        ] as const,
+    ),
+  )('publishes the right image for %s', async (slug, { url, ...size }) => {
     expect((await blogPostingFor(slug)).image).toMatchObject({
       url: `${SITE_URL}${url}`,
       ...size,

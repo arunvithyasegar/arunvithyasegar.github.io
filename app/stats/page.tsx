@@ -9,7 +9,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 
 export const metadata: Metadata = createPageMetadata({
   title: 'Stats',
-  description: `Some statistics about ${AUTHOR_NAME} and mldangelo.com`,
+  description: `Some statistics about ${AUTHOR_NAME} and arunvithyasegar.in`,
   path: '/stats/',
 });
 
@@ -19,7 +19,7 @@ export default function StatsPage() {
       <section className="stats-page">
         <header className="stats-header">
           <h1 className="page-title">Stats</h1>
-          <p className="stats-subtitle">Some fun numbers</p>
+          <p className="stats-subtitle">A few facts from this portfolio</p>
         </header>
         <div className="stats-content">
           <section aria-labelledby="stats-about-me">

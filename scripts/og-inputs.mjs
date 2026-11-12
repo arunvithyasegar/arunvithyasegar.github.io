@@ -37,16 +37,16 @@ export const CARD_FONTS = [
     family: 'JetBrains Mono',
     weight: 500,
     style: 'normal',
-    url: 'https://fonts.gstatic.com/s/jetbrainsmono/v24/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8-qxjPQ.ttf',
-    sha256: '3386a05f6ece969e4537de6be894170d20558e82f7d56c8c5d332972ef172160',
+    file: 'scripts/fonts/DejaVuSansMono.ttf',
+    sha256: '54bf827eb99404e8f430c330ad30f063334f637eba0109b6a18d4f566a8e9dd8',
   },
   {
     name: 'Body',
     family: 'Newsreader',
     weight: 400,
     style: 'normal',
-    url: 'https://fonts.gstatic.com/s/newsreader/v26/cY9qfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBCzBDXXD9JVF438weI_ADA.ttf',
-    sha256: 'b8f5e0a8bdd6a12c722ca5635d9da87e77ccbb2d0172112e34e00c4e55f2cd5a',
+    file: 'scripts/fonts/DejaVuSerif.ttf',
+    sha256: '8cb29f7db250ebb2551a6ce2c1e0bfd5a0eb520e9e233370db0493e82e1f36f7',
   },
 ];
 
@@ -78,8 +78,6 @@ function ogProfileSnapshot(profile) {
     name: profile.name,
     employer: profile.employer,
     focus: profile.focus,
-    countriesVisited: profile.countriesVisited,
-    computingSince: profile.computingSince,
     currentCity: profile.currentCity,
   };
 }

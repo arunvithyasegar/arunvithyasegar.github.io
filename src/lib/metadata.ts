@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 
-import profile from '@/data/profile.json';
 import {
   AUTHOR_NAME,
   SHARE_IMAGE_DIMENSIONS,
@@ -21,7 +20,7 @@ interface PageMetadataOptions {
  * the image. Role and employer come from the profile so they change in one
  * place, just as the stats page and OG script read shared profile facts.
  */
-const SHARE_IMAGE_ALT = `${AUTHOR_NAME} — ${profile.role} at ${profile.employer}`;
+const SHARE_IMAGE_ALT = `${AUTHOR_NAME} — Strategy, growth & analytics`;
 
 /**
  * The OpenGraph and Twitter blocks every page needs.

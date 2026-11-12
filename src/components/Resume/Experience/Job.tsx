@@ -20,7 +20,7 @@ interface JobProps {
 
 export default function Job({ data, tier = 'primary', now }: JobProps) {
   const { name, position, url, startDate, endDate, summary, highlights } = data;
-  const isCurrent = !endDate;
+  const isCurrent = !endDate && !data.currentStatusUnknown;
   const months = monthsBetween(startDate, endDate ?? now);
   // An ongoing tenure is a build-time floor, but "<1 mo" is already an upper bound.
   const hedged = isCurrent && months >= 1;
@@ -38,11 +38,22 @@ export default function Job({ data, tier = 'primary', now }: JobProps) {
             placed against the line it marks, in both layouts and at every
             tier, instead of at an offset measured from the entry. */}
         <span className="job-marker" aria-hidden="true" />
-        <DateSpan date={startDate} endDate={endDate} ongoing />
-        <span className="daterange-duration">
-          <span aria-hidden="true">{duration}</span>
-          <span className="sr-only">Duration: {durationLong}</span>
-        </span>
+        <DateSpan
+          date={startDate}
+          endDate={endDate}
+          ongoing={!data.currentStatusUnknown}
+        />
+        {data.currentStatusUnknown && (
+          <span className="daterange-duration">
+            Contract engagement · end date not recorded
+          </span>
+        )}
+        {!data.currentStatusUnknown && (
+          <span className="daterange-duration">
+            <span aria-hidden="true">{duration}</span>
+            <span className="sr-only">Duration: {durationLong}</span>
+          </span>
+        )}
       </p>
 
       <div className="job-body">

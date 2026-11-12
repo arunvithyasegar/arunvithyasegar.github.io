@@ -9,6 +9,7 @@ const ONGOING_END = '9999-12-31';
 /** Recency of involvement: an open-ended side role is placed by its start. */
 function timelineKey(position: Position): string {
   if (position.endDate) return position.endDate;
+  if (position.currentStatusUnknown) return position.startDate;
 
   return position.commitment === 'part-time' ? position.startDate : ONGOING_END;
 }
@@ -28,7 +29,10 @@ export function currentPosition(positions: Position[]): Position | undefined {
 
   return (
     ordered.find(
-      (position) => !position.endDate && position.commitment !== 'part-time',
+      (position) =>
+        !position.endDate &&
+        !position.currentStatusUnknown &&
+        position.commitment !== 'part-time',
     ) ?? ordered[0]
   );
 }

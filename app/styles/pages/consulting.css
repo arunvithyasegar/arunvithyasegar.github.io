@@ -1,0 +1,152 @@
+/* Consulting pages share the site's type, colour, and spacing tokens. */
+.consulting-section {
+  padding-block: 3.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.consulting-section > .page-prose {
+  margin-block: 1rem 1.75rem;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  color: var(--color-fg);
+  text-decoration: none;
+}
+a.service-card:hover {
+  border-color: var(--color-fg);
+}
+.service-card h3 {
+  font-size: 1.4rem;
+  line-height: 1.25;
+  color: var(--color-fg-bold);
+}
+.service-card p {
+  line-height: 1.65;
+  margin: 0;
+}
+.service-more {
+  margin-top: auto;
+  padding-top: 0.7rem;
+  color: var(--color-accent);
+  font-size: 0.9rem;
+}
+.consulting-page {
+  padding-block: 3rem;
+}
+.consulting-intro {
+  padding-bottom: 3rem;
+  max-width: 52rem;
+}
+.consulting-intro .button {
+  margin-top: 1.5rem;
+}
+.eyebrow {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-fg-light);
+  margin-bottom: 1rem;
+}
+.service-detail {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding-block: 2.75rem;
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: 7rem;
+}
+.service-number {
+  font-family: var(--font-jetbrains-mono), monospace;
+  color: var(--color-fg-light);
+  padding-top: 0.4rem;
+}
+.service-detail h2,
+.consulting-section h2 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  line-height: 1.2;
+  color: var(--color-fg-bold);
+}
+.service-detail h3 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+}
+.service-detail p {
+  margin-block: 0.8rem;
+  max-width: 42rem;
+}
+.service-detail ul,
+.contact-brief ul {
+  padding-left: 1.3rem;
+  margin-block: 1rem 1.5rem;
+  list-style: disc;
+}
+.service-detail li,
+.contact-brief li {
+  padding-block: 0.3rem;
+  line-height: 1.6;
+}
+.engagement-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.consulting-cta {
+  max-width: 48rem;
+}
+.consulting-cta p {
+  margin-block: 1rem;
+  line-height: 1.7;
+}
+.consulting-cta .button {
+  margin-top: 0.8rem;
+}
+.consulting-contact .button {
+  margin-block: 1.5rem 0.6rem;
+}
+.contact-address {
+  overflow-wrap: anywhere;
+  margin-bottom: 2rem;
+}
+.contact-brief {
+  padding-block: 1.5rem;
+  border-block: 1px solid var(--color-border);
+  margin-block: 1.5rem;
+  max-width: 42rem;
+}
+.contact-brief h2 {
+  font-size: 1.4rem;
+}
+.home-writing-copy p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-fg);
+  margin-top: 0.6rem;
+}
+@media (max-width: 640px) {
+  .service-grid,
+  .engagement-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-detail {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+  .consulting-section {
+    padding-block: 2.5rem;
+  }
+}
+
+.hero-summary a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

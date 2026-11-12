@@ -41,8 +41,18 @@ function tierFor({ status, ongoing }: Project): 'archive' | 'live' | undefined {
  * missing arrow is the whole statement — it is not also labelled.
  */
 export default function Entry({ data }: EntryProps) {
-  const { title, subtitle, link, image, date, endDate, ongoing, desc, tech } =
-    data;
+  const {
+    title,
+    subtitle,
+    link,
+    image,
+    date,
+    endDate,
+    ongoing,
+    yearOnly,
+    desc,
+    tech,
+  } = data;
 
   const tier = tierFor(data);
   const className = tier
@@ -71,7 +81,12 @@ export default function Entry({ data }: EntryProps) {
       )}
 
       <div className="project-entry-meta">
-        <DateRange date={date} endDate={endDate} ongoing={ongoing} />
+        <DateRange
+          date={date}
+          endDate={endDate}
+          ongoing={ongoing}
+          yearOnly={yearOnly}
+        />
         {subtitle && (
           <span className="project-entry-role">{smartQuotes(subtitle)}</span>
         )}

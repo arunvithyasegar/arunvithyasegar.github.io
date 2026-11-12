@@ -45,8 +45,8 @@ export default function ProjectsPage() {
         <header className="projects-header">
           <h1 className="page-title">{PAGE_TITLE}</h1>
           <p className="page-subtitle">
-            Work I have built, led, and contributed to, plus earlier student
-            projects.
+            Analytics, forecasting, and reporting projects. Public examples link
+            to code or a dashboard; other entries describe the approach.
           </p>
         </header>
 
@@ -81,7 +81,7 @@ export default function ProjectsPage() {
             </p>
           </div>
           <p className="projects-group-note">
-            Student projects, hackathons, and experiments, kept for the record.
+            Agricultural data analysis and earlier explorations.
           </p>
           <ol className="projects-register">
             {archive.map((project) => (

@@ -92,9 +92,9 @@ await requireSharp();
  * makes a later edit to a published post require regeneration.
  */
 const READOUT = [
-  { label: 'Countries visited', value: String(profile.countriesVisited) },
-  { label: 'Computing since', value: String(profile.computingSince) },
-  { label: 'Based in', value: profile.currentCity },
+  { label: 'Focus', value: 'Strategy & growth' },
+  { label: 'Tools', value: 'SQL · Python · BI' },
+  { label: 'Work together', value: 'Consulting' },
 ];
 
 const [FIRST_NAME, ...REST_OF_NAME] = profile.name.split(' ');
@@ -129,7 +129,7 @@ function readoutCell(cell, index) {
     ),
     h(
       'span',
-      { style: { fontFamily: 'Mono', fontSize: 30, color: ink } },
+      { style: { fontFamily: 'Mono', fontSize: 24, color: ink } },
       cell.value,
     ),
   );
@@ -162,7 +162,12 @@ function cardShell(readout, ...children) {
     h(
       'div',
       {
-        style: { display: 'flex', borderTop: `${READOUT_RULE}px solid ${ink}` },
+        style: {
+          display: 'flex',
+          height: size.height - readoutTop(size),
+          flexShrink: 0,
+          borderTop: `${READOUT_RULE}px solid ${ink}`,
+        },
       },
       ...readout.map(readoutCell),
     ),
@@ -198,7 +203,7 @@ function siteCard() {
       {
         style: {
           fontFamily: 'Display',
-          fontSize: 128,
+          fontSize: 96,
           fontWeight: 500,
           letterSpacing: '-0.045em',
           lineHeight: 0.92,
@@ -210,7 +215,7 @@ function siteCard() {
       h('span', {}, FIRST_NAME),
       h('span', {}, REST_OF_NAME.join(' ').replace("'", '’')),
     ),
-    monoLine(profile.employer, profile.focus, { marginTop: 34 }),
+    monoLine('Strategy', profile.focus, { marginTop: 34 }),
   );
 }
 

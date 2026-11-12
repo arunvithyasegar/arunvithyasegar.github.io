@@ -1,7 +1,10 @@
 import type { Project } from '@/data/projects';
 import { formatMonthYear } from '@/lib/utils';
 
-type DateRangeProps = Pick<Project, 'date' | 'endDate' | 'ongoing'>;
+type DateRangeProps = Pick<
+  Project,
+  'date' | 'endDate' | 'ongoing' | 'yearOnly'
+>;
 
 /**
  * The dates themselves, shared with the résumé's date line, to the month
@@ -11,7 +14,10 @@ type DateRangeProps = Pick<Project, 'date' | 'endDate' | 'ongoing'>;
  * renders `Present` in amber through `.daterange-present`, so the one meaning
  * of `--color-signal` is defined in a single place.
  */
-export function DateSpan({ date, endDate, ongoing }: DateRangeProps) {
+export function DateSpan({ date, endDate, ongoing, yearOnly }: DateRangeProps) {
+  if (!date) return null;
+  if (yearOnly)
+    return <time dateTime={date.slice(0, 4)}>{date.slice(0, 4)}</time>;
   const isRange = ongoing === true || Boolean(endDate);
 
   return (

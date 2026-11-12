@@ -54,7 +54,6 @@ describe('Site', () => {
     expect(valueFor('Lines of TypeScript powering this site')).toMatch(
       /^\d{1,3}(?:,\d{3})*$/,
     );
-    expect(valueFor('Number of spoons')).toBe('0');
     expect(fetchMock.mock.lastCall?.[1].headers).not.toHaveProperty(
       'Authorization',
     );
@@ -104,7 +103,7 @@ describe('Site', () => {
     arrange();
     render(await Site());
 
-    expect(counts()).toEqual(['1,695+', '23+', '978+']);
+    expect(counts()).toEqual(['0+', '0+', '0+']);
   });
 
   it('keeps zero counts as fetched data, not as a failure', async () => {

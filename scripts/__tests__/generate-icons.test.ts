@@ -54,13 +54,11 @@ describe('generated icon set', () => {
   it('pins the exact supported font bytes used by the generator', () => {
     expect(meta.inputs.font).toMatchObject({
       name: 'Display',
-      family: 'Inter',
+      family: 'DejaVu Sans',
       weight: 500,
       style: 'normal',
     });
-    expect(meta.inputs.font.url).toMatch(
-      /^https:\/\/fonts\.gstatic\.com\/s\/inter\/v\d+\/[^/]+\.ttf$/,
-    );
+    expect(meta.inputs.font.file).toBe('scripts/fonts/DejaVuSans.ttf');
     expect(meta.inputs.font.sha256).toMatch(/^[0-9a-f]{64}$/);
   });
 

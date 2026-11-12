@@ -13,6 +13,7 @@ const routes: Route[] = [
     label: AUTHOR_NAME,
     path: '/',
   },
+  { label: 'Services', path: '/services' },
   {
     label: 'About',
     path: '/about',
@@ -20,6 +21,7 @@ const routes: Route[] = [
   {
     label: 'Resume',
     path: '/resume',
+    primary: false,
   },
   // Stays in the nav: `/contact` hides the footer, so from there a non-primary
   // route would be unreachable.
@@ -34,6 +36,7 @@ const routes: Route[] = [
   {
     label: 'Speaking',
     path: '/speaking',
+    primary: false,
   },
   {
     label: 'Stats',

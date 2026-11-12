@@ -38,6 +38,7 @@
 @import './styles/pages/contact.css';
 @import './styles/pages/stats.css';
 @import './styles/pages/not-found.css';
+@import './styles/pages/consulting.css';
 
 /* Theme Overrides */
 @import './styles/dark-mode.css';

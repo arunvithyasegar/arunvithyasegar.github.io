@@ -1,39 +1,26 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
-
+import { describe, expect, it } from 'vitest';
 import HomePage from '../page';
 
-vi.mock('@/lib/writing', () => ({
-  getWritingItems: () => [
-    {
-      title: 'Local essay',
-      url: '/writing/local/',
-      date: '2026-07-30',
-      description: '',
-      isExternal: false,
-      source: 'On this site',
-    },
-    {
-      title: 'Remote article',
-      url: 'https://example.com/',
-      date: '2026-03-10',
-      description: '',
-      isExternal: true,
-      source: 'Elsewhere',
-    },
-  ],
-}));
-
-// ↗ means a link leaves the site in a new tab; on-site links carry → or nothing.
-describe('homepage arrows', () => {
-  it('follow the destination', () => {
+describe('consulting homepage', () => {
+  it('routes a potential client to the brief and the right service', () => {
     render(<HomePage />);
-    const text = (name: RegExp) =>
-      screen.getByRole('link', { name }).textContent;
-
-    expect(text(/About me/)).toBe('About me');
-    expect(text(/All writing/)).toBe('All writing →');
-    expect(text(/Local essay/)).toMatch(/→$/);
-    expect(text(/Remote article/)).toMatch(/↗ \(opens in a new tab\)$/);
+    expect(
+      screen.getByRole('link', { name: 'Discuss your project' }),
+    ).toHaveAttribute('href', '/contact');
+    expect(
+      screen.getByRole('link', { name: /Retention.*growth models/ }),
+    ).toHaveAttribute('href', '/services#retention');
+  });
+  it('takes public work examples directly to the work, in a new tab', () => {
+    render(<HomePage />);
+    const example = screen.getByRole('link', {
+      name: /News Sentiment Analysis using NLP/,
+    });
+    expect(example).toHaveAttribute(
+      'href',
+      'https://newssentimentanalysis.streamlit.app/',
+    );
+    expect(example).toHaveAttribute('rel', 'noopener noreferrer');
   });
 });

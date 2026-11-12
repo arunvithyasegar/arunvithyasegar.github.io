@@ -13,7 +13,6 @@
 
 import contact from '@/data/contact';
 import profile from '@/data/profile.json';
-import certifications from '@/data/resume/certifications';
 import courses from '@/data/resume/courses';
 import degrees from '@/data/resume/degrees';
 import {
@@ -98,7 +97,6 @@ interface JsonResume {
   work: ResumeWork[];
   education: ResumeEducation[];
   skills: ResumeSkill[];
-  certificates: { name: string; url: string }[];
   meta: {
     canonical: string;
   };
@@ -251,7 +249,6 @@ export function buildJsonResume(): JsonResume {
     work: buildWork(),
     education: buildEducation(),
     skills: buildSkills(),
-    certificates: certifications.map((c) => ({ name: c.title, url: c.url })),
     meta: {
       canonical: RESUME_JSON_URL,
     },

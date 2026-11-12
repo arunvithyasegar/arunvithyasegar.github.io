@@ -1,7 +1,14 @@
-/** Bundled DejaVu fonts (see scripts/fonts/LICENSE.txt) keep artwork reproducible offline. */
+/**
+ * The exact font files satori renders the icons and share cards with.
+ *
+ * Satori cannot read the self-hosted WOFF2 files the site uses, so the
+ * generators fetch TTFs. Google Fonts' family CSS is mutable: resolving
+ * "Inter 500" on two different days can return different bytes under the same
+ * generator source. Versioned URLs and their digests make a changed response a
+ * hard failure instead of silently redrawing every committed image: the network
+ * is transport, not an unrecorded generator input.
+ */
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
-import { resolve } from 'node:path';
 
 /** The display face, shared by the icon monogram and the share cards. */
 export const DISPLAY_FONT = Object.freeze({
@@ -9,8 +16,8 @@ export const DISPLAY_FONT = Object.freeze({
   family: 'Inter',
   weight: 500,
   style: 'normal',
-  file: 'scripts/fonts/DejaVuSans.ttf',
-  sha256: '57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e',
+  url: 'https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf',
+  sha256: '8c883f63b2c4157d997319f2c8bc6995ed4357ef371940d31ca159004a4aae63',
 });
 
 export function assertFontDigest(font, data) {
@@ -28,16 +35,6 @@ export function assertFontDigest(font, data) {
  * bytes have changed.
  */
 export async function loadFont(source) {
-  if (source.file) {
-    const data = await readFile(resolve(source.file));
-    assertFontDigest(source, data);
-    return {
-      name: source.name,
-      data,
-      weight: source.weight,
-      style: source.style,
-    };
-  }
   let lastError;
 
   for (let attempt = 1; attempt <= 2; attempt += 1) {

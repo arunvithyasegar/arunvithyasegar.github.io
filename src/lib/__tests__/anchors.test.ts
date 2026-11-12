@@ -21,7 +21,7 @@ describe('createHeadingId', () => {
     ).filter((title) => title !== 'Intro');
 
     expect(createUniqueHeadingIds(titles).join(' ')).toBe(
-      'some-history things-ive-built-and-am-proud-of i-like fun-facts i-dream-of places-i-work-best-in people-and-projects-that-inspire-me',
+      'some-history i-like travel-geography fun-facts i-dream-of websites-from-people-i-admire',
     );
   });
 });

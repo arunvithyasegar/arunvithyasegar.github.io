@@ -129,12 +129,6 @@ export default function WritingPage() {
           </a>
         </header>
 
-        {allItems.length === 0 && (
-          <p className="page-prose">
-            No articles published yet. Explore my{' '}
-            <Link href="/projects">projects</Link> for current work.
-          </p>
-        )}
         {sections
           .filter(({ items }) => items.length > 0)
           .map(({ id, label, items }) => (

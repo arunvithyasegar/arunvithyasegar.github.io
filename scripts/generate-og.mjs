@@ -92,8 +92,8 @@ await requireSharp();
  * makes a later edit to a published post require regeneration.
  */
 const READOUT = [
-  { label: 'Focus', value: 'Data & business' },
-  { label: 'Tools', value: 'SQL · Python · BI' },
+  { label: 'Countries visited', value: String(profile.countriesVisited) },
+  { label: 'Computing since', value: String(profile.computingSince) },
   { label: 'Based in', value: profile.currentCity },
 ];
 
@@ -129,14 +129,7 @@ function readoutCell(cell, index) {
     ),
     h(
       'span',
-      {
-        style: {
-          fontFamily: 'Mono',
-          fontSize: 24,
-          lineHeight: 1.2,
-          color: ink,
-        },
-      },
+      { style: { fontFamily: 'Mono', fontSize: 30, color: ink } },
       cell.value,
     ),
   );
@@ -169,12 +162,7 @@ function cardShell(readout, ...children) {
     h(
       'div',
       {
-        style: {
-          display: 'flex',
-          height: 144,
-          flexShrink: 0,
-          borderTop: `${READOUT_RULE}px solid ${ink}`,
-        },
+        style: { display: 'flex', borderTop: `${READOUT_RULE}px solid ${ink}` },
       },
       ...readout.map(readoutCell),
     ),
@@ -222,9 +210,7 @@ function siteCard() {
       h('span', {}, FIRST_NAME),
       h('span', {}, REST_OF_NAME.join(' ').replace("'", '’')),
     ),
-    monoLine('Business & Data Analyst', 'SQL · Python · Power BI', {
-      marginTop: 34,
-    }),
+    monoLine(profile.employer, profile.focus, { marginTop: 34 }),
   );
 }
 

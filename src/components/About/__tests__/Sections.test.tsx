@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 
 import { aboutMarkdown } from '@/data/about';
 import { createHeadingId } from '@/lib/anchors';
-import { smartQuotes } from '@/lib/typography';
 import AboutContent from '../Sections';
 
 const titles = Array.from(
@@ -54,9 +53,7 @@ describe('AboutContent', () => {
 
     const links = within(sectionNav()).getAllByRole('link');
 
-    expect(links.map((link) => link.textContent)).toEqual(
-      titles.map(smartQuotes),
-    );
+    expect(links.map((link) => link.textContent)).toEqual(titles);
     expect(links.map((link) => link.getAttribute('href'))).toEqual(
       titles.map((title) => `#${createHeadingId(title)}`),
     );
@@ -190,14 +187,12 @@ Lead paragraph.
 
     render(<AboutContent markdown={aboutMarkdown} />);
 
-    within(screen.getByRole('heading', { name: smartQuotes(titles[1]) }))
+    within(screen.getByRole('heading', { name: titles[1] }))
       .getByRole('link')
       .click();
     expect(document.documentElement).not.toHaveAttribute(SMOOTH);
 
-    within(sectionNav())
-      .getByRole('link', { name: smartQuotes(titles[1]) })
-      .click();
+    within(sectionNav()).getByRole('link', { name: titles[1] }).click();
     expect(document.documentElement).toHaveAttribute(SMOOTH);
 
     window.dispatchEvent(new Event('scrollend'));

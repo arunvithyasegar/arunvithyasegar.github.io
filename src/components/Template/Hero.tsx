@@ -1,5 +1,8 @@
 import Link from 'next/link';
+
 import profile from '@/data/profile.json';
+import { smartQuotes } from '@/lib/typography';
+
 import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
@@ -7,28 +10,38 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-primary">
-          <p className="hero-kicker">Business &amp; data analysis</p>
+          <p className="hero-kicker">Software &amp; security</p>
           <h1 className="hero-title">
-            <span className="hero-name">{profile.name}</span>
+            <span className="hero-name">{smartQuotes(profile.name)}</span>
           </h1>
           <p className="hero-tagline">
-            I connect{' '}
-            <span className="hero-highlight">data, people, and processes</span>{' '}
-            to build better systems.
+            I’m a {profile.role} at{' '}
+            <a href="https://openai.com" className="hero-highlight">
+              {profile.employer}
+            </a>
+            , working on{' '}
+            <a href="https://promptfoo.dev" className="hero-highlight">
+              Promptfoo
+            </a>{' '}
+            and other cyber products.
           </p>
+
           <p className="hero-summary">
-            From agricultural markets to digital healthcare, I turn complex data
-            into practical business decisions with SQL, Python, and Power BI.
+            I help secure AI systems and use AI to find software
+            vulnerabilities. I co-founded Promptfoo before it joined OpenAI in
+            2026.
           </p>
+
           <div className="hero-cta">
-            <Link href="/projects" className="button">
-              Explore my work
+            <Link href="/about" className="button">
+              About me
             </Link>
             <Link href="/resume" className="hero-resume-link">
               View resume
             </Link>
           </div>
         </div>
+
         <figure className="hero-portrait">
           <ThemePortrait width={320} height={320} priority />
           <figcaption>{profile.currentCity}</figcaption>

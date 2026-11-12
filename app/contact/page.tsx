@@ -19,8 +19,8 @@ export default function ContactPage() {
         <h1 className="page-title">Get in touch</h1>
         <EmailLink />
         <p className="contact-hint page-prose">
-          For data analysis, new projects, or a conversation about your next
-          idea, get in touch by email.
+          I usually respond within 24 hours. For speaking invitations, email is
+          best.
         </p>
         <ContactIcons includeEmail={false} labelled />
       </section>

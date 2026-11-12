@@ -4,12 +4,20 @@ export interface Degree {
   link: string;
   year: number;
 }
+
 const degrees: Degree[] = [
   {
-    school: 'Tamil Nadu Agricultural University',
-    degree: 'Bachelor’s Degree in Agricultural Science',
-    link: 'https://tnau.ac.in',
-    year: 2023,
+    school: 'Stanford University',
+    degree: 'M.S. Computational and Mathematical Engineering (ICME)',
+    link: 'https://stanford.edu',
+    year: 2016,
+  },
+  {
+    school: 'University at Buffalo',
+    degree: 'B.S. Electrical Engineering, Computer Engineering',
+    link: 'https://buffalo.edu',
+    year: 2012,
   },
 ];
+
 export default degrees;

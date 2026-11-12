@@ -34,7 +34,7 @@ export const HOME_URL = `${SITE_URL}/`;
 
 // Shared so the /writing metadata and the Blog node stay in sync.
 export const WRITING_DESCRIPTION =
-  'Notes on data analysis, agriculture, health technology, and business systems.';
+  'Articles on AI security, LLM red teaming, and trust & safety.';
 
 type SchemaNode = Record<string, unknown>;
 
@@ -119,7 +119,7 @@ export function websiteNode(): SchemaNode {
     '@id': WEBSITE_ID,
     url: HOME_URL,
     name: AUTHOR_NAME,
-    alternateName: ['arunvithyasegar.in', 'Arun Vithyasegar'],
+    alternateName: ['mldangelo.com', 'mldangelo'],
     description: SITE_DESCRIPTION,
     inLanguage: SITE_LANGUAGE,
     publisher: PERSON_REF,

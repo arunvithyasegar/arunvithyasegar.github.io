@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
+import PublicationLink from '@/components/Writing/PublicationLink';
+import RecentWriting from '@/components/Writing/RecentWriting';
 import { shipped } from '@/data/projects';
 import { services } from '@/data/services';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
@@ -76,6 +78,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+      <RecentWriting />
+      <PublicationLink />
       <section
         className="consulting-section consulting-cta"
         aria-labelledby="home-contact"

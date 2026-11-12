@@ -29,6 +29,8 @@ function externalSource(url: string): string {
   const hostname = new URL(url).hostname.replace(/^www\./, '');
 
   if (hostname === 'linkedin.com') return 'LinkedIn';
+  if (hostname === 'substack.com' || hostname.endsWith('.substack.com'))
+    return 'Substack';
 
   return hostname;
 }

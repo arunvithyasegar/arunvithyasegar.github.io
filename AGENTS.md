@@ -126,6 +126,7 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.
 - Consulting offers describe a scope of work; case-study results require evidence. Use only confirmed role dates and never infer an employer end date from a new appointment.
 
+- **Publication integration**: keep `NEXT_PUBLIC_SUBSTACK_URL` unset until the owner creates the publication. It enables subscription links, not automatic RSS ingestion. Local articles and entries in `src/data/writing.ts` share the homepage and writing archive through `getWritingItems()`.
 - **Blog posts** are Markdown files in `content/writing/` with `title`, `date`, and `description` frontmatter; the slug is the filename. External links on `/writing` go in `src/data/writing.ts`, dated entries newest first
 - **Drafts**: every read of a post goes through `isPublished` in `src/lib/posts.ts`, and `generateStaticParams` uses `getPostSlugs()`, never raw filenames.
   - `public/` ships verbatim, so draft-only screenshots and downloads live outside it. The development route uses the generic card and may reserve a fallback ratio only for a missing root-relative draft image

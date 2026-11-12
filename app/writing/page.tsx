@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
+import PublicationLink from '@/components/Writing/PublicationLink';
 import { createPageMetadata } from '@/lib/metadata';
 import {
   blogNode,
@@ -147,6 +148,7 @@ export default function WritingPage() {
               </ol>
             </section>
           ))}
+        <PublicationLink />
       </article>
     </PageWrapper>
   );

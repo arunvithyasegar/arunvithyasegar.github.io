@@ -48,7 +48,7 @@ export default function FeaturedWork() {
                 rel="noopener noreferrer"
                 aria-label={`Open ${project.title} dashboard (opens in a new tab)`}
               >
-                Explore dashboard <span aria-hidden="true">↗</span>
+                Explore dashboard <span aria-hidden="true">→</span>
               </a>
               <a
                 href={project.link}
@@ -56,7 +56,7 @@ export default function FeaturedWork() {
                 rel="noopener noreferrer"
                 aria-label={`View ${project.title} code (opens in a new tab)`}
               >
-                View code <span aria-hidden="true">↗</span>
+                View code <span aria-hidden="true">→</span>
               </a>
             </div>
           </article>

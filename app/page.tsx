@@ -24,15 +24,15 @@ export default function HomePage() {
       <nav className="portfolio-context" aria-label="A little context">
         <Link href="/startup-ecosystem/">
           <span>Now</span>Senior Associate · Anna Incubator{' '}
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">→</span>
         </Link>
         <Link href="/about/">
           <span>Background</span>Agriculture → strategy &amp; data{' '}
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">→</span>
         </Link>
         <Link href="/resume/">
           <span>The journey</span>Experience &amp; education{' '}
-          <span aria-hidden="true">↗</span>
+          <span aria-hidden="true">→</span>
         </Link>
       </nav>
       <FeaturedWork />

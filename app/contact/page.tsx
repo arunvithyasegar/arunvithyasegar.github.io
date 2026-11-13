@@ -62,7 +62,7 @@ export default function ContactPage() {
                 href={`mailto:${profile.email}?subject=${encodeURIComponent(item.subject)}`}
               >
                 <h3>
-                  {item.title} <span aria-hidden="true">↗</span>
+                  {item.title} <span aria-hidden="true">→</span>
                 </h3>
                 <p>{item.description}</p>
               </a>

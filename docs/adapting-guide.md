@@ -81,10 +81,10 @@ relevant checks, and show me the diff.
 ```text
 Read AGENTS.md and work on a topic branch. Do not commit, push, merge, or change
 account settings unless I explicitly authorize it.
-Configure this fork to use GA4 measurement ID [G-XXXXXXX]. Use the existing
-NEXT_PUBLIC_GA_TRACKING_ID integration. Put the local value in .env.local and
-keep that file untracked. Tell me which GitHub repository variable production
-needs.
+Configure this fork to use my Google Tag Manager container [GTM-XXXXXXX]
+in SiteAnalytics. Remove the original owner’s container ID. Configure GA4
+inside my own container rather than adding a second analytics snippet.
+Explain the remaining account-side setup without claiming tags are published.
 ```
 
 ## Reference map

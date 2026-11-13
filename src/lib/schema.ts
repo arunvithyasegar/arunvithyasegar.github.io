@@ -4,6 +4,7 @@ import work from '@/data/resume/work';
 import { currentPosition } from '@/lib/career';
 import type { Post } from '@/lib/posts';
 import {
+  AUTHOR_HANDLE,
   AUTHOR_NAME,
   canonicalPostUrl,
   SHARE_IMAGE_DIMENSIONS,
@@ -86,6 +87,7 @@ export function personNode(): SchemaNode {
     '@type': 'Person',
     '@id': PERSON_ID,
     name: AUTHOR_NAME,
+    alternateName: AUTHOR_HANDLE,
     givenName,
     familyName,
     url: HOME_URL,
@@ -128,7 +130,7 @@ export function websiteNode(): SchemaNode {
     '@id': WEBSITE_ID,
     url: HOME_URL,
     name: AUTHOR_NAME,
-    alternateName: ['arunvithyasegar.in', 'Arun V'],
+    alternateName: [AUTHOR_HANDLE, `${AUTHOR_HANDLE}.in`],
     description: SITE_DESCRIPTION,
     inLanguage: SITE_LANGUAGE,
     publisher: PERSON_REF,

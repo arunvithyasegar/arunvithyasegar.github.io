@@ -29,7 +29,7 @@ export default function Hero() {
           </Link>
         </div>
         <p className="p-hero-note p-entrance p-delay-three">
-          Clear thinking. Practical output. Always curious.
+          Personal portfolio · arunvithyasegar.in
         </p>
       </div>
       <figure className="p-portrait p-entrance p-delay-two">

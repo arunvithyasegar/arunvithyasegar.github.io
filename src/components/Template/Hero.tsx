@@ -11,14 +11,13 @@ export default function Hero() {
             <span className="hero-name">{profile.name}</span>
           </h1>
           <p className="hero-tagline">
-            I connect{' '}
-            <span className="hero-highlight">data, people, and ideas</span> to
-            understand how things work—and how they can work better.
+            Making complex questions{' '}
+            <span className="hero-highlight">easier to act on.</span>
           </p>
           <p className="hero-summary">
-            This is where I share my projects, writing, and the questions I’m
-            exploring across growth, organisational performance, investment, and
-            impact.
+            I’m Arun. I work across strategy, startup ecosystems, and data.
+            Here’s a look at what I’ve built, how I think, and what I’m
+            learning.
           </p>
           <p className="hero-summary">
             I’m a Senior Associate at{' '}
@@ -30,16 +29,14 @@ export default function Hero() {
             <Link href="/projects/" className="button">
               Explore my work
             </Link>
-            <Link href="/about/" className="hero-resume-link">
-              A little about me →
+            <Link href="/contact/" className="hero-resume-link">
+              Start a conversation →
             </Link>
           </div>
         </div>
         <figure className="hero-portrait">
           <ThemePortrait width={320} height={320} priority />
-          <figcaption>
-            Curious about the numbers—and the people behind them.
-          </figcaption>
+          <figcaption>A practical mind. A curious outlook.</figcaption>
         </figure>
       </div>
     </section>

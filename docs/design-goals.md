@@ -53,6 +53,15 @@ resets them to ink on paper.
 
 The implementation lives in [`app/styles/tokens/`](../app/styles/tokens/).
 
+## Portfolio conversations
+
+Make the work assessable before inviting contact. Featured projects show a
+question, approach, tools, and separate dashboard and code links. A compact
+context band connects the introduction to the owner’s role and background.
+The closing invitation and optional email starters encourage a conversation
+without turning the portfolio into a service catalogue. Changes describe an
+intended visitor path; measured conversion gains require traffic and enquiry data.
+
 ## References
 
 - [Thinking in React](https://react.dev/learn/thinking-in-react)

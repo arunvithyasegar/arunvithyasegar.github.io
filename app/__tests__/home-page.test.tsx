@@ -16,7 +16,7 @@ describe('portfolio homepage', () => {
   it('takes public work examples directly to the work, in a new tab', () => {
     render(<HomePage />);
     const example = screen.getByRole('link', {
-      name: /News Sentiment Analysis using NLP/,
+      name: /Open News Sentiment Analysis using NLP dashboard/,
     });
     expect(example).toHaveAttribute(
       'href',

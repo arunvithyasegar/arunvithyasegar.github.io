@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-
+import LiveAge from '@/components/Stats/LiveAge';
 import Personal from '@/components/Stats/Personal';
 import Site from '@/components/Stats/Site';
 
@@ -21,6 +21,7 @@ export default function StatsPage() {
           <h1 className="page-title">Stats</h1>
           <p className="stats-subtitle">A few facts from this portfolio</p>
         </header>
+        <LiveAge />
         <div className="stats-content">
           <section aria-labelledby="stats-about-me">
             <div className="section-header">

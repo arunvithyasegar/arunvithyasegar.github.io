@@ -2,6 +2,8 @@ export type ProjectStatus = 'shipped' | 'archive';
 export interface Project {
   title: string;
   subtitle?: string;
+  question?: string;
+  approach?: string;
   link?: string;
   sourceWork?: string;
   image?: string;
@@ -17,6 +19,9 @@ export interface Project {
 const data: Project[] = [
   {
     title: 'News Sentiment Analysis using NLP',
+    question: 'How can we make the tone of news coverage easier to explore?',
+    approach:
+      'Fetch headlines with the News API, classify sentiment with TextBlob, and visualise patterns over time.',
     date: '',
     desc: 'This project analyzes sentiment trends in news articles to\n                evaluate public perception and media tone on various topics. It\n                uses the News API to fetch headlines in real time, processes\n                text with NLP (TextBlob), and classifies sentiment (positive,\n                negative, neutral). Results are visualized through time-series\n                plots and word clouds.',
     tech: [
@@ -34,6 +39,10 @@ const data: Project[] = [
   },
   {
     title: 'UN Trade Data Analysis (HS Code 85 – Electrical Machinery)',
+    question:
+      'What can electrical machinery exports tell us about India’s trade patterns?',
+    approach:
+      'Clean UN Comtrade data from 2016–2024, compare country trends, and examine volatility in an interactive dashboard.',
     date: '',
     desc: "Analytical dashboard exploring India's export trends in HS Code\n                85 (Electrical Machinery and Equipment) from 2016 to 2024.\n                Includes data extraction from UN Comtrade, cleaning, trend\n                analysis, volatility categorization, and country-wise insights\n                for strategic trade policy and investment research.",
     tech: [

@@ -260,3 +260,187 @@
     margin-top: 0;
   }
 }
+
+/* Portfolio journeys: context, tangible work, then an open conversation. */
+.portfolio-context {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--color-border);
+}
+.portfolio-context a {
+  display: block;
+  padding: 1.5rem 1rem;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-fg);
+  text-decoration: none;
+}
+.portfolio-context a + a {
+  border-left: 1px solid var(--color-border);
+}
+.portfolio-context a > span:first-child {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-fg-light);
+}
+.portfolio-context a:hover {
+  background: var(--color-accent-light);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.portfolio-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.portfolio-section-heading .eyebrow {
+  margin-bottom: 0.6rem;
+}
+.portfolio-section-heading h2 {
+  max-width: 26ch;
+}
+.featured-work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.featured-work-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  background: var(--color-bg);
+}
+.featured-work-label {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-fg-light);
+}
+.featured-work-card h3 {
+  margin-block: 1.6rem;
+  font-family: var(--font-body);
+  font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+  line-height: 1.25;
+  color: var(--color-fg-bold);
+}
+.project-evidence {
+  margin: 0 0 1.5rem;
+}
+.project-evidence > div + div {
+  margin-top: 1.2rem;
+}
+.project-evidence dt {
+  margin-bottom: 0.35rem;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-fg-bold);
+}
+.project-evidence dd {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.65;
+}
+.project-tool-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding: 0;
+  list-style: none;
+}
+.project-tool-list li {
+  padding: 0.3rem 0.6rem;
+  background: var(--color-accent-light);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+.project-actions {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+.project-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+}
+.portfolio-approach {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 0;
+  list-style: none;
+}
+.portfolio-approach .eyebrow {
+  display: block;
+}
+.portfolio-approach h3 {
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+.portfolio-approach p {
+  margin-top: 0.75rem;
+  line-height: 1.7;
+}
+.portfolio-invitation {
+  margin-top: 3rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+.portfolio-invitation h2 {
+  max-width: 25ch;
+}
+.portfolio-invitation > p {
+  max-width: 60ch;
+  margin-block: 1.25rem;
+  line-height: 1.7;
+}
+.portfolio-invitation .invitation-note {
+  margin-bottom: 0;
+  color: var(--color-fg-light);
+  font-size: var(--text-sm);
+}
+@media (max-width: 735px) {
+  .portfolio-context,
+  .portfolio-approach,
+  .featured-work-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-context a {
+    padding-inline: 0.5rem;
+  }
+  .portfolio-context a + a {
+    border-left: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .portfolio-approach {
+    gap: 1.5rem;
+  }
+}
+
+.portfolio-context a > span[aria-hidden],
+.project-actions span {
+  font-family: system-ui, sans-serif;
+}

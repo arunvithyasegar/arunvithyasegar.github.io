@@ -123,6 +123,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
+- `SiteAnalytics` mounts the owner’s GTM container once in the root layout. Configure GA4 within that container; do not add a parallel gtag/GA component that duplicates collection. Installing a container does not prove its tags are published or reporting.
+
 - Treat conversion as exploring genuine work and starting a conversation. Topic email links are optional conveniences, not a form submission or a promise of a reply. Never report conversion uplift without analytics and outcome data.
 
 - Regional ecosystem copy distinguishes confirmed biography from learning interests. Keep the Anna Incubator connection personal and link official programme information to the employer; do not imply this portfolio is an official incubator directory or claim regional mandates, partnerships, or results without evidence.

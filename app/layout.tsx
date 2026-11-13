@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 import { SiteSchema } from '@/components/Schema';
-import GoogleAnalytics from '@/components/Template/GoogleAnalytics';
 import Navigation from '@/components/Template/Navigation';
 import { MAIN_CONTENT_ID } from '@/components/Template/PageWrapper';
 import ScrollToTop from '@/components/Template/ScrollToTop';
+import SiteAnalytics from '@/components/Template/SiteAnalytics';
 import { sharedOpenGraph, sharedTwitter } from '@/lib/metadata';
 import {
   THEME_COLOR_TOKEN,
@@ -170,7 +170,7 @@ export default function RootLayout({
         <ScrollToTop />
         <Navigation />
         {children}
-        <GoogleAnalytics />
+        <SiteAnalytics />
       </body>
     </html>
   );

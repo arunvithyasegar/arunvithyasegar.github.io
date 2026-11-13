@@ -1,17 +1,38 @@
 # Google Analytics and Substack setup
 
-## Google Analytics 4
+## Google Tag Manager and GA4
 
-The site already mounts the GA4 integration from `src/components/Template/GoogleAnalytics.tsx`. Tracking stays off when `NEXT_PUBLIC_GA_TRACKING_ID` is unset.
+The owner-supplied Google Tag Manager container **GTM-K8J34B3G** loads on
+all routes through `src/components/Template/SiteAnalytics.tsx`, mounted once
+in the root layout. The existing Next.js third-party integration initialises
+`window.dataLayer`, queues the `gtm.start` / `gtm.js` event, and loads the
+container asynchronously after hydration. The escaped HTML from chat is not
+pasted as literal text, and a separate `gtag()` bootstrap is not needed.
 
-1. Open https://analytics.google.com/ and sign in to the owner's Google account.
-2. If needed, create an Analytics account named **Arun Vithyasegar**. Create a GA4 property named **Arun Vithyasegar Website**. Use India time and INR for this India-based consulting site; these settings are adjustable to the owner's preference.
-3. Create a **Web** data stream for **https://arunvithyasegar.in/**. Copy its **Measurement ID**, beginning `G-`. The numeric property ID and stream ID do not go in the code.
-4. In the GitHub repository, open **Settings → Secrets and variables → Actions → Variables**. Add `NEXT_PUBLIC_GA_TRACKING_ID` with that real Measurement ID. It is a public measurement identifier, not a Google password or API secret.
-5. Re-run the CI workflow on `main` to rebuild and publish. The value is embedded at build time.
-6. Visit the public site, navigate between pages, and check the GA4 **Realtime** report. Browser tracking protection or local blockers can prevent a test visit from appearing. Verify the stream before considering tracking active.
+The previous direct GA4 integration and its `NEXT_PUBLIC_GA_TRACKING_ID`
+build variable have been removed to avoid installing GA4 twice. Configure
+Analytics in the Tag Manager container instead. The GTM ID is public and is
+not a GA4 Measurement ID or a Search Console verification token.
 
-Do not create a second Analytics account or property if an appropriate one already exists. No Analytics property has been created or connected by these code changes.
+### Finish in the Google accounts
+
+1. Open the owner's Tag Manager account and select **GTM-K8J34B3G**.
+2. Create or select the GA4 property and web stream for
+   `https://arunvithyasegar.in/`; use India time and INR if appropriate.
+3. Add a Google tag with the stream's actual `G-…` Measurement ID and the
+   appropriate site-wide trigger. Avoid duplicate GA4 configuration tags.
+4. Preview using Tag Assistant. Verify the tag, page-view behaviour, and
+   consent configuration for the site's actual audience and tags. For this
+   Next.js site, test both an initial page load and internal navigation;
+   configure GA4 enhanced measurement/history tracking without adding a
+   second manual page-view mechanism.
+5. Submit and publish the container version, then check GA4 Realtime and
+   DebugView. Browser blockers and consent settings can affect collection.
+
+The website installation does not create a GA4 property, publish a container,
+verify ownership, or establish that Analytics receives data. Those account
+steps have not been performed here. No new custom conversion events have
+been added. An email click is not proof an email was sent.
 
 ## Substack publication
 

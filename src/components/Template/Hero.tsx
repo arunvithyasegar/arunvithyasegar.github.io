@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import LiveAge from '@/components/Stats/LiveAge';
 import profile from '@/data/profile.json';
 import ThemePortrait from './ThemePortrait';
 
@@ -33,7 +34,9 @@ export default function Hero() {
       </div>
       <figure className="p-portrait p-entrance p-delay-two">
         <ThemePortrait width={320} height={384} priority />
-        <figcaption>Strategy meets evidence.</figcaption>
+        <figcaption>
+          <LiveAge compact />
+        </figcaption>
       </figure>
     </section>
   );

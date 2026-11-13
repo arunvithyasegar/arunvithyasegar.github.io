@@ -747,3 +747,9 @@
 .premium-home .p-primary:focus-visible {
   outline-color: var(--color-focus-ring-fill);
 }
+
+.premium-home .p-contact-email {
+  padding-block: 0.75rem;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}

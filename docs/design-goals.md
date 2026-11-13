@@ -41,7 +41,7 @@ icons, browser chrome, and controls consistent.
 
 The homepage is a quiet, editorial workspace: a decision-focused introduction,
 current role and focus, two public projects, writing, ways to help, a four-step
-workflow, and an open invitation to talk. Inter sets the homepage type; long-form
+workflow, and an open invitation to talk. The portrait caption and Stats page show a live, five-decimal age based on the confirmed 6 August 1999, 06:54 IST birth instant. Inter sets the homepage type; long-form
 writing and the résumé retain the reading-focused typography. The header keeps
 Work, Writing, About, and Contact; additional destinations remain in the footer.
 
@@ -52,8 +52,7 @@ count. Do not invent client results or credentials to fill visual space.
 
 The workflow highlights Question → Evidence → Insight → Decision once on entry,
 with an optional replay. Content remains readable without JavaScript. Reduced
-motion bypasses animation. Copying an email confirms success only after the
-clipboard operation succeeds, and a visible email link remains available.
+motion bypasses animation. A visible email link remains available. At the owner’s request, ordinary page selection, context menus, drag, and copy actions are deterred. Editable fields retain their normal behaviour. These controls do not prevent scraping, screenshots, or access to public HTML.
 
 The design was approved in chat before production implementation. The live
 implementation preserves the static export, existing routes, profile/schema

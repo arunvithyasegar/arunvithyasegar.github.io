@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import CopyEmail from '@/components/Home/CopyEmail';
 import FeaturedWork from '@/components/Home/FeaturedWork';
 import Workflow from '@/components/Home/Workflow';
 import { SchemaGraph } from '@/components/Schema';
@@ -142,7 +141,9 @@ export default function HomePage() {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           )}
-          <CopyEmail />
+          <a className="p-contact-email" href={`mailto:${profile.email}`}>
+            {profile.email}
+          </a>
         </div>
       </section>
     </PageWrapper>

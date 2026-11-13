@@ -8,6 +8,8 @@ My background is in agriculture. Working across agricultural markets, startup po
 
 I share more about my [Anna Incubator connection and startup ecosystem interests](/startup-ecosystem/), starting with Tamil Nadu and the questions I’m exploring beyond it.
 
+I use the handle **arunvithyasegar** online. You can find my public code on [GitHub](https://github.com/arunvithyasegar) and my publication on [Substack](https://arunvithyasegar.substack.com). This website is my personal portfolio.
+
 # Some history
 
 - In 2022, I began a Business Analyst internship at StartupTN, working on startup research, policy briefs, and ecosystem dashboards.

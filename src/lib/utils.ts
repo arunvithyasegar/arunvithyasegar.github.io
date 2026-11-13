@@ -7,6 +7,7 @@ import profile from '@/data/profile.json';
 // Site configuration
 export const SITE_URL = 'https://arunvithyasegar.in';
 export const AUTHOR_NAME = profile.name;
+export const AUTHOR_HANDLE = 'arunvithyasegar';
 export const SITE_TITLE = `${AUTHOR_NAME} | Strategy, Startups & Data`;
 export const TWITTER_HANDLE = undefined;
 /**

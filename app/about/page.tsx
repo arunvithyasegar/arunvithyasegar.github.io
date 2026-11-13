@@ -30,7 +30,7 @@ export default function AboutPage() {
       />
       <section className="about-page">
         <header className="about-header">
-          <h1 className="page-title">About</h1>
+          <h1 className="page-title">About {AUTHOR_NAME}</h1>
         </header>
         <AboutContent markdown={aboutMarkdown} />
       </section>

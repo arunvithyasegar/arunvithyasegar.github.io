@@ -60,3 +60,36 @@ Broad incubator searches usually seek institutions or programmes. A personal por
 3. Publish original, evidence-backed notes: a startup KPI reporting example using clearly labelled synthetic data; an agricultural market analytics walkthrough; and an incubation evaluation framework with cited sources. Label personal interpretation and protect confidential information.
 4. Review Search Console every 28 days: queries, impressions, clicks, indexed pages, canonical selection, and country distribution (India first, then other markets with actual impressions). Segment branded and nonbranded searches. Adapt content to observed questions rather than repeating location keywords.
 5. Add real talks, public contributions, and projects as they happen. Seek editorial links through genuine contributions, not paid ranking links or fabricated directories.
+
+## Exact-name identity and spelling correction
+
+The owner’s screenshot shows Google substituting “Arun Vidyasagar” for the
+query “arunvithyasegar”. The canonical identity remains **Arun Vithyasegar**,
+with the handle **arunvithyasegar**. The website must not adopt another person’s
+name or create false affiliations to target those results.
+
+Person and WebSite markup now identify that exact handle. The biography uses
+the full name in its visible heading and links the handle to the owner’s
+GitHub and Substack. The homepage identifies the personal portfolio domain.
+These are consistency signals, not a way to force Google to stop correcting
+a query or to award a ranking.
+
+A public search lookup found the owner’s Kaggle work but did not surface the
+portfolio domain. This is not authoritative evidence of Google’s index status.
+Search Console URL Inspection is still needed to establish whether the
+homepage is indexed, whether crawling is allowed, and which canonical Google
+selected. Existing ownership-verification hooks remain available.
+
+After ownership is verified:
+
+1. Inspect `https://arunvithyasegar.in/`, run the live test, and resolve any
+   reported indexing or canonical issue before requesting indexing.
+2. Submit `https://arunvithyasegar.in/sitemap.xml`.
+3. Use the same full name and portfolio URL on genuine professional profiles.
+   Seek an accurate employer team link where the organisation permits it.
+4. Monitor the name, handle, and name-plus-employer queries over subsequent
+   weeks. A quoted exact-name search is a diagnostic, not a ranking fix.
+
+No Search Console verification, indexing submission, external-profile edit,
+or first-position ranking is claimed by this source change. Client-side
+copy restrictions do not prevent ordinary crawl access or secure public HTML.

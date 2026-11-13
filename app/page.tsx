@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import CopyEmail from '@/components/Home/CopyEmail';
 import FeaturedWork from '@/components/Home/FeaturedWork';
+import Workflow from '@/components/Home/Workflow';
 import { SchemaGraph } from '@/components/Schema';
-import AdvisoryLinks from '@/components/Services/AdvisoryLinks';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
 import PublicationLink from '@/components/Writing/PublicationLink';
 import RecentWriting from '@/components/Writing/RecentWriting';
+import contact from '@/data/contact';
+import profile from '@/data/profile.json';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
@@ -14,99 +17,133 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   alternates: { canonical: `${SITE_URL}/` },
 };
+const helpGroups = [
+  {
+    title: 'What I write about',
+    items: [
+      'Startup strategy',
+      'Growth metrics',
+      'Fundraising preparation',
+      'Board reporting',
+      'Investment & impact',
+    ],
+  },
+  {
+    title: 'What I can help with',
+    items: [
+      'Startup & market analysis',
+      'KPI dashboards',
+      'Investor materials',
+      'Market research',
+      'Ecosystem mapping',
+      'Data storytelling',
+    ],
+  },
+  {
+    title: 'Who it is for',
+    items: [
+      'Founders & operators',
+      'Investors',
+      'Incubators',
+      'Research teams',
+      'Ecosystem collaborators',
+    ],
+  },
+];
 export default function HomePage() {
+  const linkedin = contact.find((item) => item.id === 'linkedin');
   return (
-    <PageWrapper>
+    <PageWrapper mainClassName="premium-home">
       <SchemaGraph
         nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
       />
       <Hero />
-      <nav className="portfolio-context" aria-label="A little context">
-        <Link href="/startup-ecosystem/">
-          <span>Now</span>Senior Associate · Anna Incubator{' '}
-          <span aria-hidden="true">→</span>
-        </Link>
-        <Link href="/about/">
-          <span>Background</span>Agriculture → strategy &amp; data{' '}
-          <span aria-hidden="true">→</span>
-        </Link>
-        <Link href="/resume/">
-          <span>The journey</span>Experience &amp; education{' '}
-          <span aria-hidden="true">→</span>
-        </Link>
-      </nav>
+      <section className="p-proof" aria-label="Current role and focus">
+        <div>
+          <span>Currently</span>
+          <p>
+            <strong>{profile.role}</strong>
+            <br />
+            <Link href="/startup-ecosystem/">{profile.employer}</Link> ·{' '}
+            {profile.currentCity}
+          </p>
+        </div>
+        <div>
+          <span>Current focus</span>
+          <p>
+            Startup strategy · Growth metrics
+            <br />
+            Board reporting · Investment &amp; impact
+          </p>
+        </div>
+        <div>
+          <span>The work</span>
+          <p>
+            <Link href="/projects/">Public data projects</Link>
+            <br />
+            <Link href="/services/">Practical notes &amp; frameworks</Link>
+          </p>
+        </div>
+      </section>
       <FeaturedWork />
-      <section className="consulting-section" aria-labelledby="home-approach">
-        <div className="portfolio-section-heading">
-          <div>
-            <p className="eyebrow">A thread through the work</p>
-            <h2 id="home-approach">From a question to a useful next step</h2>
-          </div>
-        </div>
-        <ol className="portfolio-approach">
-          <li>
-            <span className="eyebrow">01 / Understand</span>
-            <h3>Start with the decision</h3>
-            <p>
-              Who needs to act? What do they need to know? Get clear on the
-              question before choosing a tool.
-            </p>
-          </li>
-          <li>
-            <span className="eyebrow">02 / Investigate</span>
-            <h3>Work through the evidence</h3>
-            <p>
-              Explore the data, test assumptions, and make uncertainty visible.
-              Keep the method open to scrutiny.
-            </p>
-          </li>
-          <li>
-            <span className="eyebrow">03 / Make useful</span>
-            <h3>Leave something usable</h3>
-            <p>
-              A dashboard, a model, or a clear explanation—with definitions,
-              limitations, and a next question.
-            </p>
-          </li>
-        </ol>
-      </section>
       <RecentWriting />
-      <section className="consulting-section" aria-labelledby="home-focus">
-        <div className="home-writing-header">
-          <h2 id="home-focus" className="section-heading">
-            What I’m exploring
-          </h2>
-          <Link href="/services/">All areas →</Link>
+      <section className="p-section" aria-labelledby="home-focus">
+        <div className="p-section-head">
+          <div>
+            <p className="p-section-num">03 / A useful conversation</p>
+            <h2 id="home-focus">How I can help</h2>
+          </div>
+          <p>
+            Happy to exchange ideas, work through a question, or lend a hand
+            where I can.
+          </p>
         </div>
-        <p className="page-prose">
-          Questions, frameworks, and working notes that connect my interests in
-          strategy and data. My{' '}
-          <Link href="/startup-ecosystem/">startup ecosystem interests</Link>{' '}
-          connect that work with my Anna Incubator role and Tamil Nadu
-          background.
+        <div className="p-help">
+          {helpGroups.map((group) => (
+            <div key={group.title}>
+              <h3>{group.title}</h3>
+              <ul>
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <p className="p-help-more">
+          <Link href="/services/">Explore my working notes →</Link>
         </p>
-        <AdvisoryLinks />
       </section>
+      <Workflow />
       <PublicationLink />
-      <section
-        className="consulting-section portfolio-invitation"
-        aria-labelledby="home-contact"
-      >
-        <p className="eyebrow">Always happy to compare notes</p>
-        <h2 id="home-contact">
-          A question, an idea, or a different perspective?
-        </h2>
-        <p>
-          If something here connects with what you’re doing, I’d love to hear
-          about it. I’m happy to share ideas, lend a hand where I can, or learn
-          from a different perspective.
-        </p>
-        <Link href="/contact/" className="button">
-          Say hello
-        </Link>
-        <p className="invitation-note">
-          A few lines are plenty. No polished brief needed.
-        </p>
+      <section className="p-contact" aria-labelledby="home-contact">
+        <div>
+          <p className="p-status">
+            <span className="p-dot" />
+            Open to conversations and collaborations
+          </p>
+          <h2 id="home-contact">
+            Have a dataset, decision, or strategy question?
+          </h2>
+          <p>Tell me what you’re working on. A few lines are enough.</p>
+        </div>
+        <div className="p-contact-actions">
+          <Link href="/contact/" className="p-button p-primary">
+            Start a conversation <span aria-hidden="true">→</span>
+          </Link>
+          {linkedin && (
+            <a
+              className="p-button"
+              href={linkedin.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Connect on LinkedIn <span aria-hidden="true">→</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          )}
+          <CopyEmail />
+        </div>
       </section>
     </PageWrapper>
   );

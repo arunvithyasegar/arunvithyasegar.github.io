@@ -50,18 +50,18 @@
     "name": "Arun Vithyasegar",
     "employer": "Anna Incubator",
     "focus": "Strategy, growth & analytics",
-    "currentCity": "Vellore, India"
+    "currentCity": "Chennai, India"
   },
   "colors": {
-    "ink": "#292a2e",
-    "paper": "#f6f3ed",
-    "body": "#292a2e",
-    "graphite": "#646269",
-    "accent": "#36559a",
+    "ink": "#172422",
+    "paper": "#f8faf8",
+    "body": "#172422",
+    "graphite": "#52665e",
+    "accent": "#236947",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
-  "generatorDigest": "453f34d9d88fc6477c3101f6f1ac56b7f670399136d0c996ea964603641935c0",
-  "imageDigest": "c88fa71da89c6a59a39ef7fbcb33dd4016e89d7e7d21a1047f45c3691e14c279",
+  "generatorDigest": "3f86f1a2f1893ee96801abd0921f61a0fd1aebfa35dd8c6733b20e1573004a5c",
+  "imageDigest": "68bb99c6828d13b60f6794a34cf7aff2569b7cd265bf0323bba2f9ee22eb7530",
   "posts": [
     {
       "slug": "a-board-ready-arr-and-kpi-dashboard",
@@ -84,7 +84,7 @@
           "value": "3 min"
         }
       ],
-      "imageDigest": "744b255cd539dbb89a8b054b2f3cd0f41b2b60c6fa55a9c4a145f9e979a78d94"
+      "imageDigest": "09436927b32ca3e63a995557391aeecce84fdaf738fdf1de710739f602b1b5b6"
     },
     {
       "slug": "investment-and-impact-assessment-framework",
@@ -107,7 +107,7 @@
           "value": "3 min"
         }
       ],
-      "imageDigest": "937f9a1224b5460bc286801c34a29821e2472b4b72d9305e05fe82cf9d26a6aa"
+      "imageDigest": "ba188888172871734238cda76f26a601e7c8239ae20f2549bd0c15c452e4d3e0"
     },
     {
       "slug": "a-pitch-deck-is-a-chain-of-evidence",
@@ -130,7 +130,7 @@
           "value": "1 min"
         }
       ],
-      "imageDigest": "f25adb8cf5065a900de065f6ee52e1ce8c4ca6271c673a963840bee416d0bc00"
+      "imageDigest": "9da661b1ff8564014cbf989604d6ef9f0de2769672aca65810d74309a62e837d"
     },
     {
       "slug": "retention-starts-with-a-clear-customer-action",
@@ -153,7 +153,7 @@
           "value": "1 min"
         }
       ],
-      "imageDigest": "93b080234e7b672661f7dca58e75ae989c3e7ca6ff3f6e2e962e3016d9b33246"
+      "imageDigest": "0502eb875a53937a91d71b73cf1b9bb12c4fcec78aeb45a892ba105472961d11"
     }
   ]
 }

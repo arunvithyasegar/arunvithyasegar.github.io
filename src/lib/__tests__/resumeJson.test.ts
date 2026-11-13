@@ -49,7 +49,7 @@ describe('json resume document', () => {
       label: profile.role,
       email: profile.email,
       // The display city, without asserting a country.
-      location: { city: 'Vellore', region: 'India' },
+      location: { city: 'Chennai', region: 'India' },
     });
   });
 

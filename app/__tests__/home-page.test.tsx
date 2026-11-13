@@ -8,10 +8,11 @@ describe('portfolio homepage', () => {
     expect(
       screen.getByRole('link', { name: 'Explore my work' }),
     ).toHaveAttribute('href', '/projects');
-    expect(screen.getByRole('link', { name: 'Say hello' })).toHaveAttribute(
-      'href',
-      '/contact',
-    );
+    for (const link of screen.getAllByRole('link', {
+      name: /Start a conversation/,
+    })) {
+      expect(link).toHaveAttribute('href', '/contact');
+    }
   });
   it('takes public work examples directly to the work, in a new tab', () => {
     render(<HomePage />);

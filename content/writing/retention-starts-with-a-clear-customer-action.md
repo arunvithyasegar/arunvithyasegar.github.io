@@ -26,4 +26,4 @@ For each hypothesis, specify an intervention, a success measure, a guardrail, an
 
 A useful handover includes the event definition, the cohort query, the observation window, and the assumptions. It should also say what remains unknown and which experiment would reduce that uncertainty.
 
-If you need help connecting customer data to a retention plan, [see the consulting services](/services/#retention) or [send a brief](/contact/).
+I’ve collected related notes on [retention and growth](/services/#retention). If you’re exploring similar questions, feel free to [say hello](/contact/).

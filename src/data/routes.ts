@@ -8,45 +8,14 @@ export interface Route {
 }
 
 const routes: Route[] = [
-  {
-    index: true,
-    label: AUTHOR_NAME,
-    path: '/',
-  },
-  { label: 'Services', path: '/services' },
-  {
-    label: 'About',
-    path: '/about',
-  },
-  {
-    label: 'Resume',
-    path: '/resume',
-    primary: false,
-  },
-  // Stays in the nav: `/contact` hides the footer, so from there a non-primary
-  // route would be unreachable.
-  {
-    label: 'Projects',
-    path: '/projects',
-  },
-  {
-    label: 'Writing',
-    path: '/writing',
-  },
-  {
-    label: 'Speaking',
-    path: '/speaking',
-    primary: false,
-  },
-  {
-    label: 'Stats',
-    path: '/stats',
-    primary: false,
-  },
-  {
-    label: 'Contact',
-    path: '/contact',
-  },
+  { index: true, label: AUTHOR_NAME, path: '/' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Writing', path: '/writing' },
+  { label: 'About', path: '/about' },
+  { label: 'Focus', path: '/services' },
+  { label: 'Resume', path: '/resume', primary: false },
+  { label: 'Speaking', path: '/speaking', primary: false },
+  { label: 'Stats', path: '/stats', primary: false },
+  { label: 'Contact', path: '/contact' },
 ];
-
 export default routes;

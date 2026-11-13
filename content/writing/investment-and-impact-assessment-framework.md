@@ -57,4 +57,4 @@ A concise investment or project brief can contain:
 
 The most useful conclusion states what is known, what remains uncertain, and what evidence would justify the next commitment. That makes the assessment a decision tool rather than a document produced only to secure approval.
 
-See [investment strategy and impact assessment consulting](/services/investment-impact-assessment/), [corporate and fundraising strategy](/services/corporate-fundraising-strategy/), or [send a project brief](/contact/).
+Related notes: [investment strategy and impact assessment](/services/investment-impact-assessment/) and [corporate and fundraising strategy](/services/corporate-fundraising-strategy/). If you’re exploring similar questions, I’m [happy to compare notes](/contact/).

@@ -6,58 +6,32 @@ import { createPageMetadata } from '@/lib/metadata';
 export const metadata: Metadata = createPageMetadata({
   title: 'Contact',
   description:
-    'Discuss a consulting project with Arun Vithyasegar: strategy, growth, fundraising preparation, analytics, and ML.',
+    'Say hello to Arun Vithyasegar. Happy to exchange ideas, talk about projects, and help where I can.',
   path: '/contact/',
 });
-const brief = `Hi Arun,
-
-I am building:
-The problem I want help with:
-The deliverable or decision I need:
-My timeline:
-My budget range:
-Relevant links:
-`;
 export default function ContactPage() {
   return (
     <PageWrapper>
       <section className="contact-page consulting-contact">
-        <p className="eyebrow">Let’s make the brief clear</p>
-        <h1 className="page-title">What are you working on?</h1>
+        <p className="eyebrow">Good conversations start somewhere</p>
+        <h1 className="page-title">Say hello</h1>
         <p className="page-prose">
-          For a strategy review, board-reporting brief, growth analysis,
-          investment or impact assessment, or ongoing advisory support, send me
-          a few details. I will review the fit and suggest a useful next step.
+          If you’re working on something interesting, have a question about a
+          project, or want to compare notes, I’d be happy to hear from you.
+        </p>
+        <p className="page-prose">
+          I’m always open to exchanging ideas and helping where I can—whether
+          it’s making sense of a dataset, thinking through a growth question, or
+          sharing a useful resource.
         </p>
         <a
           className="button"
-          href={`mailto:${profile.email}?subject=${encodeURIComponent('Consulting enquiry')}&body=${encodeURIComponent(brief)}`}
+          href={`mailto:${profile.email}?subject=${encodeURIComponent('Hello Arun')}`}
         >
-          Email a project brief
+          Email me
         </a>
         <p className="contact-address">
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </p>
-        <div className="contact-brief">
-          <h2>Include what you know</h2>
-          <ul>
-            <li>Your business, product, and target customer.</li>
-            <li>
-              The question you need answered or the problem you want to solve.
-            </li>
-            <li>
-              The deliverable you have in mind, your timeline, and a budget
-              range.
-            </li>
-            <li>
-              A website, deck, or description of the available data, if
-              relevant.
-            </li>
-          </ul>
-        </div>
-        <p className="page-prose">
-          Independent consulting enquiries come directly to me. This site
-          describes my own work and services.
         </p>
         <ContactIcons includeEmail={false} labelled />
       </section>

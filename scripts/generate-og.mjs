@@ -94,7 +94,7 @@ await requireSharp();
 const READOUT = [
   { label: 'Focus', value: 'Strategy & growth' },
   { label: 'Tools', value: 'SQL · Python · BI' },
-  { label: 'Work together', value: 'Consulting' },
+  { label: 'On this site', value: 'Projects & notes' },
 ];
 
 const [FIRST_NAME, ...REST_OF_NAME] = profile.name.split(' ');

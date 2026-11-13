@@ -1,8 +1,8 @@
 # Arun Vithyasegar
 
-Personal portfolio and independent consulting website at <https://arunvithyasegar.in>.
+Personal portfolio at <https://arunvithyasegar.in>.
 
-Senior Associate at Anna Incubator. Consulting across brand strategy, go-to-market, retention, pitch decks and fundraising preparation, data analysis, dashboards, and practical ML models.
+Senior Associate at Anna Incubator. Sharing projects and notes across strategy, startup growth, organisational performance, investment, impact, and data. Happy to exchange ideas and help where I can.
 
 ## Development
 

@@ -2,11 +2,11 @@
 
 ## Implemented
 
-- Four dedicated advisory service pages with distinct audiences, deliverables, process, and visible service questions.
-- Homepage, services hub, biography, articles, and service pages link to each other using ordinary HTML links.
-- Unique service titles, descriptions, canonical and social URLs, page-aligned Service markup, and three-level breadcrumbs.
+- Four dedicated focus-topic pages with distinct audiences, deliverables, process, and visible service questions.
+- Homepage, services hub, biography, articles, and topic pages link to each other using ordinary HTML links.
+- Unique service titles, descriptions, canonical and social URLs, page-aligned WebPage markup, and three-level breadcrumbs.
 - Consistent Person identity and professional focus, while retaining the confirmed employer and role.
-- Sitemap includes each service and each published article. Static pages do not claim invented modification dates.
+- Sitemap includes each topic and each published article. Static pages do not claim invented modification dates.
 - Two practical guides explain ARR/KPI board reporting and investment/impact assessment. They are frameworks, not fabricated client case studies.
 - Google Search Console and Bing ownership-verification metadata can be supplied through repository variables.
 - Public crawl access remains allowed in robots.txt. The change does not add hidden AI instructions or make new training-data policy claims.
@@ -25,7 +25,7 @@ Publish source-backed case studies when the owner has evidence and permission. S
 
 Build links through the owner's genuine professional profiles and relevant published work. Do not buy links, create doorway city pages, or post content on external accounts without explicit authorization.
 
-The service topics are based on the owner's requested offer. Search volume, competitiveness, and current rankings have not been measured. Validate demand in Search Console and keyword research before expanding into additional pages.
+The focus topics reflect the owner’s interests and portfolio direction. Search volume, competitiveness, and current rankings have not been measured. Validate demand in Search Console and keyword research before expanding into additional pages.
 
 ## What this does not promise
 

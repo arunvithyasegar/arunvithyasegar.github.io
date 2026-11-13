@@ -56,4 +56,4 @@ Use scenarios when a decision depends on uncertain acquisition, retention, prici
 
 The handover should include the calculation dictionary and data reconciliation, not only the chart. A reader should be able to trace a number back to its source and understand what it excludes.
 
-For an engagement around these deliverables, explore [board reporting and KPI frameworks](/services/board-reporting-kpi/) or [growth and revenue metrics consulting](/services/growth-revenue-metrics/). For customer-behaviour analysis, see [retention starts with a clear customer action](/writing/retention-starts-with-a-clear-customer-action/).
+I’ve collected related working notes on [board reporting and KPI frameworks](/services/board-reporting-kpi/) and [growth and revenue metrics](/services/growth-revenue-metrics/). For customer-behaviour analysis, see [retention starts with a clear customer action](/writing/retention-starts-with-a-clear-customer-action/).

@@ -1,4 +1,4 @@
-/** Advisory offers, not claims of past mandates, board appointments, or investment outcomes. */
+/** Personal focus notes and approaches; not an offering catalogue or a record of completed mandates. */
 export interface AdvisoryArea {
   slug: string;
   title: string;
@@ -18,11 +18,11 @@ export const advisoryAreas: AdvisoryArea[] = [
   {
     slug: 'growth-revenue-metrics',
     title: 'Growth & revenue metrics',
-    seoTitle: 'ARR, Retention & Growth Metrics Consulting',
+    seoTitle: 'ARR, Retention & Growth Metrics',
     summary:
-      'Connect ARR, retention, acquisition costs, and unit economics to the growth decisions your team needs to make.',
+      'How I think about ARR, retention, acquisition costs, and unit economics when making sense of business growth.',
     audience:
-      'Founders and leadership teams who need a consistent view of recurring revenue, acquisition efficiency, and customer retention.',
+      'I’m interested in what recurring-revenue metrics reveal about customer behaviour—and what an aggregate growth number can hide.',
     question: 'Is growth creating durable revenue?',
     answer:
       'A revenue bridge, cohort view, and acquisition-cost analysis help explain what is growing, what is being lost, and which assumptions need testing. The starting point is an agreed definition for every metric, not a larger dashboard.',
@@ -55,12 +55,6 @@ export const advisoryAreas: AdvisoryArea[] = [
           'Annual recurring revenue is an annualised view of recurring revenue at a defined point in time. For a business with monthly recurring revenue, ARR is often calculated as 12 × MRR. One-off fees and non-recurring sales should be separated; ARR is not the same as recognised revenue or a revenue forecast.',
       },
       {
-        question:
-          'Can you help before our startup has enough data for a model?',
-        answer:
-          'Yes. An early engagement can define events, metric calculations, a simple reporting baseline, and a customer-learning plan. Small cohorts should not be presented as statistically reliable predictions.',
-      },
-      {
         question: 'How does this relate to brand and go-to-market strategy?',
         answer:
           'Positioning defines who the offer is for; GTM defines how the team will reach them. Growth analysis checks whether acquisition, activation, and repeat behaviour support those choices.',
@@ -71,11 +65,11 @@ export const advisoryAreas: AdvisoryArea[] = [
   {
     slug: 'board-reporting-kpi',
     title: 'Board reporting & KPI frameworks',
-    seoTitle: 'Board Reporting & KPI Framework Consulting',
+    seoTitle: 'Board Reporting & KPI Frameworks',
     summary:
-      'Build clear board packs and executive dashboards that connect strategy, operating performance, risk, and decisions.',
+      'My working notes on connecting strategy, operating performance, and decisions through clear board reporting and KPI frameworks.',
     audience:
-      'Founders, functional leaders, and organisations preparing management reviews, board meetings, or investor updates.',
+      'The question I keep coming back to is how a report helps someone understand what changed and decide what to do next.',
     question: 'What does the board need to decide?',
     answer:
       'A useful board pack links performance against plan to the decisions that need attention. It states what changed, why it matters, the options available, and the recommendation, with consistent definitions and a clear owner for follow-up.',
@@ -108,14 +102,9 @@ export const advisoryAreas: AdvisoryArea[] = [
           'There is no universal number. Select the measures needed to explain performance and support the current decisions. A concise top-level view can link to supporting detail rather than carrying every team metric.',
       },
       {
-        question: 'Can this work use Power BI, SQL, or Excel?',
+        question: 'Why do metric definitions matter?',
         answer:
-          'Yes. The reporting format should fit the organisation’s data, workflow, and audience. The work can range from a documented spreadsheet and decision memo to a Power BI dashboard supported by SQL or Python analysis.',
-      },
-      {
-        question: 'Does this mean you serve as a board director?',
-        answer:
-          'This service supports reporting, analysis, and decision preparation. It does not describe a board appointment or transfer decision-making authority from the organisation’s leadership or board.',
+          'A chart is easier to trust when its source, calculation, period, and exclusions are clear. I try to make those choices visible so another person can trace the result and challenge the interpretation.',
       },
     ],
     article: 'a-board-ready-arr-and-kpi-dashboard',
@@ -123,11 +112,11 @@ export const advisoryAreas: AdvisoryArea[] = [
   {
     slug: 'corporate-fundraising-strategy',
     title: 'Corporate & fundraising strategy',
-    seoTitle: 'Corporate Structure & Fundraising Strategy Consulting',
+    seoTitle: 'Corporate Structure & Fundraising Strategy',
     summary:
-      'Connect organisational structure, funding needs, ownership scenarios, and the investor narrative to a practical operating plan.',
+      'Exploring how organisational structure, funding needs, ownership scenarios, and the investor narrative fit together.',
     audience:
-      'Founders and growing organisations reviewing responsibilities, preparing a fundraise, or comparing financing and ownership scenarios.',
+      'I’m curious about how a growing organisation connects its responsibilities, resources, and next milestones.',
     question: 'Does the structure support the next stage?',
     answer:
       'Corporate and fundraising planning should connect how decisions are made, who owns delivery, how capital is used, and what the organisation needs to demonstrate next. Analysis makes those choices explicit before implementation.',
@@ -157,18 +146,12 @@ export const advisoryAreas: AdvisoryArea[] = [
       {
         question: 'What do you mean by corporate structuring?',
         answer:
-          'The scope here is organisational design, decision rights, ownership modelling, and commercial scenario analysis. Legal entity formation, statutory filings, transaction documents, and tax implementation are handled by the organisation’s qualified legal, tax, and accounting advisers.',
+          'My interest here is in organisational design, decision rights, ownership modelling, and commercial scenario analysis. Legal entity formation, statutory filings, transaction documents, and tax implementation are handled by the organisation’s qualified legal, tax, and accounting advisers.',
       },
       {
-        question:
-          'Can you prepare a pitch deck and financial scenarios together?',
+        question: 'How should a pitch narrative relate to a financial model?',
         answer:
-          'Yes. The deck’s story should agree with the operating assumptions, funding ask, use of funds, and milestones. Actual results, forecasts, and untested assumptions are kept distinct.',
-      },
-      {
-        question: 'Can fundraising outcomes be guaranteed?',
-        answer:
-          'No. The deliverable is preparation, analysis, and a clearer funding strategy. Investor decisions depend on the business, evidence, market conditions, and each investor’s assessment.',
+          'The story and the assumptions should agree on the customer, revenue model, capital needs, and next milestone. Actual results, forecasts, and hypotheses need clear labels.',
       },
     ],
     article: 'a-pitch-deck-is-a-chain-of-evidence',
@@ -176,11 +159,11 @@ export const advisoryAreas: AdvisoryArea[] = [
   {
     slug: 'investment-impact-assessment',
     title: 'Investment strategy & impact assessment',
-    seoTitle: 'Investment Analysis & Impact Assessment Consulting',
+    seoTitle: 'Investment Analysis & Impact Assessment',
     summary:
-      'Prepare investment research, capital-allocation scenarios, and impact frameworks that help leadership teams and committees assess a decision.',
+      'Exploring investment research, capital-allocation scenarios, and the evidence behind an impact claim.',
     audience:
-      'Founders, organisations, incubators, and investment committees seeking structured commercial analysis and a clear approach to assessing impact.',
+      'I’m interested in making the commercial assumptions, intended outcomes, and unanswered questions behind an investment case easier to examine.',
     question: 'What evidence supports the investment case?',
     answer:
       'A useful assessment separates the commercial thesis, financial assumptions, execution risks, and intended impact. It shows which evidence supports the case, what remains uncertain, and what would change the recommendation.',
@@ -214,15 +197,9 @@ export const advisoryAreas: AdvisoryArea[] = [
           'Performance reporting tracks what happened against a plan. Impact assessment examines intended changes for people or systems and the evidence supporting those changes. Outputs, outcomes, contribution, and causal attribution should be distinguished.',
       },
       {
-        question: 'What does investment structuring cover in this service?',
+        question: 'What makes an investment memo useful?',
         answer:
-          'It covers commercial options and scenario modelling: capital needs, timing, milestones, ownership implications, and decision criteria. Execution of legal, tax, or regulated transaction work stays with the appropriately qualified advisers.',
-      },
-      {
-        question:
-          'Does the service include managing investments or executing trades?',
-        answer:
-          'The offer is research, commercial analysis, scenario modelling, and decision support. It does not claim portfolio-management authority, brokerage services, or a history of investment returns.',
+          'It should make the thesis, evidence, assumptions, downside cases, and unresolved questions easy to examine. The point is to support a decision and a learning process, rather than to make uncertainty disappear.',
       },
     ],
     article: 'investment-and-impact-assessment-framework',

@@ -8,7 +8,7 @@ Updated 12 November 2026 from the repository owner's uploaded portfolio analyses
 - Older employment, education, certifications, and project links come from the owner's pre-template portfolio and the uploaded page analyses.
 - Agathium's end date has not been confirmed. Its entry preserves the recorded start date; do not invent an end date or treat it as the primary current role.
 - Percentage impact claims and prediction accuracy were removed where the supplied record did not provide a measurement method.
-- The service descriptions are offers and proposed deliverables, not claims of completed client engagements, investment raised, or guaranteed results.
+- Current positioning is portfolio-first: show projects, interests, methods, and writing, with a friendly invitation to help. Topic pages are working notes, not a service catalogue or claims of completed client engagements.
 - The two new writing pieces are explanatory consulting guides, not historical case studies.
 - Public site source is this repository; template attribution remains in LICENSE and README.
 

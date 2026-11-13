@@ -10,7 +10,7 @@ export const services: Service[] = [
     id: 'brand',
     title: 'Brand strategy & positioning',
     problem:
-      'Make it clear who you serve, why they should choose you, and how to explain the value.',
+      'Understanding an audience, the alternatives available to them, and how an idea’s value can be explained clearly.',
     deliverables: [
       'Audience and competitor review',
       'Positioning and value proposition brief',
@@ -21,7 +21,7 @@ export const services: Service[] = [
     id: 'gtm',
     title: 'Go-to-market strategy',
     problem:
-      'Turn a broad market opportunity into a focused plan for reaching your first or next customers.',
+      'Exploring customer segments, routes to market, and the experiments that can test a launch assumption.',
     deliverables: [
       'Ideal customer profile and segment priorities',
       'Channel hypotheses, offer, and launch sequence',
@@ -32,7 +32,7 @@ export const services: Service[] = [
     id: 'retention',
     title: 'Retention & growth models',
     problem:
-      'Understand where customers drop off and what might bring them back.',
+      'Looking at activation, repeat behaviour, cohorts, and the reasons people return—or leave.',
     deliverables: [
       'Activation and funnel review',
       'Cohort analysis and repeat-use or churn hypotheses',
@@ -43,7 +43,7 @@ export const services: Service[] = [
     id: 'fundraising',
     title: 'Pitch decks & fundraising strategy',
     problem:
-      'Build a credible investment story that connects your market, traction, and funding needs.',
+      'Thinking through the connection between a customer problem, market evidence, traction, and a funding narrative.',
     deliverables: [
       'Pitch narrative and deck structure',
       'Market-sizing and financial-assumption review',
@@ -54,7 +54,7 @@ export const services: Service[] = [
     id: 'analytics',
     title: 'Data analysis & dashboards',
     problem:
-      'Use the data you already collect to make a specific business decision.',
+      'Turning a question into an analysis with SQL, Python, or Power BI, then making the result understandable.',
     deliverables: [
       'Data-quality review and metric definitions',
       'SQL or Python analysis and Power BI reporting',
@@ -65,29 +65,11 @@ export const services: Service[] = [
     id: 'ml',
     title: 'Practical machine learning',
     problem:
-      'Find out whether prediction or classification can solve a business problem with the available data.',
+      'Testing whether forecasting or classification adds something useful beyond a simple baseline.',
     deliverables: [
       'Problem framing and data-feasibility assessment',
       'Baseline and candidate models with time-aware or held-out evaluation',
       'Error analysis, limitations, and a deployment or next-step recommendation',
     ],
-  },
-];
-
-export const engagements = [
-  {
-    title: 'Focused review',
-    description:
-      'Bring a deck, growth question, brand brief, or dataset. We agree on the question and the review scope, then work through recommendations and next steps.',
-  },
-  {
-    title: 'Defined project',
-    description:
-      'A scoped deliverable such as a positioning brief, GTM plan, retention analysis, investor deck, dashboard, or model prototype. Scope, fee, milestones, and revisions are agreed before work begins.',
-  },
-  {
-    title: 'Ongoing advisory',
-    description:
-      'Recurring decision support across strategy and analytics, with an agreed cadence, priorities, and deliverables. Useful when your team needs continuity as it tests and learns.',
   },
 ];

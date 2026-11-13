@@ -2,7 +2,7 @@ export const aboutMarkdown = `# Intro
 
 I'm Arun Vithyasegar. I work across business strategy and data: understanding the problem, making the choices explicit, and building the analysis needed to act.
 
-I joined [Anna Incubator](https://annaincubator.org/) as a Senior Associate on 5 October 2026. Alongside my professional work, I offer independent consulting in brand strategy, go-to-market planning, retention, fundraising preparation, analytics, and practical machine learning.
+I joined [Anna Incubator](https://annaincubator.org/) as a Senior Associate on 5 October 2026. This site brings together my projects, writing, and what I’m learning across strategy and data. I’m happy to exchange ideas and help where I can.
 
 My background is in agriculture. Working across agricultural markets, startup policy, and digital health taught me to start with the people using a system, then work back to the process and the data. SQL, Python, and Power BI are tools I use to make that work concrete.
 
@@ -30,7 +30,7 @@ These are examples of how I approach a problem. Where there is public code or a 
 
 # What I can help with
 
-My independent advisory offer supports founders, leadership teams, and boards across [growth and revenue metrics](/services/growth-revenue-metrics/), [board reporting and KPI frameworks](/services/board-reporting-kpi/), [corporate and fundraising strategy](/services/corporate-fundraising-strategy/), and [investment and impact assessment](/services/investment-impact-assessment/). The scope is agreed for each engagement; these offers are separate from my employment and do not imply a board appointment.
+I’m exploring the connections between [growth and revenue metrics](/services/growth-revenue-metrics/), [board reporting and KPI frameworks](/services/board-reporting-kpi/), [corporate and fundraising strategy](/services/corporate-fundraising-strategy/), and [investment and impact assessment](/services/investment-impact-assessment/). These notes sit alongside my project portfolio and reflect the questions I’m interested in working through.
 
 - Brand positioning: audience, differentiation, value proposition, and messaging.
 - Go-to-market: customer segments, routes to market, launch priorities, and experiments.
@@ -39,7 +39,7 @@ My independent advisory offer supports founders, leadership teams, and boards ac
 - Data analysis: SQL, Python, Power BI, reporting, and decision support.
 - ML models: feasibility, baselines, forecasting, classification, and evaluation.
 
-See the [services and engagement options](/services/), or [send me your brief](/contact/).
+You can [browse my working notes](/services/) or [say hello](/contact/). I’m always glad to compare ideas or lend a hand where I can.
 
 # Outside the brief
 

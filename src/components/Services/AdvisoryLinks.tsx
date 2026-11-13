@@ -12,7 +12,7 @@ export default function AdvisoryLinks() {
           <h3>{area.title}</h3>
           <p>{area.summary}</p>
           <span className="service-more">
-            Explore the service <span aria-hidden="true">→</span>
+            Read my notes <span aria-hidden="true">→</span>
           </span>
         </Link>
       ))}

@@ -3,131 +3,78 @@ import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
 import AdvisoryLinks from '@/components/Services/AdvisoryLinks';
 import PageWrapper from '@/components/Template/PageWrapper';
-import { advisoryAreas } from '@/data/advisory';
-import { engagements, services } from '@/data/services';
+import { services } from '@/data/services';
 import { createPageMetadata } from '@/lib/metadata';
-import { collectionPageNode, PERSON_ID, sectionPageNodes } from '@/lib/schema';
-import { SITE_URL } from '@/lib/utils';
+import { collectionPageNode, sectionPageNodes } from '@/lib/schema';
 
 const description =
-  'Strategy and performance advisory for founders, leadership teams, and boards: growth metrics, KPI reporting, corporate structure, fundraising, investment and impact analysis.';
+  'Arun Vithyasegar’s areas of work and exploration: growth metrics, board reporting, corporate strategy, investment, impact, and analytics.';
 export const metadata: Metadata = createPageMetadata({
-  title: 'Strategy & Performance Advisory Services',
+  title: 'Areas of work & exploration',
   description,
   path: '/services/',
 });
-export default function ServicesPage() {
+export default function FocusPage() {
   return (
     <PageWrapper>
       <SchemaGraph
-        nodes={[
-          ...sectionPageNodes(
-            collectionPageNode,
-            '/services/',
-            'Consulting services',
-            description,
-          ),
-          ...advisoryAreas.map((area) => ({
-            '@type': 'Service',
-            '@id': `${SITE_URL}/services/${area.slug}/#service`,
-            name: area.title,
-            description: area.summary,
-            provider: { '@id': PERSON_ID },
-            url: `${SITE_URL}/services/${area.slug}/`,
-          })),
-          ...services.map((service) => ({
-            '@type': 'Service',
-            '@id': `${SITE_URL}/services/#${service.id}`,
-            name: service.title,
-            description: service.problem,
-            provider: { '@id': PERSON_ID },
-            url: `${SITE_URL}/services/#${service.id}`,
-          })),
-        ]}
+        nodes={sectionPageNodes(
+          collectionPageNode,
+          '/services/',
+          'Focus',
+          description,
+        )}
       />
       <div className="consulting-page">
         <header className="consulting-intro">
-          <p className="eyebrow">Work with me</p>
-          <h1 className="page-title">
-            Strategy &amp; performance advisory.
-            <br />
-            Analysis you can use.
-          </h1>
+          <p className="eyebrow">A few threads I keep coming back to</p>
+          <h1 className="page-title">Work, interests &amp; exploration</h1>
           <p className="page-subtitle page-prose">
-            For founders, leadership teams, and boards who need a clear view of
-            revenue quality, organisational performance, funding options, and
-            investment impact.
+            I’m interested in how organisations grow, how decisions get made,
+            and how data helps us ask better questions. These pages bring
+            together the frameworks and ideas I’m exploring.
           </p>
-          <Link href="/contact/" className="button">
-            Discuss your brief
-          </Link>
+          <p className="page-prose">
+            For concrete examples, take a look at my{' '}
+            <Link href="/projects/">projects</Link> and{' '}
+            <Link href="/resume/">experience</Link>. These notes describe my
+            approach and interests; they aren’t a list of completed assignments.
+          </p>
         </header>
-        <section aria-labelledby="advisory-areas">
-          <h2 id="advisory-areas" className="section-heading">
-            Advisory services
+        <section aria-labelledby="focus-areas">
+          <h2 id="focus-areas" className="section-heading">
+            Areas I’m exploring
           </h2>
           <AdvisoryLinks />
         </section>
-        <h2 className="section-heading">
-          Supporting strategy and analytics capabilities
-        </h2>
         <div className="service-details">
-          {services.map((service, index) => (
-            <section
-              key={service.id}
-              id={service.id}
-              className="service-detail"
-            >
+          {services.map((item, index) => (
+            <section key={item.id} id={item.id} className="service-detail">
               <span className="service-number">
                 {String(index + 1).padStart(2, '0')}
               </span>
               <div>
-                <h2>{service.title}</h2>
-                <p>{service.problem}</p>
-                <h3>What we can work towards</h3>
+                <h2>{item.title}</h2>
+                <p>{item.problem}</p>
+                <h3>Some of the things I work through</h3>
                 <ul>
-                  {service.deliverables.map((item) => (
-                    <li key={item}>{item}</li>
+                  {item.deliverables.map((example) => (
+                    <li key={example}>{example}</li>
                   ))}
                 </ul>
-                <Link href={`/contact/?service=${service.id}`}>
-                  Discuss this service →
-                </Link>
               </div>
             </section>
           ))}
         </div>
-        <section className="consulting-section" aria-labelledby="engagements">
-          <h2 id="engagements">Three ways to work together</h2>
-          <div className="service-grid engagement-grid">
-            {engagements.map((item) => (
-              <article className="service-card" key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </article>
-            ))}
-          </div>
+        <section className="consulting-section">
+          <h2>Happy to help, and happy to learn</h2>
           <p className="page-prose">
-            Every engagement starts with a brief and a conversation. You receive
-            a written scope covering deliverables, fee, milestones, and what I
-            need from your team before work begins.
-          </p>
-        </section>
-        <section className="consulting-section" aria-labelledby="fit">
-          <h2 id="fit">A useful first engagement has a clear decision</h2>
-          <p className="page-prose">
-            A launch with an unclear audience. A deck with a weak market story.
-            A funnel with a drop-off nobody understands. A dataset that might
-            support a forecasting model. Bring the problem; we will decide what
-            work is worth doing.
-          </p>
-          <p className="page-prose">
-            Fundraising support covers strategy and preparation. Investment
-            decisions remain with investors. ML work is scoped around your data
-            and evaluation needs.
+            If you’re thinking about similar questions, I’m always glad to
+            exchange ideas, share what I’ve learned, or help you think something
+            through.
           </p>
           <Link href="/contact/" className="button">
-            Tell me about your project
+            Say hello
           </Link>
         </section>
       </div>

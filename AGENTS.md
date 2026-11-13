@@ -123,7 +123,7 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
-- Advisory service pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and Service markup aligned, link each page from the services hub, and present offers separately from verified employment and historical client results. Search and AI eligibility never implies a ranking guarantee.
+- Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. Lead with public projects and writing, describe topic pages as working notes, and use a friendly invitation to help rather than service packages, fees, or sales qualification. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.
 - Consulting offers describe a scope of work; case-study results require evidence. Use only confirmed role dates and never infer an employer end date from a new appointment.

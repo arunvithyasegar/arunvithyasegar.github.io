@@ -1,8 +1,8 @@
 {
   "inputs": {
-    "accent": "#36559a",
+    "accent": "#236947",
     "onAccent": "#ffffff",
-    "backgroundLight": "#f6f3ed",
+    "backgroundLight": "#f8faf8",
     "monogram": "AV",
     "name": "Arun Vithyasegar",
     "font": {
@@ -31,14 +31,14 @@
       }
     ]
   },
-  "generatorDigest": "7e8bf0c55b999ab4000097a5691a782958540a5cfca712df463260453fb7d61e",
+  "generatorDigest": "e7b2f582c4b2d3de306c917d354aeb49e6cd106c753c4e066eec50cd6087e077",
   "files": {
-    "app/favicon.ico": "f58e8b1e3476b3c8997fb96bc268eeb958d2a24b351ce99d1771dc9e166afe53",
-    "app/icon.png": "36621ef19e6fa3c14d17cdda1ce881e44e0dd0c8b8873083e18cbcdd258791f9",
-    "app/apple-icon.png": "1c3d7184260596cd624351d63438682155254aa57007e8167617f28fad5f1bae",
-    "public/images/icons/icon-192.png": "aba14b279185119c14409a8e3e3b6ffc85fbea7827f214646f723beeecd26202",
-    "public/images/icons/icon-512.png": "545e1101182769f55db4d8033ef4536be269123fe3513ba8eb0027526af2987c",
-    "public/images/icons/icon-maskable-512.png": "98d5a6fa6718c101316764501614f721202642a990820a5de722dc2b20b6e7a7",
-    "app/manifest.json": "b3d812c1ab5d1152c54f14acd656cc8340d59ece8596428b2d0930b6e4b90f38"
+    "app/favicon.ico": "3665d3c9aba2d71ccaa38ec478ebdabce2ed61087fc3663a7e438ef471b261d3",
+    "app/icon.png": "2ef2908602de7620f9837bc3439f911fd8dfa845917f3323a6212250e6c60ec6",
+    "app/apple-icon.png": "31dd17c51e064547e6ebcd7e02aa8662766edf9dbb6e5c3dd269ab7ee80765dc",
+    "public/images/icons/icon-192.png": "9d1fd5905aec89b2de88c8ff65dace89ff06714792f7cfddc9acdad4a57b75b0",
+    "public/images/icons/icon-512.png": "29f29d3ee255d537a55eb9cbefdaa6877508f98ea6417332b02015a2d7f38b2a",
+    "public/images/icons/icon-maskable-512.png": "9ffc46f3c2f4bbec0f5cf947f7e0b2aca0766b13a8946785da779d1474e870d9",
+    "app/manifest.json": "23118b07767f0261cd7439b7da5b55767751b8826f3e489b934f28856c15d9b5"
   }
 }

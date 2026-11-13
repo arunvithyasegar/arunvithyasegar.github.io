@@ -34,33 +34,34 @@ migration.
 
 ## Visual design
 
-The visual system pairs ink blue with porcelain paper, with neutral charcoal
-at night. Inter handles the name, page titles, navigation, and buttons;
-Newsreader handles prose, section headings, and the titles of posts, companies,
-projects, and degrees; JetBrains Mono identifies dates, data, and annotations. Flat surfaces, hairlines, and spacing keep the composition
-crisp. The homepage uses one blue poster field on the page measure, with the
-name and introduction in the left column and a square color portrait on the
-right. On mobile, the portrait follows the copy. Its location caption is
-centered beneath the image in both layouts. The header, every page, and the
-footer share that one measure.
+The approved portfolio pairs a charcoal-and-mint dark theme with a clean
+paper-and-green light theme. Respect the visitor’s existing theme choice and
+system preference. Shared CSS tokens keep navigation, content, social cards,
+icons, browser chrome, and controls consistent.
 
-Blue handles links and controls on paper. The poster has its own surface and
-text pair, so its pale copy and inverted button stay readable in both themes.
-The writing register stays on paper. Amber is reserved for live or in-progress
-values. Portraits and project imagery stay in color without requiring hover.
-New surface colors must keep text and links readable in both themes, and print
-resets them to ink on paper.
+The homepage is a quiet, editorial workspace: a decision-focused introduction,
+current role and focus, two public projects, writing, ways to help, a four-step
+workflow, and an open invitation to talk. Inter sets the homepage type; long-form
+writing and the résumé retain the reading-focused typography. The header keeps
+Work, Writing, About, and Contact; additional destinations remain in the footer.
 
-The implementation lives in [`app/styles/tokens/`](../app/styles/tokens/).
+Project previews are conceptual illustrations with explicit labels, not claimed
+dashboards or measured values. Actual dashboards and code remain one click away.
+Writing uses real published content and reading-time estimates from its word
+count. Do not invent client results or credentials to fill visual space.
 
-## Portfolio conversations
+The workflow highlights Question → Evidence → Insight → Decision once on entry,
+with an optional replay. Content remains readable without JavaScript. Reduced
+motion bypasses animation. Copying an email confirms success only after the
+clipboard operation succeeds, and a visible email link remains available.
 
-Make the work assessable before inviting contact. Featured projects show a
-question, approach, tools, and separate dashboard and code links. A compact
-context band connects the introduction to the owner’s role and background.
-The closing invitation and optional email starters encourage a conversation
-without turning the portfolio into a service catalogue. Changes describe an
-intended visitor path; measured conversion gains require traffic and enquiry data.
+The design was approved in chat before production implementation. The live
+implementation preserves the static export, existing routes, profile/schema
+identity, GTM container, and optional publication configuration. The latest
+owner-supplied brief updates the profile location to Chennai, India.
+
+The implementation lives in `src/components/Home/`, `src/components/Template/Hero.tsx`,
+and `app/styles/pages/home.css` with shared theme tokens.
 
 ## References
 

@@ -123,6 +123,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
+- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, `Workflow`, and `CopyEmail` in that order around the proof/help sections. Project diagrams are labelled conceptual, never represented as measured outcomes. Motion enhances visible content once and honours reduced motion; email copy reports failure honestly.
+
 - `SiteAnalytics` mounts the owner’s GTM container once in the root layout. Configure GA4 within that container; do not add a parallel gtag/GA component that duplicates collection. Installing a container does not prove its tags are published or reporting.
 
 - Treat conversion as exploring genuine work and starting a conversation. Topic email links are optional conveniences, not a form submission or a promise of a reply. Never report conversion uplift without analytics and outcome data.

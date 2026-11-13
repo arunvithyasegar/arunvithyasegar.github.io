@@ -12,7 +12,7 @@ import { AUTHOR_NAME } from '@/lib/utils';
 const ABOUT_DESCRIPTION = `Learn about ${AUTHOR_NAME} - ${profile.role} at ${profile.employer} and builder across strategy, growth, and analytics.`;
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About',
+  title: 'About | Senior Associate at Anna Incubator',
   description: ABOUT_DESCRIPTION,
   path: '/about/',
 });

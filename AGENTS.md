@@ -123,6 +123,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
+- Regional ecosystem copy distinguishes confirmed biography from learning interests. Keep the Anna Incubator connection personal and link official programme information to the employer; do not imply this portfolio is an official incubator directory or claim regional mandates, partnerships, or results without evidence.
+
 - Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. Lead with public projects and writing, describe topic pages as working notes, and use a friendly invitation to help rather than service packages, fees, or sales qualification. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.

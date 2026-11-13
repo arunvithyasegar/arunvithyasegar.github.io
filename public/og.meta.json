@@ -60,8 +60,8 @@
     "accent": "#36559a",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
-  "generatorDigest": "54ce350606511baf2a4ec2ad9dd7e2a6d8e072e5b7d754c38e21b30794e5a86c",
-  "imageDigest": "bb6669ac4e6ce5bb0fb4d7384aa6a2785b50cad48d7444cd26b2dd38445891ad",
+  "generatorDigest": "453f34d9d88fc6477c3101f6f1ac56b7f670399136d0c996ea964603641935c0",
+  "imageDigest": "c88fa71da89c6a59a39ef7fbcb33dd4016e89d7e7d21a1047f45c3691e14c279",
   "posts": [
     {
       "slug": "a-board-ready-arr-and-kpi-dashboard",
@@ -73,7 +73,7 @@
       "readout": [
         {
           "label": "Words",
-          "value": "624"
+          "value": "622"
         },
         {
           "label": "Unique external links",
@@ -84,7 +84,7 @@
           "value": "3 min"
         }
       ],
-      "imageDigest": "f88213fb3abf5e3853c9ecc46f35a788fb349250c76d8895a7a0af34a6e5c450"
+      "imageDigest": "744b255cd539dbb89a8b054b2f3cd0f41b2b60c6fa55a9c4a145f9e979a78d94"
     },
     {
       "slug": "investment-and-impact-assessment-framework",
@@ -96,7 +96,7 @@
       "readout": [
         {
           "label": "Words",
-          "value": "589"
+          "value": "595"
         },
         {
           "label": "Unique external links",
@@ -107,7 +107,7 @@
           "value": "3 min"
         }
       ],
-      "imageDigest": "9fb9674c5f96d95ca03e2b030564772a6dda4c4921997aba4ec053182e2877ce"
+      "imageDigest": "937f9a1224b5460bc286801c34a29821e2472b4b72d9305e05fe82cf9d26a6aa"
     },
     {
       "slug": "a-pitch-deck-is-a-chain-of-evidence",
@@ -119,7 +119,7 @@
       "readout": [
         {
           "label": "Words",
-          "value": "301"
+          "value": "305"
         },
         {
           "label": "Unique external links",
@@ -130,7 +130,7 @@
           "value": "1 min"
         }
       ],
-      "imageDigest": "4098021a217274502a924c57fbaf624c47e0aee85d0c790a1521843553e8bbcb"
+      "imageDigest": "f25adb8cf5065a900de065f6ee52e1ce8c4ca6271c673a963840bee416d0bc00"
     },
     {
       "slug": "retention-starts-with-a-clear-customer-action",
@@ -142,7 +142,7 @@
       "readout": [
         {
           "label": "Words",
-          "value": "298"
+          "value": "297"
         },
         {
           "label": "Unique external links",
@@ -153,7 +153,7 @@
           "value": "1 min"
         }
       ],
-      "imageDigest": "59836a7760784d59222b2d8849d81c6894c15749b97ea2799b2ec40785ac22ac"
+      "imageDigest": "93b080234e7b672661f7dca58e75ae989c3e7ca6ff3f6e2e962e3016d9b33246"
     }
   ]
 }

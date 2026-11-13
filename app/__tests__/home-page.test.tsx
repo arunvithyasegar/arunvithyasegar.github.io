@@ -2,15 +2,16 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import HomePage from '../page';
 
-describe('consulting homepage', () => {
-  it('routes a potential client to the brief and the right service', () => {
+describe('portfolio homepage', () => {
+  it('leads with the work and a friendly contact invitation', () => {
     render(<HomePage />);
     expect(
-      screen.getByRole('link', { name: 'Discuss your project' }),
-    ).toHaveAttribute('href', '/contact');
-    expect(
-      screen.getByRole('link', { name: /Retention.*growth models/ }),
-    ).toHaveAttribute('href', '/services#retention');
+      screen.getByRole('link', { name: 'Explore my work' }),
+    ).toHaveAttribute('href', '/projects');
+    expect(screen.getByRole('link', { name: 'Say hello' })).toHaveAttribute(
+      'href',
+      '/contact',
+    );
   });
   it('takes public work examples directly to the work, in a new tab', () => {
     render(<HomePage />);

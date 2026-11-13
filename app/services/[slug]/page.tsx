@@ -32,46 +32,37 @@ export default async function AdvisoryPage({ params }: Props) {
     <PageWrapper>
       <SchemaGraph
         nodes={[
-          webPageNode({
-            url,
-            name: area.title,
-            description: area.summary,
-            hasBreadcrumb: true,
-          }),
+          {
+            ...webPageNode({
+              url,
+              name: area.title,
+              description: area.summary,
+              hasBreadcrumb: true,
+            }),
+            about: { '@id': PERSON_ID },
+          },
           breadcrumbNode(url, [
             { name: 'Home', url: `${SITE_URL}/` },
-            { name: 'Services', url: `${SITE_URL}/services/` },
+            { name: 'Focus', url: `${SITE_URL}/services/` },
             { name: area.title, url },
           ]),
-          {
-            '@type': 'Service',
-            '@id': `${url}#service`,
-            name: area.title,
-            description: area.summary,
-            url,
-            serviceType: area.title,
-            provider: { '@id': PERSON_ID },
-            mainEntityOfPage: { '@id': `${url}#webpage` },
-          },
         ]}
       />
       <article className="advisory-page">
         <nav aria-label="Breadcrumb" className="advisory-breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true"> / </span>
-          <Link href="/services/">Services</Link>
+          <Link href="/services/">Focus</Link>
           <span aria-hidden="true"> / </span>
           <span>{area.title}</span>
         </nav>
         <header className="consulting-intro">
-          <p className="eyebrow">
-            Independent strategy &amp; performance advisory
-          </p>
+          <p className="eyebrow">Working notes · Strategy &amp; data</p>
           <h1 className="page-title">{area.title}</h1>
           <p className="page-subtitle page-prose">{area.summary}</p>
           <p className="page-prose">{area.audience}</p>
-          <Link className="button" href={`/contact/?service=${area.slug}`}>
-            Discuss this brief
+          <Link className="button" href="/contact/">
+            Compare notes
           </Link>
         </header>
         <section className="consulting-section">
@@ -79,7 +70,7 @@ export default async function AdvisoryPage({ params }: Props) {
           <p className="page-prose">{area.answer}</p>
         </section>
         <section className="consulting-section">
-          <h2>When this work is useful</h2>
+          <h2>Questions that draw me to this area</h2>
           <ul className="advisory-list">
             {area.situations.map((item) => (
               <li key={item}>{item}</li>
@@ -87,25 +78,21 @@ export default async function AdvisoryPage({ params }: Props) {
           </ul>
         </section>
         <section className="consulting-section">
-          <h2>What you receive</h2>
+          <h2>Examples of analysis I explore</h2>
           <ul className="advisory-list">
             {area.deliverables.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>
-          <p className="page-prose">
-            Deliverables, fee, milestones, and review rounds are agreed in a
-            written scope before work begins.
-          </p>
         </section>
         <section className="consulting-section">
-          <h2>How the engagement works</h2>
+          <h2>How I approach the question</h2>
           <ol className="advisory-list advisory-list--ordered">
             {area.steps.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ol>
-          <h3>Useful starting material</h3>
+          <h3>Information that helps</h3>
           <ul className="advisory-list">
             {area.inputs.map((item) => (
               <li key={item}>{item}</li>
@@ -113,7 +100,7 @@ export default async function AdvisoryPage({ params }: Props) {
           </ul>
         </section>
         <section className="consulting-section">
-          <h2>Questions about the service</h2>
+          <h2>A few useful distinctions</h2>
           {area.faqs.map((item) => (
             <div className="advisory-answer" key={item.question}>
               <h3>{item.question}</h3>
@@ -126,8 +113,8 @@ export default async function AdvisoryPage({ params }: Props) {
           <p className="page-prose">
             I’m Arun Vithyasegar, Senior Associate at Anna Incubator since 5
             October 2026, with a background in business analysis, startup
-            ecosystem research, agriculture, and analytics. This is my
-            independent consulting offer.
+            ecosystem research, agriculture, and analytics. These pages collect
+            my interests and approach alongside the projects I share here.
           </p>
           <p className="page-prose">
             <Link href="/about/">About my background</Link> ·{' '}
@@ -137,11 +124,11 @@ export default async function AdvisoryPage({ params }: Props) {
             </Link>
           </p>
           <Link className="button" href="/contact/">
-            Send a project brief
+            Say hello
           </Link>
         </section>
         <section className="consulting-section">
-          <h2>Explore related services</h2>
+          <h2>Explore related topics</h2>
           <ul className="advisory-list">
             {advisoryAreas
               .filter((item) => item.slug !== area.slug)

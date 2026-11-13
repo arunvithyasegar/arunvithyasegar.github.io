@@ -1,13 +1,11 @@
-# Consulting positioning
+# Portfolio positioning
 
-Audience: founders and small teams with a specific strategic or analytical decision.
+Current direction: a personal portfolio showing Arun’s projects, background, interests, and working notes, with a friendly invitation to exchange ideas and help where possible.
 
-Core promise: a clearer story, a practical growth plan, and evidence to move forward.
+Lead with completed public projects and writing. Focus pages explain methods and questions; they do not advertise packages or imply completed client mandates. Keep the confirmed Anna Incubator role and other sourced experience separate from exploratory material.
 
-Commercial path: focused review → defined project → ongoing advisory, chosen according to the actual brief. Every engagement receives an agreed fee and written scope before starting. Pricing is not invented or published without the owner's input.
+Navigation calls the topic collection **Focus**. Existing `/services/` URLs remain stable for shared links and search continuity; their visible copy, metadata, and structured data are portfolio-oriented.
 
-Primary conversion: a project-brief email to arun7582@outlook.com. Ask for customer, problem, intended deliverable, timeline, budget, and relevant material.
+Use invitations such as **Explore my work**, **Read my notes**, **Compare notes**, and **Say hello**. Contact should not require a brief, budget, or sales qualification.
 
-Proof: previous employment, public code and dashboards, confirmed Anna Incubator role. No borrowed testimonials, client logos, investment totals, or guaranteed ML performance.
-
-For future case studies, record the problem, Arun's precise role, inputs, method, deliverable, limitations, and measured result with permission to publish. Publish only results that can be substantiated.
+Publish measured results only when evidence supports them. No invented clients, testimonials, board appointments, investment returns, or credentials.

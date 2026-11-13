@@ -28,4 +28,4 @@ The model does not need false precision. It needs transparent inputs, a sensible
 
 Keep supporting research, metric definitions, and financial assumptions in a working document. Use investor questions to find gaps in the argument. A polished slide cannot repair an unsupported claim; the underlying work has to hold together.
 
-For help structuring the narrative, reviewing assumptions, or preparing investor Q&A, [explore fundraising preparation](/services/#fundraising) or [get in touch](/contact/).
+You can find more of my thinking on [fundraising preparation](/services/#fundraising). If you’re working through a similar question, I’m [happy to compare notes](/contact/).

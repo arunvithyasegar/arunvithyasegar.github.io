@@ -94,7 +94,8 @@ export default function ResumePage() {
             Senior Associate at Anna Incubator since 5 October 2026. My
             background spans startup ecosystem research, agricultural markets,
             business processes, and data analysis with SQL, Python, and Power
-            BI. I also offer independent strategy and analytics consulting.
+            BI. This portfolio brings together my projects, interests, and
+            writing.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable and linkable. Destinations come from shared contact

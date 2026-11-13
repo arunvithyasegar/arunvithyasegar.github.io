@@ -7,7 +7,6 @@ import PageWrapper from '@/components/Template/PageWrapper';
 import PublicationLink from '@/components/Writing/PublicationLink';
 import RecentWriting from '@/components/Writing/RecentWriting';
 import { shipped } from '@/data/projects';
-import { services } from '@/data/services';
 import { HOME_URL, profilePageNode } from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
@@ -22,31 +21,6 @@ export default function HomePage() {
         nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
       />
       <Hero />
-      <section className="consulting-section" aria-labelledby="home-services">
-        <div className="home-writing-header">
-          <h2 id="home-services" className="section-heading">
-            Strategy and performance, from growth to the boardroom
-          </h2>
-          <Link href="/services/">All services →</Link>
-        </div>
-        <AdvisoryLinks />
-        <h2 className="section-heading">Supporting capabilities</h2>
-        <div className="service-grid">
-          {services.map((service) => (
-            <Link
-              key={service.id}
-              href={`/services/#${service.id}`}
-              className="service-card"
-            >
-              <h3>{service.title}</h3>
-              <p>{service.problem}</p>
-              <span className="service-more">
-                Explore the scope <span aria-hidden="true">→</span>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
       <section className="consulting-section" aria-labelledby="home-work">
         <div className="home-writing-header">
           <h2 id="home-work" className="section-heading">
@@ -82,21 +56,33 @@ export default function HomePage() {
         </div>
       </section>
       <RecentWriting />
+      <section className="consulting-section" aria-labelledby="home-focus">
+        <div className="home-writing-header">
+          <h2 id="home-focus" className="section-heading">
+            What I’m exploring
+          </h2>
+          <Link href="/services/">All areas →</Link>
+        </div>
+        <p className="page-prose">
+          Questions, frameworks, and working notes that connect my interests in
+          strategy and data.
+        </p>
+        <AdvisoryLinks />
+      </section>
       <PublicationLink />
       <section
         className="consulting-section consulting-cta"
         aria-labelledby="home-contact"
       >
-        <p className="eyebrow">Start with one useful question</p>
-        <h2 id="home-contact">
-          What decision is your business trying to make?
-        </h2>
+        <p className="eyebrow">Always happy to compare notes</p>
+        <h2 id="home-contact">Working on something interesting?</h2>
         <p>
-          Tell me what you are building, where you are stuck, and the outcome
-          you need. We can define a useful first scope from there.
+          If something here connects with what you’re doing, I’d love to hear
+          about it. I’m happy to share ideas, lend a hand where I can, or learn
+          from a different perspective.
         </p>
         <Link href="/contact/" className="button">
-          Send a project brief
+          Say hello
         </Link>
       </section>
     </PageWrapper>

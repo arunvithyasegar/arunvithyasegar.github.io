@@ -1,45 +1,45 @@
 import Link from 'next/link';
 import profile from '@/data/profile.json';
 import ThemePortrait from './ThemePortrait';
-
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-grid">
         <div className="hero-primary">
-          <p className="hero-kicker">
-            Independent consulting · Strategy &amp; performance advisory
-          </p>
+          <p className="hero-kicker">Strategy, startups &amp; data</p>
           <h1 className="hero-title">
             <span className="hero-name">{profile.name}</span>
           </h1>
           <p className="hero-tagline">
-            Clearer strategy. Measurable performance.{' '}
-            <span className="hero-highlight">Evidence to move forward.</span>
+            I connect{' '}
+            <span className="hero-highlight">data, people, and ideas</span> to
+            understand how things work—and how they can work better.
           </p>
           <p className="hero-summary">
-            I help founders, leadership teams, and boards connect growth
-            metrics, KPI reporting, corporate and fundraising strategy, and
-            investment and impact analysis to practical decisions.
+            This is where I share my projects, writing, and the questions I’m
+            exploring across growth, organisational performance, investment, and
+            impact.
           </p>
           <p className="hero-summary">
-            Senior Associate at{' '}
-            <a href="https://annaincubator.org/">Anna Incubator</a> since
-            October 2026. Background in agriculture, business analysis, and
-            startup ecosystems.
+            I’m a Senior Associate at{' '}
+            <a href="https://annaincubator.org/">Anna Incubator</a>, with a
+            background in agriculture, business analysis, and startup
+            ecosystems.
           </p>
           <div className="hero-cta">
-            <Link href="/contact/" className="button">
-              Discuss your project
+            <Link href="/projects/" className="button">
+              Explore my work
             </Link>
-            <Link href="/services/" className="hero-resume-link">
-              Explore services →
+            <Link href="/about/" className="hero-resume-link">
+              A little about me →
             </Link>
           </div>
         </div>
         <figure className="hero-portrait">
           <ThemePortrait width={320} height={320} priority />
-          <figcaption>Strategy informed by data.</figcaption>
+          <figcaption>
+            Curious about the numbers—and the people behind them.
+          </figcaption>
         </figure>
       </div>
     </section>

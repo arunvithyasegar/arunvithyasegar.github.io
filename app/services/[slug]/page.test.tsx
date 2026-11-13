@@ -5,7 +5,7 @@ import { SITE_URL } from '@/lib/utils';
 import sitemap from '../../sitemap';
 import AdvisoryPage, { generateMetadata, generateStaticParams } from './page';
 
-describe('advisory service discovery', () => {
+describe('portfolio topic discovery', () => {
   it('exports each listed service once and includes it in the sitemap', () => {
     const params = generateStaticParams();
     expect(new Set(params.map((item) => item.slug)).size).toBe(
@@ -20,7 +20,7 @@ describe('advisory service discovery', () => {
     }
   });
   it.each(advisoryAreas)(
-    '$slug has matching visible, canonical, and structured service identities',
+    '$slug has matching visible, canonical, and structured page identities',
     async (area) => {
       const params = Promise.resolve({ slug: area.slug });
       const metadata = await generateMetadata({ params });
@@ -34,13 +34,13 @@ describe('advisory service discovery', () => {
         )?.[1] ?? '{}',
       );
       const service = graph['@graph'].find(
-        (node: Record<string, unknown>) => node['@type'] === 'Service',
+        (node: Record<string, unknown>) => node['@type'] === 'WebPage',
       );
       expect(service).toMatchObject({
         url,
         name: area.title,
         description: area.summary,
-        provider: { '@id': `${SITE_URL}/#person` },
+        about: { '@id': `${SITE_URL}/#person` },
       });
       expect(html).toContain(area.title.replaceAll('&', '&amp;'));
       expect(html).toContain(`href="/writing/${area.article}"`);

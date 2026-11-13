@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: [
     AUTHOR_NAME,
-    'brand strategy consultant',
+    'brand strategy',
     'go-to-market strategy',
     'retention analysis',
     'pitch deck',

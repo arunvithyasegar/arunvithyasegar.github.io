@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-
+import { advisoryAreas } from '@/data/advisory';
 import routes from '@/data/routes';
 import { getAllPosts } from '@/lib/posts';
 import { canonicalPostUrl, SITE_URL } from '@/lib/utils';
@@ -35,5 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...pages, ...posts];
+  const advisory: MetadataRoute.Sitemap = advisoryAreas.map((area) => ({
+    url: `${SITE_URL}/services/${area.slug}/`,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  }));
+  return [...pages, ...advisory, ...posts];
 }

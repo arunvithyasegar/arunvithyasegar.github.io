@@ -203,6 +203,8 @@ jobs:
         env:
           NEXT_PUBLIC_GA_TRACKING_ID: ${{ vars.NEXT_PUBLIC_GA_TRACKING_ID }}
           NEXT_PUBLIC_SUBSTACK_URL: ${{ vars.NEXT_PUBLIC_SUBSTACK_URL }}
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          NEXT_PUBLIC_BING_SITE_VERIFICATION: ${{ vars.NEXT_PUBLIC_BING_SITE_VERIFICATION }}
 
       # Checks generated HTML/XML itself: leaked drafts, robots, duplicate ids,
       # fragment and route targets, canonical/share metadata, local images, and

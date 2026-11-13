@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
+import AdvisoryLinks from '@/components/Services/AdvisoryLinks';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { advisoryAreas } from '@/data/advisory';
 import { engagements, services } from '@/data/services';
 import { createPageMetadata } from '@/lib/metadata';
 import { collectionPageNode, PERSON_ID, sectionPageNodes } from '@/lib/schema';
 import { SITE_URL } from '@/lib/utils';
 
 const description =
-  'Independent consulting for founders: brand strategy, GTM, retention, pitch decks and fundraising preparation, analytics, and ML models.';
+  'Strategy and performance advisory for founders, leadership teams, and boards: growth metrics, KPI reporting, corporate structure, fundraising, investment and impact analysis.';
 export const metadata: Metadata = createPageMetadata({
-  title: 'Consulting services',
+  title: 'Strategy & Performance Advisory Services',
   description,
   path: '/services/',
 });
@@ -25,6 +27,14 @@ export default function ServicesPage() {
             'Consulting services',
             description,
           ),
+          ...advisoryAreas.map((area) => ({
+            '@type': 'Service',
+            '@id': `${SITE_URL}/services/${area.slug}/#service`,
+            name: area.title,
+            description: area.summary,
+            provider: { '@id': PERSON_ID },
+            url: `${SITE_URL}/services/${area.slug}/`,
+          })),
           ...services.map((service) => ({
             '@type': 'Service',
             '@id': `${SITE_URL}/services/#${service.id}`,
@@ -39,19 +49,28 @@ export default function ServicesPage() {
         <header className="consulting-intro">
           <p className="eyebrow">Work with me</p>
           <h1 className="page-title">
-            Strategy you can act on.
+            Strategy &amp; performance advisory.
             <br />
             Analysis you can use.
           </h1>
           <p className="page-subtitle page-prose">
-            For founders and small teams who need to sharpen their story, plan a
-            launch, understand customer behaviour, or make better use of their
-            data.
+            For founders, leadership teams, and boards who need a clear view of
+            revenue quality, organisational performance, funding options, and
+            investment impact.
           </p>
           <Link href="/contact/" className="button">
             Discuss your brief
           </Link>
         </header>
+        <section aria-labelledby="advisory-areas">
+          <h2 id="advisory-areas" className="section-heading">
+            Advisory services
+          </h2>
+          <AdvisoryLinks />
+        </section>
+        <h2 className="section-heading">
+          Supporting strategy and analytics capabilities
+        </h2>
         <div className="service-details">
           {services.map((service, index) => (
             <section

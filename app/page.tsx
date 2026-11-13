@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SchemaGraph } from '@/components/Schema';
+import AdvisoryLinks from '@/components/Services/AdvisoryLinks';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
 import PublicationLink from '@/components/Writing/PublicationLink';
@@ -24,10 +25,12 @@ export default function HomePage() {
       <section className="consulting-section" aria-labelledby="home-services">
         <div className="home-writing-header">
           <h2 id="home-services" className="section-heading">
-            From the business question to the next move
+            Strategy and performance, from growth to the boardroom
           </h2>
           <Link href="/services/">All services →</Link>
         </div>
+        <AdvisoryLinks />
+        <h2 className="section-heading">Supporting capabilities</h2>
         <div className="service-grid">
           {services.map((service) => (
             <Link

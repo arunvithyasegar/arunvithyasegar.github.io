@@ -25,9 +25,9 @@ export default function ContactPage() {
         <p className="eyebrow">Let’s make the brief clear</p>
         <h1 className="page-title">What are you working on?</h1>
         <p className="page-prose">
-          For a strategy review, a defined project, or ongoing advisory support,
-          send me a few details. I will review the fit and suggest a useful next
-          step.
+          For a strategy review, board-reporting brief, growth analysis,
+          investment or impact assessment, or ongoing advisory support, send me
+          a few details. I will review the fit and suggest a useful next step.
         </p>
         <a
           className="button"

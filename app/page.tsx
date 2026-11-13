@@ -65,7 +65,10 @@ export default function HomePage() {
         </div>
         <p className="page-prose">
           Questions, frameworks, and working notes that connect my interests in
-          strategy and data.
+          strategy and data. My{' '}
+          <Link href="/startup-ecosystem/">startup ecosystem interests</Link>{' '}
+          connect that work with my Anna Incubator role and Tamil Nadu
+          background.
         </p>
         <AdvisoryLinks />
       </section>

@@ -31,6 +31,11 @@ describe('routes', () => {
     expect(paths(true).join(' ')).toBe(
       '/projects /writing /about /services /contact',
     );
-    expect(paths(false)).toEqual(['/resume', '/speaking', '/stats']);
+    expect(paths(false)).toEqual([
+      '/resume',
+      '/speaking',
+      '/startup-ecosystem',
+      '/stats',
+    ]);
   });
 });

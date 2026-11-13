@@ -15,6 +15,7 @@ const routes: Route[] = [
   { label: 'Focus', path: '/services' },
   { label: 'Resume', path: '/resume', primary: false },
   { label: 'Speaking', path: '/speaking', primary: false },
+  { label: 'Startup ecosystem', path: '/startup-ecosystem', primary: false },
   { label: 'Stats', path: '/stats', primary: false },
   { label: 'Contact', path: '/contact' },
 ];

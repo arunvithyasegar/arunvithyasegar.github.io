@@ -16,6 +16,7 @@ import { metadata as notFoundMetadata } from '../not-found';
 import { metadata as projectsMetadata } from '../projects/page';
 import { metadata as resumeMetadata } from '../resume/page';
 import { metadata as speakingMetadata } from '../speaking/page';
+import { metadata as ecosystemMetadata } from '../startup-ecosystem/page';
 import { metadata as statsMetadata } from '../stats/page';
 import { generateMetadata as generatePostMetadata } from '../writing/[slug]/page';
 import { metadata as writingMetadata } from '../writing/page';
@@ -39,6 +40,7 @@ describe('page metadata', () => {
     ['resume', resumeMetadata, '/resume/'],
     ['speaking', speakingMetadata, '/speaking/'],
     ['stats', statsMetadata, '/stats/'],
+    ['startup ecosystem', ecosystemMetadata, '/startup-ecosystem/'],
     ['writing', writingMetadata, '/writing/'],
     ['404', notFoundMetadata, undefined],
   ])('%s restates what a replacing object drops', (_, metadata, path) => {

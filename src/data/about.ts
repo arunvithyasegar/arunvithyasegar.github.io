@@ -6,6 +6,8 @@ I joined [Anna Incubator](https://annaincubator.org/) as a Senior Associate on 5
 
 My background is in agriculture. Working across agricultural markets, startup policy, and digital health taught me to start with the people using a system, then work back to the process and the data. SQL, Python, and Power BI are tools I use to make that work concrete.
 
+I share more about my [Anna Incubator connection and startup ecosystem interests](/startup-ecosystem/), starting with Tamil Nadu and the questions I’m exploring beyond it.
+
 # Some history
 
 - In 2022, I began a Business Analyst internship at StartupTN, working on startup research, policy briefs, and ecosystem dashboards.

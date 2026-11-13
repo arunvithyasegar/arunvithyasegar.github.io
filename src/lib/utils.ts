@@ -7,6 +7,7 @@ import profile from '@/data/profile.json';
 // Site configuration
 export const SITE_URL = 'https://arunvithyasegar.in';
 export const AUTHOR_NAME = profile.name;
+export const SITE_TITLE = `Strategy & Performance Advisory | ${AUTHOR_NAME}`;
 export const TWITTER_HANDLE = undefined;
 /**
  * The portrait. Used for JSON-LD `image`, where the value should be a picture
@@ -34,7 +35,7 @@ export const SHARE_IMAGE_DIMENSIONS = {
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Arun Vithyasegar helps founders with brand strategy, go-to-market, retention, pitch decks, data analysis, and practical ML. Senior Associate at Anna Incubator.';
+  'Strategy and performance advisory by Arun Vithyasegar: ARR and growth metrics, board reporting, fundraising, corporate structure, and investment and impact analysis.';
 
 // Skill competency
 export const MAX_COMPETENCY = 5;

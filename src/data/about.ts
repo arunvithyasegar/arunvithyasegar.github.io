@@ -30,6 +30,8 @@ These are examples of how I approach a problem. Where there is public code or a 
 
 # What I can help with
 
+My independent advisory offer supports founders, leadership teams, and boards across [growth and revenue metrics](/services/growth-revenue-metrics/), [board reporting and KPI frameworks](/services/board-reporting-kpi/), [corporate and fundraising strategy](/services/corporate-fundraising-strategy/), and [investment and impact assessment](/services/investment-impact-assessment/). The scope is agreed for each engagement; these offers are separate from my employment and do not imply a board appointment.
+
 - Brand positioning: audience, differentiation, value proposition, and messaging.
 - Go-to-market: customer segments, routes to market, launch priorities, and experiments.
 - Retention: activation, cohorts, repeat behaviour, lifecycle touchpoints, and churn hypotheses.

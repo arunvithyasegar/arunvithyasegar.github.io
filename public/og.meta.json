@@ -64,6 +64,52 @@
   "imageDigest": "bb6669ac4e6ce5bb0fb4d7384aa6a2785b50cad48d7444cd26b2dd38445891ad",
   "posts": [
     {
+      "slug": "a-board-ready-arr-and-kpi-dashboard",
+      "path": "/og/writing/a-board-ready-arr-and-kpi-dashboard.png",
+      "title": "ARR and KPI dashboards for board reporting",
+      "description": "Define recurring revenue, retention, and cash metrics, then connect the numbers to board decisions.",
+      "date": "2026-11-13",
+      "dateLabel": "November 13, 2026",
+      "readout": [
+        {
+          "label": "Words",
+          "value": "624"
+        },
+        {
+          "label": "Unique external links",
+          "value": "0"
+        },
+        {
+          "label": "Reading time",
+          "value": "3 min"
+        }
+      ],
+      "imageDigest": "f88213fb3abf5e3853c9ecc46f35a788fb349250c76d8895a7a0af34a6e5c450"
+    },
+    {
+      "slug": "investment-and-impact-assessment-framework",
+      "path": "/og/writing/investment-and-impact-assessment-framework.png",
+      "title": "Investment and impact assessment: a practical framework",
+      "description": "Build an investment committee brief with a commercial thesis, structuring scenarios, risks, and impact evidence.",
+      "date": "2026-11-13",
+      "dateLabel": "November 13, 2026",
+      "readout": [
+        {
+          "label": "Words",
+          "value": "589"
+        },
+        {
+          "label": "Unique external links",
+          "value": "1"
+        },
+        {
+          "label": "Reading time",
+          "value": "3 min"
+        }
+      ],
+      "imageDigest": "9fb9674c5f96d95ca03e2b030564772a6dda4c4921997aba4ec053182e2877ce"
+    },
+    {
       "slug": "a-pitch-deck-is-a-chain-of-evidence",
       "path": "/og/writing/a-pitch-deck-is-a-chain-of-evidence.png",
       "title": "A pitch deck is a chain of evidence",

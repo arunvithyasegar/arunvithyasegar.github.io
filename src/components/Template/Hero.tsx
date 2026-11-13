@@ -8,19 +8,19 @@ export default function Hero() {
       <div className="hero-grid">
         <div className="hero-primary">
           <p className="hero-kicker">
-            Independent consulting · Strategy, growth &amp; analytics
+            Independent consulting · Strategy &amp; performance advisory
           </p>
           <h1 className="hero-title">
             <span className="hero-name">{profile.name}</span>
           </h1>
           <p className="hero-tagline">
-            A clearer story. A practical growth plan.{' '}
+            Clearer strategy. Measurable performance.{' '}
             <span className="hero-highlight">Evidence to move forward.</span>
           </p>
           <p className="hero-summary">
-            I help founders and small teams connect brand strategy,
-            go-to-market, retention, and fundraising preparation with data
-            analysis and practical ML.
+            I help founders, leadership teams, and boards connect growth
+            metrics, KPI reporting, corporate and fundraising strategy, and
+            investment and impact analysis to practical decisions.
           </p>
           <p className="hero-summary">
             Senior Associate at{' '}

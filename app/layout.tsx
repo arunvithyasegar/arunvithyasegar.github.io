@@ -12,7 +12,12 @@ import {
   themeInitScript,
 } from '@/lib/theme';
 import { readColorToken } from '@/lib/tokens';
-import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
+import {
+  AUTHOR_NAME,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_URL,
+} from '@/lib/utils';
 import { inter, jetbrainsMono, newsreader } from './fonts';
 import './tailwind.css';
 
@@ -68,7 +73,7 @@ const NO_SCRIPT_THEME_COLOR = `<meta name="theme-color" content="${CHROME_COLORS
  */
 export const metadata: Metadata = {
   title: {
-    default: AUTHOR_NAME,
+    default: SITE_TITLE,
     template: `%s | ${AUTHOR_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -82,9 +87,21 @@ export const metadata: Metadata = {
     'data analysis',
     'machine learning',
     'Anna Incubator',
+    'ARR and growth metrics',
+    'board reporting',
+    'KPI frameworks',
+    'corporate structure',
+    'investment analysis',
+    'impact assessment',
   ],
   authors: [{ name: AUTHOR_NAME }],
   creator: AUTHOR_NAME,
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_SITE_VERIFICATION }
+      : undefined,
+  },
   metadataBase: new URL(SITE_URL),
   // The root is the origin of the share metadata, so it uses the same shared
   // blocks as every other page rather than hand-writing a copy that can drift.
@@ -92,12 +109,12 @@ export const metadata: Metadata = {
     ...sharedOpenGraph,
     type: 'website',
     url: `${SITE_URL}/`,
-    title: AUTHOR_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     ...sharedTwitter,
-    title: AUTHOR_NAME,
+    title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   },
   // Only the snippet/preview hints are declared globally. `index, follow` is

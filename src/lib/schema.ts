@@ -34,7 +34,7 @@ export const HOME_URL = `${SITE_URL}/`;
 
 // Shared so the /writing metadata and the Blog node stay in sync.
 export const WRITING_DESCRIPTION =
-  'Practical notes on positioning, startup growth, retention, fundraising preparation, and business analytics.';
+  'Practical guides to ARR, growth metrics, KPI frameworks, board reporting, fundraising strategy, and investment and impact assessment.';
 
 type SchemaNode = Record<string, unknown>;
 
@@ -94,6 +94,15 @@ export function personNode(): SchemaNode {
     ...(currentJob && { jobTitle: currentJob.position }),
     ...(email && { email }),
     sameAs: socialLinks,
+    knowsAbout: [
+      'Business analysis',
+      'Growth metrics',
+      'Board reporting',
+      'KPI frameworks',
+      'Fundraising preparation',
+      'Investment analysis',
+      'Impact assessment',
+    ],
     ...(currentJob && {
       worksFor: {
         '@type': 'Organization',

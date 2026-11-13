@@ -150,3 +150,43 @@ a.service-card:hover {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
+
+.advisory-page {
+  padding-block: 2rem;
+}
+.advisory-breadcrumb {
+  color: var(--color-fg-light);
+  font-size: var(--text-ui);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.advisory-list {
+  max-width: var(--measure-read);
+  padding-left: 1.4rem;
+  margin-block: 1.25rem;
+  list-style: disc;
+}
+.advisory-list--ordered {
+  list-style: decimal;
+}
+.advisory-list li {
+  margin-block: 0.7rem;
+  line-height: 1.7;
+}
+.advisory-list a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.advisory-answer {
+  max-width: var(--measure-read);
+  margin-block: 1.75rem;
+}
+.advisory-answer h3 {
+  font-family: var(--font-body), serif;
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+.advisory-answer p {
+  margin-top: 0.6rem;
+  line-height: 1.75;
+}

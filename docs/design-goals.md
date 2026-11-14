@@ -65,3 +65,17 @@ and `app/styles/pages/home.css` with shared theme tokens.
 
 - [Thinking in React](https://react.dev/learn/thinking-in-react)
 - [Rules of React](https://react.dev/reference/rules)
+
+## Stats and freshness
+
+The Stats page separates live age from deployment snapshots and profile facts.
+Its age starts live, with a local pause/resume button that freezes the reading
+until resumed. Work counts derive from shared projects and writing and link to
+the evidence. Current role and start date come from the same career data used
+by the résumé and Person markup. Recent activity uses actual publication dates.
+
+GitHub counts are fetched at build time and marked with a snapshot timestamp.
+Unavailable values are labelled explicitly; a genuine zero remains zero. The
+source-code count stays under the hood. No traffic, subscribers, revenue, or
+unverified impact metrics are invented. Text facts use a responsive definition
+list; numeric tables have bounded columns and wrap at every viewport width.

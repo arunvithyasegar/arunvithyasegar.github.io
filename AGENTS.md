@@ -123,6 +123,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
+- Stats separates live age, deployment snapshots, and profile facts. Derive portfolio counts and current-role details from shared data, link counts to evidence, and display unavailable GitHub data as `Unavailable` while preserving genuine zeroes. Keep text facts out of oversized numeric cells. A visitor’s age pause is local and defaults to live.
+
 - The live age uses calendar birthdays from `src/lib/age.ts`, never an average year length. Eleven displayed decimals are truncated to avoid anticipating a birthday; only the client clock updates. Use animation frames for the requested continuously changing digits, one-second refresh under reduced motion, and pause in hidden tabs. Never describe browser repaint or clock precision as microsecond-accurate. Normal selection, context menus, and copy shortcuts are restored at the owner’s request; do not add client-side copy blocking as a purported security control.
 
 - The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Homepage project previews use genuine saved notebook figures with source links. Do not label them live dashboards or fabricate output. Motion enhances visible content once and honours reduced motion; the confirmed IST birth instant drives the live eleven-decimal age.

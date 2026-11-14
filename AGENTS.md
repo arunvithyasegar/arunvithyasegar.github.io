@@ -123,9 +123,9 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Content
 
-- The live age uses calendar birthdays from `src/lib/age.ts`, never an average year length. Five displayed decimals are truncated to avoid anticipating a birthday; only the client clock updates. ContentGuard deters casual browser copying, preserves editable fields, and must never be described as anti-scraping security.
+- The live age uses calendar birthdays from `src/lib/age.ts`, never an average year length. Eleven displayed decimals are truncated to avoid anticipating a birthday; only the client clock updates. Use animation frames for the requested continuously changing digits, one-second refresh under reduced motion, and pause in hidden tabs. Never describe browser repaint or clock precision as microsecond-accurate. ContentGuard deters casual browser copying, preserves editable fields, and must never be described as anti-scraping security.
 
-- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Project diagrams are labelled conceptual, never represented as measured outcomes. Motion enhances visible content once and honours reduced motion; the confirmed IST birth instant drives the live five-decimal age.
+- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Project diagrams are labelled conceptual, never represented as measured outcomes. Motion enhances visible content once and honours reduced motion; the confirmed IST birth instant drives the live eleven-decimal age.
 
 - `SiteAnalytics` mounts the owner’s GTM container once in the root layout. Configure GA4 within that container; do not add a parallel gtag/GA component that duplicates collection. Installing a container does not prove its tags are published or reporting.
 

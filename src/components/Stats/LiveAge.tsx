@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { BIRTH_INSTANT, formatLiveAge } from '@/lib/age';
 
 const clock = new Intl.DateTimeFormat('en-GB', {
@@ -12,21 +12,47 @@ const clock = new Intl.DateTimeFormat('en-GB', {
 });
 
 export default function LiveAge({ compact = false }: { compact?: boolean }) {
-  const [now, setNow] = useState<number | null>(null);
+  const ageRef = useRef<HTMLSpanElement>(null);
+  const clockRef = useRef<HTMLSpanElement>(null);
   useEffect(() => {
+    let frame: number | undefined;
     let timer: ReturnType<typeof setInterval> | undefined;
-    const sync = () => {
-      if (timer) clearInterval(timer);
-      if (!document.hidden) {
-        setNow(Date.now());
-        timer = setInterval(() => setNow(Date.now()), 1000);
+    let lastSecond: number | undefined;
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const now = Date.now();
+      const age = formatLiveAge(now);
+      if (ageRef.current && ageRef.current.textContent !== age)
+        ageRef.current.textContent = age;
+      const second = Math.floor(now / 1000);
+      if (clockRef.current && second !== lastSecond) {
+        clockRef.current.textContent = `Live · ${clock.format(now)} IST`;
+        lastSecond = second;
       }
+    };
+    const stop = () => {
+      if (frame !== undefined) cancelAnimationFrame(frame);
+      if (timer !== undefined) clearInterval(timer);
+    };
+    const animate = () => {
+      update();
+      frame = requestAnimationFrame(animate);
+    };
+    const sync = () => {
+      stop();
+      if (document.hidden) return;
+      update();
+      if (!reduced?.matches && typeof requestAnimationFrame === 'function')
+        frame = requestAnimationFrame(animate);
+      else timer = setInterval(update, 1000);
     };
     sync();
     document.addEventListener('visibilitychange', sync);
+    reduced?.addEventListener('change', sync);
     return () => {
-      if (timer) clearInterval(timer);
+      stop();
       document.removeEventListener('visibilitychange', sync);
+      reduced?.removeEventListener('change', sync);
     };
   }, []);
   return (
@@ -36,14 +62,12 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
     >
       <p className="live-age-label">Years of curiosity</p>
       <p className="live-age-number" aria-live="off">
-        <span>{now === null ? '––.–––––' : formatLiveAge(now)}</span>
+        <span ref={ageRef}>––.–––––––––––</span>
         <span className="live-age-unit">years</span>
       </p>
       <p className="live-age-clock" aria-live="off">
         <span className="live-age-dot" aria-hidden="true" />
-        {now === null
-          ? 'Synchronising clock'
-          : `Live · ${clock.format(now)} IST`}
+        <span ref={clockRef}>Synchronising clock</span>
       </p>
       {!compact && (
         <>
@@ -52,8 +76,8 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
             <time dateTime={BIRTH_INSTANT}>6 August 1999 · 6:54 AM IST</time>
           </p>
           <p className="live-age-explainer">
-            A little more life, every second. Five decimal places; the last
-            digit advances roughly every five minutes.
+            Eleven decimal places, refreshed with your screen. This is a live
+            clock display, not a microsecond-precision measurement.
           </p>
         </>
       )}

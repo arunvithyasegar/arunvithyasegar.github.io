@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { BIRTH_INSTANT, formatLiveAge } from '@/lib/age';
+import { formatLiveAge } from '@/lib/age';
 
 const clock = new Intl.DateTimeFormat('en-GB', {
   timeZone: 'Asia/Kolkata',
@@ -92,10 +92,6 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
                 : 'Runs live while this tab is visible'}
             </span>
           </div>
-          <p className="live-age-origin">
-            Since{' '}
-            <time dateTime={BIRTH_INSTANT}>6 August 1999 · 6:54 AM IST</time>
-          </p>
           <p className="live-age-explainer">
             Eleven decimal places, refreshed with your screen. This is a live
             clock display, not a microsecond-precision measurement.

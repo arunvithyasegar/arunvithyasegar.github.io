@@ -92,16 +92,15 @@ describe('Hamburger', () => {
     expect(button).toHaveAttribute('aria-label', 'Open navigation menu');
   });
 
-  // The only nav a phone gets, so every promoted route has to be in it and no
-  // demoted one. The count stops a demotion passing unmentioned.
-  it('lists every primary route and closes when one is followed', () => {
+  // The mobile menu includes secondary destinations as well as the primary links.
+  it('lists every destination and closes when one is followed', () => {
     render(<Hamburger />);
     const button = screen.getByRole('button', {
       name: 'Open navigation menu',
     });
     fireEvent.click(button);
 
-    const primary = routes.filter((route) => route.primary !== false);
+    const primary = routes;
     expect(screen.getAllByRole('link')).toHaveLength(primary.length);
     for (const route of primary) {
       expect(

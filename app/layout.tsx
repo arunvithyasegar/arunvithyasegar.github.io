@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import { SiteSchema } from '@/components/Schema';
-import ContentGuard from '@/components/Template/ContentGuard';
 import Navigation from '@/components/Template/Navigation';
 import { MAIN_CONTENT_ID } from '@/components/Template/PageWrapper';
 import ScrollToTop from '@/components/Template/ScrollToTop';
@@ -168,7 +167,6 @@ export default function RootLayout({
         <a href={`#${MAIN_CONTENT_ID}`} className="skip-link">
           Skip to content
         </a>
-        <ContentGuard />
         <ScrollToTop />
         <Navigation />
         {children}

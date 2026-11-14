@@ -37,27 +37,33 @@ export default function Hamburger() {
         <span aria-hidden="true">×</span>
       </button>
       <ul className="hamburger-ul">
-        {routes
-          .filter((l) => l.primary !== false)
-          .map((l) => {
-            const active = isActiveRoute(pathname, l.path);
+        {[
+          ...routes.filter((l) => l.primary !== false),
+          ...routes.filter((l) => l.primary === false),
+        ].map((l) => {
+          const active = isActiveRoute(pathname, l.path);
 
-            return (
-              <li key={l.label}>
-                {/* Navigation labels, not document sections, so not headings. */}
-                <Link
-                  href={l.path}
-                  onClick={closeMenu}
-                  className={active ? 'active' : undefined}
-                  aria-current={active ? 'page' : undefined}
-                >
-                  <span className={l.index ? 'index-li' : undefined}>
-                    {smartQuotes(l.label)}
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
+          return (
+            <li
+              key={l.label}
+              className={
+                l.primary === false ? 'hamburger-secondary' : undefined
+              }
+            >
+              {/* Navigation labels, not document sections, so not headings. */}
+              <Link
+                href={l.path}
+                onClick={closeMenu}
+                className={active ? 'active' : undefined}
+                aria-current={active ? 'page' : undefined}
+              >
+                <span className={l.index ? 'index-li' : undefined}>
+                  {smartQuotes(l.label)}
+                </span>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </SlideMenu>
   );

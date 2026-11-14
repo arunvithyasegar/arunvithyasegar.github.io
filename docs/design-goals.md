@@ -45,14 +45,13 @@ workflow, and an open invitation to talk. The portrait caption and Stats page sh
 writing and the résumé retain the reading-focused typography. The header keeps
 Work, Writing, About, and Contact; additional destinations remain in the footer.
 
-Project previews are conceptual illustrations with explicit labels, not claimed
-dashboards or measured values. Actual dashboards and code remain one click away.
+Project previews are genuine figures from the owner’s saved public notebook outputs, with source links and access to full-sized images. They are labelled saved notebook outputs, not live dashboard screenshots. Actual dashboards and code remain one click away.
 Writing uses real published content and reading-time estimates from its word
 count. Do not invent client results or credentials to fill visual space.
 
 The workflow highlights Question → Evidence → Insight → Decision once on entry,
 with an optional replay. Content remains readable without JavaScript. Reduced
-motion bypasses animation. A visible email link remains available. At the owner’s request, ordinary page selection, context menus, drag, and copy actions are deterred. Editable fields retain their normal behaviour. These controls do not prevent scraping, screenshots, or access to public HTML.
+motion bypasses animation. A visible email link remains available. At the owner’s request, normal page selection, context menus, and copy actions are restored. Client-side blocking is not scraping prevention. Mobile Work and Contact links stay visible, and the menu includes secondary routes. The continuously updating age remains present but visually quiet on the homepage.
 
 The design was approved in chat before production implementation. The live
 implementation preserves the static export, existing routes, profile/schema

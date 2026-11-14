@@ -46,6 +46,21 @@ export default function Navigation() {
           })}
       </nav>
 
+      <nav className="mobile-quick-links" aria-label="Quick links">
+        {routes
+          .filter((route) => ['/projects', '/contact'].includes(route.path))
+          .map((route) => (
+            <Link
+              key={route.path}
+              href={route.path}
+              aria-current={
+                isActiveRoute(pathname, route.path) ? 'page' : undefined
+              }
+            >
+              {route.label}
+            </Link>
+          ))}
+      </nav>
       <div className="nav-actions">
         <ThemeToggle />
         <Hamburger />

@@ -1,48 +1,40 @@
-/** Conceptual illustrations, deliberately labelled rather than implying measured results. */
+/** Real figures re-rendered from the public notebooks' saved Plotly data. */
 export default function ProjectPreview({ trade = false }: { trade?: boolean }) {
+  const image = trade
+    ? '/images/projects/trade-export-output.webp'
+    : '/images/projects/news-sentiment-output.webp';
+  const notebook = trade
+    ? 'https://github.com/arunvithyasegar/UN_Trade/blob/26ab95a863fac9a0dc50128d83f6410616c702ad/Trade_Data_Analysis_Global_Exports_of_Electrical_Machinery_(HS_Code_85).ipynb'
+    : 'https://github.com/arunvithyasegar/News_sentiment_Analysis/blob/ca44b2e65cf2dfabf3269c2d2c0b9d0481df21a6/News_Sentiment_analysis.ipynb';
   return (
-    <div className="p-visual">
-      <div className="p-vlabel">
-        <span>
-          {trade ? 'India / HS Code 85 / 2016–2024' : 'News sentiment / NLP'}
-        </span>
-        <span>Conceptual preview</span>
-      </div>
-      <svg
-        viewBox="0 0 320 100"
-        role="img"
-        aria-label={
-          trade
-            ? 'Illustrative export bars; not measured trade values'
-            : 'Illustrative sentiment trends; not measured project results'
-        }
+    <figure className="p-visual p-visual--image">
+      <a
+        href={image}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`View full ${trade ? 'trade analysis' : 'news sentiment'} figure (opens in a new tab)`}
       >
-        <line className="p-gridline" x1="0" x2="320" y1="30" y2="30" />
-        <line className="p-gridline" x1="0" x2="320" y1="65" y2="65" />
-        {trade ? (
-          [29, 34, 27, 42, 46, 40, 59, 67, 81].map((height, index) => (
-            <rect
-              key={height}
-              className="p-bar"
-              x={10 + index * 34}
-              y={90 - height}
-              width="21"
-              height={height}
-            />
-          ))
-        ) : (
-          <>
-            <path
-              className="p-dataline p-line-enter"
-              d="M0 65 L25 60 L45 70 L68 35 L92 45 L115 27 L139 49 L161 40 L185 52 L207 22 L229 30 L251 13 L274 28 L296 14 L320 20"
-            />
-            <path
-              className="p-dataline p-dataline-secondary"
-              d="M0 47 L25 54 L45 40 L68 66 L92 53 L115 75 L139 60 L161 70 L185 56 L207 77 L229 63 L251 81 L274 66 L296 76 L320 69"
-            />
-          </>
-        )}
-      </svg>
-    </div>
+        {/* biome-ignore lint/performance/noImgElement: Static export uses optimised local WebP without the next/image runtime. */}
+        <img
+          src={image}
+          width={1200}
+          height={650}
+          loading="lazy"
+          decoding="async"
+          alt={
+            trade
+              ? 'Saved notebook chart of electrical machinery exports for Armenia, India, and Bosnia Herzegovina from 2016 to 2024.'
+              : 'Saved news sentiment analysis: 14 neutral headlines, 4 negative, and 2 positive in this sample.'
+          }
+        />
+      </a>
+      <figcaption>
+        Saved notebook output{' '}
+        <a href={notebook} target="_blank" rel="noopener noreferrer">
+          Source notebook <span aria-hidden="true">→</span>
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
+      </figcaption>
+    </figure>
   );
 }

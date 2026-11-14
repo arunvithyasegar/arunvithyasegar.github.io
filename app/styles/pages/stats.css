@@ -218,7 +218,6 @@
   border-radius: 50%;
   background: var(--color-accent);
 }
-.live-age-origin,
 .live-age-explainer {
   margin: 1rem 0 0;
   font-size: var(--text-sm);

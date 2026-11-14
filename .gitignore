@@ -36,3 +36,7 @@ Thumbs.db
 
 # Local browser-automation output
 .playwright-mcp/
+
+# Local Cloudflare state and development secrets
+.wrangler/
+.dev.vars*

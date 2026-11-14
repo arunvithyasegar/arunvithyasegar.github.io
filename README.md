@@ -25,3 +25,11 @@ The GitHub Actions workflow deploys the static export to GitHub Pages. `public/C
 ## Attribution
 
 Built from [Michael D’Angelo’s personal-site](https://github.com/mldangelo/personal-site), used under the MIT license. See [LICENSE](LICENSE). Template credit is separate from Arun's professional biography.
+
+### Cloudflare Workers
+
+Cloudflare can serve the same static `out/` export. The tracked `wrangler.jsonc`
+prevents Next.js/OpenNext auto-migration. In Workers Builds use `npm run build`
+as the build command and `npm run deploy:cloudflare` as the deploy command.
+Wrangler is pinned in the lockfile. See [Cloudflare deployment](docs/cloudflare-deployment.md)
+for setup, local verification, and troubleshooting.

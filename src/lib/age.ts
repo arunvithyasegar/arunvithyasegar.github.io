@@ -21,6 +21,11 @@ export function decimalAgeAt(now: number): number {
 }
 
 /** Truncate so the display never reaches the next age before the birthday. */
+export const LIVE_AGE_DECIMALS = 11;
+
 export function formatLiveAge(now: number): string {
-  return (Math.floor(decimalAgeAt(now) * 100_000) / 100_000).toFixed(5);
+  const scale = 10 ** LIVE_AGE_DECIMALS;
+  return (Math.floor(decimalAgeAt(now) * scale) / scale).toFixed(
+    LIVE_AGE_DECIMALS,
+  );
 }

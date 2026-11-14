@@ -41,7 +41,7 @@ icons, browser chrome, and controls consistent.
 
 The homepage is a quiet, editorial workspace: a decision-focused introduction,
 current role and focus, two public projects, writing, ways to help, a four-step
-workflow, and an open invitation to talk. The portrait caption and Stats page show a live, five-decimal age based on the confirmed 6 August 1999, 06:54 IST birth instant. Inter sets the homepage type; long-form
+workflow, and an open invitation to talk. The portrait caption and Stats page show a live, eleven-decimal age based on the confirmed 6 August 1999, 06:54 IST birth instant. Inter sets the homepage type; long-form
 writing and the résumé retain the reading-focused typography. The header keeps
 Work, Writing, About, and Contact; additional destinations remain in the footer.
 

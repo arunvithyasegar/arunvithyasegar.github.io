@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import FeaturedWork from '@/components/Home/FeaturedWork';
+import SectionRail from '@/components/Home/SectionRail';
 import Workflow from '@/components/Home/Workflow';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
@@ -56,6 +57,7 @@ export default function HomePage() {
       <SchemaGraph
         nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
       />
+      <SectionRail />
       <Hero />
       <section className="p-proof" aria-label="Current role and focus">
         <div>
@@ -115,7 +117,11 @@ export default function HomePage() {
       </section>
       <Workflow />
       <PublicationLink />
-      <section className="p-contact" aria-labelledby="home-contact">
+      <section
+        id="conversation"
+        className="p-contact"
+        aria-labelledby="home-contact"
+      >
         <div>
           <p className="p-status">
             <span className="p-dot" />

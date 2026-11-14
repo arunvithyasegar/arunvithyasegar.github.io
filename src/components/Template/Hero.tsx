@@ -5,7 +5,7 @@ import ThemePortrait from './ThemePortrait';
 
 export default function Hero() {
   return (
-    <section className="p-hero" aria-labelledby="home-headline">
+    <section id="intro" className="p-hero" aria-labelledby="home-headline">
       <div className="p-hero-grid" aria-hidden="true" />
       <div>
         <p className="p-overline p-entrance">
@@ -13,8 +13,7 @@ export default function Hero() {
           {profile.name}
         </p>
         <h1 id="home-headline" className="p-entrance p-delay-one">
-          I help founders and ecosystem teams turn strategy and data into{' '}
-          <em>practical decisions.</em>
+          Turning strategy and data into <em>practical decisions.</em>
         </h1>
         <p className="p-intro p-entrance p-delay-two">
           I work across startup strategy, growth metrics, investor readiness,
@@ -29,11 +28,17 @@ export default function Hero() {
           </Link>
         </div>
         <p className="p-hero-note p-entrance p-delay-three">
-          Personal portfolio · arunvithyasegar.in
+          Currently exploring ·{' '}
+          <Link href="/writing/a-board-ready-arr-and-kpi-dashboard/">
+            What makes an ARR dashboard board-ready? →
+          </Link>
         </p>
       </div>
       <figure className="p-portrait p-entrance p-delay-two">
-        <ThemePortrait width={320} height={384} priority />
+        <ThemePortrait width={400} height={480} priority />
+        <p className="p-portrait-role">
+          {profile.role} · {profile.employer}
+        </p>
         <figcaption>
           <LiveAge compact />
         </figcaption>

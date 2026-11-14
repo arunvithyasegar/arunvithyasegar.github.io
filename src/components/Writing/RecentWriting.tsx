@@ -23,7 +23,11 @@ export default function RecentWriting() {
   );
   if (!items.length) return null;
   return (
-    <section className="p-section" aria-labelledby="home-writing-title">
+    <section
+      id="latest-writing"
+      className="p-section"
+      aria-labelledby="home-writing-title"
+    >
       <div className="p-section-head">
         <div>
           <p className="p-section-num">02 / Writing</p>

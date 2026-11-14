@@ -12,7 +12,11 @@ const meanings = [
 ];
 export default function FeaturedWork() {
   return (
-    <section className="p-section" aria-labelledby="home-work">
+    <section
+      id="selected-work"
+      className="p-section"
+      aria-labelledby="home-work"
+    >
       <div className="p-section-head">
         <div>
           <p className="p-section-num">01 / Work</p>

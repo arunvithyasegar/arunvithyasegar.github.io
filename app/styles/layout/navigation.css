@@ -215,3 +215,40 @@
     display: none;
   }
 }
+
+.mobile-quick-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.mobile-quick-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--color-fg-bold);
+  text-decoration: none;
+}
+.mobile-quick-links a[aria-current='page'] {
+  color: var(--color-accent);
+}
+.mobile-quick-links a:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+.hamburger-ul .hamburger-secondary a {
+  font-size: var(--text-base);
+  color: var(--color-fg-light);
+}
+@media (max-width: 735px) {
+  .nav-actions {
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+  }
+}
+@media (min-width: 736px) {
+  .mobile-quick-links {
+    display: none;
+  }
+}

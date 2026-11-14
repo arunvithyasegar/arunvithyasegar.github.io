@@ -3,6 +3,14 @@ import { getAllPosts } from '@/lib/posts';
 import { smartQuotes } from '@/lib/typography';
 import { getWritingItems } from '@/lib/writing';
 
+const topics: Record<string, string> = {
+  '/writing/a-board-ready-arr-and-kpi-dashboard/': 'Growth & governance',
+  '/writing/investment-and-impact-assessment-framework/': 'Investment & impact',
+  '/writing/a-pitch-deck-is-a-chain-of-evidence/': 'Investor readiness',
+  '/writing/retention-starts-with-a-clear-customer-action/':
+    'Customer retention',
+};
+
 export default function RecentWriting() {
   const items = getWritingItems()
     .filter((item) => item.date)
@@ -32,9 +40,12 @@ export default function RecentWriting() {
           const minutes = readingTimes.get(item.url);
           const content = (
             <>
-              <span className="p-tag">
-                {minutes ? `${minutes} min read` : item.source}
-              </span>
+              <div className="p-note-meta">
+                <span className="p-tag">
+                  {topics[item.url] ?? 'Strategy & data'}
+                </span>
+                <span>{minutes ? `${minutes} min read` : item.source}</span>
+              </div>
               <h3>{smartQuotes(item.title)}</h3>
               <p>{smartQuotes(item.description)}</p>
               <span className="p-note-link">

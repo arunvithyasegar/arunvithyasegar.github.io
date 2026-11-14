@@ -16,7 +16,6 @@
 @import './styles/base/reset.css';
 @import './styles/base/links.css';
 @import './styles/base/typography.css';
-@import './styles/base/content-guard.css';
 
 /* Components */
 @import './styles/components/buttons.css';

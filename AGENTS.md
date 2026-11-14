@@ -76,6 +76,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 ## Build, Export, and Hosting
 
+- Cloudflare Workers deploys the same `out/` static export via the tracked `wrangler.jsonc`. Keep Wrangler pinned and validate with `npm run check:cloudflare`. Do not let framework auto-configuration migrate this site to OpenNext: `output: export` produces no standalone server bundle. Workers Builds runs `npm run build` once, then `npm run deploy:cloudflare`; preserve trailing-slash routing and real 404 responses.
+
 - **Static export**: `output: 'export'` for GitHub Pages, so no server features. Every route must render statically, and build-time fetches must stay cacheable (`revalidate: false`): an uncached fetch silently makes the route dynamic, so it falls back on every build. The Pages workflow deliberately does not restore `.next/cache`; that is how cache staleness is handled
 - **GitHub Pages owns response headers**: a static export cannot set HTTP security headers, so never claim Next's `headers()`, Helmet, `_headers`, or a meta tag adds anti-framing or MIME-sniffing protection. The hosting section of `docs/adapting-guide.md` explains why
 - **Production builds use webpack**: `npm run build` passes `--webpack` because Turbopack's build tracer stalls on the build-time public-image header reader that article rendering uses. Development stays on Turbopack. Do not restore Turbopack production builds until this export completes promptly on the full CI matrix

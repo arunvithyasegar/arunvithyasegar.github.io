@@ -196,7 +196,7 @@ jobs:
           static_site_generator: next
           enablement: false
 
-      # Stats use the public API anonymously, falling back to last-known floors
+      # Stats use the public API anonymously, reporting unavailable counts
       # on rate limits. Do not expose a job token to application/dependency code.
       - name: Build
         run: npm run build
@@ -217,6 +217,16 @@ jobs:
       # deliberate increase is `--update-budget` plus a note in the pull request.
       - name: Measure export against size budget
         run: npm run measure-export
+
+      # Validate the same static-asset deployment used by Workers Builds.
+      # Dry-run only: this job has no Cloudflare credentials or deploy access.
+      - name: Validate Cloudflare static deployment
+        if: >-
+          matrix.os == 'ubuntu-latest' &&
+          matrix.node-version == env.DEPLOY_NODE
+        run: npm run check:cloudflare
+        env:
+          WRANGLER_SEND_METRICS: 'false'
 
       - name: Upload build artifacts
         if: >-

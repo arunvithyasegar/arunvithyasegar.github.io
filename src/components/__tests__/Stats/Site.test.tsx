@@ -47,7 +47,7 @@ describe('Site', () => {
     vi.unstubAllEnvs();
   });
 
-  it('shows fetched counts, the measured line count, and the spoons', async () => {
+  it('shows fetched counts and the measured source line count', async () => {
     render(await Site());
 
     expect(counts()).toEqual(['1,663', '15', '75']);
@@ -67,8 +67,7 @@ describe('Site', () => {
     });
   });
 
-  // Anonymous requests from CI are rate limited. Last-known counts are shown as
-  // floors rather than as fetched numbers, so the page stays true.
+  // Missing data must not be presented as a zero or a measured count.
   it.each<[string, () => void]>([
     [
       'the API refuses',
@@ -98,12 +97,12 @@ describe('Site', () => {
       `forks is ${JSON.stringify(value)}`,
       respondWith({ ...mockGitHubData, forks: value }),
     ]),
-  ])('shows floors when %s', async (_, arrange) => {
+  ])('shows unavailable when %s', async (_, arrange) => {
     fetchMock.mockReset();
     arrange();
     render(await Site());
 
-    expect(counts()).toEqual(['0+', '0+', '0+']);
+    expect(counts()).toEqual(['Unavailable', 'Unavailable', 'Unavailable']);
   });
 
   it('keeps zero counts as fetched data, not as a failure', async () => {

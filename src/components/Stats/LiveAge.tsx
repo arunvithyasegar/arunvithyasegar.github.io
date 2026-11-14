@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BIRTH_INSTANT, formatLiveAge } from '@/lib/age';
 
 const clock = new Intl.DateTimeFormat('en-GB', {
@@ -12,9 +12,16 @@ const clock = new Intl.DateTimeFormat('en-GB', {
 });
 
 export default function LiveAge({ compact = false }: { compact?: boolean }) {
+  const [paused, setPaused] = useState(false);
   const ageRef = useRef<HTMLSpanElement>(null);
   const clockRef = useRef<HTMLSpanElement>(null);
   useEffect(() => {
+    if (paused) {
+      if (clockRef.current)
+        clockRef.current.textContent =
+          clockRef.current.textContent?.replace(/^Live/, 'Paused') ?? '';
+      return;
+    }
     let frame: number | undefined;
     let timer: ReturnType<typeof setInterval> | undefined;
     let lastSecond: number | undefined;
@@ -26,7 +33,7 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
         ageRef.current.textContent = age;
       const second = Math.floor(now / 1000);
       if (clockRef.current && second !== lastSecond) {
-        clockRef.current.textContent = `Live · ${clock.format(now)} IST`;
+        clockRef.current.textContent = `${paused ? 'Paused' : 'Live'} · ${clock.format(now)} IST`;
         lastSecond = second;
       }
     };
@@ -54,7 +61,7 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
       document.removeEventListener('visibilitychange', sync);
       reduced?.removeEventListener('change', sync);
     };
-  }, []);
+  }, [paused]);
   return (
     <div
       className={`live-age${compact ? ' live-age--compact' : ''}`}
@@ -71,6 +78,20 @@ export default function LiveAge({ compact = false }: { compact?: boolean }) {
       </p>
       {!compact && (
         <>
+          <div className="live-age-controls">
+            <button
+              type="button"
+              aria-pressed={paused}
+              onClick={() => setPaused((value) => !value)}
+            >
+              {paused ? 'Resume live display' : 'Pause display'}
+            </button>
+            <span aria-live="polite">
+              {paused
+                ? 'Paused for this visit'
+                : 'Runs live while this tab is visible'}
+            </span>
+          </div>
           <p className="live-age-origin">
             Since{' '}
             <time dateTime={BIRTH_INSTANT}>6 August 1999 · 6:54 AM IST</time>

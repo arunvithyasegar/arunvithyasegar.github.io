@@ -8,18 +8,6 @@ const REPOSITORY = `https://github.com/${SOURCE_REPOSITORY}`;
 type CountKey = (typeof COUNTS)[number];
 type GitHubCounts = Record<CountKey, number>;
 
-/**
- * Conservative fallback counts for this fork, for builds that cannot reach the GitHub API —
- * anonymous requests from CI are rate limited. They are shown as floors
- * ("0+") rather than passed off as fetched: counts like these mostly grow,
- * so a floor stays true without a caveat beside it. Refresh them now and then.
- */
-const LAST_KNOWN: GitHubCounts = {
-  stargazers_count: 0,
-  subscribers_count: 0,
-  forks: 0,
-};
-
 /** The locale is pinned so a published figure cannot depend on the build host. */
 function formatCount(count: number): string {
   return count.toLocaleString('en-US');
@@ -59,18 +47,20 @@ async function fetchGitHubCounts(): Promise<GitHubCounts | null> {
     );
 
     if (!response.ok) {
-      console.warn(`GitHub API returned ${response.status}, using floors`);
+      console.warn(
+        `GitHub API returned ${response.status}, counts unavailable`,
+      );
       return null;
     }
 
     const data: unknown = await response.json();
     if (!isGitHubCounts(data)) {
-      console.warn('GitHub API returned malformed counts, using floors');
+      console.warn('GitHub API returned malformed counts, counts unavailable');
       return null;
     }
     return data;
   } catch (error) {
-    console.warn('Failed to fetch GitHub counts, using floors:', error);
+    console.warn('Failed to fetch GitHub counts, counts unavailable:', error);
     return null;
   }
 }
@@ -81,35 +71,59 @@ async function fetchGitHubCounts(): Promise<GitHubCounts | null> {
  * A row belongs here when someone would be interested in the number, not
  * because it can be counted.
  */
-export default async function SiteStats() {
+export default async function SiteStats({
+  snapshotAt = new Date().toISOString(),
+}: {
+  snapshotAt?: string;
+} = {}) {
   const fetched = await fetchGitHubCounts();
   const count = (key: CountKey) =>
-    fetched ? formatCount(fetched[key]) : `${formatCount(LAST_KNOWN[key])}+`;
+    fetched ? formatCount(fetched[key]) : 'Unavailable';
 
   return (
-    <Table
-      data={[
-        {
-          label: 'GitHub stars',
-          value: count('stargazers_count'),
-          link: `${REPOSITORY}/stargazers`,
-        },
-        {
-          label: 'Watchers',
-          value: count('subscribers_count'),
-          link: `${REPOSITORY}/watchers`,
-        },
-        {
-          label: 'Forks',
-          value: count('forks'),
-          link: `${REPOSITORY}/network`,
-        },
-        {
-          label: 'Lines of TypeScript powering this site',
-          value: formatCount(countSourceLines()),
-          link: REPOSITORY,
-        },
-      ]}
-    />
+    <>
+      <p className="stats-snapshot">
+        Repository snapshot ·{' '}
+        <time dateTime={snapshotAt}>
+          {new Intl.DateTimeFormat('en-IN', {
+            timeZone: 'Asia/Kolkata',
+            dateStyle: 'medium',
+            timeStyle: 'short',
+          }).format(new Date(snapshotAt))}{' '}
+          IST
+        </time>
+        . Refreshed with each deployment, not continuously.
+      </p>
+      {!fetched && (
+        <p className="stats-data-note">
+          GitHub counts could not be read during this build.{' '}
+          <a href={REPOSITORY}>View the repository directly →</a>
+        </p>
+      )}
+      <Table
+        data={[
+          {
+            label: 'GitHub stars',
+            value: count('stargazers_count'),
+            link: `${REPOSITORY}/stargazers`,
+          },
+          {
+            label: 'Watchers',
+            value: count('subscribers_count'),
+            link: `${REPOSITORY}/watchers`,
+          },
+          {
+            label: 'Forks',
+            value: count('forks'),
+            link: `${REPOSITORY}/network`,
+          },
+          {
+            label: 'Lines of TypeScript powering this site',
+            value: formatCount(countSourceLines()),
+            link: REPOSITORY,
+          },
+        ]}
+      />
+    </>
   );
 }

@@ -10,9 +10,11 @@ export interface Route {
 const routes: Route[] = [
   { index: true, label: AUTHOR_NAME, path: '/' },
   { label: 'Work', path: '/projects' },
+  { label: 'Case studies', path: '/case-studies' },
   { label: 'Writing', path: '/writing' },
-  { label: 'About', path: '/about' },
-  { label: 'Focus', path: '/services', primary: false },
+  { label: 'Services', path: '/services' },
+  { label: 'Hire', path: '/hire' },
+  { label: 'About', path: '/about', primary: false },
   { label: 'Resume', path: '/resume', primary: false },
   { label: 'Speaking', path: '/speaking', primary: false },
   { label: 'Startup ecosystem', path: '/startup-ecosystem', primary: false },

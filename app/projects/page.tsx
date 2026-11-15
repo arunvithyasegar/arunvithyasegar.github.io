@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-
+import Link from 'next/link';
 import Entry from '@/components/Projects/Entry';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { datasets } from '@/data/datasets';
 import { archive, shipped } from '@/data/projects';
 import { createPageMetadata } from '@/lib/metadata';
 import { collectionPageNode, sectionPageNodes } from '@/lib/schema';
@@ -69,6 +70,23 @@ export default function ProjectsPage() {
           </ol>
         </section>
 
+        <section className="projects-group" aria-labelledby="monthly-datasets">
+          <h2 id="monthly-datasets" className="section-heading">
+            Monthly dataset
+          </h2>
+          <p>
+            One documented dataset per month: question, source, method, findings
+            and reproducible links. Refresh dates and findings are pending
+            verification.
+          </p>
+          <ul>
+            {datasets.map((item) => (
+              <li key={item.slug}>
+                <Link href={`/projects/${item.slug}/`}>{item.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
         {/* The same list and the same row as the work above: the archive is
             a quieter part of one register, not a second kind of page. */}
         <section className="projects-group" aria-labelledby="projects-archive">

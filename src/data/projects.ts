@@ -1,6 +1,8 @@
 export type ProjectStatus = 'shipped' | 'archive';
 export interface Project {
   title: string;
+  slug?: string;
+  whyItMatters?: string;
   subtitle?: string;
   question?: string;
   approach?: string;
@@ -19,6 +21,9 @@ export interface Project {
 const data: Project[] = [
   {
     title: 'News Sentiment Analysis using NLP',
+    slug: 'news-sentiment',
+    whyItMatters:
+      'A communications team can inspect shifts in media tone and select coverage for closer review. Automated sentiment is a screening signal; it does not establish customer intent.',
     question: 'How can we make the tone of news coverage easier to explore?',
     approach:
       'Fetch headlines with the News API, classify sentiment with TextBlob, and visualise patterns over time.',
@@ -39,6 +44,9 @@ const data: Project[] = [
   },
   {
     title: 'UN Trade Data Analysis (HS Code 85 – Electrical Machinery)',
+    slug: 'un-trade',
+    whyItMatters:
+      'Country-level export comparisons can inform market prioritisation and concentration-risk questions. Trade trends alone do not establish demand or investment returns.',
     question:
       'What can electrical machinery exports tell us about India’s trade patterns?',
     approach:

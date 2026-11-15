@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
+import NoteConversion from '@/components/Writing/NoteConversion';
 import PostContent from '@/components/Writing/PostContent';
 import ReadingProgress from '@/components/Writing/ReadingProgress';
 import {
@@ -196,6 +197,7 @@ export default async function PostPage({ params }: PageProps) {
             allowMissingLocalImages={allowMissingLocalImages}
           />
         </div>
+        <NoteConversion slug={post.slug} />
       </article>
     </PageWrapper>
   );

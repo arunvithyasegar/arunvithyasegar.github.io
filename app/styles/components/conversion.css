@@ -1,0 +1,30 @@
+.note-conversion {
+  margin-block: var(--space-8, 2rem);
+  padding-block: var(--space-6, 1.5rem);
+  border-block-start: 1px solid var(--color-border);
+}
+.note-conversion form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: var(--measure-read);
+}
+.note-conversion input {
+  min-height: 44px;
+  min-width: 0;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-fg);
+  color: var(--color-fg);
+  background: var(--color-bg);
+  font: inherit;
+}
+.note-conversion input:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+.note-conversion button {
+  justify-self: start;
+}
+.button:disabled {
+  cursor: not-allowed;
+}

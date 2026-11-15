@@ -6,11 +6,16 @@ import Workflow from '@/components/Home/Workflow';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { Newsletter } from '@/components/Writing/NoteConversion';
 import PublicationLink from '@/components/Writing/PublicationLink';
 import RecentWriting from '@/components/Writing/RecentWriting';
 import contact from '@/data/contact';
 import profile from '@/data/profile.json';
-import { HOME_URL, profilePageNode } from '@/lib/schema';
+import {
+  HOME_URL,
+  professionalServiceNode,
+  profilePageNode,
+} from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -55,7 +60,10 @@ export default function HomePage() {
   return (
     <PageWrapper mainClassName="premium-home">
       <SchemaGraph
-        nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
+        nodes={[
+          profilePageNode({ url: HOME_URL, name: AUTHOR_NAME }),
+          professionalServiceNode(),
+        ]}
       />
       <SectionRail />
       <Hero />
@@ -119,6 +127,7 @@ export default function HomePage() {
       </section>
       <Workflow />
       <PublicationLink />
+      <Newsletter />
       <section
         id="conversation"
         className="p-contact"

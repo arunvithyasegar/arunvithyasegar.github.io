@@ -129,7 +129,7 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 - The live age uses calendar birthdays from `src/lib/age.ts`, never an average year length. Eleven displayed decimals are truncated to avoid anticipating a birthday; only the client clock updates. Use animation frames for the requested continuously changing digits, one-second refresh under reduced motion, and pause in hidden tabs. Never describe browser repaint or clock precision as microsecond-accurate. Normal selection, context menus, and copy shortcuts are restored at the owner’s request; do not add client-side copy blocking as a purported security control.
 
-- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Homepage project previews use genuine saved notebook figures with source links. Do not label them live dashboards or fabricate output. Motion enhances visible content once and honours reduced motion; the confirmed IST birth instant drives the live eleven-decimal age.
+- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Homepage project previews use genuine saved notebook figures with source links. Do not label them live dashboards or fabricate output. Motion enhances visible content once and honours reduced motion. The homepage has no live age clock; the separate stats clock stays on the stats page.
 
 - `SiteAnalytics` mounts the owner’s GTM container once in the root layout. Configure GA4 within that container; do not add a parallel gtag/GA component that duplicates collection. Installing a container does not prove its tags are published or reporting.
 
@@ -137,7 +137,7 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 - Regional ecosystem copy distinguishes confirmed biography from learning interests. Keep the Anna Incubator connection personal and link official programme information to the employer; do not imply this portfolio is an official incubator directory or claim regional mandates, partnerships, or results without evidence.
 
-- Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. Lead with public projects and writing, describe topic pages as working notes, and use a friendly invitation to help rather than service packages, fees, or sales qualification. Search and AI eligibility never implies a ranking guarantee.
+- Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. Keep topic pages as frameworks below the three productised offers on `/services/`. Prices and booking/newsletter/download destinations come from `src/data/conversion.ts`; empty values must not create broken links or submissions. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.
 - Consulting offers describe a scope of work; case-study results require evidence. Use only confirmed role dates and never infer an employer end date from a new appointment.

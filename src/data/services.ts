@@ -21,7 +21,7 @@ export const services: Service[] = [
     id: 'gtm',
     title: 'Go-to-market strategy',
     problem:
-      'Exploring customer segments, routes to market, and the experiments that can test a launch assumption.',
+      'Assessing customer segments, routes to market, and the experiments that can test a launch assumption.',
     deliverables: [
       'Ideal customer profile and segment priorities',
       'Channel hypotheses, offer, and launch sequence',

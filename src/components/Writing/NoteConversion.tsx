@@ -1,5 +1,10 @@
 import { useId } from 'react';
-import { NEWSLETTER_ACTION_URL, WRITING_TEMPLATES } from '@/data/conversion';
+import {
+  NEWSLETTER_ACTION_URL,
+  NEWSLETTER_EMAIL_FIELD,
+  NEWSLETTER_HIDDEN_FIELDS,
+  WRITING_TEMPLATES,
+} from '@/data/conversion';
 export function Newsletter({
   actionUrl = NEWSLETTER_ACTION_URL,
 }: {
@@ -12,11 +17,14 @@ export function Newsletter({
       <p>A practical note every two weeks; a public dataset each month.</p>
       {actionUrl ? (
         <form action={actionUrl} method="post">
+          {Object.entries(NEWSLETTER_HIDDEN_FIELDS).map(([name, value]) => (
+            <input key={name} type="hidden" name={name} value={value} />
+          ))}
           <label htmlFor={`${id}-email`}>Email address</label>
           <input
             id={`${id}-email`}
             type="email"
-            name="email"
+            name={NEWSLETTER_EMAIL_FIELD}
             autoComplete="email"
             required
           />

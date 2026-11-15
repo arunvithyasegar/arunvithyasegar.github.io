@@ -4,6 +4,8 @@ import NoteConversion, { Newsletter } from '../NoteConversion';
 
 vi.mock('@/data/conversion', () => ({
   NEWSLETTER_ACTION_URL: '',
+  NEWSLETTER_EMAIL_FIELD: 'subscriber_email',
+  NEWSLETTER_HIDDEN_FIELDS: { list_id: 'public-list-id' },
   WRITING_TEMPLATES: { 'with-template': '/downloads/framework.pdf' },
 }));
 
@@ -23,6 +25,12 @@ describe('note conversion', () => {
       'https://example.com/subscribe',
     );
     expect(container.querySelector('form')).toHaveAttribute('method', 'post');
+    expect(
+      screen.getByRole('textbox', { name: 'Email address' }),
+    ).toHaveAttribute('name', 'subscriber_email');
+    expect(container.querySelector('input[name="list_id"]')).toHaveValue(
+      'public-list-id',
+    );
     expect(
       screen.getByRole('textbox', { name: 'Email address' }),
     ).toBeRequired();

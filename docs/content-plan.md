@@ -19,3 +19,20 @@ Cadence: one writing note every two weeks and one dataset release per month. The
 - Configure an optional note download in `WRITING_TEMPLATES` in `src/data/conversion.ts`; place approved files in `public/` and verify the exported link.
 - Generate writing share cards with `npm run og`; run format, lint, tests, build and export verification before publishing.
 - Cross-link each release from the relevant case study and the writing note. Never publish private client data without permission.
+
+## Proposed dates (Asia/Kolkata)
+
+These are planning dates, not scheduled publications. Adjust them if evidence or data permissions are not ready.
+
+| Planned release | Type    | Topic                                                                          |
+| --------------- | ------- | ------------------------------------------------------------------------------ |
+| 2026-11-23      | Note    | KPI definitions before dashboard implementation                                |
+| 2026-11-30      | Dataset | Startup KPI reporting worksheet / dataset, with provenance and limitations     |
+| 2026-12-07      | Note    | Board-reporting narrative and decision log                                     |
+| 2026-12-21      | Note    | Agri-commodity coverage and seasonality                                        |
+| 2026-12-31      | Dataset | Agri-commodity market intelligence, subject to source and licence verification |
+| 2027-01-04      | Note    | Forecast evaluation against a simple baseline                                  |
+| 2027-01-18      | Note    | Health-insurance reporting question and source audit                           |
+| 2027-01-31      | Dataset | Public health-insurance dataset, subject to licence and privacy checks         |
+
+Keep a release in draft when its evidence or permission checklist is incomplete.

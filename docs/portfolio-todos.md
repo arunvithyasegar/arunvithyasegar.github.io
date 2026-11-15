@@ -4,13 +4,14 @@ All results marked TODO are unpublished evidence slots. The proposed case-study 
 
 ## Conversion configuration — `src/data/conversion.ts`
 
-- [ ] `BOOKING_URL`: approved URL for the 20-minute call. Empty currently falls back to Contact.
+- [ ] `NEXT_PUBLIC_BOOKING_URL`: Google Calendar appointment-schedule URL for the 20-minute call. Empty currently falls back to Contact.
 - [ ] `OFFER_PRICES.dashboard`: approved starting price in INR for the KPI / ARR setup.
 - [ ] `OFFER_PRICES.investor`: approved starting price in INR for the investor review.
 - [ ] `OFFER_PRICES.research`: approved starting price in INR for the research brief.
-- [ ] `NEWSLETTER_ACTION_URL`: provider POST endpoint. Confirm it accepts an `email` field and provides unsubscribe handling. Adapt fields if the chosen provider requires additional identifiers or consent fields. Empty means no form is rendered.
-- [ ] `RESUME_PDF_PATH`: upload the approved PDF to `public/` and supply its public path. Empty keeps the download disabled.
-- [ ] `WRITING_TEMPLATES`: optional map of writing slug to approved public file path. Upload each file; missing or empty entries hide the download slot.
+- [ ] `NEXT_PUBLIC_NEWSLETTER_ACTION_URL`: provider POST endpoint. Confirm it accepts an `email` field and provides unsubscribe handling. Set `NEXT_PUBLIC_NEWSLETTER_EMAIL_FIELD` and `NEWSLETTER_HIDDEN_FIELDS` for provider-specific identifiers; add consent fields if the provider requires them. Empty means no form is rendered.
+- [x] Generate and configure a PDF from the existing résumé at `/downloads/arun-vithyasegar-resume.pdf`.
+- [ ] Owner review of the generated résumé before distribution.
+- [x] Create four blank CSV worksheets and map them to all four existing local writing slugs.
 
 ## Service scope — `src/data/offers.ts`
 

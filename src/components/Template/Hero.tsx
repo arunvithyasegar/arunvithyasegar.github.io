@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import LiveAge from '@/components/Stats/LiveAge';
+import { BOOKING_URL } from '@/data/conversion';
 import profile from '@/data/profile.json';
 import ThemePortrait from './ThemePortrait';
 
@@ -13,22 +13,21 @@ export default function Hero() {
           {profile.name}
         </p>
         <h1 id="home-headline" className="p-entrance p-delay-one">
-          Turning strategy and data into <em>practical decisions.</em>
+          Data and strategy for startups, health-insurance and agri-tech teams.
         </h1>
         <p className="p-intro p-entrance p-delay-two">
-          I work across startup strategy, growth metrics, investor readiness,
-          and data-driven decision-making.
+          KPI dashboards, board reporting, investor readiness.
         </p>
         <div className="p-actions p-entrance p-delay-three">
-          <Link className="p-button p-primary" href="/contact/">
-            Start a conversation <span aria-hidden="true">→</span>
-          </Link>
-          <Link className="p-button" href="/projects/">
-            Explore my work <span aria-hidden="true">↓</span>
+          <a className="p-button p-primary" href={BOOKING_URL || '/contact/'}>
+            Book a 20-min call <span aria-hidden="true">→</span>
+          </a>
+          <Link className="p-button" href="/case-studies/">
+            See case studies <span aria-hidden="true">↓</span>
           </Link>
         </div>
         <p className="p-hero-note p-entrance p-delay-three">
-          Currently exploring ·{' '}
+          Working framework ·{' '}
           <Link href="/writing/a-board-ready-arr-and-kpi-dashboard/">
             What makes an ARR dashboard board-ready? →
           </Link>
@@ -39,9 +38,7 @@ export default function Hero() {
         <p className="p-portrait-role">
           {profile.role} · {profile.employer}
         </p>
-        <figcaption>
-          <LiveAge compact />
-        </figcaption>
+        <figcaption>Strategy, growth and analytics</figcaption>
       </figure>
     </section>
   );

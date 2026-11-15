@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { advisoryAreas } from '@/data/advisory';
+import { caseStudies } from '@/data/caseStudies';
+import { datasets } from '@/data/datasets';
 import routes from '@/data/routes';
 import { getAllPosts } from '@/lib/posts';
 import { canonicalPostUrl, SITE_URL } from '@/lib/utils';
@@ -40,5 +42,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly',
     priority: 0.8,
   }));
-  return [...pages, ...advisory, ...posts];
+  const detailPages = [
+    ...caseStudies.map(({ slug }) => `/case-studies/${slug}/`),
+    ...datasets.map(({ slug }) => `/projects/${slug}/`),
+  ].map((path) => ({ url: `${SITE_URL}${path}` }));
+  return [...pages, ...advisory, ...posts, ...detailPages];
 }

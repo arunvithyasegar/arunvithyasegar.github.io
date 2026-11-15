@@ -6,11 +6,16 @@ import Workflow from '@/components/Home/Workflow';
 import { SchemaGraph } from '@/components/Schema';
 import Hero from '@/components/Template/Hero';
 import PageWrapper from '@/components/Template/PageWrapper';
+import { Newsletter } from '@/components/Writing/NoteConversion';
 import PublicationLink from '@/components/Writing/PublicationLink';
 import RecentWriting from '@/components/Writing/RecentWriting';
 import contact from '@/data/contact';
 import profile from '@/data/profile.json';
-import { HOME_URL, profilePageNode } from '@/lib/schema';
+import {
+  HOME_URL,
+  professionalServiceNode,
+  profilePageNode,
+} from '@/lib/schema';
 import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_URL } from '@/lib/utils';
 
 export const metadata: Metadata = {
@@ -55,7 +60,10 @@ export default function HomePage() {
   return (
     <PageWrapper mainClassName="premium-home">
       <SchemaGraph
-        nodes={[profilePageNode({ url: HOME_URL, name: AUTHOR_NAME })]}
+        nodes={[
+          profilePageNode({ url: HOME_URL, name: AUTHOR_NAME }),
+          professionalServiceNode(),
+        ]}
       />
       <SectionRail />
       <Hero />
@@ -82,7 +90,9 @@ export default function HomePage() {
           <p>
             <Link href="/projects/">Public data projects</Link>
             <br />
-            <Link href="/services/">Practical notes &amp; frameworks</Link>
+            <Link href="/services/">
+              Scoped analytics and strategy services
+            </Link>
           </p>
         </div>
       </section>
@@ -95,8 +105,8 @@ export default function HomePage() {
             <h2 id="home-focus">How I can help</h2>
           </div>
           <p>
-            Happy to exchange ideas, work through a question, or lend a hand
-            where I can.
+            Focused support for reporting cycles, investment conversations and
+            market decisions.
           </p>
         </div>
         <div className="p-help">
@@ -112,11 +122,12 @@ export default function HomePage() {
           ))}
         </div>
         <p className="p-help-more">
-          <Link href="/services/">Explore my working notes →</Link>
+          <Link href="/services/">View services and frameworks →</Link>
         </p>
       </section>
       <Workflow />
       <PublicationLink />
+      <Newsletter />
       <section
         id="conversation"
         className="p-contact"

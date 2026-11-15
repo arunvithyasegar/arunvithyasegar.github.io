@@ -6,7 +6,7 @@ import { createPageMetadata } from '@/lib/metadata';
 export const metadata: Metadata = createPageMetadata({
   title: 'Contact',
   description:
-    'Say hello to Arun Vithyasegar. Happy to exchange ideas, talk about projects, and help where I can.',
+    'Discuss a dashboard, investor-readiness review, research brief or corporate role with Arun Vithyasegar.',
   path: '/contact/',
 });
 const conversationStarters = [
@@ -36,8 +36,9 @@ export default function ContactPage() {
         <p className="eyebrow">Good conversations start somewhere</p>
         <h1 className="page-title">Say hello</h1>
         <p className="page-prose contact-lede">
-          Something here sparked a thought? I’m happy to compare notes, talk
-          through a question, or help where I can.
+          Need a reporting dashboard, an investor-readiness review or a market
+          research brief? Share the decision you need to make and the scope of
+          work.
         </p>
         <a
           className="button"
@@ -72,6 +73,34 @@ export default function ContactPage() {
             These links open your email app. You can also copy the address
             above. No formal introduction needed.
           </p>
+        </section>
+        <section
+          id="project-brief"
+          className="consulting-section"
+          aria-labelledby="brief-title"
+        >
+          <h2 id="brief-title">Send a short project brief</h2>
+          <p>Include these fields in your email:</p>
+          <ul>
+            <li>
+              <strong>What you’re working on:</strong> the decision,
+              deliverable, available data and intended audience.
+            </li>
+            <li>
+              <strong>Timeline:</strong> target date and key milestones.
+            </li>
+            <li>
+              <strong>Budget range:</strong> your expected range in INR, or say
+              it is still being defined.
+            </li>
+          </ul>
+          <a
+            className="button"
+            href={`mailto:${profile.email}?subject=${encodeURIComponent('Project brief')}&body=${encodeURIComponent('What I’m working on:\n\nTimeline:\n\nBudget range (INR):\n')}`}
+          >
+            Email a project brief
+          </a>
+          <p>This opens an editable template in your email app.</p>
         </section>
         <h2 className="contact-profile-heading">Elsewhere on the web</h2>
         <ContactIcons includeEmail={false} labelled />

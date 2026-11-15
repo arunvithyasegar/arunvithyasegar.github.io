@@ -6,8 +6,8 @@ describe('portfolio homepage', () => {
   it('leads with the work and a friendly contact invitation', () => {
     render(<HomePage />);
     expect(
-      screen.getByRole('link', { name: 'Explore my work' }),
-    ).toHaveAttribute('href', '/projects');
+      screen.getByRole('link', { name: 'See case studies' }),
+    ).toHaveAttribute('href', '/case-studies');
     for (const link of screen.getAllByRole('link', {
       name: /Start a conversation/,
     })) {

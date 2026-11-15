@@ -279,6 +279,23 @@ export function blogPostingNode(
   };
 }
 
+/** Service scope only: no unverified prices, ratings or client claims. */
+export function professionalServiceNode(): Record<string, unknown> {
+  return {
+    '@type': 'ProfessionalService',
+    '@id': `${HOME_URL}#professional-service`,
+    name: `${AUTHOR_NAME} — Data and strategy`,
+    url: HOME_URL,
+    description: SITE_DESCRIPTION,
+    founder: PERSON_REF,
+    serviceType: [
+      'KPI / ARR Dashboard Setup',
+      'Investor-Readiness Review',
+      'Market / Ecosystem Research Brief',
+    ],
+  };
+}
+
 /** Wraps nodes into a single `@graph` JSON-LD document. */
 export function buildGraph(nodes: SchemaNode[]): Record<string, unknown> {
   return {

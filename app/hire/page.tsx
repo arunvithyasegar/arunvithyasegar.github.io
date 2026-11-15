@@ -43,9 +43,14 @@ export default function Page() {
         <section className="consulting-section">
           <h2>Resume and experience</h2>
           {RESUME_PDF_PATH ? (
-            <a className="button" href={RESUME_PDF_PATH} download>
+            <Link
+              className="button"
+              href={RESUME_PDF_PATH}
+              download
+              prefetch={false}
+            >
               Download resume (PDF)
-            </a>
+            </Link>
           ) : (
             <>
               <button className="button" type="button" disabled>

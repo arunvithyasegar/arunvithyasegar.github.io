@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useId } from 'react';
 import {
   NEWSLETTER_ACTION_URL,
@@ -52,9 +53,9 @@ export default function NoteConversion({ slug }: { slug: string }) {
       {template && (
         <section className="note-conversion">
           <h2>Use this framework</h2>
-          <a className="button" href={template} download>
+          <Link className="button" href={template} download prefetch={false}>
             Download template
-          </a>
+          </Link>
         </section>
       )}
       <Newsletter />

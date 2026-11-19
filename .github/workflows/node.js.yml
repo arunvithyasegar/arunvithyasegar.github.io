@@ -201,7 +201,6 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_BOOKING_URL: ${{ vars.NEXT_PUBLIC_BOOKING_URL }}
           NEXT_PUBLIC_NEWSLETTER_ACTION_URL: ${{ vars.NEXT_PUBLIC_NEWSLETTER_ACTION_URL }}
           NEXT_PUBLIC_NEWSLETTER_EMAIL_FIELD: ${{ vars.NEXT_PUBLIC_NEWSLETTER_EMAIL_FIELD }}
           NEXT_PUBLIC_SUBSTACK_URL: ${{ vars.NEXT_PUBLIC_SUBSTACK_URL }}

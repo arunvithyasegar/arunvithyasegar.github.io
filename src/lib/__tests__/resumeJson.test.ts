@@ -79,7 +79,7 @@ describe('json resume document', () => {
     ]);
 
     expect(prose.join(' ')).toContain(
-      'Joined Anna Incubator as Senior Associate on 5 October 2026.',
+      'Joined AIC–Anna University Incubation Foundation as Senior Associate on 5 October 2026.',
     );
   });
 

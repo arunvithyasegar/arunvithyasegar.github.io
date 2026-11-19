@@ -1,6 +1,4 @@
-// Public build-time settings only. Never put Google OAuth tokens or provider secrets here.
-// Google Calendar: use the shared appointment-schedule URL, not a calendar ID.
-export const BOOKING_URL = process.env.NEXT_PUBLIC_BOOKING_URL?.trim() || '';
+// Public newsletter and download settings. Never store private credentials here.
 export const NEWSLETTER_ACTION_URL =
   process.env.NEXT_PUBLIC_NEWSLETTER_ACTION_URL?.trim() || '';
 export const NEWSLETTER_EMAIL_FIELD =
@@ -8,8 +6,6 @@ export const NEWSLETTER_EMAIL_FIELD =
 // Add public provider form identifiers here when required by the chosen endpoint.
 export const NEWSLETTER_HIDDEN_FIELDS: Record<string, string> = {};
 export const RESUME_PDF_PATH = '/downloads/arun-vithyasegar-resume.pdf';
-// TODO: owner-approved starting prices in INR.
-export const OFFER_PRICES = { dashboard: '', investor: '', research: '' };
 export const WRITING_TEMPLATES: Record<string, string> = {
   'a-board-ready-arr-and-kpi-dashboard':
     '/downloads/kpi-reporting-template.csv',

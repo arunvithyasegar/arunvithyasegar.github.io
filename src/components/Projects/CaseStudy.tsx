@@ -14,9 +14,12 @@ export default function CaseStudy({
   return (
     <article className="consulting-page">
       <header className="consulting-intro">
-        <p className="eyebrow">Case study stub · evidence pending</p>
+        <p className="eyebrow">Ongoing write-up · non-confidential overview</p>
         <h1 className="page-title">{study.title}</h1>
-        <p>Planning template. This is not a claim of completed client work.</p>
+        <p>
+          Only public methods and non-confidential summaries are included.
+          Internal records and unverified outcomes are not published.
+        </p>
       </header>
       {sections.map(([heading, body]) => (
         <section className="consulting-section" key={heading}>

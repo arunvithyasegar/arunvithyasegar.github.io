@@ -92,8 +92,8 @@ await requireSharp();
  * makes a later edit to a published post require regeneration.
  */
 const READOUT = [
-  { label: 'Focus', value: 'Strategy & growth' },
-  { label: 'Tools', value: 'SQL · Python · BI' },
+  { label: 'Focus', value: 'Business analysis' },
+  { label: 'Tools', value: 'Power BI · SQL' },
   { label: 'On this site', value: 'Projects & notes' },
 ];
 
@@ -215,7 +215,21 @@ function siteCard() {
       h('span', {}, FIRST_NAME),
       h('span', {}, REST_OF_NAME.join(' ').replace("'", '’')),
     ),
-    monoLine('Strategy', profile.focus, { marginTop: 34 }),
+    h(
+      'div',
+      {
+        style: {
+          marginTop: 34,
+          fontFamily: 'Mono',
+          fontSize: 24,
+          lineHeight: 1.4,
+          color: graphite,
+          display: 'block',
+          maxWidth: 1040,
+        },
+      },
+      profile.focus,
+    ),
   );
 }
 

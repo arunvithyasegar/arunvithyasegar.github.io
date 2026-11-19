@@ -33,6 +33,16 @@ function sectionNav() {
 }
 
 describe('AboutContent', () => {
+  it('preserves legacy topic fragments after the career rewrite', () => {
+    const { container } = render(<AboutContent markdown={aboutMarkdown} />);
+    for (const id of [
+      'work-i-bring-to-a-project',
+      'what-i-can-help-with',
+      'outside-the-brief',
+    ]) {
+      expect(container.querySelector(`#${id}`)).not.toBeNull();
+    }
+  });
   it('renders the intro unheaded and gives each section its variant', () => {
     const { container } = render(<AboutContent markdown={MARKDOWN} />);
 

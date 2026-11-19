@@ -43,7 +43,7 @@ export default async function AdvisoryPage({ params }: Props) {
           },
           breadcrumbNode(url, [
             { name: 'Home', url: `${SITE_URL}/` },
-            { name: 'Focus', url: `${SITE_URL}/services/` },
+            { name: 'Expertise', url: `${SITE_URL}/services/` },
             { name: area.title, url },
           ]),
         ]}
@@ -52,7 +52,7 @@ export default async function AdvisoryPage({ params }: Props) {
         <nav aria-label="Breadcrumb" className="advisory-breadcrumb">
           <Link href="/">Home</Link>
           <span aria-hidden="true"> / </span>
-          <Link href="/services/">Focus</Link>
+          <Link href="/services/">Expertise</Link>
           <span aria-hidden="true"> / </span>
           <span>{area.title}</span>
         </nav>

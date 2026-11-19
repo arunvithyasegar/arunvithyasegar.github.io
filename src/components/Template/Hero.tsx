@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { BOOKING_URL } from '@/data/conversion';
+import { RESUME_PDF_PATH } from '@/data/conversion';
+import { professionalSummary } from '@/data/professional';
 import profile from '@/data/profile.json';
 import ThemePortrait from './ThemePortrait';
 
@@ -9,36 +10,37 @@ export default function Hero() {
       <div className="p-hero-grid" aria-hidden="true" />
       <div>
         <p className="p-overline p-entrance">
-          <span className="p-dot" />
-          {profile.name}
+          Business Analysis | Startup Ecosystems | Market Intelligence
         </p>
         <h1 id="home-headline" className="p-entrance p-delay-one">
-          Data and strategy for startups, health-insurance and agri-tech teams.
+          {profile.displayName}
         </h1>
-        <p className="p-intro p-entrance p-delay-two">
-          KPI dashboards, board reporting, investor readiness.
+        <p className="p-intro p-entrance p-delay-two">{professionalSummary}</p>
+        <p className="p-hero-note">
+          Currently serving as a {profile.role} at {profile.employer}, Chennai.
         </p>
         <div className="p-actions p-entrance p-delay-three">
-          <a className="p-button p-primary" href={BOOKING_URL || '/contact/'}>
-            Book a 20-min call <span aria-hidden="true">→</span>
-          </a>
-          <Link className="p-button" href="/case-studies/">
-            See case studies <span aria-hidden="true">↓</span>
+          <Link className="p-button p-primary" href="/projects/">
+            View My Work <span aria-hidden="true">→</span>
+          </Link>
+          <Link
+            className="p-button"
+            href={RESUME_PDF_PATH}
+            download
+            prefetch={false}
+          >
+            Download Resume
+          </Link>
+          <Link className="p-button" href="/contact/">
+            Get in Touch
           </Link>
         </div>
-        <p className="p-hero-note p-entrance p-delay-three">
-          Working framework ·{' '}
-          <Link href="/writing/a-board-ready-arr-and-kpi-dashboard/">
-            What makes an ARR dashboard board-ready? →
-          </Link>
-        </p>
       </div>
       <figure className="p-portrait p-entrance p-delay-two">
         <ThemePortrait width={400} height={480} priority />
-        <p className="p-portrait-role">
-          {profile.role} · {profile.employer}
-        </p>
-        <figcaption>Strategy, growth and analytics</figcaption>
+        <figcaption>
+          Business analysis, sector research and programme operations
+        </figcaption>
       </figure>
     </section>
   );

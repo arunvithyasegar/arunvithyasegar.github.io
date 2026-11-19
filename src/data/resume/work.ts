@@ -19,11 +19,17 @@ export interface Position {
 
 const work: Position[] = [
   {
-    name: 'Anna Incubator',
+    name: 'AIC–Anna University Incubation Foundation',
     position: 'Senior Associate',
     url: 'https://annaincubator.org/',
     startDate: '2026-10-05',
-    summary: 'Joined Anna Incubator as Senior Associate on 5 October 2026.',
+    summary:
+      'Joined AIC–Anna University Incubation Foundation as Senior Associate on 5 October 2026.',
+    highlights: [
+      'Support startup evaluation, founder coordination and application tracking.',
+      'Prepare programme reports and contribute to internal workflows.',
+      'Support enquiries, evaluation documentation, management reviews and onboarding.',
+    ],
   },
   {
     name: 'Agathium',

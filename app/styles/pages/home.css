@@ -931,3 +931,7 @@
     display: none;
   }
 }
+
+.premium-home .career-copy > p + p {
+  margin-top: 1rem;
+}

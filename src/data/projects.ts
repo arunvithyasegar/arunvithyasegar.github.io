@@ -77,7 +77,7 @@ const data: Project[] = [
     title: 'Farm Management Dashboard',
     date: '2024-01-01',
     yearOnly: true,
-    desc: 'Freelance project: developed a Power BI dashboard for tracking farm inputs,\n                outputs, and profitability metrics, helping farmers optimize\n                resource allocation and increase yields.',
+    desc: 'Power BI dashboard for tracking farm inputs, outputs and profitability metrics. A description of the analytical approach; no private farm records are published.',
     tech: ['Power BI', 'SQL', 'DAX', 'Data Modeling'],
     status: 'shipped',
   },

@@ -9,10 +9,10 @@ import { createPageMetadata } from '@/lib/metadata';
 import { profilePageNode, sectionPageNodes } from '@/lib/schema';
 import { AUTHOR_NAME } from '@/lib/utils';
 
-const ABOUT_DESCRIPTION = `Learn about ${AUTHOR_NAME} - ${profile.role} at ${profile.employer} and builder across strategy, growth, and analytics.`;
+const ABOUT_DESCRIPTION = `Learn about ${AUTHOR_NAME} - ${profile.role} at ${profile.employer} with experience in business analysis, sector research and startup programme operations in Tamil Nadu.`;
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About | Senior Associate at Anna Incubator',
+  title: 'About | Business analysis and startup ecosystems',
   description: ABOUT_DESCRIPTION,
   path: '/about/',
 });

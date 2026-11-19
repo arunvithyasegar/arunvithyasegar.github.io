@@ -129,7 +129,7 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 - The live age uses calendar birthdays from `src/lib/age.ts`, never an average year length. Eleven displayed decimals are truncated to avoid anticipating a birthday; only the client clock updates. Use animation frames for the requested continuously changing digits, one-second refresh under reduced motion, and pause in hidden tabs. Never describe browser repaint or clock precision as microsecond-accurate. Normal selection, context menus, and copy shortcuts are restored at the owner’s request; do not add client-side copy blocking as a purported security control.
 
-- The approved premium homepage uses `Hero`, `FeaturedWork`, `RecentWriting`, and `Workflow` in that order around the proof/help sections. Homepage project previews use genuine saved notebook figures with source links. Do not label them live dashboards or fabricate output. Motion enhances visible content once and honours reduced motion. The homepage has no live age clock; the separate stats clock stays on the stats page.
+- The homepage leads with `Hero`, professional background, capabilities and `ProfessionalWork`, followed by public data projects, skills, career interests and writing. Homepage project previews use genuine saved notebook figures with source links. Do not label them live dashboards or fabricate output. Motion enhances visible content once and honours reduced motion. The homepage has no live age clock; the separate stats clock stays on the stats page.
 
 - `SiteAnalytics` mounts the owner’s GTM container once in the root layout. Configure GA4 within that container; do not add a parallel gtag/GA component that duplicates collection. Installing a container does not prove its tags are published or reporting.
 
@@ -137,10 +137,10 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 - Regional ecosystem copy distinguishes confirmed biography from learning interests. Keep the Anna Incubator connection personal and link official programme information to the employer; do not imply this portfolio is an official incubator directory or claim regional mandates, partnerships, or results without evidence.
 
-- Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. Keep topic pages as frameworks below the three productised offers on `/services/`. Prices and booking/newsletter/download destinations come from `src/data/conversion.ts`; empty values must not create broken links or submissions. Search and AI eligibility never implies a ranking guarantee.
+- Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. The legacy `/services/` route presents Expertise and public frameworks. The portfolio is for employment, not selling services: do not add offers, prices, booking or client qualification. Newsletter/download settings come from `src/data/conversion.ts`. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.
-- Consulting offers describe a scope of work; case-study results require evidence. Use only confirmed role dates and never infer an employer end date from a new appointment.
+- Professional responsibilities describe owner-confirmed experience; case-study results require evidence. Ongoing work must be labelled ongoing, and only non-confidential work samples may be published. Use only confirmed role dates and never infer an employer end date from a new appointment.
 
 - **Publication integration**: keep `NEXT_PUBLIC_SUBSTACK_URL` unset until the owner creates the publication. It enables subscription links, not automatic RSS ingestion. Local articles and entries in `src/data/writing.ts` share the homepage and writing archive through `getWritingItems()`.
 - **Blog posts** are Markdown files in `content/writing/` with `title`, `date`, and `description` frontmatter; the slug is the filename. External links on `/writing` go in `src/data/writing.ts`, dated entries newest first

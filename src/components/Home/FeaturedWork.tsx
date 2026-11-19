@@ -13,14 +13,14 @@ const meanings = [
 export default function FeaturedWork() {
   return (
     <section
-      id="selected-work"
+      id="public-projects"
       className="p-section"
-      aria-labelledby="home-work"
+      aria-labelledby="public-work"
     >
       <div className="p-section-head">
         <div>
           <p className="p-section-num">01 / Work</p>
-          <h2 id="home-work">Selected work</h2>
+          <h2 id="public-work">Public data projects</h2>
         </div>
         <p>
           Real questions. Open methods.

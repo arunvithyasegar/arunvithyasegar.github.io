@@ -20,7 +20,7 @@ import { AUTHOR_NAME, SITE_URL } from '@/lib/utils';
 
 const resumeMetadata = createPageMetadata({
   title: 'Resume',
-  description: `${AUTHOR_NAME}'s experience in business analysis, startup ecosystems, and analytics. Senior Associate at Anna Incubator.`,
+  description: `${AUTHOR_NAME}'s experience in business analysis, startup ecosystems, and analytics. Senior Associate at AIC–Anna University Incubation Foundation.`,
   path: '/resume/',
 });
 
@@ -91,11 +91,12 @@ export default function ResumePage() {
             </div>
           </div>
           <p className="resume-summary">
-            Senior Associate at Anna Incubator since 5 October 2026. My
-            background spans startup ecosystem research, agricultural markets,
-            business processes, and data analysis with SQL, Python, and Power
-            BI. This portfolio brings together my projects, interests, and
-            writing.
+            Business analysis and startup ecosystem professional with experience
+            across agriculture, supply chains, health technology and incubation.
+            Senior Associate at AIC–Anna University Incubation Foundation,
+            Chennai. I combine data analysis, sector research and startup
+            programme experience to evaluate opportunities, track performance
+            and support informed decisions.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable and linkable. Destinations come from shared contact

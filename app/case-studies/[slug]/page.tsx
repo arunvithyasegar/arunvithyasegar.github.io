@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props) {
   return study
     ? createPageMetadata({
         title: study.title,
-        description: `Case study template: ${study.title}. Approach and verified-result placeholders.`,
+        description: `Ongoing write-up: ${study.title}. Non-confidential methods and project status.`,
         path: `/case-studies/${slug}/`,
       })
     : {};

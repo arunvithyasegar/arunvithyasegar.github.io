@@ -98,12 +98,13 @@ export function personNode(): SchemaNode {
     sameAs: socialLinks,
     knowsAbout: [
       'Business analysis',
-      'Growth metrics',
-      'Board reporting',
-      'KPI frameworks',
-      'Fundraising preparation',
-      'Investment analysis',
-      'Impact assessment',
+      'Business intelligence',
+      'Market intelligence',
+      'Sector research',
+      'Startup evaluation',
+      'Programme operations',
+      'Project monitoring',
+      'Tamil Nadu startup ecosystem',
     ],
     ...(currentJob && {
       worksFor: {
@@ -276,23 +277,6 @@ export function blogPostingNode(
       height: image.height,
       ...(image.alt ? { caption: image.alt } : {}),
     },
-  };
-}
-
-/** Service scope only: no unverified prices, ratings or client claims. */
-export function professionalServiceNode(): Record<string, unknown> {
-  return {
-    '@type': 'ProfessionalService',
-    '@id': `${HOME_URL}#professional-service`,
-    name: `${AUTHOR_NAME} — Data and strategy`,
-    url: HOME_URL,
-    description: SITE_DESCRIPTION,
-    founder: PERSON_REF,
-    serviceType: [
-      'KPI / ARR Dashboard Setup',
-      'Investor-Readiness Review',
-      'Market / Ecosystem Research Brief',
-    ],
   };
 }
 

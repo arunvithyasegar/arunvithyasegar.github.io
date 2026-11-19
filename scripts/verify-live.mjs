@@ -6,16 +6,13 @@ import { readSiteConfig } from './lib/site.mjs';
 const { origin, basePath } = readSiteConfig(process.cwd(), 'verify-live');
 const site = `${origin}${basePath}`;
 const pages = new Map([
-  [
-    '/',
-    'Data and strategy for startups, health-insurance and agri-tech teams.',
-  ],
-  ['/services/', 'KPI / ARR Dashboard Setup'],
+  ['/', 'Business Analysis | Startup Ecosystems | Market Intelligence'],
+  ['/services/', 'What I bring'],
   ['/case-studies/', 'Public project examples'],
   ['/hire/', 'Download resume (PDF)'],
   ['/projects/', 'Monthly dataset'],
   ['/writing/', 'Writing'],
-  ['/contact/', 'Send a short project brief'],
+  ['/contact/', 'programme operations or enterprise development'],
 ]);
 const downloads = [
   'arun-vithyasegar-resume.pdf',

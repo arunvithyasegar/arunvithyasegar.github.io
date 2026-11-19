@@ -1,50 +1,21 @@
-# Portfolio owner checklist
+# Professional portfolio checklist
 
-All results marked TODO are unpublished evidence slots. The proposed case-study approaches are templates, not claims of delivered work.
+The portfolio is positioned for employment in investment, innovation and enterprise development organisations. Commercial services, prices and booking are retired.
 
-## Conversion configuration — `src/data/conversion.ts`
+## Completed
 
-- [ ] `NEXT_PUBLIC_BOOKING_URL`: Google Calendar appointment-schedule URL for the 20-minute call. Empty currently falls back to Contact.
-- [ ] `OFFER_PRICES.dashboard`: approved starting price in INR for the KPI / ARR setup.
-- [ ] `OFFER_PRICES.investor`: approved starting price in INR for the investor review.
-- [ ] `OFFER_PRICES.research`: approved starting price in INR for the research brief.
-- [ ] `NEXT_PUBLIC_NEWSLETTER_ACTION_URL`: provider POST endpoint. Confirm it accepts an `email` field and provides unsubscribe handling. Set `NEXT_PUBLIC_NEWSLETTER_EMAIL_FIELD` and `NEWSLETTER_HIDDEN_FIELDS` for provider-specific identifiers; add consent fields if the provider requires them. Empty means no form is rendered.
-- [x] Generate and configure a PDF from the existing résumé at `/downloads/arun-vithyasegar-resume.pdf`.
-- [ ] Owner review of the generated résumé before distribution.
-- [x] Create four blank CSV worksheets and map them to all four existing local writing slugs.
+- [x] Use the owner-supplied professional profile, capabilities, skills and career interests.
+- [x] Present the current role as Senior Associate at AIC–Anna University Incubation Foundation.
+- [x] Label application workflows, company discovery and programme reporting as ongoing.
+- [x] Retain public data projects and blank writing templates.
+- [x] Remove commercial offers, booking, budget qualification and ProfessionalService schema.
 
-## Service scope — `src/data/offers.ts`
+## Before sharing additional evidence
 
-- [ ] Confirm investor-review timeline.
-- [ ] Confirm research-brief timeline.
+- [ ] Review each proposed work sample for employer, founder, licensing and personal-data restrictions.
+- [ ] Add results only when their measurement period, baseline, personal contribution and source are verified.
+- [ ] Confirm extraction logs, source licences and actual refresh dates for public dataset pages.
+- [ ] Publish MCA workflow outputs only when their reuse is permitted; otherwise keep the description general.
+- [ ] Set optional newsletter provider details only if a publication is ready. This is not required for job applications.
 
-## Case-study evidence — `src/data/caseStudies.ts`
-
-For both the startup / incubator KPI dashboard and agri-commodity flagship:
-
-- [ ] Confirm actual problem, context and permission to disclose.
-- [ ] Replace proposed approach with work actually completed.
-- [ ] Confirm tools and sources actually used.
-- [ ] Add verified results: baseline, outcome, units, observation period and supporting evidence. Do not use illustrative metrics as actual results.
-- [ ] Confirm the next step based on the evidence.
-
-For the agri-commodity flagship also confirm commodity, geography, decision owner, source licence and next release question.
-
-## Hiring evidence — `app/hire/page.tsx`
-
-- [ ] Reporting win: baseline, outcome, unit, period, personal contribution and source.
-- [ ] Analysis win: decision supported, measured outcome, period and source.
-- [ ] Delivery win: measured time / quality improvement, baseline, period and source.
-
-## Dataset records — `src/data/datasets.ts`
-
-- [ ] News Sentiment: extraction dates, query filters, source coverage and licence.
-- [ ] UN Trade: extraction date, query and source version.
-- [ ] Both records: findings supported by saved outputs, with units, observation window and limitations.
-- [ ] Both records: actual dataset refresh date (not the page-edit date).
-
-## Publishing — `docs/content-plan.md`
-
-- [ ] Assign real release dates before scheduling notes or datasets.
-- [ ] Confirm data access, licence and privacy clearance for each planned dataset.
-- [ ] Add future dataset records using the existing schema and generate writing share cards for new local notes.
+No prices, client testimonials or commercial engagement timelines are required.

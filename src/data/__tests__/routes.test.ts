@@ -29,11 +29,11 @@ describe('routes', () => {
         .map((route) => route.path);
 
     expect(paths(true).join(' ')).toBe(
-      '/projects /case-studies /writing /services /hire /contact',
+      '/projects /about /services /writing /resume /contact',
     );
     expect(paths(false)).toEqual([
-      '/about',
-      '/resume',
+      '/case-studies',
+      '/hire',
       '/speaking',
       '/startup-ecosystem',
       '/stats',

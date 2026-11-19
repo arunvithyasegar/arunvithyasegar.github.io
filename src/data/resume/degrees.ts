@@ -7,7 +7,7 @@ export interface Degree {
 const degrees: Degree[] = [
   {
     school: 'Tamil Nadu Agricultural University',
-    degree: 'Bachelor’s Degree in Agricultural Science',
+    degree: 'B.Sc. (Hons.) Agriculture',
     link: 'https://tnau.ac.in',
     year: 2023,
   },

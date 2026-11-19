@@ -1,69 +1,71 @@
 import Link from 'next/link';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { RESUME_PDF_PATH } from '@/data/conversion';
+import {
+  careerInterests,
+  contributions,
+  professionalSkills,
+  professionalSummary,
+  regionalInterest,
+} from '@/data/professional';
+import profile from '@/data/profile.json';
 import { createPageMetadata } from '@/lib/metadata';
 export const metadata = createPageMetadata({
-  title: 'For hiring managers',
+  title: 'Professional profile for employers',
   description:
-    'SQL, Python / Pandas, Power BI, Tableau and JIRA. Domain focus: health insurance, agri-tech and the startup ecosystem.',
+    'Business analysis, market intelligence, startup evaluation and programme operations for investment and enterprise development organisations in Tamil Nadu.',
   path: '/hire/',
 });
 export default function Page() {
   return (
     <PageWrapper>
       <div className="consulting-page">
-        <h1 className="page-title">For hiring managers</h1>
+        <h1 className="page-title">For employers</h1>
         <p className="page-subtitle">
-          Data and strategy for reporting, market analysis and operating
-          decisions.
+          Business Analysis | Startup Ecosystems | Market Intelligence
+        </p>
+        <p>{professionalSummary}</p>
+        <p>
+          Currently serving as a {profile.role} at {profile.employer}, Chennai.
         </p>
         <section className="consulting-section">
-          <h2>Selected wins — evidence pending</h2>
-          <ul>
-            <li>
-              TODO: Reporting win — baseline → outcome, unit, period,
-              contribution and source.
-            </li>
-            <li>
-              TODO: Analysis win — decision supported, measured outcome, period
-              and source.
-            </li>
-            <li>
-              TODO: Delivery win — time or quality improvement, baseline, period
-              and source.
-            </li>
-          </ul>
+          <h2>What I bring</h2>
+          {contributions.map((item) => (
+            <div key={item.id}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
         </section>
         <section className="consulting-section">
-          <h2>Skills stack</h2>
-          <p>SQL · Python / Pandas · Power BI · Tableau · JIRA</p>
-          <h2>Domain focus</h2>
-          <p>Health insurance · Agri-tech · Startup ecosystem</p>
+          <h2>Skills</h2>
+          {professionalSkills.map((group) => (
+            <p key={group.title}>
+              <strong>{group.title}:</strong> {group.items.join(' · ')}
+            </p>
+          ))}
         </section>
         <section className="consulting-section">
-          <h2>Resume and experience</h2>
-          {RESUME_PDF_PATH ? (
-            <Link
-              className="button"
-              href={RESUME_PDF_PATH}
-              download
-              prefetch={false}
-            >
-              Download resume (PDF)
-            </Link>
-          ) : (
-            <>
-              <button className="button" type="button" disabled>
-                Download resume (PDF) — pending
-              </button>
-              <p>TODO: upload approved resume PDF and configure its path.</p>
-            </>
-          )}
+          <h2>Career interests</h2>
+          <p>{careerInterests}</p>
+          <p>{regionalInterest}</p>
           <p>
-            <Link href="/resume/">View experience online</Link> ·{' '}
-            <Link href="/contact/">Discuss a role</Link>
+            I am interested in contributing to investment, innovation and
+            enterprise development organisations such as Guidance Tamil Nadu.
           </p>
         </section>
+        <Link
+          className="button"
+          href={RESUME_PDF_PATH}
+          download
+          prefetch={false}
+        >
+          Download resume (PDF)
+        </Link>
+        <p>
+          <Link href="/resume/">View experience online</Link> ·{' '}
+          <Link href="/contact/">Get in touch</Link>
+        </p>
       </div>
     </PageWrapper>
   );

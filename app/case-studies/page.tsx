@@ -6,7 +6,7 @@ import { createPageMetadata } from '@/lib/metadata';
 export const metadata = createPageMetadata({
   title: 'Case studies',
   description:
-    'Analytics case-study templates and public projects, with business context and explicit evidence gaps.',
+    'Ongoing professional write-ups and public analytics projects covering programme reporting, market research and data analysis.',
   path: '/case-studies/',
 });
 export default function Page() {
@@ -17,17 +17,17 @@ export default function Page() {
         <p className="page-subtitle">
           The decision, the method and the evidence.
         </p>
-        <h2>In development</h2>
+        <h2>Ongoing write-ups</h2>
         <p>
-          These two stubs make missing evidence explicit. Results will be added
-          only after verification.
+          These write-ups are ongoing. Only non-confidential methods and
+          verified findings will be published.
         </p>
         {caseStudies.map((study) => (
           <section className="consulting-section" key={study.slug}>
             <h3>
               <Link href={`/case-studies/${study.slug}/`}>{study.title} →</Link>
             </h3>
-            <p>TODO: complete scope, method and quantified results.</p>
+            <p>Ongoing · methods and findings under development.</p>
           </section>
         ))}
         <h2>Public project examples</h2>

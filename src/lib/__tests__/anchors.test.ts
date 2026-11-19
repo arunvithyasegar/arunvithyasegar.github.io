@@ -21,7 +21,7 @@ describe('createHeadingId', () => {
     ).filter((title) => title !== 'Intro');
 
     expect(createUniqueHeadingIds(titles).join(' ')).toBe(
-      'some-history how-i-work work-i-bring-to-a-project what-i-can-help-with outside-the-brief',
+      'some-history how-i-work selected-work career-interests professional-links',
     );
   });
 });

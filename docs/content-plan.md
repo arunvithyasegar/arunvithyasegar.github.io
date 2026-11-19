@@ -1,6 +1,6 @@
 # Content plan
 
-Cadence: one writing note every two weeks and one dataset release per month. These are planned releases, not completed work.
+Optional public writing plan: one note every two weeks and one dataset per month. This supports the professional portfolio; it is not a service offering. Publish only non-confidential work and keep incomplete releases in draft.
 
 | Cycle   | Writing note 1                                                              | Writing note 2                                   | Monthly dataset                                                                                    |
 | ------- | --------------------------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------- |

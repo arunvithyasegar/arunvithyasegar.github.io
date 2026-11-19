@@ -1,51 +1,48 @@
 export const aboutMarkdown = `# Intro
 
-I'm Arun Vithyasegar. I work across business strategy and data: understanding the problem, making the choices explicit, and building the analysis needed to act.
+I am a business analysis and startup ecosystem professional with experience across agriculture, supply chains, health technology and incubation.
 
-I joined [Anna Incubator](https://annaincubator.org/) as a Senior Associate on 5 October 2026. This site brings together my projects, writing, and what I’m learning across strategy and data. I’m happy to exchange ideas and help where I can.
+At [Anna Incubator](https://annaincubator.org/), I support startup evaluation, founder coordination, application tracking, programme reporting and the development of internal workflows. My previous business analyst roles involved dashboards, requirements documentation, data validation and coordination between business and technical teams.
 
-My background is in agriculture. Working across agricultural markets, startup policy, and digital health taught me to start with the people using a system, then work back to the process and the data. SQL, Python, and Power BI are tools I use to make that work concrete.
-
-I share more about my [Anna Incubator connection and startup ecosystem interests](/startup-ecosystem/), starting with Tamil Nadu and the questions I’m exploring beyond it.
-
-I use the handle **arunvithyasegar** online. You can find my public code on [GitHub](https://github.com/arunvithyasegar) and my publication on [Substack](https://arunvithyasegar.substack.com). This website is my personal portfolio.
+With a B.Sc. (Hons.) Agriculture from Tamil Nadu Agricultural University and hands-on experience in Power BI, SQL, Python and Excel, I bring both sector understanding and analytical skills to my work.
 
 # Some history
 
-- In 2022, I began a Business Analyst internship at StartupTN, working on startup research, policy briefs, and ecosystem dashboards.
-- In 2023, I graduated in Agricultural Science from Tamil Nadu Agricultural University.
-- In 2024, I worked as a Data Analyst Intern at Rubus Digitals and as a Business Analyst at payAgri, across pricing, supply chains, reporting, and market readiness.
-- In 2025, I began a contractual Business Data Analyst engagement at Agathium, working across process design, economic analysis, and insurance ecosystem documentation.
-- In 2026, I joined Anna Incubator as Senior Associate on 5 October.
+- In 2022, I began a Business Analyst internship at StartupTN.
+- In 2023, I graduated with a B.Sc. (Hons.) Agriculture from Tamil Nadu Agricultural University.
+- In 2024, I worked as a Data Analyst Intern at Rubus Digitals and as a Business Analyst at payAgri.
+- In 2025, I began a contractual Business Data Analyst engagement at Agathium.
+- In 2026, I joined AIC–Anna University Incubation Foundation as Senior Associate on 5 October.
 
 # How I work
 
-- Start with the decision: what needs to change, for whom, and why now?
-- Separate evidence from assumptions before recommending a direction.
-- Connect positioning and growth plans to customer behaviour and unit economics.
-- Make the handover usable: a brief, a model, an experiment backlog, or a dashboard with clear definitions.
-- Keep the scope small enough to learn, then build on what the evidence supports.
+- Translate operational needs into requirements, workflows and acceptance criteria.
+- Validate data and document definitions before preparing reports.
+- Structure pipelines, track milestones and follow-ups, and prepare management reports.
+- Separate evidence from assumptions when researching a company or sector.
 
-# Work I bring to a project
+# Selected work
 
-My portfolio includes news sentiment analysis, international trade research, agricultural price forecasting, and farm profitability reporting. Earlier work spans market-price data, agricultural supply chains, and health and insurance workflows.
+<span id="work-i-bring-to-a-project"></span>
 
-These are examples of how I approach a problem. Where there is public code or a dashboard, it is linked on the [projects page](/projects/). I discuss private work in terms of the problem and approach, without sharing confidential material.
+- Startup Application and Evaluation Workflows — ongoing: structured processes for enquiries, applications, internal evaluations, management reviews and onboarding.
+- Startup Discovery and Company Research — ongoing, in development: an MCA-data workflow to organise company records by sector, geography and incorporation date.
+- Programme and Impact Reporting — ongoing: startup profiles, committee materials and programme reports for internal reviews and stakeholder communication.
+- Business Intelligence and Operational Analytics — previous experience: KPI dashboards and operational data validation using Power BI, SQL, Python and Excel.
 
-# What I can help with
+Only non-confidential descriptions and public data projects are shared on this site. Internal records, founder details and committee materials are not published.
 
-I’m exploring the connections between [growth and revenue metrics](/services/growth-revenue-metrics/), [board reporting and KPI frameworks](/services/board-reporting-kpi/), [corporate and fundraising strategy](/services/corporate-fundraising-strategy/), and [investment and impact assessment](/services/investment-impact-assessment/). These notes sit alongside my project portfolio and reflect the questions I’m interested in working through.
+# Career interests
 
-- Brand positioning: audience, differentiation, value proposition, and messaging.
-- Go-to-market: customer segments, routes to market, launch priorities, and experiments.
-- Retention: activation, cohorts, repeat behaviour, lifecycle touchpoints, and churn hypotheses.
-- Fundraising preparation: pitch narrative, market sizing, financial assumptions, and investor Q&A.
-- Data analysis: SQL, Python, Power BI, reporting, and decision support.
-- ML models: feasibility, baselines, forecasting, classification, and evaluation.
+<span id="what-i-can-help-with"></span>
 
-You can [browse my working notes](/services/) or [say hello](/contact/). I’m always glad to compare ideas or lend a hand where I can.
+I am interested in opportunities in business intelligence, market and sector research, investment facilitation, project monitoring and startup ecosystem development.
 
-# Outside the brief
+I am particularly interested in work that connects evidence, industry needs and enterprise growth in Tamil Nadu.
 
-I'm interested in agriculture, supply chains, public digital infrastructure, and tools that make everyday work easier. I like practical questions: what does this number mean, who can act on it, and what happens next?
+# Professional links
+
+<span id="outside-the-brief"></span>
+
+[View my work](/projects/) · [Read my resume](/resume/) · [Get in touch](/contact/)
 `;

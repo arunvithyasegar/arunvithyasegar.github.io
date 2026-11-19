@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import ProfessionalWork from '@/components/Home/ProfessionalWork';
 import Entry from '@/components/Projects/Entry';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
@@ -46,15 +47,17 @@ export default function ProjectsPage() {
         <header className="projects-header">
           <h1 className="page-title">{PAGE_TITLE}</h1>
           <p className="page-subtitle">
-            Analytics, forecasting, and reporting projects. Public examples link
-            to code or a dashboard; other entries describe the approach.
+            Professional experience and public data projects. Work in
+            development is marked ongoing. Only non-confidential summaries and
+            public examples are shared.
           </p>
         </header>
 
+        <ProfessionalWork />
         <section className="projects-group" aria-labelledby="projects-selected">
           <div className="section-header">
             <h2 id="projects-selected" className="section-heading">
-              Selected work
+              Public data projects
             </h2>
             {/* Counted, never typed. */}
             <p className="section-header-meta">

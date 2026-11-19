@@ -8,7 +8,8 @@ import profile from '@/data/profile.json';
 export const SITE_URL = 'https://arunvithyasegar.in';
 export const AUTHOR_NAME = profile.name;
 export const AUTHOR_HANDLE = 'arunvithyasegar';
-export const SITE_TITLE = `${AUTHOR_NAME} | Data & Strategy for Startups, Health Insurance & Agri-tech`;
+export const SITE_TITLE =
+  'Arun V. | Business Analysis, Market Intelligence & Startup Ecosystems';
 export const TWITTER_HANDLE = undefined;
 /**
  * The portrait. Used for JSON-LD `image`, where the value should be a picture
@@ -36,7 +37,7 @@ export const SHARE_IMAGE_DIMENSIONS = {
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Data and strategy for startups, health-insurance and agri-tech teams. KPI dashboards, board reporting and investor readiness by Arun Vithyasegar.';
+  'Arun V.’s portfolio covering business analysis, Power BI, sector research, startup evaluation and programme operations in Tamil Nadu.';
 
 // Skill competency
 export const MAX_COMPETENCY = 5;

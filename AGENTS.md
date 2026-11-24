@@ -137,6 +137,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 
 - Regional ecosystem copy distinguishes confirmed biography from learning interests. Keep the Anna Incubator connection personal and link official programme information to the employer; do not imply this portfolio is an official incubator directory or claim regional mandates, partnerships, or results without evidence.
 
+- The expertise index pairs shared professional capabilities with illustrative methods in `src/data/expertise.ts`. Keep public project evidence distinct from internal responsibilities, preserve legacy fragment IDs, and never present example outputs as completed client work.
+
 - Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. The legacy `/services/` route presents Expertise and public frameworks. The portfolio is for employment, not selling services: do not add offers, prices, booking or client qualification. Newsletter/download settings come from `src/data/conversion.ts`. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.

@@ -11,9 +11,7 @@ export default function AdvisoryLinks() {
         >
           <h3>{area.title}</h3>
           <p>{area.summary}</p>
-          <span className="service-more">
-            Read my notes <span aria-hidden="true">→</span>
-          </span>
+          <span className="service-more">Read my notes</span>
         </Link>
       ))}
     </div>

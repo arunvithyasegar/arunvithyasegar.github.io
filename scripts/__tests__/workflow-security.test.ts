@@ -60,7 +60,7 @@ describe.each(workflows)('$name credential boundaries', ({ workflow }) => {
         for (const step of job.steps ?? []) {
           expect(step.run).toBeUndefined();
           expect(step.uses).toMatch(
-            /^actions\/(?:download-artifact|upload-pages-artifact|deploy-pages)@/,
+            /^actions\/(?:download-artifact|upload-pages-artifact|deploy-pages|github-script)@/,
           );
         }
       } else {

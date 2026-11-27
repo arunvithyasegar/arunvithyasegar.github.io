@@ -270,6 +270,7 @@ jobs:
     timeout-minutes: 10
     permissions:
       contents: read
+      actions: read
       pages: write
       id-token: write
     concurrency:
@@ -278,6 +279,8 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - name: Download validated build
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
@@ -289,10 +292,35 @@ jobs:
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: out
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
+
+      - name: Wait for Pages artifact discovery
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const name = process.env.PAGES_ARTIFACT_NAME;
+            for (let attempt = 0; attempt < 20; attempt++) {
+              const artifacts = await github.paginate(
+                github.rest.actions.listWorkflowRunArtifacts,
+                { ...context.repo, run_id: context.runId, per_page: 100 },
+              );
+              const matches = artifacts.filter(a => a.name === name && !a.expired);
+              if (matches.length === 1) {
+                core.info(`Pages artifact ${matches[0].id} is discoverable.`);
+                return;
+              }
+              if (matches.length > 1) {
+                throw new Error(`Expected one Pages artifact, found ${matches.length}.`);
+              }
+              await new Promise(resolve => setTimeout(resolve, 3000));
+            }
+            throw new Error('Pages artifact was not discoverable within 60 seconds.');
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
 
   verify-live:
     name: Verify live production site

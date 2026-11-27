@@ -1,9 +1,9 @@
 // Owner-supplied professional profile. Publish role summaries, never internal records.
 export const professionalSummary =
-  'I combine data analysis, sector research and startup programme experience to help organisations evaluate opportunities, track performance and make informed decisions.';
+  'I work across incubation operations and startup analytics, combining structured pipeline management, evaluation support, impact reporting and digital process design.';
 export const aboutParagraphs = [
-  'I am a business analysis and startup ecosystem professional with experience across agriculture, supply chains, health technology and incubation.',
-  'At Anna Incubator, I support startup evaluation, founder coordination, application tracking, programme reporting and the development of internal workflows. My previous business analyst roles involved dashboards, requirements documentation, data validation and coordination between business and technical teams.',
+  'I am an incubation operations and startup analytics professional with a background in business analysis, agriculture, supply chains and health technology.',
+  'At Anna Incubator, my work spans enquiry and application trackers, monthly dashboards, startup screening, committee coordination, ETM impact reporting and NIRF data collection. I have also developed an MCA company-discovery workflow and designed a phased roadmap for incubation data management. My earlier analyst roles involved dashboards, requirements documentation and data validation.',
   'With a B.Sc. (Hons.) Agriculture from Tamil Nadu Agricultural University and hands-on experience in Power BI, SQL, Python and Excel, I bring both sector understanding and analytical skills to my work.',
 ];
 export const contributions = [
@@ -40,28 +40,40 @@ export const contributions = [
 ];
 export const professionalWork = [
   {
-    title: 'Startup Application and Evaluation Workflows',
-    status: 'Ongoing',
+    title: 'Startup pipeline and operational dashboards',
+    status: 'Developed · ongoing operations',
     description:
-      'Supporting structured processes for enquiries, applications, internal evaluations, management reviews and onboarding at Anna Incubator.',
+      'Improved Excel enquiry and application trackers, monthly dashboards and deadline calculations for 30-day SLA monitoring, with evaluation notes, deck references, owners and follow-ups.',
   },
   {
-    title: 'Startup Discovery and Company Research',
-    status: 'Ongoing · in development',
+    title: 'Startup evaluation and committee coordination',
+    status: 'Supported · October–November 2026',
     description:
-      'Developing an MCA-data research workflow to organise company records by sector, geography and incorporation date, supporting startup discovery and outreach planning.',
+      'Prepared venture summaries and assessment notes; supported the 11th Incubation Committee Meeting through pipeline consolidation, scheduling, SharePoint deck organisation and review documentation.',
   },
   {
-    title: 'Programme and Impact Reporting',
-    status: 'Ongoing',
+    title: 'ETM impact and NIRF reporting',
+    status: 'Report prepared · data collection structured',
     description:
-      'Preparing startup profiles, committee materials and programme reports to support internal reviews and stakeholder communication.',
+      'Prepared the ETM 2026 impact report using startup feedback and industry interactions, distinguishing potential opportunities from confirmed outcomes. Structured NIRF information collection, supporting documents and conditional FDI questions.',
   },
   {
-    title: 'Business Intelligence and Operational Analytics',
-    status: 'Previous experience',
+    title: 'MCA company discovery and lead preparation',
+    status: 'Workflow developed · enrichment in development',
     description:
-      'Experience developing KPI dashboards and validating operational data across business environments, using Power BI, SQL, Python and Excel.',
+      'Developed a Python/Colab company-discovery workflow with company segmentation, lead prioritisation and CRM-ready fields across 309 sector folders. Prepared sector-level email drafts; campaign delivery and complete contact coverage are not claimed.',
+  },
+  {
+    title: 'Incubation data architecture',
+    status: 'Roadmap designed · not deployed',
+    description:
+      'Designed persistent founder and venture IDs, entity relationships, validation, SLA tracking, audit trails and role-based access requirements, with phased migration and acceptance criteria. The database and portal remain a design roadmap.',
+  },
+  {
+    title: 'Founder support and operational continuity',
+    status: 'Supported · assessed and explored',
+    description:
+      'Supported incubation-term documentation, resource mapping and funding research. Consolidated event leads and assessed server, VM access, automation and Microsoft 365 archival requirements; implementation is not claimed.',
   },
 ];
 export const professionalSkills = [
@@ -97,6 +109,10 @@ export const professionalSkills = [
       'Founder coordination',
       'Programme reporting',
       'Pipeline management',
+      'Impact reporting',
+      'Committee coordination',
+      'NIRF data collection',
+      'SLA monitoring',
       'Stakeholder engagement',
     ],
   },

@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="p-hero-grid" aria-hidden="true" />
       <div>
         <p className="p-overline p-entrance">
-          Business Analysis | Startup Ecosystems | Market Intelligence
+          Incubation Operations | Startup Analytics | Digital Process Design
         </p>
         <h1 id="home-headline" className="p-entrance p-delay-one">
           {profile.displayName}
@@ -39,7 +39,7 @@ export default function Hero() {
       <figure className="p-portrait p-entrance p-delay-two">
         <ThemePortrait width={400} height={480} priority />
         <figcaption>
-          Business analysis, sector research and programme operations
+          Startup evaluation, impact reporting and programme operations
         </figcaption>
       </figure>
     </section>

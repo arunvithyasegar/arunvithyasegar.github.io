@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { SchemaGraph } from '@/components/Schema';
 import PageWrapper from '@/components/Template/PageWrapper';
 import { advisoryAreas, advisoryBySlug } from '@/data/advisory';
+import profile from '@/data/profile.json';
 import { createPageMetadata } from '@/lib/metadata';
 import { breadcrumbNode, PERSON_ID, webPageNode } from '@/lib/schema';
 import { SITE_URL } from '@/lib/utils';
@@ -111,7 +112,7 @@ export default async function AdvisoryPage({ params }: Props) {
         <section className="consulting-section">
           <h2>Background and related reading</h2>
           <p className="page-prose">
-            I’m Arun Vithyasegar, Senior Associate at Anna Incubator since 5
+            I’m Arun Vithyasegar, {profile.role} at Anna Incubator since 5
             October 2026, with a background in business analysis, startup
             ecosystem research, agriculture, and analytics. These pages collect
             my interests and approach alongside the projects I share here.

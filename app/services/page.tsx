@@ -37,9 +37,10 @@ export default function Page() {
               for the next decision.
             </h1>
             <p className="expertise-lead">
-              I bring together business analysis, sector research and startup
-              programme experience to help teams understand what is happening
-              and what needs attention.
+              I bring together incubation operations, startup analytics and
+              business analysis: from structured application pipelines and
+              evaluation support to dashboards, impact reporting and process
+              design.
             </p>
             <div className="expertise-actions">
               <Link className="button button-primary" href="/projects/">

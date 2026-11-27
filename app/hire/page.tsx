@@ -22,7 +22,7 @@ export default function Page() {
       <div className="consulting-page">
         <h1 className="page-title">For employers</h1>
         <p className="page-subtitle">
-          Business Analysis | Startup Ecosystems | Market Intelligence
+          Incubation Operations | Startup Analytics | Digital Process Design
         </p>
         <p>{professionalSummary}</p>
         <p>

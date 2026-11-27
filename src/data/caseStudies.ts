@@ -5,10 +5,11 @@ export const caseStudies = [
     problem:
       'Startup enquiries, applications, evaluations and onboarding need structured tracking and clear management reporting.',
     approach:
-      'Ongoing role responsibilities include application tracking, founder coordination, evaluation documentation and programme reporting. This write-up describes the workflow at a general level.',
+      'Improved structured Excel enquiry and application trackers; developed monthly dashboards and deadline calculations for 30-day SLA monitoring. Supported evaluation notes and committee review preparation.',
     tools:
       'Internal tools, founder records and committee materials are not published. Public analytical examples are linked separately.',
-    result: 'Ongoing. No quantified outcome is claimed in this write-up.',
+    result:
+      'Trackers and dashboards developed during October–November 2026. No measured conversion uplift or time saving is claimed.',
     next: 'Develop a non-confidential example of the reporting structure using blank or explicitly synthetic data, subject to review.',
   },
   {

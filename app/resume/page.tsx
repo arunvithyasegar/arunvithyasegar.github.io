@@ -91,12 +91,11 @@ export default function ResumePage() {
             </div>
           </div>
           <p className="resume-summary">
-            Business analysis and startup ecosystem professional with experience
-            across agriculture, supply chains, health technology and incubation.
-            Senior Associate at AIC–Anna University Incubation Foundation,
-            Chennai. I combine data analysis, sector research and startup
-            programme experience to evaluate opportunities, track performance
-            and support informed decisions.
+            Incubation operations and startup analytics professional with a
+            background in business analysis. Senior Associate – Incubation at
+            AIC–Anna University Incubation Foundation, Chennai. My work spans
+            startup pipelines, operational dashboards, evaluation support,
+            committee coordination, impact reporting and digital process design.
           </p>
           {/* Print-only, but real markup rather than CSS `content`, so it is
               selectable and linkable. Destinations come from shared contact

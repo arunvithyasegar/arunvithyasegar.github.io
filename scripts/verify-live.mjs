@@ -6,8 +6,8 @@ import { readSiteConfig } from './lib/site.mjs';
 const { origin, basePath } = readSiteConfig(process.cwd(), 'verify-live');
 const site = `${origin}${basePath}`;
 const pages = new Map([
-  ['/', 'Business Analysis | Startup Ecosystems | Market Intelligence'],
-  ['/services/', 'What I bring'],
+  ['/', 'id="home-headline"'],
+  ['/services/', 'id="capabilities"'],
   ['/case-studies/', 'Public project examples'],
   ['/hire/', 'Download resume (PDF)'],
   ['/projects/', 'Monthly dataset'],

@@ -142,6 +142,8 @@ Each entry below is a rule and the trap behind it. Git history has the stories.
 - Portfolio focus pages and sitemap entries derive from `src/data/advisory.ts`. Keep visible descriptions and WebPage markup aligned. The legacy `/services/` route presents Expertise and public frameworks. The portfolio is for employment, not selling services: do not add offers, prices, booking or client qualification. Newsletter/download settings come from `src/data/conversion.ts`. Search and AI eligibility never implies a ranking guarantee.
 
 - A fork must replace the template author’s biography, articles, appearances, personal telemetry, images, contact links, and share cards before deployment. Preserve template attribution in the license and README.
+- The October–November 2026 incubation record distinguishes developed trackers, dashboards and reports from designed roadmaps and assessed infrastructure. Keep MCA outreach as preparation, not campaign delivery, and keep measured performance claims out without evidence. Regenerate the downloadable résumé when the shared experience changes.
+
 - Professional responsibilities describe owner-confirmed experience; case-study results require evidence. Ongoing work must be labelled ongoing, and only non-confidential work samples may be published. Use only confirmed role dates and never infer an employer end date from a new appointment.
 
 - **Publication integration**: keep `NEXT_PUBLIC_SUBSTACK_URL` unset until the owner creates the publication. It enables subscription links, not automatic RSS ingestion. Local articles and entries in `src/data/writing.ts` share the homepage and writing archive through `getWritingItems()`.

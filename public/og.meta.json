@@ -49,7 +49,7 @@
   "profile": {
     "name": "Arun Vithyasegar",
     "employer": "AIC–Anna University Incubation Foundation",
-    "focus": "Business analysis · Market intelligence · Startup ecosystems",
+    "focus": "Incubation operations · Startup analytics · Digital process design",
     "currentCity": "Chennai, India"
   },
   "colors": {
@@ -60,8 +60,8 @@
     "accent": "#236947",
     "hairline": "rgba(35, 39, 46, 0.14)"
   },
-  "generatorDigest": "c62ae0cc2adf0453e99a467360144c06819fbbaec85de1bac8d764aa3216cfa4",
-  "imageDigest": "8416893d55a8af4b644030a9e8c70457990315631984e32c1d1f7bb39e425de9",
+  "generatorDigest": "20d34d902a750cda514d269ae621bdcbe8c0e8280faffd696d8de5fc7e920f71",
+  "imageDigest": "647f0ef51ea366134d5ddaeb9c641798ed957563ad3fe9b3c6c25eb1e722055b",
   "posts": [
     {
       "slug": "a-board-ready-arr-and-kpi-dashboard",

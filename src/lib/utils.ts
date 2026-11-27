@@ -37,7 +37,7 @@ export const SHARE_IMAGE_DIMENSIONS = {
 
 // Canonical one-line bio, shared across page metadata, OpenGraph, and JSON-LD.
 export const SITE_DESCRIPTION =
-  'Arun V.’s portfolio covering business analysis, Power BI, sector research, startup evaluation and programme operations in Tamil Nadu.';
+  'Arun V.’s portfolio in incubation operations, startup analytics, evaluation support, impact reporting and digital process design in Tamil Nadu.';
 
 // Skill competency
 export const MAX_COMPETENCY = 5;

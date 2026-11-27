@@ -71,16 +71,13 @@ describe('json resume document', () => {
     expect(resume.work[0]).not.toHaveProperty('endDate');
   });
 
-  // Summaries are Markdown with inline anchors, so this reads the real prose.
-  it('keeps the anchor text of the real prose', () => {
-    const prose = resume.work.flatMap((position) => [
-      position.summary ?? '',
-      ...(position.highlights ?? []),
-    ]);
-
-    expect(prose.join(' ')).toContain(
-      'Joined AIC–Anna University Incubation Foundation as Senior Associate on 5 October 2026.',
-    );
+  it('preserves the current role summary from shared experience', () => {
+    const current = work.find((position) => position.name === profile.employer);
+    expect(current?.summary).toBeTruthy();
+    expect(
+      resume.work.find((position) => position.name === profile.employer)
+        ?.summary,
+    ).toBe(toPlainText(current?.summary ?? ''));
   });
 
   it('uses schema-valid dates throughout', () => {

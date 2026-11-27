@@ -20,15 +20,23 @@ export interface Position {
 const work: Position[] = [
   {
     name: 'AIC–Anna University Incubation Foundation',
-    position: 'Senior Associate',
+    position: 'Senior Associate – Incubation',
     url: 'https://annaincubator.org/',
     startDate: '2026-10-05',
     summary:
-      'Joined AIC–Anna University Incubation Foundation as Senior Associate on 5 October 2026.',
+      'Incubation operations and startup analytics: startup evaluation, application pipelines, committee coordination, impact reporting and digital process design. Selected responsibilities and deliverables from October–November 2026.',
     highlights: [
-      'Support startup evaluation, founder coordination and application tracking.',
-      'Prepare programme reports and contribute to internal workflows.',
-      'Support enquiries, evaluation documentation, management reviews and onboarding.',
+      'Improved startup enquiry and application management through structured Excel trackers covering founder profiles, venture stages, evaluation records, pitch decks, ownership and follow-up actions.',
+      'Developed monthly operational dashboards and application deadline calculations to support pipeline reporting and 30-day SLA monitoring.',
+      'Supported startup screening through pitch-deck reviews, venture summaries and assessor-style evaluation notes documenting product readiness, founder requirements and next steps.',
+      'Supported preparation for the 11th Incubation Committee Meeting, including pipeline consolidation, presentation scheduling, SharePoint deck organisation and review documentation.',
+      'Prepared the ETM 2026 impact report, consolidating startup feedback, industry interactions, potential pilot opportunities and follow-up developments; distinguished potential opportunities from confirmed outcomes.',
+      'Structured NIRF startup data collection across incorporation, financials, funding, employment and FDI, including supporting-document requirements and conditional form routing.',
+      'Developed a Python/Colab-based MCA startup intelligence workflow for company segmentation, lead prioritisation and CRM-ready outputs, with records organised across 309 sector folders. Contact enrichment and outreach remained in development.',
+      'Consolidated industry-event contacts from photographs and business cards into structured lead records for incubation follow-up.',
+      'Designed a phased data architecture roadmap covering persistent identifiers, database relationships, validation, SLA tracking, audit trails, access controls and migration from Excel; database and portal deployment were not claimed.',
+      'Supported founder onboarding and portfolio development through incubation-term documentation, institutional resource mapping and research into seed funding and startup support programmes.',
+      'Assessed server, VM access, automation and Microsoft 365 archival requirements to support infrastructure planning and operational continuity.',
     ],
   },
   {

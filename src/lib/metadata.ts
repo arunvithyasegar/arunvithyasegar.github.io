@@ -20,7 +20,7 @@ interface PageMetadataOptions {
  * the image. Role and employer come from the profile so they change in one
  * place, just as the stats page and OG script read shared profile facts.
  */
-const SHARE_IMAGE_ALT = `${AUTHOR_NAME} — Business analysis, market intelligence & startup ecosystems`;
+const SHARE_IMAGE_ALT = `${AUTHOR_NAME} — Incubation operations, startup analytics & digital process design`;
 
 /**
  * The OpenGraph and Twitter blocks every page needs.
